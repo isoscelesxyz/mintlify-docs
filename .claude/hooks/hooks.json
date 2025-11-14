@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "pathFilter": "**/*.mdx",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/mintlify-check.sh",
+            "timeout": 10,
+            "description": "Validate Mintlify frontmatter and basic structure"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Given this JSON: $ARGUMENTS\n\nInspect the assistant's output for documentation violations.\n\nCheck for:\n1. Forbidden terms: 'guaranteed', 'risk-free', 'safe yield', 'zero risk', 'no risk', 'certain returns'\n2. Investment advice: recommendations to buy, sell, or specific trading strategies\n3. Price predictions or speculation on token values\n4. Emojis in prose (🚀, 💰, 🔥, etc.) - not in code blocks\n\nIf ANY violations found, respond:\n{\"decision\":\"block\",\"reason\":\"[specific violation with example]\"}\n\nOtherwise respond:\n{\"decision\":\"allow\"}",
+            "description": "Block forbidden content in documentation output"
+          }
+        ]
+      }
+    ]
+  }
+}
