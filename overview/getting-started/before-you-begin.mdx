@@ -7,7 +7,7 @@ Before you start using Aerodrome Finance, understand the foundational risks and 
 
 ## What you'll need
 
-**Wallet with Base network support**
+**Wallet with Base network support:**
 
 You need a Web3 wallet configured for the Base network. Popular options include:
 
@@ -15,11 +15,11 @@ You need a Web3 wallet configured for the Base network. Popular options include:
 - [Rabby](https://rabby.io/)
 - [Rainbow](https://rainbow.me/)
 
-**ETH on Base for gas fees**
+**ETH on Base for gas fees:**
 
 All transactions on Base require ETH to pay for gas fees. Bridge ETH to Base using the [official Base bridge](https://bridge.base.org) or a third-party bridge.
 
-**Tokens to interact with the protocol**
+**Tokens to interact with the protocol:**
 
 To swap, provide liquidity, or participate in governance, you'll need the relevant tokens in your wallet on Base.
 
@@ -27,123 +27,120 @@ To swap, provide liquidity, or participate in governance, you'll need the releva
 
 Using Aerodrome involves inherent risks common to all DeFi protocols. You should understand these risks before interacting with the protocol.
 
-### Smart contract risk
+**Smart contract risk**
 
 Aerodrome runs on smart contracts deployed to Base. While these contracts are audited and battle-tested, smart contracts can contain vulnerabilities that may result in loss of funds.
 
-**What this means for you**:
-- Contracts may have undiscovered bugs or vulnerabilities
-- Protocol upgrades could introduce new risks
-- Interactions with other protocols increase complexity and risk
+What this means for you:
+- **Contracts** may have undiscovered bugs or vulnerabilities
+- **Protocol upgrades** could introduce new risks
+- **Interactions with other protocols** increase complexity and risk
 
-**Mitigations**:
+Mitigations:
 - Review [Aerodrome's security audits](/security) from leading security firms
 - The protocol has processed billions in volume with no major exploits
 - Start with small amounts until you're comfortable
 
-### Impermanent loss
+**Impermanent loss**
 
 When you provide liquidity to a pool, you deposit two tokens. If the price ratio between those tokens changes, you may have less value than if you had simply held the tokens.
 
 Learn more: [What is Impermanent Loss?](https://www.coinbase.com/learn/crypto-glossary/what-is-impermanent-loss) (Coinbase Learn)
 
-**What this means for you**:
-- Price volatility between paired tokens creates impermanent loss
-- The loss is "impermanent" because it only realizes when you withdraw
-- Trading fees can offset impermanent loss, but there's no guarantee
+What this means for you:
+- **Price volatility** between paired tokens creates impermanent loss
+- **Loss timing**: The loss is "impermanent" because it only realizes when you withdraw
+- **Fee offset**: Trading fees can offset impermanent loss, but there's no guarantee
 
-**Mitigations**:
+Mitigations:
 - Provide liquidity to pairs with correlated prices (e.g., stablecoin pairs)
 - Understand the volatility profile of your chosen tokens
 - Monitor your position and withdraw if impermanent loss exceeds acceptable levels
 
-### Governance and protocol risks
+**Governance and protocol risks**
 
 Aerodrome is governed by veAERO holders who vote on emissions distribution and protocol changes. Governance decisions can impact the value of your positions.
 
-**What this means for you**:
-- Emissions can shift between pools based on governance votes
-- Protocol parameters may change through governance
-- Your liquidity pool's incentives can increase or decrease based on votes
+What this means for you:
+- **Emissions shifts**: Emissions can shift between pools based on governance votes
+- **Parameter changes**: Protocol parameters may change through governance
+- **Incentive volatility**: Your liquidity pool's incentives can increase or decrease based on votes
 
-**Mitigations**:
+Mitigations:
 - Participate in governance by locking AERO for veAERO
 - Monitor governance proposals that may affect your positions
 - Diversify across multiple pools to reduce concentration risk
 
-### Liquidity risk
+**Liquidity risk**
 
 Some pools may have low liquidity, making it difficult to enter or exit positions without significant price impact.
 
-**What this means for you**:
-- Low liquidity pools may have high slippage on swaps
-- Withdrawing large positions can move the market against you
-- Some pools may have minimal trading volume, reducing fee generation
+What this means for you:
+- **High slippage**: Low liquidity pools may have high slippage on swaps
+- **Market impact**: Withdrawing large positions can move the market against you
+- **Low fees**: Some pools may have minimal trading volume, reducing fee generation
 
-**Mitigations**:
+Mitigations:
 - Check pool liquidity (TVL) before providing liquidity
 - Start with high-liquidity pools like WETH/USDC or major stablecoin pairs
 - Use limit orders or split large trades across time
 
-### Counterparty and bridge risk
+**Counterparty and bridge risk**
 
 To use Aerodrome on Base, you typically bridge assets from Ethereum or other chains. Bridges introduce additional risks.
 
-**What this means for you**:
-- Bridges can be exploited or fail, resulting in loss of bridged assets
-- Bridged tokens depend on the bridge operator's security
-- Wrapped or bridged versions of tokens may depeg from their underlying asset
+What this means for you:
+- **Bridge exploits**: Bridges can be exploited or fail, resulting in loss of bridged assets
+- **Bridge security**: Bridged tokens depend on the bridge operator's security
+- **Peg risk**: Wrapped or bridged versions of tokens may depeg from their underlying asset
 
-**Mitigations**:
+Mitigations:
 - Use official bridges like the [Base bridge](https://bridge.base.org)
 - Verify token addresses before trading (see [verified tokens](/reference/tokens))
 - Bridge only what you plan to use in the near term
+
+---
 
 ## Wallet security best practices
 
 Your wallet is your responsibility. Follow these best practices to secure your funds:
 
-**Use a hardware wallet for large amounts**
+**Use a hardware wallet for large amounts:** Hardware wallets like [NGRAVE](https://ngrave.io/), [Ledger](https://www.ledger.com/), and [Trezor](https://trezor.io/) store your private keys offline, protecting against malware and phishing attacks.
 
-Hardware wallets like [NGRAVE](https://ngrave.io/), [Ledger](https://www.ledger.com/), and [Trezor](https://trezor.io/) store your private keys offline, protecting against malware and phishing attacks.
+**Never share your seed phrase:** Your seed phrase (recovery phrase) gives complete control of your wallet. No legitimate service will ever ask for it.
 
-**Never share your seed phrase**
+**Verify contract addresses:** Before approving token allowances, verify you're interacting with official Aerodrome contracts. See [contract addresses](/reference/contracts).
 
-Your seed phrase (recovery phrase) gives complete control of your wallet. No legitimate service will ever ask for it.
+**Revoke unused token approvals:** Use tools like [Revoke.cash](https://revoke.cash) to revoke token approvals you no longer need. This limits damage if a contract is exploited.
 
-**Verify contract addresses**
+**Beware of phishing:** Always verify you're on the official Aerodrome domain before connecting your wallet. Bookmark the official site and use that bookmark.
 
-Before approving token allowances, verify you're interacting with official Aerodrome contracts. See [contract addresses](/reference/contracts).
-
-**Revoke unused token approvals**
-
-Use tools like [Revoke.cash](https://revoke.cash) to revoke token approvals you no longer need. This limits damage if a contract is exploited.
-
-**Beware of phishing**
-
-Always verify you're on the official Aerodrome domain before connecting your wallet. Bookmark the official site and use that bookmark.
+---
 
 ## No financial guarantees
 
 Aerodrome Finance is a decentralized protocol. Using the protocol does not guarantee:
 
-- Specific yields or returns
-- Protection from impermanent loss
-- Preservation of capital
-- Earnings that exceed transaction costs
+- **Yields**: Specific yields or returns
+- **Loss protection**: Protection from impermanent loss
+- **Capital preservation**: Preservation of capital
+- **Profit**: Earnings that exceed transaction costs
 
-**Past performance does not indicate future results**. Pool APRs fluctuate based on trading volume, emissions, and governance votes.
+**Past performance does not indicate future results.** Pool APRs fluctuate based on trading volume, emissions, and governance votes.
 
 ## Regulatory considerations
 
 DeFi protocols operate in an evolving regulatory landscape. You are responsible for understanding the legal and tax implications of using Aerodrome in your jurisdiction.
 
 **Consult with qualified professionals** about:
-- Tax obligations on trading gains, liquidity provision, and governance rewards
-- Regulatory restrictions on DeFi participation in your country
-- Reporting requirements for cryptocurrency transactions
+
+- **Taxes**: Tax obligations on trading gains, liquidity provision, and governance rewards
+- **Regulations**: Regulatory restrictions on DeFi participation in your country
+- **Reporting**: Reporting requirements for cryptocurrency transactions
 
 Aerodrome Finance does not provide legal, tax, or financial advice.
+
+---
 
 ## Your responsibility
 

@@ -6,21 +6,27 @@ description: "AERO and veAERO token mechanics, initial distribution, and vote-es
 
 To ensure maximal stakeholder alignment, Aerodrome puts its native token at the center of protocol mechanics, distributing 100% of revenue to users who lock it for voting power. Because of this, the token represents not just superficial governance rights, but a functional claim on the future productive capacity of the protocol.
 
-Aerodrome uses two tokens, one fungible and the other non-fungible:
+**Token Structure:**
 
-AERO — ERC-20 utility token
-veAERO — ERC-721 governance token in the form of an NFT (the locked form of AERO)
+- **`AERO`** - ERC-20 utility token
+- **veAERO** - ERC-721 governance token in the form of an NFT (the locked form of `AERO`)
 
-Each week, new AERO is automatically minted and distributed to liquidity providers (a process called "emissions").
+Each week, new `AERO` is automatically minted and distributed to liquidity providers (a process called "emissions").
 
-veAERO is created by vote-escrowing (locking) AERO. It is sometimes referred to as a "Lock" or veNFT. Additional tokens can be added to a veAERO NFT at any time.
+**Creating veAERO:**
 
-The lock period (also known as vote-escrowed period, hence the "ve" prefix) can be up to four years. The longer the vesting time, the higher the voting power (voting weight) of the underlying locked balance, following the linear relationship shown below:
+veAERO is created by vote-escrowing (locking) `AERO`. It is sometimes referred to as a "Lock" or veNFT. Additional tokens can be added to a veAERO NFT at any time.
 
-100 AERO locked for 4 years will become 100 veAERO
-100 AERO locked for 1 year will become 25 veAERO
+**Lock Period and Voting Power:**
 
-Additionally, Aerodrome Locks (veNFTs) can be set into Auto-Max Lock, which are treated by the protocol as being perpetually locked for the maximum duration of four years, and their voting power does not decay. The Auto-Max Lock feature can be turned on and off for each Lock (veNFT).
+The lock period (also known as vote-escrowed period, hence the "ve" prefix) can be up to four years. The longer the vesting time, the higher the voting power (voting weight) of the underlying locked balance, following the linear relationship below:
+
+- 100 `AERO` locked for 4 years → 100 veAERO
+- 100 `AERO` locked for 1 year → 25 veAERO
+
+**Auto-Max Lock:**
+
+Aerodrome Locks (veNFTs) can be set into Auto-Max Lock mode. In this mode, the protocol treats them as perpetually locked for the maximum duration of four years, and their voting power does not decay. The Auto-Max Lock feature can be toggled on and off for each Lock (veNFT).
 
 ## Initial Distribution
 
