@@ -3,23 +3,25 @@ title: "Technical Details"
 description: "Mathematical foundations, precision handling, and technical implementation of Aerodrome's liquidity pools"
 ---
 
-
 ## Mathematical Precision and Pool Mechanics
 
 Aerodrome's liquidity pools operate through precise mathematical calculations that ensure fair pricing and stable operations. The constant product formula (x × y ≥ k) and stable curve formula (x³y + xy³ ≥ k) maintain pool equilibrium by keeping the constant "k" unchanged regardless of individual trades. When a user swaps tokens, the pool automatically adjusts token quantities to preserve this mathematical relationship, ensuring that larger trades have proportionally larger price impacts.
 
-Price Impact Calculation:
+### Price Impact Calculation
 
-- Price impact increases quadratically with trade size relative to pool reserves
-- Formula: Price Impact = (Trade Size / Total Pool Liquidity)²
-- Larger pools provide better execution for the same trade size
-- Slippage = (Expected Price - Actual Price) / Expected Price
+Price impact increases quadratically with trade size relative to pool reserves.
+
+<Latex>Price Impact = (Trade Size / Total Pool Liquidity)²</Latex>
+
+Larger pools provide better execution for the same trade size.
+
+<Latex>Slippage = (Expected Price - Actual Price) / Expected Price</Latex>
 
 ## Numerical Stability and Precision
 
 Pool contracts handle extreme scenarios and maintain computational accuracy through several mechanisms. The system manages tokens with different decimal precisions (6, 18, or custom decimals) by normalizing calculations to prevent precision loss. Smart contracts implement safeguards against division-by-zero errors and handle very large or small token quantities without computational overflow.
 
-Key Stability Features:
+### Key Stability Features
 
 - Automatic decimal normalization across different token standards
 - Overflow protection for extreme price ranges
@@ -30,7 +32,7 @@ Key Stability Features:
 
 Aerodrome's pool contracts are optimized for minimal gas consumption through efficient storage patterns and batch processing. The system minimizes state changes by combining multiple operations into single transactions where possible. Storage slots are carefully managed to reduce expensive SSTORE operations, and computational complexity is optimized for the most common trading patterns.
 
-Optimization Techniques:
+### Optimization Techniques
 
 - Batch processing for multiple liquidity operations
 - Minimal storage updates per transaction
@@ -41,7 +43,7 @@ Optimization Techniques:
 
 Every liquidity pool serves as a decentralized price oracle through time-weighted average price (TWAP) calculations. The system stores historical price data at regular intervals, allowing external protocols to access manipulation-resistant price feeds. This oracle functionality is built into the core pool mechanics, requiring no additional infrastructure.
 
-Oracle Features:
+### Oracle Features
 
 - Automatic TWAP calculation and storage
 - Historical price data retention for multiple time periods
@@ -52,7 +54,7 @@ Oracle Features:
 
 Slipstream's tick system divides the entire price range into discrete intervals, with each tick representing a specific price point. Liquidity providers can concentrate their capital within specific tick ranges, dramatically improving capital efficiency. The system tracks active liquidity at each price level and automatically activates/deactivates positions as prices move through different ticks.
 
-Tick Mechanics:
+### Tick Mechanics
 
 - Tick spacing determines minimum price movements between ranges
 - Active tick tracking for efficient liquidity management
@@ -63,7 +65,7 @@ Tick Mechanics:
 
 Pool rebalancing occurs automatically through arbitrage opportunities that emerge when pool prices deviate from external markets. Arbitrageurs profit by trading against pools that offer better prices than the broader market, naturally bringing pool prices back into alignment. This mechanism requires no active management and operates continuously as long as trading activity exists.
 
-Rebalancing Process:
+### Rebalancing Process
 
 - Price deviations create profitable arbitrage opportunities
 - External traders capture these opportunities through swaps
@@ -74,7 +76,7 @@ Rebalancing Process:
 
 Trading fees accumulate within LP positions automatically, compounding returns without requiring manual claiming. For Basic pools, fees are distributed proportionally to all liquidity providers based on their share of total pool liquidity. In Slipstream pools, fees are only earned when positions are within the active trading range, concentrating rewards for active liquidity.
 
-Fee Mechanics:
+### Fee Mechanics
 
 - Automatic fee compounding within LP token value
 - Proportional distribution based on liquidity share
