@@ -29,15 +29,25 @@ If a page doesn't enable a concrete action, it should be:
    You will learn how to [specific task] and why it matters for [outcome].
    ```
 
-2. **Before you begin** (required):
+2. **Before you begin** (if prerequisites exist):
    ```mdx
    ## Before you begin
 
    Before [task], ensure you have:
-   - [Prerequisite 1]
-   - [Prerequisite 2]
-   - [Tool or access needed]
+   - [Specific prerequisite for this task]
+   - [Required technical setup]
+   - [Specific access or permission needed]
    ```
+
+   **DO NOT include basic assumptions**:
+   - ❌ "You need a wallet" (assumed for all DeFi)
+   - ❌ "You need ETH for gas" (basic DeFi requirement)
+   - ❌ "Understand smart contract risks" (link to disclaimers instead)
+
+   **DO include task-specific prereqs**:
+   - ✅ "You need veAERO to vote on gauges"
+   - ✅ "Your lock must expire before you can withdraw"
+   - ✅ "Complete KYC verification for this feature"
 
 3. **Steps** (required):
    ```mdx

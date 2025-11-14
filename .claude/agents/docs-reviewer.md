@@ -173,7 +173,9 @@ What this page does well:
 - No job-to-be-done statement
 - Forbidden content (guaranteed, risk-free)
 - Unverified addresses or data
-- Missing risk warnings for DeFi operations
+- Missing page-specific risk warnings where needed
+- Generic warnings that should link to /legal/risks instead
+- Basic prereqs like "you need a wallet"
 - Wrong page structure for type
 
 **Important (Should fix)**:

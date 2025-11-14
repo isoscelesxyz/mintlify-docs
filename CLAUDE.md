@@ -82,12 +82,28 @@ Never:
 
 ### Risk Posture
 
-When covering liquidity provision, staking, locking, or governance:
+**Use `<Warning>` components only for page-specific risks**:
+- Risks unique to that particular operation or feature
+- Technical gotchas specific to that page's content
+- Critical safety issues that apply to that specific action
 
-- Always include a clearly marked risk callout using Mintlify's `<Warning>` component
-- Mention smart contract risk, governance risk, and impermanent loss where relevant
-- Encourage readers to verify contract addresses from official sources
-- Never encourage leverage, looping, or high-risk strategies
+**Examples of appropriate inline warnings**:
+- "CL pools require active management to stay in range"
+- "Relocking extends your lock duration - you cannot unlock early"
+- "Voting locks your tokens for the full epoch"
+
+**DO NOT include generic warnings in every page**:
+- ❌ "You need a wallet" (basic assumption)
+- ❌ "Smart contracts have risks" (covered in disclaimers)
+- ❌ "Impermanent loss exists" (unless specific to that pool type)
+- ❌ "Verify contract addresses" (general best practice)
+
+**For general protocol risks**: Link to `/legal/risks` disclaimers page instead of repeating generic warnings on every page.
+
+**Never encourage**:
+- Leverage, looping, or high-risk strategies
+- Specific investment amounts or timing
+- Trading strategies or price predictions
 
 ## Mintlify Conventions
 

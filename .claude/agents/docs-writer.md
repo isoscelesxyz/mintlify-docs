@@ -112,7 +112,8 @@ Every page you create must:
 - ✅ Identify or imply target audience
 - ✅ Follow structure pattern for its type
 - ✅ Use Mintlify components correctly
-- ✅ Include risk warnings for DeFi operations
+- ✅ Include page-specific risk warnings only (link to /legal/risks for general risks)
+- ✅ Avoid basic prereqs like "you need a wallet" (task-specific only)
 - ✅ Cite sources for addresses/data
 - ✅ Use consistent terminology
 - ✅ Have complete frontmatter

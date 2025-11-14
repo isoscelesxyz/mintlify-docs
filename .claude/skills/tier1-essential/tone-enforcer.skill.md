@@ -76,19 +76,34 @@ Check for:
 - **Clarity**: Flag jargon without definition
 - **Person**: Ensure consistent second person
 
-## Risk Language Requirements
+## Risk Warning Guidelines
 
-For pages covering:
-- Liquidity provision
-- Token locking
-- Governance voting
-- Yield strategies
+**Use inline `<Warning>` components ONLY for**:
+- Risks specific to that particular operation or feature
+- Critical safety issues unique to that page's content
+- Technical gotchas that could cause immediate loss
 
-**Must include**:
-- Smart contract risk mention
-- Impermanent loss warning (for liquidity)
-- Governance risk (for voting)
-- "Verify contract addresses" reminder
+**Examples of page-specific warnings**:
+- "CL pools require active management to stay in range"
+- "Relocking extends your lock duration, you cannot unlock early"
+- "Voting locks your tokens for the full epoch"
+
+**DO NOT include generic warnings**:
+- "You need a wallet" (basic assumption)
+- "Smart contracts have risks" (applies to all DeFi)
+- "Impermanent loss exists" (if not specific to that pool type)
+- "Verify contract addresses" (general best practice)
+
+**For general protocol risks**: Link to a disclaimers/risks page instead:
+```mdx
+See [Protocol Risks](/legal/risks) for general DeFi and smart contract risks.
+```
+
+**When to use warnings**:
+- Liquidity provision: Only warn about specific pool risks (e.g., CL range management)
+- Token locking: Warn about lock duration and inability to unlock early
+- Governance voting: Warn about tokens being locked during epoch
+- Yield strategies: Warn about strategy-specific risks only
 
 ## Correction Format
 
