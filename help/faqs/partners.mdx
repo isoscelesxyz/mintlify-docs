@@ -1,179 +1,256 @@
 ---
 title: "FAQ for Partners"
+description: "Essential information for protocol teams launching tokens and managing liquidity on Aerodrome"
 ---
 
+This FAQ provides guidance for protocol teams and token issuers using Aerodrome. For end user questions, see [FAQ for Users](/help/faqs/users).
 
-1. ### **How do I create a pool?**
+<Warning>
+Liquidity management requires understanding of impermanent loss and active position management. See [Before You Begin](/overview/getting-started/before-you-begin) for important considerations.
+</Warning>
 
-Pool creation on Aerodrome is permissionless. Simply go to the Liquidity page and click New Deposit to get started: [https://aerodrome.finance/liquidity](https://aerodrome.finance/liquidity)
+## Pool Creation and Management
 
-2. ### **What type of pool should I launch (V2, V3)?**
+<AccordionGroup>
+  <Accordion title="How do I create a pool?" icon="plus">
+    Pool creation on Aerodrome is permissionless. Simply go to the [Liquidity page](https://aerodrome.finance/liquidity) and click New Deposit to get started.
+  </Accordion>
 
-#### Basic Volatile Pools (V2-style)
+  <Accordion title="What type of pool should I launch (V2, V3)?" icon="flask">
+    **Basic Volatile Pools (V2-style)**
 
-These pools distribute liquidity evenly across the entire price range from 0 to infinity, similar to traditional AMMs like Uniswap V2. They are simple to manage and can often be treated as “set and forget” for both you and your users. They are particularly well-suited for early price discovery, making them a strong option for new or emerging tokens.
+    These pools distribute liquidity evenly across the entire price range from 0 to infinity, similar to traditional AMMs like Uniswap V2. They are simple to manage and can often be treated as "set and forget" for both you and your users. They are particularly well-suited for early price discovery, making them a strong option for new or emerging tokens.
 
-#### Concentrated pools (V3-style)
+    **Concentrated pools (V3-style)**
 
-These pools allow liquidity providers to concentrate their capital within specific price ranges rather than across the entire curve, similar to Uniswap V3. They are designed for tokens that have an active market-making operation to keep liquidity within a defined price range. They provide greater capital efficiency but require more active management compared to basic pools.
+    These pools allow liquidity providers to concentrate their capital within specific price ranges rather than across the entire curve, similar to Uniswap V3. They are designed for tokens that have an active market-making operation to keep liquidity within a defined price range. They provide greater capital efficiency but require more active management compared to basic pools.
+  </Accordion>
 
-3. ### **Which connector token should I choose?**
+  <Accordion title="Which connector token should I choose?" icon="link">
+    The most common connector tokens are `WETH`, `USDC`, and `cbBTC`. `AERO` can also be used as a connector token. As a rule of thumb, token pairs that are more correlated will lead to less impermanent loss and thus lead to more TVL growth.
+  </Accordion>
 
-The most common connector tokens are WETH, USDC, and cbBTC. AERO can also be used as a connector token. As a rule of thumb, token pairs that are more correlated will lead to less impermanent loss and thus lead to more TVL growth.
+  <Accordion title="How much liquidity should my pool have?" icon="droplet">
+    We recommend depositing liquidity equal to at least 1-2% of your token's FDV.
 
-4. ### **How much liquidity should my pool have?**
+    If your team is experienced with managing concentrated ranges or working with a market maker, a concentrated pool may be more appropriate. In that case, providing a minimum of \$200,000 to \$300,000 in `USDC`, `WETH`, or `cbBTC` liquidity will be generally sufficient to support most swaps — however we still recommend closer to 1-2% of FDV if you intend to support larger swaps.
 
-We recommend depositing liquidity equal to at least 1-2% of your token’s FDV. If your team is experienced with managing concentrated ranges or working with a market maker, a concentrated pool may be more appropriate. In that case, providing a minimum of $200,000 to $300,000 in USDC, WETH, or cbBTC liquidity will be generally sufficient to support most swaps — however we still recommend closer to 1-2% of FDV if you intend to support larger swaps.
+    <Tip>
+    For concentrated pools, consider using automated liquidity management tools like Autopilot (from Mellow) to maintain your position within the active range.
+    </Tip>
+  </Accordion>
 
-5. ### **Should I split my liquidity across multiple DEXs or concentrate it on Aerodrome?**
+  <Accordion title="Should I split my liquidity across multiple DEXs or concentrate it on Aerodrome?" icon="split">
+    We strongly recommend projects concentrate all their liquidity on Aerodrome rather than splitting between multiple DEXs. Fragmenting liquidity across different platforms negatively impacts price execution for traders swapping directly on Aerodrome's frontend, resulting in worse trading experiences.
+  </Accordion>
+</AccordionGroup>
 
-We strongly recommend projects concentrate all their liquidity on Aerodrome rather than splitting between multiple DEXs. Fragmenting liquidity across different platforms negatively impacts price execution for traders swapping directly on Aerodrome's frontend, resulting in worse trading experiences.
+## Listing Process
 
-6. ### **What marketing support does Aerodrome provide?**
+<AccordionGroup>
+  <Accordion title="What is listing on Aerodrome?" icon="list-check">
+    Listing is Aerodrome's approval process that allows pools to participate in the protocol's incentive system. Pools that are not listed operate as fee-based pools and do not have access to Aerodrome's rewards mechanism. In essence, listing is the step that elevates a pool from a standard fee-based participant to a fully integrated member of Aerodrome's incentivized ecosystem.
+  </Accordion>
 
-For pre-listed tokens, Aerodrome can support by engaging with social posts through likes and comments.
-
-For listed tokens, support expands to include likes, comments, retweets, and quote tweets where relevant. Depending on availability, team members may also be able to join X Spaces. Additional ad-hoc communication opportunities will be considered on a case-by-case basis.
-
-7. ### **What is listing on Aerodrome?**
-
-Listing is Aerodrome’s approval process that allows pools to participate in the protocol’s incentive system. Pools that are not listed operate as fee-based pools and do not have access to Aerodrome’s rewards mechanism. In essence, listing is the step that elevates a pool from a standard fee-based participant to a fully integrated member of Aerodrome’s incentivized ecosystem.
-
-8. ### **What are the benefits of listing my pool?**
-
-Listing enables liquidity providers to stake their positions and earn AERO rewards, while also allowing project teams to deposit incentives that attract additional liquidity. This unlocks Aerodrome's powerful incentive flywheel, where every $1 in voter rewards historically translates to $1.50-$2.00 in AERO rewards for staked liquidity providers, creating a compelling reason for LPs to choose your pool over competitors. Additionally, listed projects receive dedicated marketing support and strategic guidance on optimizing the AERO ecosystem.
-
-9. ### **What are the requirements for listing?**
-
-To qualify for listing, a token should demonstrate a daily average trading volume of at least $1 million on DEXs or $2 million on CEXs over a 30-day period. In addition to trading activity, we also evaluate factors such as product-market fit, tokenomics, distribution, security, and overall traction. In rare cases, tokens that do not fully meet these requirements may still be fast-tracked for listing, but such exceptions are uncommon.
-
-10. ### **How do I start the listing process?**
-
-You can begin the listing process by engaging directly with the Aerodrome team.
-
-11. ### **Can I incentivize liquidity before my pool is listed?**
-
-Projects can use third-party platforms like Merkl or Metrom to incentivize Aerodrome liquidity prior to listing.
-
-12. ### **If listed, how much should I deposit in incentives?**
-
-Listed projects can deposit incentives up to the lower of 15x the value of fees generated by the pool and 5% of the value of Connector Tokens (e.g. USDC, WETH) in the pool. Newly listed tokens are granted a 4-week grace period to establish liquidity before fee-based limits apply. During this time projects may use 5% of their TVL in Connector Tokens as the incentive benchmark. We would recommend using the full 5% during the grace period.
-
-13. ### **Why should I stake my LP?**
-
-When you stake your liquidity, you choose to earn AERO emissions instead of trading fees. Unstaked LPs earn 90% of trading fees directly, with 10% going to veAERO voters. However, when you stake your LP tokens, 100% of the fees generated by your staked liquidity are redistributed as incentives to veAERO voters, which then translates into AERO emissions for your staked position. Historically, every dollar of fees generated by staked liquidity, combined with team-deposited incentives, has translated into roughly $1.50 of AERO rewards for liquidity providers, effectively a 1.5x multiplier.
-
-14. ### **I’m trying to stake but the transaction fails**
-
-This is likely a wallet related issue, we suggest hard refreshing the app and/or using a different RPC.
-
-15. ### **How can I get my token logo on Aerodrome’s UI?**
-
-Aerodrome uses SmolDapp’s decentralised hosting for token logos. To have your token logo displayed, your team will need to submit a PR to the following repository: [https://github.com/SmolDapp/tokenAssets](https://github.com/SmolDapp/tokenAssets)
-
-16. ### **How can I migrate my LP from another network?**
-
-LP tokens cannot be bridged directly. Instead, you will need to bridge your token to Base. To do this, you can create a bridged version of your token on Base through any interoperability provider such as Hyperlane, Chainlink, LayerZero, or Wormhole. You may also use the Base native bridge, which is the simplest option, but we only recommend it if you intend to migrate all token activity to Base. The reason is that withdrawals back to Mainnet involve a 7-day delay, which can create a poor user experience.
-
-17. ### **How should I migrate my LP from another DEX?**
-
-You can migrate your liquidity in a single transaction, or you can spread it out across multiple withdrawals.
-
-18. ### **Help\! My token is not being priced**
-
-For tokens to be priced on the frontend by default they need to be paired with a connector token like WETH, USDC, cbBTC or AERO; $500 liquidity should be enough.
-
-19. ### **Do you have a method for snapshotting LPs on Aerodrome?**
-
-You can use this Dune query to snapshot LPs for a given pool:  
-[https://dune.com/queries/3407081](https://dune.com/queries/3407081)
-
-20. ### **What are the default pool fees?**
-
-- Basic Volatile: 0.3%
-- Basic Stable: 0.05%
-- Concentrated Stable 1: 0.01%
-- Concentrated Stable 10: 0.05%
-- Concentrated Stable 50: 0.05%
-- Concentrated Volatile 100: 0.05%
-- Concentrated Volatile 200: 0.3%
-- Concentrated Volatile 2000: 1%
-
-21. ### **How can I update pool fees?**
-
-To update the fees for your pool, you will need to submit a request directly to the Aerodrome team, who will process the change.
-
-22. ### **What is the APR formula?**
-
-vAMM/sAMM APR \= secondsPerYear \* emissions \* emssionsTokenPriceUsd / ((staked0 \* staked0PriceUsd) \+ (staked1 \* staked1PriceUsd))
-
-CL APR \= secondsPerYear \* emissions \* emssionsTokenPriceUsd / (staked1 \* staked1PriceUsd)
-
-23. ### **Do you have any integration documentation?**
-
-Velodrome Contracts Codebase: [https://github.com/velodrome-finance/contracts](https://github.com/velodrome-finance/contracts)  
-Velodrome Slipstream (v3) Codebase: [https://github.com/velodrome-finance/slipstream](https://github.com/velodrome-finance/slipstream)  
-Velodrome Releases (Contracts/Codebases): [https://velodrome.finance/security\#releases](https://velodrome.finance/security#releases)  
-Velodrome Onchain API: [https://github.com/velodrome-finance/sugar](https://github.com/velodrome-finance/sugar)  
-—  
-Aerodrome Contracts Codebase: [https://github.com/aerodrome-finance/contracts](https://github.com/aerodrome-finance/contracts)  
-Aerodrome Slipstream (v3) Codebase: [https://github.com/aerodrome-finance/slipstream](https://github.com/aerodrome-finance/slipstream)  
-Aerodrome Deployed Contracts: [https://aerodrome.finance/security\#contracts](https://aerodrome.finance/security#contracts)  
-Aerodrome Onchain API: [https://github.com/velodrome-finance/sugar](https://github.com/velodrome-finance/sugar)
-
-## **Aero Launch**
-
-24. ### **What is Aero Launch?**
-
-Aerodrome Launch is a tool that streamlines creating and deploying pools for token creators and launchpads. Included with the tool is a free liquidity locker that anyone can use.
-
-25. ### **What are the benefits of using Aero Launch?**
-
-Aero Launch offers powerful advantages for token creators and launchpads designed to maximize your project’s potential on Base. It streamlines pool creation with a user-friendly interface, removing the need for complex smart contract interactions. An integrated liquidity locker builds community trust by demonstrating long-term commitment to your project’s liquidity. Pools created via Aero Launch are automatically optimized for Aerodrome’s ecosystem, ensuring seamless integration with incentive mechanisms and eligibility for future listing. Our team also provides dedicated support to optimize fees, maintain pool dominance, and showcase emerging tokens through features like the "emerging" tag.
-
-26. ### **Can you tell me more about the LP locking?**
-
-You will be able to lock positions and become the owner of that lock, by default receiving 100% of the rewards from the locked position. Additionally a beneficiary can be set with a percentage. Ownership of that lock can be transferred as well.
-
-27. ### **Can you only add 1 address as a beneficiary?**
-
-Yes, only 1 beneficiary address.
-
-28. ### **Can the Aero Launch functions be automated?**
-
-Yes, create pool, add liquidity, lock liquidity, set beneficiary and/or transfer ownership can be done in one transaction by your contracts.
-
-29. ### **Do you have any integration docs for Aero Launch?**
-
-Here is the repo and docs:  
-[https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_POOL_LAUNCHER.md](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_POOL_LAUNCHER.md)  
-[https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_LOCKER.md](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_LOCKER.md)
-
-## **Aero Ignition**
-
-30. ### **What is the timing of everything for Community Launches?**
-
-Week 1 \- 1-5% of supply deposited as incentives with no price. Voters vote for their share of these tokens. The value of the emissions voted that way gives an approximate initial value like an auction.
-
-Week 2 \- Trading opens, emissions flow to the pool, liquidity grows organically, price discovery happens, traders pay fees which will be deposited to attract votes and emissions in week 3\. Projects then deposit one more week of incentives but by this time those incentives market priced like any other so can be a much smaller % of total supply.
-
-Week 3 \- Fees from week 1 can now carry it from here assuming they’re sustaining enough (have the benefit of the 1.3-1.5x multiplier) or the project can add more incentives.  
-On net, a much better deal than 10% out the door day 1 — or than if teams were seeding and incentivizing directly. Giving projects way more of their own token to react to whatever the market throws at them later on.
-
-31. ### **What are the gauge caps for Aero Ignition?**
-
-Aero Ignition pools are limited to 15% of total weekly emissions. If veAERO votes push emissions beyond this threshold, the excess is redirected proportionally to other pools according to vote weight.
-
-32. ### **What’s the implied FDV formula?**
-
-FDV \= % of votes on pool \* total epoch rewards / % total supply of incentive
-
-FDV \= % votes on Pool \* $ Total Emissions^2 \* (1 \- % Votes on Pool) / ( % Total Epoch Rewards \* % Total Supply of Incentive )
-
-33. ### **Why is the implied FDV so low?**
-
-As voters continue to grow for the Community Launch pool, the FDV will increase. Most voting happens in the last 24 hours of every epoch.
-
-34. ### **Where can I read more about Aero Ignition?**
-
-[https://medium.com/@aerodromefi/a-new-era-for-token-launches-3a9b173ae68f](https://medium.com/@aerodromefi/a-new-era-for-token-launches-3a9b173ae68f)
+  <Accordion title="What are the benefits of listing my pool?" icon="star">
+    Listing enables liquidity providers to stake their positions and earn `AERO` rewards, while also allowing project teams to deposit incentives that attract additional liquidity. This creates an incentive flywheel where voter rewards historically translate to approximately 1.5x-2x in `AERO` rewards for staked liquidity providers. Additionally, listed projects receive marketing support and guidance on working within the AERO ecosystem.
+
+    <Info>
+    The historical multiplier of incentives to AERO rewards is based on past performance and is not guaranteed. Actual returns depend on voting patterns, emissions, and market conditions.
+    </Info>
+  </Accordion>
+
+  <Accordion title="What are the requirements for listing?" icon="clipboard-check">
+    To qualify for listing, a token should demonstrate a daily average trading volume of at least \$1 million on DEXs or \$2 million on CEXs over a 30-day period.
+
+    In addition to trading activity, we also evaluate factors such as product-market fit, tokenomics, distribution, security, and overall traction. In rare cases, tokens that do not fully meet these requirements may still be fast-tracked for listing, but such exceptions are uncommon.
+  </Accordion>
+
+  <Accordion title="How do I start the listing process?" icon="paper-plane">
+    You can begin the listing process by engaging directly with the Aerodrome team.
+  </Accordion>
+
+  <Accordion title="What marketing support does Aerodrome provide?" icon="bullhorn">
+    For pre-listed tokens, Aerodrome can support by engaging with social posts through likes and comments.
+
+    For listed tokens, support expands to include likes, comments, retweets, and quote tweets where relevant. Depending on availability, team members may also be able to join X Spaces. Additional ad-hoc communication opportunities will be considered on a case-by-case basis.
+  </Accordion>
+</AccordionGroup>
+
+## Incentives and Rewards
+
+<AccordionGroup>
+  <Accordion title="Can I incentivize liquidity before my pool is listed?" icon="circle-question">
+    Projects can use third-party platforms like Merkl or Metrom to incentivize Aerodrome liquidity prior to listing.
+  </Accordion>
+
+  <Accordion title="If listed, how much should I deposit in incentives?" icon="coins">
+    Listed projects can deposit incentives up to the lower of 15x the value of fees generated by the pool and 5% of the value of Connector Tokens (e.g. `USDC`, `WETH`) in the pool. Newly listed tokens are granted a 4-week grace period to establish liquidity before fee-based limits apply. During this time projects may use 5% of their TVL in Connector Tokens as the incentive benchmark. We would recommend using the full 5% during the grace period.
+  </Accordion>
+
+  <Accordion title="Why should I stake my LP?" icon="layer-group">
+    When you stake your liquidity, you choose to earn `AERO` emissions instead of trading fees. Unstaked LPs earn 90% of trading fees directly, with 10% going to `veAERO` voters. However, when you stake your LP tokens, 100% of the fees generated by your staked liquidity are redistributed as incentives to `veAERO` voters, which then translates into `AERO` emissions for your staked position. Historically, every dollar of fees generated by staked liquidity, combined with team-deposited incentives, has translated into roughly 1.5x in `AERO` rewards for liquidity providers.
+  </Accordion>
+
+  <Accordion title="I'm trying to stake but the transaction fails" icon="triangle-exclamation">
+    This is likely a wallet related issue, we suggest hard refreshing the app and/or using a different RPC.
+  </Accordion>
+</AccordionGroup>
+
+## Integration and Technical
+
+<AccordionGroup>
+  <Accordion title="How can I get my token logo on Aerodrome's UI?" icon="image">
+    Aerodrome uses SmolDapp's decentralised hosting for token logos. To have your token logo displayed, submit a PR to the [SmolDapp tokenAssets repository](https://github.com/SmolDapp/tokenAssets) with your token's logo.
+  </Accordion>
+
+  <Accordion title="How can I migrate my LP from another network?" icon="bridge">
+    LP tokens cannot be bridged directly. Instead, you will need to bridge your token to Base. To do this, you can create a bridged version of your token on Base through any interoperability provider such as Hyperlane, Chainlink, LayerZero, or Wormhole. You may also use the Base native bridge, which is the simplest option, but we only recommend it if you intend to migrate all token activity to Base. The reason is that withdrawals back to Mainnet involve a 7-day delay, which can create a poor user experience.
+  </Accordion>
+
+  <Accordion title="How should I migrate my LP from another DEX?" icon="truck">
+    You can migrate your liquidity in a single transaction, or you can spread it out across multiple withdrawals.
+  </Accordion>
+
+  <Accordion title="My token is not being priced on the frontend" icon="dollar-sign">
+    For tokens to be priced on the frontend by default they need to be paired with a connector token like `WETH`, `USDC`, `cbBTC` or `AERO`; \$500 liquidity should be enough.
+  </Accordion>
+
+  <Accordion title="Do you have a method for snapshotting LPs on Aerodrome?" icon="camera">
+    You can use this [Dune query](https://dune.com/queries/3407081) to snapshot LPs for a given pool. This query allows you to see all liquidity providers and their positions at a specific point in time.
+  </Accordion>
+
+  <Accordion title="What are the default pool fees?" icon="percent">
+    | Pool Type | Fee |
+    |-----------|-----|
+    | Basic Volatile | 0.3% |
+    | Basic Stable | 0.05% |
+    | Concentrated Stable 1 | 0.01% |
+    | Concentrated Stable 10 | 0.05% |
+    | Concentrated Stable 50 | 0.05% |
+    | Concentrated Volatile 100 | 0.05% |
+    | Concentrated Volatile 200 | 0.3% |
+    | Concentrated Volatile 2000 | 1% |
+  </Accordion>
+
+  <Accordion title="How can I update pool fees?" icon="pen-to-square">
+    To update the fees for your pool, you will need to submit a request directly to the Aerodrome team, who will process the change.
+  </Accordion>
+
+  <Accordion title="What is the APR formula?" icon="calculator">
+    For basic pools (vAMM/sAMM):
+    ```
+    APR = secondsPerYear * emissions * emissionsTokenPriceUsd / ((staked0 * staked0PriceUsd) + (staked1 * staked1PriceUsd))
+    ```
+
+    For concentrated liquidity (CL) pools:
+    ```
+    APR = secondsPerYear * emissions * emissionsTokenPriceUsd / (staked1 * staked1PriceUsd)
+    ```
+  </Accordion>
+
+  <Accordion title="Do you have any integration documentation?" icon="code">
+    **Velodrome Resources:**
+    - [Contracts Codebase](https://github.com/velodrome-finance/contracts) - Core V2 contracts
+    - [Slipstream (V3) Codebase](https://github.com/velodrome-finance/slipstream) - Concentrated liquidity implementation
+    - [Releases and Audits](https://velodrome.finance/security#releases) - Contract versions and security audits
+    - [Sugar Onchain API](https://github.com/velodrome-finance/sugar) - Efficient onchain data aggregation
+
+    **Aerodrome Resources:**
+    - [Contracts Codebase](https://github.com/aerodrome-finance/contracts) - Core V2 contracts
+    - [Slipstream (V3) Codebase](https://github.com/aerodrome-finance/slipstream) - Concentrated liquidity implementation
+    - [Deployed Contracts](https://aerodrome.finance/security#contracts) - Production contract addresses
+    - [Sugar Onchain API](https://github.com/velodrome-finance/sugar) - Efficient onchain data aggregation
+  </Accordion>
+</AccordionGroup>
+
+## Aero Launch
+
+<AccordionGroup>
+  <Accordion title="What is Aero Launch?" icon="rocket">
+    Aerodrome Launch is a tool that streamlines creating and deploying pools for token creators and launchpads. Included with the tool is a free liquidity locker that anyone can use.
+  </Accordion>
+
+  <Accordion title="What are the benefits of using Aero Launch?" icon="check">
+    Aero Launch streamlines pool creation and management for token creators and launchpads:
+
+    - **Simplified deployment**: User-friendly interface removes the need for complex smart contract interactions
+    - **Integrated liquidity locker**: Demonstrate long-term commitment to your project's liquidity
+    - **Ecosystem optimization**: Pools created via Aero Launch are automatically configured for Aerodrome's incentive mechanisms and future listing eligibility
+    - **Support and features**: Access to team support for fee optimization and exposure through features like the "emerging" tag
+  </Accordion>
+
+  <Accordion title="Can you tell me more about the LP locking?" icon="lock">
+    You will be able to lock positions and become the owner of that lock, by default receiving 100% of the rewards from the locked position. Additionally a beneficiary can be set with a percentage. Ownership of that lock can be transferred as well.
+  </Accordion>
+
+  <Accordion title="Can you only add 1 address as a beneficiary?" icon="user">
+    Yes, only 1 beneficiary address.
+  </Accordion>
+
+  <Accordion title="Can the Aero Launch functions be automated?" icon="robot">
+    Yes, create pool, add liquidity, lock liquidity, set beneficiary and/or transfer ownership can be done in one transaction by your contracts.
+  </Accordion>
+
+  <Accordion title="Do you have any integration docs for Aero Launch?" icon="book">
+    Technical documentation and specifications are available in the pool-launcher repository:
+
+    - [Pool Launcher Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_POOL_LAUNCHER.md) - Contract interface for creating pools
+    - [Locker Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_LOCKER.md) - Contract interface for locking liquidity
+  </Accordion>
+</AccordionGroup>
+
+## Aero Ignition
+
+<AccordionGroup>
+  <Accordion title="What is the timing of everything for Community Launches?" icon="clock">
+    **Week 1**
+
+    1-5% of supply deposited as incentives with no price. Voters vote for their share of these tokens. The value of the emissions voted that way gives an approximate initial value like an auction.
+
+    **Week 2**
+
+    Trading opens, emissions flow to the pool, liquidity grows organically, price discovery happens, traders pay fees which will be deposited to attract votes and emissions in week 3. Projects then deposit one more week of incentives but by this time those incentives are market priced like any other so can be a much smaller % of total supply.
+
+    **Week 3**
+
+    Fees from week 1 can now carry it from here assuming they're sustaining enough (have the benefit of the 1.3-1.5x multiplier) or the project can add more incentives.
+
+    On net, a much better deal than 10% out the door day 1 — or than if teams were seeding and incentivizing directly. Giving projects way more of their own token to react to whatever the market throws at them later on.
+  </Accordion>
+
+  <Accordion title="What are the gauge caps for Aero Ignition?" icon="gauge-high">
+    Aero Ignition pools are limited to 15% of total weekly emissions. If `veAERO` votes push emissions beyond this threshold, the excess is redirected proportionally to other pools according to vote weight.
+  </Accordion>
+
+  <Accordion title="What's the implied FDV formula?" icon="square-root-variable">
+    Simple formula:
+    ```
+    FDV = (% of votes on pool * total epoch rewards) / % total supply of incentive
+    ```
+
+    Extended formula:
+    ```
+    FDV = (% votes on Pool * $ Total Emissions² * (1 - % Votes on Pool)) / (% Total Epoch Rewards * % Total Supply of Incentive)
+    ```
+  </Accordion>
+
+  <Accordion title="Why is the implied FDV so low?" icon="chart-line">
+    As voters continue to grow for the Community Launch pool, the FDV will increase. Most voting happens in the last 24 hours of every epoch.
+  </Accordion>
+
+  <Accordion title="Where can I read more about Aero Ignition?" icon="newspaper">
+    Read the full announcement: [A New Era for Token Launches](https://medium.com/@aerodromefi/a-new-era-for-token-launches-3a9b173ae68f)
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Get in Touch" icon="discord" href="https://discord.gg/aerodrome">
+    Connect with the Aerodrome team on Discord
+  </Card>
+  <Card title="Launch on Aerodrome" icon="rocket" href="https://aerodrome.finance">
+    Create a pool and get started
+  </Card>
+</CardGroup>
