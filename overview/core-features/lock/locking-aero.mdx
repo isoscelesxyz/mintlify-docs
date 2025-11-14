@@ -1,33 +1,82 @@
 ---
 title: "Locking AERO"
-description: "How to lock AERO tokens to create veAERO and participate in governance and revenue sharing"
+description: "Learn how to lock AERO tokens to create veAERO and participate in Aerodrome governance and revenue sharing."
 ---
 
-Each week, Aerodrome distributes 100% of the prior week's revenue to voters. To become a voter, you must first "lock" `AERO` to create a veAERO NFT (non-fungible token).
+You will learn how to lock `AERO` tokens to create veAERO, enabling you to vote on emissions, earn protocol revenue, and participate in Aerodrome governance.
 
-Your veAERO gives you the ability to:
-- Direct newly minted `AERO` tokens to liquidity pools
-- Receive a share of fees and incentives from pools you vote for
-- Participate in protocol governance
+## How locking works
 
-The fees that have accrued for each pool, along with any additional incentives (tokens deposited to help steer votes to specific pools), are then shared among the veAERO holders who voted for that pool.
+Each week, Aerodrome distributes 100% of the prior week's revenue to voters. When you lock `AERO`, you receive a veAERO position that grants voting power. Your voting power increases proportionally with lock duration, reaching maximum power at four years.
 
-## To lock `AERO` on Aerodrome:
+<Info>
+  veAERO is implemented as an NFT (non-fungible token), allowing you to transfer
+  or manage your locked position separately from your wallet's other assets.
+</Info>
 
-1. **Acquire `AERO`**: You can either swap directly for `AERO` or receive `AERO` emissions as a liquidity provider
-2. **Connect your wallet**: Hit "Connect" in the upper right corner
-3. **Tap "Create Lock"**: Begin the locking process
-4. **Select lock amount**: Choose the amount of `AERO` you'd like to lock
-5. **Select lock duration**: Choose the duration. Locks can be extended but never decreased. Your voting power increases proportionally with duration, with maximum voting power achieved at four years.
-6. **Confirm your lock**: Go to your dashboard and verify your lock appears under "Locks"
-7. **Optional - Use Relays**: Deposit your veAERO NFT into a Relay to automate weekly voting and maintain your lock at the maximum duration of four years.
+## Lock `AERO` tokens
 
----
+<Steps>
 
-**Important note:**
+<Step title="Acquire `AERO` tokens">
+  Hold or acquire `AERO` by
+  [swapping](/overview/core-features/swap/swapping-tokens) directly for `AERO`
+  or [receiving `AERO` emissions](/overview/core-features/rewards/rewards) as a
+  liquidity provider.
+</Step>
 
-After confirming your lock, you may see an "insufficient balance" message. This simply indicates your `AERO` tokens have been successfully locked and are no longer available in your wallet.
+<Step title="Connect your wallet">
+  Connect your wallet by clicking "Connect" in the upper right corner of the
+  Aerodrome interface.
+</Step>
+
+<Step title="Create lock">
+  Click "Create Lock" to begin the locking process.
+</Step>
+
+<Step title="Select lock amount">
+  Choose the amount of `AERO` you want to lock. This amount will be locked for
+  the duration you select.
+</Step>
+
+<Step title="Select lock duration">
+  Choose your lock duration. Locks can be extended but never decreased. Your
+  voting power increases proportionally with duration, with maximum voting power
+  achieved at four years.
+</Step>
+
+<Step title="Confirm lock creation">
+  Confirm the transaction in your wallet and verify your lock appears under
+  "Locks" in your dashboard.
+</Step>
+
+</Steps>
 
 <Tip>
-For passive reward optimization without manual weekly voting, consider using a Relay to automate your voting strategy.
+  After confirming your lock, you may see an `"insufficient balance"` message.
+  This message appears because your `AERO` tokens are now locked and no longer
+  available in your wallet balance.
 </Tip>
+
+## Optimize with Relays
+
+After creating your lock, you can deposit your veAERO into a [Relay](/overview/core-features/relay/relay). Relays automate weekly voting to optimize your rewards and maintain your lock at the maximum duration of four years.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Vote on Emissions"
+    icon="check-to-slot"
+    href="/overview/core-features/voting/voting"
+  >
+    Direct `AERO` emissions to liquidity pools and earn rewards
+  </Card>
+  <Card
+    title="Understand Relays"
+    icon="tower-broadcast"
+    href="/overview/core-features/relay/relay"
+  >
+    Automate your voting strategy with Relays
+  </Card>
+</CardGroup>
