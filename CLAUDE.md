@@ -144,7 +144,8 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 ### Technical Implementation Notes
 
 - All pages are `.mdx` files (Markdown with JSX support)
-- Navigation is defined in `docs.json` - paths must match actual file locations exactly
+- **Navigation configuration**: This project uses `docs.json` (NOT `mint.json`) for navigation
+- Navigation paths must match actual file locations exactly
 - Images go in `/images/` and are referenced with absolute paths: `/images/filename.svg`
 - Changes to `main` branch auto-deploy to production (no manual deployment)
 
