@@ -6,7 +6,8 @@ description: "Common questions about using Aerodrome for swapping, providing liq
 This FAQ addresses common questions for end users of Aerodrome Finance. If you're a protocol team or token issuer, see [FAQ for Partners](/help/faqs/partners).
 
 <Info>
-Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for detailed instructions.
+  Looking for step-by-step guides? Visit the [How-To Guides](/guides) section
+  for detailed instructions.
 </Info>
 
 ## Tokens and Governance
@@ -16,13 +17,24 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
     `AERO` is the utility token of Aerodrome. It is distributed each week through a process called "emissions" in which voters direct newly minted tokens to liquidity providers with staked deposits. Learn more about [emissions and tokenomics](/overview/tokenomics/emissions).
   </Accordion>
 
-  <Accordion title="What is veAERO, and how do I lock tokens?" icon="lock">
-    `veAERO` is the governance token of Aerodrome. It is created by locking `AERO` for up to four years. Holders of `veAERO` vote each week to distribute `AERO` to LPs. In exchange for this service, voters receive 100% of protocol revenue from the pools they vote for. See [How to Lock AERO](/guides/vote/lock-aero) for step-by-step instructions.
-  </Accordion>
+{" "}
 
-  <Accordion title="What is a gauge?" icon="gauge">
-    A gauge functions like the clearing house for each liquidity pool that is eligible for emissions. `veAERO` holders cast votes which go into the gauge, new `AERO` emissions are sent to the gauge for distribution, and fees and incentives are also in the gauge before being sent to voters for that pool.
-  </Accordion>
+<Accordion title="What is veAERO, and how do I lock tokens?" icon="lock">
+  `veAERO` is the governance token of Aerodrome. It is created by locking `AERO`
+  for up to four years. Holders of `veAERO` vote each week to distribute `AERO`
+  to LPs. In exchange for this service, voters receive 100% of protocol revenue
+  from the pools they vote for. See [How to Lock AERO](/guides/vote/lock-aero)
+  for step-by-step instructions.
+</Accordion>
+
+{" "}
+
+<Accordion title="What is a gauge?" icon="gauge">
+  A gauge functions like the clearing house for each liquidity pool that is
+  eligible for emissions. `veAERO` holders cast votes which go into the gauge,
+  new `AERO` emissions are sent to the gauge for distribution, and fees and
+  incentives are also in the gauge before being sent to voters for that pool.
+</Accordion>
 
   <Accordion title="How do incentives work, and why do protocols use them?" icon="gift">
     Incentives are tokens deposited into liquidity pool gauges with the aim of attracting voters to direct emissions to the pool. They are integral to the bootstrapping mechanics of Aerodrome. For example: if a protocol wants liquidity providers to deposit tokens in a new pool before it has any swap fees, they can deposit an incentive. That incentive attracts voters (who claim the incentive if they vote for the pool). The more votes for the pool, the more `AERO` emissions are directed to it. Then liquidity providers deposit and stake liquidity in the pool to earn those emissions.
@@ -42,28 +54,46 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
     <Warning>
     If you stake your liquidity, you will only receive emissions and forfeit all trading fees.
     </Warning>
+
   </Accordion>
 
   <Accordion title="How do I claim my rewards?" icon="hand-holding-dollar">
-    **To claim your rewards:**
+    ### To claim your rewards
 
-    1. Go to your [Dashboard](https://aerodrome.finance/dashboard) on Aerodrome
-    2. Find your deposit and expand the details
-    3. Click "Claim" to collect your rewards
-
-    **Reward types:**
+<Steps>
+  <Step>
+    Go to your [Dashboard](https://aerodrome.finance/dashboard) on Aerodrome
+  </Step>
+  <Step>Find your deposit and expand the details</Step>
+  <Step>Click "Claim" to collect your rewards</Step>
+</Steps>
+### Reward types
 
     - **Staked positions**: Receive `AERO` emissions
     - **Unstaked positions**: Receive trading fees in the pool's token pair
+
   </Accordion>
 
-  <Accordion title="What does it mean to 'stake' my LP?" icon="layer-group">
-    Staking your deposit means you will no longer receive swap fees as rewards and instead will receive `AERO` emissions. This is beneficial when the `AERO` emissions directed to the pool (based on votes) exceed the trading fees you would earn from unstaked liquidity.
-  </Accordion>
+{" "}
 
-  <Accordion title="Why am I not receiving emissions from my LP?" icon="circle-question">
-    Only deposits that have been staked are eligible for emissions. If your deposit is staked and you still do not receive emissions, it could be because the pool received no votes or your CL position fell out of the active price range.
-  </Accordion>
+<Accordion title="What does it mean to 'stake' my LP?" icon="layer-group">
+  Staking your deposit means you will no longer receive swap fees as rewards and
+  instead will receive `AERO` emissions. This is beneficial when the `AERO`
+  emissions directed to the pool (based on votes) exceed the trading fees you
+  would earn from unstaked liquidity.
+</Accordion>
+
+{" "}
+
+<Accordion
+  title="Why am I not receiving emissions from my LP?"
+  icon="circle-question"
+>
+  Only deposits that have been staked are eligible for emissions. If your
+  deposit is staked and you still do not receive emissions, it could be because
+  the pool received no votes or your CL position fell out of the active price
+  range.
+</Accordion>
 
   <Accordion title="Why can I not redeem trading fees from my LP?" icon="circle-question">
     If you have an unstaked deposit, you will earn a portion of swap fees. To claim, go to your dashboard, expand the deposit list, and select "Claim".
@@ -83,6 +113,7 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
     <Warning>
     CL pools require active management to stay in range. If your position falls outside the active price range, you will not earn rewards until the price returns to your range.
     </Warning>
+
   </Accordion>
 </AccordionGroup>
 
@@ -95,6 +126,7 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
     We've also worked and have a deep appreciation for teams like Spearbit and Sherlock.
 
     To learn about our audits, please refer to our dedicated [security page](https://aerodrome.finance/security).
+
   </Accordion>
 
   <Accordion title="How is team compensation structured?" icon="wallet">
@@ -115,6 +147,7 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
     <Tip>
     veNFTs can be traded on third-party NFT marketplaces, often at a discount reflecting the lock duration.
     </Tip>
+
   </Accordion>
 
   <Accordion title="What happens if I sell my veNFT?" icon="user-group">
@@ -133,6 +166,7 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
     MetaDEX is the underlying model of Aerodrome. Think of it as an operating system for DEXs. The current version of the MetaDEX is METADEX02.
 
     Learn more on the [Aerodrome blog](https://paragraph.com/@dromos).
+
   </Accordion>
 </AccordionGroup>
 
@@ -141,7 +175,11 @@ Looking for step-by-step guides? Visit the [How-To Guides](/guides) section for 
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Before You Begin" icon="circle-info" href="/overview/getting-started/before-you-begin">
+  <Card
+    title="Before You Begin"
+    icon="circle-info"
+    href="/overview/getting-started/before-you-begin"
+  >
     Important considerations before using Aerodrome
   </Card>
   <Card title="How-To Guides" icon="book-open" href="/guides">

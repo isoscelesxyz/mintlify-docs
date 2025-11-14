@@ -41,18 +41,23 @@
             "group": "Core Features",
             "icon": "star",
             "pages": [
-              "overview/core-features/liquidity-pools/index",
-              "overview/core-features/liquidity-pools/basic-pools",
-              "overview/core-features/liquidity-pools/concentrated-pools",
-              "overview/core-features/liquidity-pools/technical-details",
-              "overview/core-features/swap/swapping-tokens",
-              "overview/core-features/deposit/providing-liquidity",
-              "overview/core-features/lock/locking-aero",
-              "overview/core-features/voting/voting",
-              "overview/core-features/rewards/rewards",
-              "overview/core-features/incentives/incentives",
-              "overview/core-features/autopilot/autopilot",
-              "overview/core-features/relay/relay"
+              "overview/core-features/swap",
+              {
+                "group": "Liquidity",
+                "pages": [
+                  "overview/core-features/liquidity-pools/index",
+                  "overview/core-features/liquidity-pools/providing-liquidity",
+                  "overview/core-features/liquidity-pools/basic-pools",
+                  "overview/core-features/liquidity-pools/concentrated-pools",
+                  "overview/core-features/liquidity-pools/technical-details"
+                ]
+              },
+              "overview/core-features/vote",
+              "overview/core-features/lock",
+              "overview/core-features/incentivize",
+              "overview/core-features/rewards",
+              "overview/core-features/autopilot",
+              "overview/core-features/relay"
             ]
           },
           {
@@ -138,7 +143,7 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
+        "label": "Community",
         "href": "https://discord.gg/aerodrome"
       }
     ],

@@ -46,7 +46,7 @@ Every liquidity pool serves as a decentralized price oracle through time-weighte
   additional infrastructure.
 </Info>
 
-**Oracle Features**
+### Oracle Features
 
 - **Automatic TWAP**: Calculation and storage happens on every trade
 - **Historical data**: Price retention for multiple time periods
@@ -57,7 +57,7 @@ Every liquidity pool serves as a decentralized price oracle through time-weighte
 
 Slipstream's tick system divides the entire price range into discrete intervals, with each tick representing a specific price point. Liquidity providers can concentrate their capital within specific tick ranges, dramatically improving capital efficiency.
 
-**Tick Mechanics**
+### Tick Mechanics
 
 - **Tick spacing**: Determines minimum price movements between ranges
 - **Active tracking**: Monitors liquidity at each price level
@@ -68,7 +68,7 @@ Slipstream's tick system divides the entire price range into discrete intervals,
 
 Pool rebalancing occurs automatically through arbitrage opportunities that emerge when pool prices deviate from external markets. Arbitrageurs profit by trading against pools that offer better prices than the broader market, naturally bringing pool prices back into alignment.
 
-**Rebalancing Process**
+### Rebalancing Process
 
 1. Price deviations create profitable arbitrage opportunities
 2. External traders capture these opportunities through swaps
@@ -79,12 +79,12 @@ Pool rebalancing occurs automatically through arbitrage opportunities that emerg
 
 Trading fees accumulate within LP positions automatically, compounding returns without requiring manual claiming.
 
-**How fees work by pool type:**
+### How fees work by pool type
 
 - **Basic pools**: Fees distributed proportionally to all liquidity providers based on their share of total pool liquidity
 - **Slipstream pools**: Fees only earned when positions are within the active trading range, concentrating rewards for active liquidity
 
-**Key mechanics:**
+### Key mechanics
 
 - Automatic fee compounding within LP token value
 - No manual claiming required for fee collection
