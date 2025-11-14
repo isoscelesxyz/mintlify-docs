@@ -55,20 +55,14 @@ The documentation site will be available at `http://localhost:3000` with hot rel
 .
 ├── docs.json              # Mintlify configuration (navigation, theme, settings)
 ├── overview/              # Core Aerodrome documentation
-├── development/           # Developer resources (Sugar API, analytics)
+├── development/           # Developer resources
 ├── help/                  # Support and FAQs
 ├── changelog/             # Product updates
-├── ai-tools/              # AI tool integration guides
 ├── images/                # Image assets
-├── logo/                  # Brand assets
-└── snippets/              # Reusable MDX content
+└── logo/                  # Brand assets
 ```
 
-### Key Files
-
-- **`docs.json`** - Central configuration file (navigation, branding, metadata)
-- **`.mdx` files** - Documentation pages (Markdown with JSX support)
-- **`.nvmrc` / `.node-version`** - Specifies Node.js version for the project
+For detailed guidance on content organization and where to place new pages, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Publishing Changes
 
