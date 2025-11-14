@@ -1,69 +1,121 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Aerodrome Documentation",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#0052FF",
+    "light": "#4A90FF",
+    "dark": "#0041CC"
   },
   "favicon": "/favicon.svg",
+  "metadata": {
+    "description": "Official documentation for Aerodrome Finance - the essential trading hub and liquidity marketplace on Base",
+    "og:site_name": "Aerodrome Documentation",
+    "og:title": "Aerodrome Finance Documentation",
+    "og:description": "Learn how to swap, provide liquidity, lock AERO, and participate in governance on Aerodrome Finance",
+    "twitter:site": "@AerodromeFi"
+  },
+  "search": {
+    "placeholder": "Search Aerodrome docs..."
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Overview",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
+            "icon": "book",
+            "pages": ["overview/overview"]
+          },
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "overview/getting-started/aerodrome-101",
+              "overview/getting-started/key-concepts"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Core Features",
+            "icon": "star",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "overview/core-features/liquidity-pools/index",
+              "overview/core-features/liquidity-pools/basic-pools",
+              "overview/core-features/liquidity-pools/concentrated-pools",
+              "overview/core-features/liquidity-pools/technical-details",
+              "overview/core-features/swap/swapping-tokens",
+              "overview/core-features/deposit/providing-liquidity",
+              "overview/core-features/lock/locking-aero",
+              "overview/core-features/voting/voting",
+              "overview/core-features/rewards/rewards",
+              "overview/core-features/incentives/incentives",
+              "overview/core-features/autopilot/autopilot",
+              "overview/core-features/relay/relay"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Tokenomics",
+            "icon": "coins",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "overview/tokenomics/overview",
+              "overview/tokenomics/emissions"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Security",
+            "icon": "shield",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "overview/security/overview",
+              "overview/security/contract-addresses"
+            ]
+          },
+          {
+            "group": "Contributors",
+            "icon": "users",
+            "pages": [
+              "overview/contributors/dromos-labs",
+              "overview/contributors/aerodrome-foundation"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Development",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Developer Resources",
+            "icon": "code",
             "pages": [
-              "api-reference/introduction"
+              "development/sugar",
+              "development/data-analytics",
+              "development/third-party-integrations"
             ]
+          }
+        ]
+      },
+      {
+        "tab": "Help",
+        "groups": [
+          {
+            "group": "Support",
+            "icon": "life-ring",
+            "pages": ["help/discord", "help/troubleshooting"]
           },
           {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "group": "FAQ",
+            "icon": "circle-question",
+            "pages": ["help/faqs/users", "help/faqs/partners"]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Updates",
+            "icon": "clock",
+            "pages": ["changelog/README"]
           }
         ]
       }
@@ -71,14 +123,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "aerodrome.finance",
+          "href": "https://aerodrome.finance",
+          "icon": "external-link"
         }
       ]
     }
@@ -91,32 +138,34 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://discord.gg/aerodrome"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Launch App",
+      "href": "https://app.aerodrome.finance"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/AerodromeFi",
+      "github": "https://github.com/aerodrome-finance",
+      "discord": "https://discord.gg/aerodrome",
+      "medium": "https://medium.com/@AerodromeFi",
+      "website": "https://aerodrome.finance"
     }
   }
 }
