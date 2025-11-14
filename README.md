@@ -1,43 +1,107 @@
-# Mintlify Starter Kit
+# Aerodrome Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Official documentation for [Aerodrome Finance](https://aerodrome.finance) - the essential trading hub and liquidity marketplace on Base.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+Built with [Mintlify](https://mintlify.com/), a modern documentation platform that makes it easy to create and maintain beautiful docs.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## Local Development
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+### Prerequisites
 
-## Development
+**Node.js**: Version 19 or higher is required (v24+ recommended)
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+- Use `nvm use` to automatically switch to the correct version (reads from `.nvmrc`)
+- Or manually install Node.js v19+ from [nodejs.org](https://nodejs.org)
 
-```
-npm i -g mint
-```
+### Setup
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+1. **Install dependencies** (optional but recommended):
+   ```bash
+   pnpm install
+   ```
 
-```
+2. **Install Mintlify CLI globally** (required):
+   ```bash
+   # Using pnpm (recommended)
+   pnpm add -g mint
+
+   # Or using npm
+   npm i -g mint
+   ```
+
+### Running the Docs Locally
+
+From the repository root (where `docs.json` is located):
+
+```bash
+# Using npm script
+pnpm dev
+
+# Or directly with mint CLI
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+The documentation site will be available at `http://localhost:3000` with hot reload enabled.
 
-## Publishing changes
+### Making Changes
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+1. Edit the `.mdx` files in the repository
+2. The dev server will automatically reload with your changes
+3. Preview your changes in the browser before committing
 
-## Need help?
+## Project Structure
 
-### Troubleshooting
+```
+.
+├── docs.json              # Mintlify configuration (navigation, theme, settings)
+├── overview/              # Core Aerodrome documentation
+├── development/           # Developer resources (Sugar API, analytics)
+├── help/                  # Support and FAQs
+├── changelog/             # Product updates
+├── ai-tools/              # AI tool integration guides
+├── images/                # Image assets
+├── logo/                  # Brand assets
+└── snippets/              # Reusable MDX content
+```
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+### Key Files
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+- **`docs.json`** - Central configuration file (navigation, branding, metadata)
+- **`.mdx` files** - Documentation pages (Markdown with JSX support)
+- **`.nvmrc` / `.node-version`** - Specifies Node.js version for the project
+
+## Publishing Changes
+
+Changes pushed to the main branch are automatically deployed to production. No manual deployment steps required.
+
+## Troubleshooting
+
+### Common Issues
+
+- **Dev server not starting**:
+  - Ensure Node.js v19+ is installed: `node --version`
+  - Run `mint update` to get the latest CLI version
+  - Clear cache: `pnpm clear` or `mint clear`
+
+- **404 errors**:
+  - Verify you're running `mint dev` from the directory containing `docs.json`
+  - Check that the file path in `docs.json` navigation matches the actual `.mdx` file location
+
+- **Content not updating**:
+  - Verify `.mdx` files have proper frontmatter (title, description)
+  - Ensure the page is referenced in `docs.json` navigation
+  - Try clearing the cache: `mint clear`
+
+- **`mint` command not found**:
+  - Install the CLI globally: `pnpm add -g mint`
+  - Or use npm: `npm i -g mint`
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to contribute to this documentation.
+
+## Resources
+
+- [Aerodrome Finance](https://aerodrome.finance)
+- [Mintlify Documentation](https://mintlify.com/docs)
+- [Support Discord](https://discord.gg/aerodrome)
