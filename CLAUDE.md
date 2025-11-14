@@ -10,6 +10,7 @@ This is the **Aerodrome Finance documentation site** built with Mintlify. Aerodr
 
 When writing documentation, use these terms consistently:
 
+- **`AERO`** - The protocol token. Always format as `AERO` (with backticks) in markdown to distinguish it as a token symbol
 - **veAERO** - Vote-escrowed AERO tokens (locked AERO for governance). Always capitalize as "veAERO", never "veAero" or "VeAERO"
 - **Epochs** - 7-day periods (Thursday 00:00 UTC to Wednesday 23:59 UTC). Capitalize when referring to the concept
 - **MetaDEX** - Next-generation DEX model where 100% of protocol revenue goes to voters as incentives
