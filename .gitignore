@@ -28,5 +28,5 @@ Thumbs.db
 .vscode/
 .idea/
 
-# AI notes and scratch work (moved outside project to avoid Mintlify parsing)
-# See: ../ai-notes-aerodrome/
+# AI notes and scratch work
+ai-notes/
