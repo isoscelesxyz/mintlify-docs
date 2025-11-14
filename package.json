@@ -4,7 +4,7 @@
   "description": "Official documentation for Aerodrome Finance - the essential trading hub and liquidity marketplace on Base",
   "private": true,
   "scripts": {
-    "dev": "mint dev",
+    "dev": "mint dev --port 8453",
     "clear": "mint clear"
   },
   "engines": {
