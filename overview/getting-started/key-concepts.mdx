@@ -1,0 +1,87 @@
+---
+title: "Key Concepts"
+---
+
+
+# Key Concepts
+
+**Blockchain**  
+As a public ledger, a blockchain is an alternative form of digital infrastructure that functions similarly to a server. But instead of living on one computer, it’s distributed across a large network.
+
+**Tokens**  
+The technology at the heart of crypto. All cryptocurrencies are tokens. All NFTs are tokens. Bitcoin is a token. ETH is a token. Anything that can be traded, bought, swapped, deposited, etc. is a token. Many tokens are “fungible,” meaning they’re interchangeable (e.g. one bitcoin is the same as any other bitcoin). Other tokens are “non-fungible” which means they’re unique (e.g. a piece of NFT art). Stablecoins are tokens that are correlated one way or another with another asset (e.g. USDC is backed one-to-one with the U.S. dollar).
+
+**Protocol**  
+In crypto, a protocol is another word for an app.
+
+**Wallet**  
+A digital tool (like MetaMask, Coinbase Wallet, or hardware wallets) that allows users to hold, send, and interact with crypto. Many decentralized protocols do not offer traditional “accounts.” Instead, users simply connect their wallet. For this reason, users don’t have to share personal information like email addresses and names with the protocols they use.
+
+**Decentralized Exchange (DEX)**  
+A website/application where users can trade one token for another. As opposed to “centralized exchanges,” DEXs are not institutions or businesses that hold the tokens users swap for. Instead, tokens are deposited by other users known as “liquidity providers.”
+
+**Liquidity**  
+The amount of an asset or token that is available for users to “buy” or trade for. Liquidity is an essential need of any functioning economy, onchain or off.
+
+**Onchain**  
+Similar to “online” but for describing activity that happens on a blockchain.
+
+**Liquidity Providers (LPs)**  
+Users who deposit their own assets (crypto/tokens) into a DEX, thus enabling token swaps for users. LPs are rewarded for this service, either with a share of swap fees or more tokens (on Aerodrome, AERO).
+
+**Liquidity Pools**  
+The underlying technology of DEXs are “liquidity pools”: pairs of assets/tokens that are made available to swap for each other. Liquidity pools are powered by smart contracts—self-exedcuting pieces of code—and governed by algorithms (automated market makers)
+
+**Impermanent Loss**  
+A potential risk for LPs: when the value of tokens in a liquidity pool shifts compared to just holding them.
+
+**Staked Liquidity**  
+Liquidity deposited into Aerodrome pools and “staked” to earn AERO emissions.
+
+**Unstaked Liquidity**  
+Liquidity deposited but not staked. Earns swap fees.
+
+**Automated Market Makers (AMMs)**  
+These are the algorithms that govern liquidity pools and how tokens are priced within them. There are two types of AMMs used by Aerodrome: Basic and Concentrated. Both basic and concentrated pools can then be “stable” or “volatile,” depending on the relationship between the two assets in the pool. Tokens with closely correlated value (e.g. different “versions” of the same token) are considered “stable.” Assets that are uncorrelated (e.g. a memecoin paired with BTC) are considered “volatile.”
+
+**Basic Pools**  
+Liquidity pools that maintain token prices through simple, reliable algorithms—the constant-product curve and stable swap curve—ensuring tokens can always be easily traded. Ideal for general-purpose liquidity, these pools require minimal management from liquidity providers. Aerodrome supports both UniV2-style and Curve-style basic pools.
+
+**Consented Pools (AKA Slipstream)**  
+Concentrated liquidity pools that require LPs to select the price range where their liquidity is active. Inspired by UniV3, Slipstream introduces key enhancements, such as decoupling tick spacing from fees, wider tick spaces, and native reward streaming limited only to active liquidity.
+
+**Autopilot**  
+Automated liquidity management provided by Mellow. Without ALM, liquidity providers must manually adjust their positions in Slipstream pools. With ALM, this management is automated based on historical performance and dynamic parameters. Mellow collects 10% of the rewards earned for providing this service.
+
+**Relay**  
+Aerodrome’s automation tool for managing veAERO positions, including voting, reward claims, and position adjustments.
+
+**Rebase**  
+Each week, veAERO holders receive additional veAERO tokens, reducing dilution.
+
+**Gauges**  
+Gauges act as clearing houses for activity related to specific pools, aggregating swap fees, votes, and incentives for weekly distribution.
+
+**Epochs**  
+Aerodrome operates on seven-day epochs, starting every Thursday at 00:00 UTC and ending the following Wednesday at 23:59 UTC. Emissions, fee distributions, voting, governance actions, and all other protocol activities align with this weekly schedule.
+
+**Incentives**  
+Tokens deposited into gauges (often by protocols) to incentivize voters to direct emissions to specific pools.
+
+**Protocol Revenue (aka Revenue)**  
+Any value that is internalized by the protocol or claimable by token-holders. There are currently three sources of revenue:  
+_1\. 100% of swap fees from staked liquidity_  
+_2\. 10% of swap fees from unstated liquidity in emissions-eligible Slipstream pools_  
+_3\. 100% of incentive deposits_
+
+**Emissions**  
+New AERO tokens that are automatically minted each week.
+
+**Slippage**  
+The difference between the price quoted before the swap and the actual executed price due to market movements or liquidity depth.
+
+**Locking**  
+In Aerodrome, “locking” refers to the process of converting liquid AERO into an NFT that grants its holder governance rights (namely, the ability to vote to direct weekly token emissions). Locked tokens do not disappear or decay, but they are made non-transferable until the lock period ends. The longer a lock period, the voting power is granted.
+
+\[DO WE NEED ANYTHING ELSE HERE?\]
+

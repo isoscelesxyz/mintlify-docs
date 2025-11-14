@@ -1,0 +1,49 @@
+---
+title: "Concentrated Pools"
+---
+
+
+Slipstream is Aerodrome's concentrated liquidity (CL) solution. Concentrated pools require liquidity providers to deposit their capital within specific price ranges. With Slipstream, LPs can earn higher rewards while providing better execution for traders, but there is also an increased risk of idle liquidity if it is not properly managed.
+
+## Benefits
+
+- Higher capital efficiency in optimal scenarios
+- Superior reward generation per unit of capital deployed
+
+## How Slipstream Works
+
+**Range Selection**
+LPs choose specific price ranges (ticks) where their liquidity will be active. When the market price falls within this range, the position earns rewards. When outside the range, the position is temporarily inactive but preserves capital.
+
+**Tick System**
+Aerodrome's concentrated liquidity pools use the concept of "tick spacing." This refers to the minimum price movement between liquidity ranges.
+
+Stable token pools use a price range boundary of 0.5% (tick space 50)
+
+Volatile token pools use a price range boundary of 2% (tick space 200)
+
+For highly correlated tokens like stablecoins and liquid-staked tokens, a price range boundary of 0.01% (tick space 1) is available.
+
+For emerging tokens like AERO and VELO, a price range boundary of 20% (tick space 2000) is available to reduce liquidity pool re-balance needs.
+
+The tick spacing for concentrated liquidity pools is identified in their title. E.g., in a "CL1-wstETH/WETH," the tick spacing is 1, suggesting the pool token prices are closely correlated.
+
+## Concentrated Liquidity Pool Fees
+
+Pool swap fees are designed to be adjusted independently from the pool type. Fees can reflect partner protocols needs and be adjusted based on the market's volatility. To reduce operational overhead, we are working on a dynamic fee module that will adjust fees based on demand.
+
+## The Slipstream Advantage
+
+How Slipstream outcompetes competitive concentrated liquidity solutions:
+
+**Wider Tick Spacing**
+Increased tick spacing means LPs stay in the active tick for longer, increasing rewards
+
+**Active Tick Rewards**
+AERO emissions are only streamed to the active tick, rewarding LPs in that range even higher
+
+**Emissions**
+Aerodrome rewards LPs with AERO tokens, the value of emissions is often higher than swap fees in the same period. LPs can also choose to not stake their liquidity to earn fees instead.
+
+**Dynamic Fees**
+With Slipstream V2, fees dynamically adjust based on market conditions and price volatility. LPs can choose to unstake deposits for brief periods of time to maximize fee capture.
