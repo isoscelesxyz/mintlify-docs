@@ -18,6 +18,8 @@ Review the selected documentation page and verify:
 8. **Frontmatter**: Complete with title and description?
 9. **Navigation**: Is this page linked from `docs.json`?
 
+**Note**: This project uses `docs.json` (not `mint.json`) for navigation configuration.
+
 ## Output Format
 
 Provide:
