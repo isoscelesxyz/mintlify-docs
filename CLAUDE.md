@@ -98,7 +98,7 @@ Never:
 - ❌ "Impermanent loss exists" (unless specific to that pool type)
 - ❌ "Verify contract addresses" (general best practice)
 
-**For general protocol risks**: Link to `/legal/risks` disclaimers page instead of repeating generic warnings on every page.
+**For general protocol risks**: Link to [Before You Begin](/overview/getting-started/before-you-begin) instead of repeating generic warnings on every page.
 
 **Never encourage**:
 - Leverage, looping, or high-risk strategies

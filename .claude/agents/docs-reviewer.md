@@ -174,7 +174,7 @@ What this page does well:
 - Forbidden content (guaranteed, risk-free)
 - Unverified addresses or data
 - Missing page-specific risk warnings where needed
-- Generic warnings that should link to /legal/risks instead
+- Generic warnings that should link to /overview/getting-started/before-you-begin instead
 - Basic prereqs like "you need a wallet"
 - Wrong page structure for type
 

@@ -94,9 +94,9 @@ Check for:
 - "Impermanent loss exists" (if not specific to that pool type)
 - "Verify contract addresses" (general best practice)
 
-**For general protocol risks**: Link to a disclaimers/risks page instead:
+**For general protocol risks**: Link to the Before You Begin page instead:
 ```mdx
-See [Protocol Risks](/legal/risks) for general DeFi and smart contract risks.
+See [Before You Begin](/overview/getting-started/before-you-begin) for general DeFi and smart contract risks.
 ```
 
 **When to use warnings**:

@@ -1,0 +1,160 @@
+---
+title: "Before You Begin"
+description: "Essential information about DeFi risks, wallet security, and protocol considerations before using Aerodrome Finance"
+---
+
+Before you start using Aerodrome Finance, understand the foundational risks and requirements common to all decentralized finance (DeFi) protocols.
+
+## What you'll need
+
+**Wallet with Base network support**
+
+You need a Web3 wallet configured for the Base network. Popular options include MetaMask, Coinbase Wallet, or Rainbow Wallet.
+
+**ETH on Base for gas fees**
+
+All transactions on Base require ETH to pay for gas fees. Bridge ETH to Base using the [official Base bridge](https://bridge.base.org) or a third-party bridge.
+
+**Tokens to interact with the protocol**
+
+To swap, provide liquidity, or participate in governance, you'll need the relevant tokens in your wallet on Base.
+
+## Understanding DeFi risks
+
+Using Aerodrome involves inherent risks common to all DeFi protocols. You should understand these risks before interacting with the protocol.
+
+### Smart contract risk
+
+Aerodrome runs on smart contracts deployed to Base. While these contracts are audited and battle-tested, smart contracts can contain vulnerabilities that may result in loss of funds.
+
+**What this means for you**:
+- Contracts may have undiscovered bugs or vulnerabilities
+- Protocol upgrades could introduce new risks
+- Interactions with other protocols increase complexity and risk
+
+**Mitigations**:
+- Aerodrome contracts are [audited by leading security firms](/security/audits)
+- The protocol has processed billions in volume with no major exploits
+- Start with small amounts until you're comfortable
+
+### Impermanent loss
+
+When you provide liquidity to a pool, you deposit two tokens. If the price ratio between those tokens changes, you may have less value than if you had simply held the tokens.
+
+**What this means for you**:
+- Price volatility between paired tokens creates impermanent loss
+- The loss is "impermanent" because it only realizes when you withdraw
+- Trading fees can offset impermanent loss, but there's no guarantee
+
+**Mitigations**:
+- Provide liquidity to pairs with correlated prices (e.g., stablecoin pairs)
+- Understand the volatility profile of your chosen tokens
+- Monitor your position and withdraw if impermanent loss exceeds acceptable levels
+
+### Governance and protocol risks
+
+Aerodrome is governed by veAERO holders who vote on emissions distribution and protocol changes. Governance decisions can impact the value of your positions.
+
+**What this means for you**:
+- Emissions can shift between pools based on governance votes
+- Protocol parameters may change through governance
+- Your liquidity pool's incentives can increase or decrease based on votes
+
+**Mitigations**:
+- Participate in governance by locking AERO for veAERO
+- Monitor governance proposals that may affect your positions
+- Diversify across multiple pools to reduce concentration risk
+
+### Liquidity risk
+
+Some pools may have low liquidity, making it difficult to enter or exit positions without significant price impact.
+
+**What this means for you**:
+- Low liquidity pools may have high slippage on swaps
+- Withdrawing large positions can move the market against you
+- Some pools may have minimal trading volume, reducing fee generation
+
+**Mitigations**:
+- Check pool liquidity (TVL) before providing liquidity
+- Start with high-liquidity pools like WETH/USDC or major stablecoin pairs
+- Use limit orders or split large trades across time
+
+### Counterparty and bridge risk
+
+To use Aerodrome on Base, you typically bridge assets from Ethereum or other chains. Bridges introduce additional risks.
+
+**What this means for you**:
+- Bridges can be exploited or fail, resulting in loss of bridged assets
+- Bridged tokens depend on the bridge operator's security
+- Wrapped or bridged versions of tokens may depeg from their underlying asset
+
+**Mitigations**:
+- Use official bridges like the [Base bridge](https://bridge.base.org)
+- Verify token addresses before trading (see [verified tokens](/reference/tokens))
+- Bridge only what you plan to use in the near term
+
+## Wallet security best practices
+
+Your wallet is your responsibility. Follow these best practices to secure your funds:
+
+**Use a hardware wallet for large amounts**
+
+Hardware wallets (Ledger, Trezor) store your private keys offline, protecting against malware and phishing attacks.
+
+**Never share your seed phrase**
+
+Your seed phrase (recovery phrase) gives complete control of your wallet. No legitimate service will ever ask for it.
+
+**Verify contract addresses**
+
+Before approving token allowances, verify you're interacting with official Aerodrome contracts. See [contract addresses](/reference/contracts).
+
+**Revoke unused token approvals**
+
+Use tools like [Revoke.cash](https://revoke.cash) to revoke token approvals you no longer need. This limits damage if a contract is exploited.
+
+**Beware of phishing**
+
+Always verify you're on the official Aerodrome domain before connecting your wallet. Bookmark the official site and use that bookmark.
+
+## No financial guarantees
+
+Aerodrome Finance is a decentralized protocol. Using the protocol does not guarantee:
+
+- Specific yields or returns
+- Protection from impermanent loss
+- Preservation of capital
+- Earnings that exceed transaction costs
+
+**Past performance does not indicate future results**. Pool APRs fluctuate based on trading volume, emissions, and governance votes.
+
+## Regulatory considerations
+
+DeFi protocols operate in an evolving regulatory landscape. You are responsible for understanding the legal and tax implications of using Aerodrome in your jurisdiction.
+
+**Consult with qualified professionals** about:
+- Tax obligations on trading gains, liquidity provision, and governance rewards
+- Regulatory restrictions on DeFi participation in your country
+- Reporting requirements for cryptocurrency transactions
+
+Aerodrome Finance does not provide legal, tax, or financial advice.
+
+## Your responsibility
+
+By using Aerodrome Finance, you acknowledge:
+
+- You understand the risks outlined on this page
+- You are responsible for your own research and decisions
+- You accept full responsibility for any losses incurred
+- You will not hold the Aerodrome team, contributors, or community liable for losses
+
+If you're uncertain about any of these risks, consult with qualified professionals before proceeding.
+
+## Next steps
+
+Now that you understand the foundational risks and requirements:
+
+- [Learn core Aerodrome concepts](/overview/getting-started/key-concepts)
+- [Read the Aerodrome 101 guide](/overview/getting-started/aerodrome-101)
+- [See verified contract addresses](/reference/contracts)
+- [Review security audits](/security/audits)

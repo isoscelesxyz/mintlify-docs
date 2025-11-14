@@ -33,7 +33,8 @@
             "icon": "rocket",
             "pages": [
               "overview/getting-started/aerodrome-101",
-              "overview/getting-started/key-concepts"
+              "overview/getting-started/key-concepts",
+              "overview/getting-started/before-you-begin"
             ]
           },
           {

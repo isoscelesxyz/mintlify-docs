@@ -112,7 +112,7 @@ Every page you create must:
 - ✅ Identify or imply target audience
 - ✅ Follow structure pattern for its type
 - ✅ Use Mintlify components correctly
-- ✅ Include page-specific risk warnings only (link to /legal/risks for general risks)
+- ✅ Include page-specific risk warnings only (link to /overview/getting-started/before-you-begin for general risks)
 - ✅ Avoid basic prereqs like "you need a wallet" (task-specific only)
 - ✅ Cite sources for addresses/data
 - ✅ Use consistent terminology
