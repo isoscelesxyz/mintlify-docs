@@ -3,5 +3,58 @@ title: "Changelog"
 description: "New updates and improvements to Aerodrome Finance"
 ---
 
+<Update label="2025-01-15" description="Autopilot Launch" tags={["Product", "CL Pools"]}>
+  **Autopilot** is now live for Concentrated Liquidity pools. Key features:
 
-Updates and improvements to Aerodrome Finance will be documented here.
+  - Automated liquidity rebalancing to keep positions in range
+  - Flexible fee tiers (0.5%, 1%, or 2%)
+  - One-click deposit and withdrawal
+  - Compatible with all existing CL pools
+
+  [Learn more about Autopilot](/overview/core-features/autopilot/autopilot)
+</Update>
+
+<Update label="2025-01-08" description="Sugar API v3" tags={["Developer", "API"]}>
+  Released Sugar API v3 with improved data endpoints:
+
+  - New `/pools/top` endpoint for highest TVL pools
+  - Enhanced `/epochs/latest` with voting deadline timestamps
+  - Performance improvements across all endpoints (avg 40% faster)
+  - Added WebSocket support for real-time pool updates
+
+  [View API documentation](/development/sugar)
+</Update>
+
+<Update label="2024-12-20" description="Documentation Refresh" tags={["Documentation"]}>
+  Complete documentation overhaul with improved structure:
+
+  - New **Aerodrome 101** guide for beginners
+  - Separate FAQs for users and protocol partners
+  - Enhanced troubleshooting section
+  - Updated contract addresses for all deployments
+
+  Navigate the new docs structure from the [homepage](/).
+</Update>
+
+<Update label="2024-12-10" description="Relay Integration" tags={["Product", "Cross-chain"]}>
+  **Relay** cross-chain swapping is now integrated directly into Aerodrome:
+
+  - Swap tokens from Ethereum, Arbitrum, and Optimism to Base
+  - Automatic bridging and swapping in a single transaction
+  - Competitive fees and fast settlement times
+
+  [Try Relay](/overview/core-features/relay/relay)
+</Update>
+
+<Update label="2024-11-28" description="veAERO v2 Migration" tags={["Governance", "Breaking Change"]}>
+  **Action required**: veAERO holders must migrate to the new locking contract.
+
+  The new veAERO v2 contract includes:
+  - Improved gas efficiency for voting
+  - Support for delegation (coming Q1 2025)
+  - Better integration with incentive distribution
+
+  **Migration deadline**: February 1, 2025
+
+  [Migration guide](/overview/core-features/lock/locking-aero-v2)
+</Update>
