@@ -1,11 +1,115 @@
 ---
 title: "Autopilot"
-description: "Automated liquidity management for Slipstream concentrated liquidity pools powered by Mellow"
+description: "Automated veAERO management with voting automation and reward optimization"
 ---
 
+**Audience**: veAERO holders seeking automated position management
 
-Autopilot provides automated liquidity management for Slipstream concentrated liquidity pools, powered by Mellow Finance.
+**You will learn** how Autopilot automates veAERO voting and reward optimization, and when to use it versus manual management.
+
+## In this concept
+
+Autopilot is an automated <Tooltip tip="Vote-escrowed AERO tokens locked for governance participation">veAERO</Tooltip> management tool that handles voting and reward optimization on your behalf. Instead of manually voting every <Tooltip tip="Weekly periods running Thursday 00:00 UTC to Wednesday 23:59 UTC">epoch</Tooltip> and claiming rewards, Autopilot automatically manages your position to maximize returns.
+
+### Why it matters
+
+Managing veAERO positions manually requires:
+- Voting every week to earn incentives
+- Monitoring which pools offer the best returns
+- Claiming and converting rewards at optimal times
+- Re-locking to maintain voting power
+
+Autopilot handles these tasks automatically, making veAERO ownership more accessible for holders who want passive participation.
+
+## How Autopilot works
+
+Autopilot provides three core automation features:
+
+### Automatic voting
+
+Autopilot votes on your behalf each epoch, selecting pools based on optimization strategies to maximize your returns from <Tooltip tip="Incentives deposited by protocols to attract votes to their pools">bribes</Tooltip> and protocol revenue.
+
+### Reward conversion
+
+When you claim rewards, Autopilot can automatically convert them to your preferred asset (such as USDC) instead of requiring manual swaps. This simplifies the process of realizing gains from your veAERO position.
+
+### Position management
+
+Autopilot manages your veAERO lock duration and handles <Tooltip tip="Weekly distributions of new AERO to veAERO holders proportional to their balance">rebases</Tooltip>, ensuring your position stays optimized without manual intervention.
+
+## Autopilot vs manual management
 
 <Info>
-Documentation coming soon. In the meantime, explore Autopilot vaults on the [Aerodrome app](https://aerodrome.finance).
+Autopilot is designed for veAERO holders who prefer passive management. If you want direct control over which pools receive your votes (for example, to support specific protocols), manual voting may be more appropriate.
 </Info>
+
+**When to use Autopilot:**
+- You want automated reward optimization
+- You prefer passive veAERO management
+- You don't have strong preferences for which pools to support
+
+**When to manage manually:**
+- You want direct control over voting decisions
+- You're supporting specific protocols or pools
+- You want to participate actively in governance discussions
+
+## Getting started with Autopilot
+
+<Steps>
+
+<Step title="Lock AERO to create veAERO">
+If you don't have veAERO yet, [lock AERO](/overview/core-features/lock) to create a veAERO position.
+</Step>
+
+<Step title="Enable Autopilot on the Aerodrome app">
+Visit [aerodrome.finance](https://aerodrome.finance) and navigate to the Autopilot section to enable automated management for your veAERO position.
+</Step>
+
+<Step title="Configure reward preferences">
+Choose how you want Autopilot to handle your rewards (for example, auto-convert to USDC or compound back to veAERO).
+</Step>
+
+<Step title="Monitor performance">
+Check your Autopilot position periodically to track earned rewards and voting performance.
+</Step>
+
+</Steps>
+
+<Warning>
+When you enable Autopilot, you delegate voting decisions to the automation system. Your veAERO remains locked according to your original lock duration, but you won't be able to manually vote while Autopilot is active.
+</Warning>
+
+## Strategic considerations
+
+### Autopilot and Relay
+
+Autopilot shares similarities with [Relay](/overview/core-features/relay), another automated veAERO management solution. Relay focuses on maximizing voting power through perpetual max-locking, while Autopilot emphasizes ease of use and flexible reward conversion.
+
+Consider your goals:
+- **Maximum voting power**: Relay's auto-max-lock strategy
+- **Flexible reward management**: Autopilot's conversion options
+- **Active participation**: Manual veAERO management
+
+### Performance tracking
+
+Monitor your Autopilot position to understand:
+- Total rewards earned through automated voting
+- How auto-conversion affects your returns
+- Voting performance across different pools
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+    Create a veAERO position to use Autopilot
+  </Card>
+  <Card title="Relay" icon="arrows-rotate" href="/overview/core-features/relay">
+    Compare Autopilot with Relay for veAERO management
+  </Card>
+  <Card title="Vote manually" icon="check-to-slot" href="/overview/core-features/vote">
+    Learn about manual voting for direct control
+  </Card>
+  <Card title="Claim rewards" icon="gift" href="/overview/core-features/rewards">
+    Understand reward types and claiming
+  </Card>
+</CardGroup>
