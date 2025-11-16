@@ -3,6 +3,8 @@ title: "Technical Details"
 description: "Mathematical foundations, precision handling, and technical implementation of Aerodrome's liquidity pools"
 ---
 
+This reference page provides **developers** and **advanced users** with the mathematical and technical foundations of Aerodrome's liquidity pools. You will understand the formulas, precision handling, and implementation details behind pool operations.
+
 ## Mathematical Precision and Pool Mechanics
 
 Aerodrome's liquidity pools operate through precise mathematical calculations that ensure fair pricing and stable operations. The constant product formula <Latex>x × y ≥ k</Latex> and stable curve formula <Latex>x³y + xy³ ≥ k</Latex> maintain pool equilibrium by keeping the constant "k" unchanged regardless of individual trades.
@@ -39,7 +41,7 @@ Aerodrome's pool contracts are optimized for minimal gas consumption:
 
 ## Oracle Functionality and Price Discovery
 
-Every liquidity pool serves as a decentralized price oracle through time-weighted average price (TWAP) calculations. The system stores historical price data at regular intervals, allowing external protocols to access manipulation-resistant price feeds.
+Every liquidity pool serves as a decentralized price oracle through <Tooltip tip="Time-weighted average price - a manipulation-resistant price calculation method">time-weighted average price (TWAP)</Tooltip> calculations. The system stores historical price data at regular intervals, allowing external protocols to access manipulation-resistant price feeds.
 
 <Info>
   This oracle functionality is built into the core pool mechanics, requiring no
@@ -59,7 +61,7 @@ Slipstream's tick system divides the entire price range into discrete intervals,
 
 ### Tick Mechanics
 
-- **Tick spacing**: Determines minimum price movements between ranges
+- **<Tooltip tip="The minimum price movement between liquidity ranges">Tick spacing</Tooltip>**: Determines minimum price movements between ranges
 - **Active tracking**: Monitors liquidity at each price level
 - **Automatic activation**: Positions activate/deactivate as price moves through ticks
 - **Concentration effects**: Precise calculation of capital efficiency gains
@@ -93,3 +95,20 @@ Trading fees accumulate within LP positions automatically, compounding returns w
 ---
 
 This technical foundation ensures that Aerodrome's pools operate efficiently, fairly, and reliably across all market conditions while providing the mathematical guarantees necessary for secure decentralized trading.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Sugar API" icon="code" href="/development/sugar">
+    Query pool data programmatically
+  </Card>
+  <Card title="Contract Addresses" icon="file-code" href="/overview/security/contract-addresses">
+    Access pool contract addresses
+  </Card>
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+    Apply this knowledge to deposit
+  </Card>
+  <Card title="Data Analytics" icon="chart-line" href="/development/data-analytics">
+    Analyze pool performance
+  </Card>
+</CardGroup>

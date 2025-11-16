@@ -3,6 +3,7 @@ title: "Concentrated Pools"
 description: "Slipstream concentrated liquidity pools with custom price ranges for capital-efficient liquidity provision"
 ---
 
+This guide helps **active liquidity providers** and **protocol teams** understand Slipstream <Tooltip tip="Liquidity deposited within specific price ranges for higher capital efficiency">concentrated liquidity</Tooltip>. You will learn how to choose <Tooltip tip="Specific price points where liquidity can be placed">tick ranges</Tooltip>, manage CL positions, and maximize capital efficiency.
 
 Slipstream is Aerodrome's concentrated liquidity (CL) solution. Concentrated pools require liquidity providers to deposit their capital within specific price ranges. With Slipstream, LPs can earn higher rewards while providing better execution for traders, but there is also an increased risk of idle liquidity if it is not properly managed.
 
@@ -23,7 +24,7 @@ LPs choose specific price ranges (ticks) where their liquidity will be active. W
 
 **Tick System**
 
-Aerodrome's concentrated liquidity pools use "tick spacing," which refers to the minimum price movement between liquidity ranges. Each pool type has a different tick spacing:
+Aerodrome's concentrated liquidity pools use <Tooltip tip="The minimum price movement between liquidity ranges">"tick spacing,"</Tooltip> which refers to the minimum price movement between liquidity ranges. Each pool type has a different tick spacing:
 
 - **Stable token pools**: 0.5% price range boundary (tick space 50)
 - **Volatile token pools**: 2% price range boundary (tick space 200)
@@ -34,7 +35,7 @@ The tick spacing for concentrated liquidity pools is identified in their pool ti
 
 ## Concentrated Liquidity Pool Fees
 
-Pool swap fees are designed to be adjusted independently from the pool type. Fees can reflect partner protocols' needs and be adjusted based on the market's volatility. To reduce operational overhead, we are working on a dynamic fee module that will adjust fees based on demand.
+Pool swap fees can be adjusted independently from the pool type. Fees reflect partner protocols' needs and are adjusted based on the market's volatility. To reduce operational overhead, we are working on a dynamic fee module that will adjust fees based on demand.
 
 ---
 
@@ -57,3 +58,20 @@ Aerodrome rewards LPs with `AERO` tokens. The value of emissions is often higher
 <Info>
 With Slipstream V2, fees dynamically adjust based on market conditions and price volatility. LPs can choose to temporarily unstake deposits to maximize fee capture during high-volatility periods.
 </Info>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+    Deposit into CL pools
+  </Card>
+  <Card title="Autopilot" icon="robot" href="/overview/core-features/autopilot">
+    Automate CL position management
+  </Card>
+  <Card title="Basic Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/basic-pools">
+    Compare with full-range pools
+  </Card>
+  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
+    Deep dive into CL mechanics
+  </Card>
+</CardGroup>
