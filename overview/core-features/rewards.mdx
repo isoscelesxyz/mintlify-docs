@@ -1,42 +1,109 @@
 ---
-title: "Rewards"
+title: "Claim Rewards"
 description: "How to claim voting rewards, fee distributions, and rebase rewards from your Aerodrome positions"
 ---
 
+You will learn how to claim rewards from your veAERO voting positions and liquidity pools. Aerodrome distributes 100% of protocol revenue to voters each week through three reward types: fee distributions, voter incentives, and rebase rewards.
 
-**To claim your rewards:**
+<Warning>
+Always verify reward amounts before claiming. Gas fees may exceed small reward values, especially for individual pool claims.
+</Warning>
 
-1. Go to your Dashboard
-2. Scroll to see Voting Rewards
-3. Hit "Claim All" or "Claim" under any individual pool
+## Before you begin
 
----
+You should have:
+- A wallet connected to Aerodrome
+- veAERO tokens (for voting rewards) or staked liquidity positions (for fee rewards)
+- Voted in at least one Epoch (for voting rewards)
 
-**Overview**
+## How to claim rewards
 
-100% of protocol revenue is distributed each week as voting rewards. There are two sources of protocol revenue:
+<Steps>
+<Step title="Navigate to your Dashboard">
+Go to [app.aerodrome.finance/dashboard](https://app.aerodrome.finance/dashboard) and connect your wallet.
+</Step>
 
-**Fees**
+<Step title="View available rewards">
+Scroll to the **Voting Rewards** section to see:
+- Fee distributions from pools you voted for
+- <Tooltip tip="Tokens deposited by protocols to attract votes">Incentives</Tooltip> from pools you voted for
+- <Tooltip tip="Weekly AERO emissions distributed to veAERO holders">Rebase rewards</Tooltip> for your veAERO balance
+</Step>
 
-100% of fees from staked liquidity + 10% fees from unstaked liquidity in emissions-eligible concentrated liquidity pools.
+<Step title="Claim your rewards">
+Choose one of:
+- **Claim All**: Claims all available rewards in a single transaction
+- **Claim** (individual): Claims rewards from a specific pool
+</Step>
+</Steps>
 
-Fee rewards are distributed in the same tokens as the liquidity pool tokens these originate from (e.g., if the pool is vAMM-AERO/USDC the distributed tokens are AERO and USDC).
+## Understanding reward types
 
-Fee rewards are distributed as accrued and can be claimed at any time. Fee rewards deposited as voter incentives are available for claim after the epoch changes (Thursday 00:00 UTC), and are distributed proportionally to the voting power cast by a voter.
+**Fee distributions**
+- 100% of fees from staked liquidity + 10% fees from unstaked liquidity in emissions-eligible CL pools
+- Distributed in the same tokens as the liquidity pool (e.g., AERO/USDC pool distributes AERO and USDC)
+- Available for claim immediately as they accrue
 
-**Incentives**
+**Voter incentives**
+- Tokens deposited by protocols to encourage voting for specific pools
+- Only available for pools that qualify for emissions
+- Distributed proportionally to your share of votes on that pool
+- Claimable after the Epoch changes (Thursday 00:00 UTC)
 
-Incentives are tokens generally deposited by protocols to encourage voting for a specific pool. They can only be deposited for pools that qualify for emissions and are distributed only to voters for that pool, proportionally to their share of pool votes.
+**Rebase rewards**
+- Weekly AERO emissions distributed to veAERO holders
+- Amount based on your veAERO balance and lock duration
+- Claimable after a new Epoch has started (Thursday 00:00 UTC)
 
-These rewards are available for claim after the epoch changes (Thursday 00:00 UTC), and are distributed proportionally to the voting power cast by a voter.
+## Reward timeline
 
-**Timeline**
+<Info>
+Here's how the reward cycle works:
 
-An example of incentives, voting, and rewards claim timeline:
+- **Thursday 00:00 UTC**: New Epoch starts, previous Epoch rewards become claimable
+- **During the Epoch**: Protocols deposit incentives, voters cast votes, fees accrue
+- **Following Thursday**: Rewards from the previous Epoch are distributed and can be claimed
+</Info>
 
-- **Epoch starts:** Thursday (00:00 UTC)
-- **Incentives deposited:** At any point in the epoch
-- **Voting period:** Voters vote for their preferred pools
-- **Rewards available:** Once the next epoch arrives (the following Thursday)
+## Troubleshooting
 
-**Rebase rewards** are claimable after a new epoch has started (Thursday 00:00 UTC).
+<AccordionGroup>
+<Accordion title="No rewards showing in my dashboard">
+Check that you:
+- Voted in the previous Epoch (rewards require active voting)
+- Have veAERO tokens (rebase rewards require a lock)
+- Are connected with the correct wallet
+- Waited until Thursday 00:00 UTC for Epoch rewards to become available
+</Accordion>
+
+<Accordion title="Transaction fails when claiming">
+Common causes:
+- Insufficient gas (ETH) in your wallet
+- Reward amount is too small (try "Claim All" instead)
+- Network congestion (try again with higher gas)
+</Accordion>
+
+<Accordion title="Reward amount lower than expected">
+Rewards are distributed proportionally based on:
+- Your share of total votes on that pool
+- Your veAERO balance relative to total veAERO supply
+- Pool fees generated during the Epoch
+</Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+<Card title="Vote for pools" icon="check-to-slot" href="/overview/core-features/vote">
+Direct emissions to pools and earn rewards
+</Card>
+<Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+Increase your veAERO balance for higher rewards
+</Card>
+<Card title="Incentivize voters" icon="gift" href="/overview/core-features/incentivize">
+Learn how protocols deposit incentives
+</Card>
+<Card title="Emissions schedule" icon="coins" href="/overview/tokenomics/emissions">
+Understand AERO emissions and decay
+</Card>
+</CardGroup>
