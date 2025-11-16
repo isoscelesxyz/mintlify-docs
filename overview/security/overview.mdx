@@ -1,33 +1,58 @@
 ---
 title: "Security"
-description: "Aerodrome's security audits, bug bounty program, and emergency council governance structure"
+description: "Security audits, bug bounty information, emergency governance, and verified contract addresses for Aerodrome Finance"
 ---
 
+This page provides security information for Aerodrome Finance protocol participants, including audit status, emergency governance structure, and verified contract addresses.
 
-Aerodrome Finance inherits the contract architecture and full security maintenance from Velodrome V2. Velodrome V2 has been audited and runs a bug-bounty program.
+## Audits and Bug Bounty
 
-To review the current state of the smart-contracts and the bug bounty program, please refer to the [Velodrome security page](https://velodrome.finance/security).
+Aerodrome Finance inherits the contract architecture from Velodrome V2, which has undergone comprehensive security audits.
 
-For security reports, please reach out to us on [Discord](https://discord.gg/aerodrome) or to the contacts provided on our GitHub page.
+<Info>
+For detailed audit reports and the current bug bounty program, visit the [Velodrome security page](https://velodrome.finance/security).
+</Info>
+
+**To report security vulnerabilities:**
+- Contact the team via [Discord](https://discord.gg/aerodrome)
+- Review responsible disclosure guidelines on the [Aerodrome GitHub](https://github.com/aerodrome-finance)
 
 ---
 
-## Emergency Council, Foundations and Public Goods Fund
+## Emergency Council
 
-To support the health of the protocol and ecosystem, there is a Council consisting of members from the Aerodrome team and prominent figures from within the Optimism and Base community.
+<Warning>
+The Emergency Council has capabilities that can affect gauges and veNFTs. All council actions are publicly visible on-chain.
+</Warning>
 
-The Council can be spawned in case of emergency situations or by passing a governance proposal that requires the council's help to be executed.
+To support protocol health during emergency situations, an Emergency Council consists of members from the Aerodrome team and prominent Base community figures. The Council can be activated during emergencies or through governance proposals.
+
+**Council Address:** `0x99249b10593fCa1Ae9DAE6D4819F1A6dae5C013D`
 
 **Council Capabilities:**
 
-The Council address is at `0x99249b10593fCa1Ae9DAE6D4819F1A6dae5C013D` and has the following capabilities:
+- **Set emergency council**: Designate a new emergency council address
+- **Gauge management**: <Tooltip tip="Killing a gauge stops emissions; reviving restores them">Kill or revive gauges</Tooltip>
+- **Pool customization**: Set custom names or symbols for pools
+- **veNFT control**: Activate or deactivate <Tooltip tip="Managed veNFTs - locked positions controlled by strategies">managed veNFTs</Tooltip> (capability transfers to governance when enabled)
 
-- **Set emergency council**: can set a new `emergencyCouncil`
-- **Gauge management**: can kill a gauge or revive a gauge
-- **Pool customization**: can set a custom name or symbol for a pool
-- **veNFT control**: can activate or deactivate (m)veNFTs (superseded by governance once enabled)
+---
 
-**Important Multisigs:**
+## Foundation Addresses
 
-- **Aerodrome Foundation and Incentives**: `0xBDE0c70BdC242577c52dFAD53389F82fd149EA5a`
-- **Public Goods Fund**: `0x834C0DA026d5F933C2c18Fa9F8Ba7f1f792fDa52`
+**Aerodrome Foundation and Incentives:** `0xBDE0c70BdC242577c52dFAD53389F82fd149EA5a`
+
+**Public Goods Fund:** `0x834C0DA026d5F933C2c18Fa7f1f792fDa52`
+
+---
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Contract Addresses" icon="file-code" href="/overview/security/contract-addresses">
+    View all verified smart contract addresses
+  </Card>
+  <Card title="Before You Begin" icon="triangle-exclamation" href="/overview/getting-started/before-you-begin">
+    Review security best practices and risks
+  </Card>
+</CardGroup>
