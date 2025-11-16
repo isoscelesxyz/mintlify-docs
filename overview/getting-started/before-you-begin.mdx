@@ -3,11 +3,11 @@ title: "Before You Begin"
 description: "Essential information about DeFi risks, wallet security, and protocol considerations before using Aerodrome Finance"
 ---
 
-Before you start using Aerodrome Finance, understand the foundational risks and requirements common to all decentralized finance (DeFi) protocols.
+This page explains the risks and prerequisites for using Aerodrome. Read this before engaging with the protocol to understand what you'll need and the inherent risks common to all <Tooltip tip="Decentralized Finance - financial services without intermediaries like banks">DeFi</Tooltip> protocols.
 
 ## What you'll need
 
-**Wallet with Base network support:**
+### Wallet with Base network support
 
 You need a Web3 wallet configured for the Base network. Popular options include:
 
@@ -15,11 +15,11 @@ You need a Web3 wallet configured for the Base network. Popular options include:
 - [Rabby](https://rabby.io/)
 - [Rainbow](https://rainbow.me/)
 
-**ETH on Base for gas fees:**
+### ETH on Base for gas fees
 
-All transactions on Base require ETH to pay for gas fees. Bridge ETH to Base using the [official Base bridge](https://bridge.base.org) or a third-party bridge.
+All transactions on Base require ETH to pay for <Tooltip tip="Transaction fees paid to network validators">gas fees</Tooltip>. Bridge ETH to Base using the [official Base bridge](https://bridge.base.org) or a third-party bridge.
 
-**Tokens to interact with the protocol:**
+### Tokens to interact with the protocol
 
 To swap, provide liquidity, or participate in governance, you'll need the relevant tokens in your wallet on Base.
 
@@ -27,98 +27,115 @@ To swap, provide liquidity, or participate in governance, you'll need the releva
 
 Using Aerodrome involves inherent risks common to all DeFi protocols. You should understand these risks before interacting with the protocol.
 
-**Smart contract risk**
+### Smart contract risk
 
 Aerodrome runs on smart contracts deployed to Base. While these contracts are audited and battle-tested, smart contracts can contain vulnerabilities that may result in loss of funds.
 
-What this means for you:
+#### What this means for you
+
 - **Contracts** may have undiscovered bugs or vulnerabilities
 - **Protocol upgrades** could introduce new risks
 - **Interactions with other protocols** increase complexity and risk
 
-Mitigations:
-- Review [Aerodrome's security audits](/security) from leading security firms
+#### Mitigations
+
+- Review [Aerodrome's security audits](/overview/security/overview) from leading security firms
 - The protocol has processed billions in volume with no major exploits
 - Start with small amounts until you're comfortable
 
-**Impermanent loss**
+### Impermanent loss
 
 When you provide liquidity to a pool, you deposit two tokens. If the price ratio between those tokens changes, you may have less value than if you had simply held the tokens.
 
-Learn more: [What is Impermanent Loss?](https://www.coinbase.com/learn/crypto-glossary/what-is-impermanent-loss) (Coinbase Learn)
+Learn more: [What is Impermanent Loss?](https://www.coinbase.com/learn/crypto-glossary/what-is-impermanent-loss) (external resource)
 
-What this means for you:
+#### What this means for you
+
 - **Price volatility** between paired tokens creates impermanent loss
 - **Loss timing**: The loss is "impermanent" because it only realizes when you withdraw
 - **Fee offset**: Trading fees can offset impermanent loss, but there's no guarantee
 
-Mitigations:
+#### Mitigations
+
 - Provide liquidity to pairs with correlated prices (e.g., stablecoin pairs)
 - Understand the volatility profile of your chosen tokens
 - Monitor your position and withdraw if impermanent loss exceeds acceptable levels
 
-**Governance and protocol risks**
+### Governance and protocol risks
 
 Aerodrome is governed by veAERO holders who vote on emissions distribution and protocol changes. Governance decisions can impact the value of your positions.
 
-What this means for you:
+#### What this means for you
+
 - **Emissions shifts**: Emissions can shift between pools based on governance votes
 - **Parameter changes**: Protocol parameters may change through governance
 - **Incentive volatility**: Your liquidity pool's incentives can increase or decrease based on votes
 
-Mitigations:
-- Participate in governance by locking AERO for veAERO
+#### Mitigations
+
+- Participate in governance by locking `AERO` for veAERO
 - Monitor governance proposals that may affect your positions
 - Diversify across multiple pools to reduce concentration risk
 
-**Liquidity risk**
+### Liquidity risk
 
 Some pools may have low liquidity, making it difficult to enter or exit positions without significant price impact.
 
-What this means for you:
+#### What this means for you
+
 - **High slippage**: Low liquidity pools may have high slippage on swaps
 - **Market impact**: Withdrawing large positions can move the market against you
 - **Low fees**: Some pools may have minimal trading volume, reducing fee generation
 
-Mitigations:
+#### Mitigations
+
 - Check pool liquidity (TVL) before providing liquidity
 - Start with high-liquidity pools like WETH/USDC or major stablecoin pairs
 - Use limit orders or split large trades across time
 
-**Counterparty and bridge risk**
+### Counterparty and bridge risk
 
 To use Aerodrome on Base, you typically bridge assets from Ethereum or other chains. Bridges introduce additional risks.
 
-What this means for you:
+#### What this means for you
+
 - **Bridge exploits**: Bridges can be exploited or fail, resulting in loss of bridged assets
 - **Bridge security**: Bridged tokens depend on the bridge operator's security
 - **Peg risk**: Wrapped or bridged versions of tokens may depeg from their underlying asset
 
-Mitigations:
-- Use official bridges like the [Base bridge](https://bridge.base.org)
-- Verify token addresses before trading (see [verified tokens](/reference/tokens))
-- Bridge only what you plan to use in the near term
+#### Mitigations
 
----
+- Use official bridges like the [Base bridge](https://bridge.base.org)
+- Verify token addresses before trading (see [Contract Addresses](/overview/security/contract-addresses))
+- Bridge only what you plan to use in the near term
 
 ## Wallet security best practices
 
 Your wallet is your responsibility. Follow these best practices to secure your funds:
 
-**Use a hardware wallet for large amounts:** Hardware wallets like [NGRAVE](https://ngrave.io/), [Ledger](https://www.ledger.com/), and [Trezor](https://trezor.io/) store your private keys offline, protecting against malware and phishing attacks.
+### Use a hardware wallet for large amounts
 
-**Never share your seed phrase:** Your seed phrase (recovery phrase) gives complete control of your wallet. No legitimate service will ever ask for it.
+Hardware wallets like [NGRAVE](https://ngrave.io/), [Ledger](https://www.ledger.com/), and [Trezor](https://trezor.io/) store your private keys offline, protecting against malware and phishing attacks.
 
-**Verify contract addresses:** Before approving token allowances, verify you're interacting with official Aerodrome contracts. See [contract addresses](/reference/contracts).
+### Never share your seed phrase
 
-**Revoke unused token approvals:** Use tools like [Revoke.cash](https://revoke.cash) to revoke token approvals you no longer need. This limits damage if a contract is exploited.
+Your seed phrase (recovery phrase) gives complete control of your wallet. No legitimate service will ever ask for it.
 
-**Beware of phishing:** Always verify you're on the official Aerodrome domain before connecting your wallet. Bookmark the official site and use that bookmark.
+### Verify contract addresses
 
----
+Before approving token allowances, verify you're interacting with official Aerodrome contracts. See [Contract Addresses](/overview/security/contract-addresses).
+
+### Revoke unused token approvals
+
+Use tools like [Revoke.cash](https://revoke.cash) to revoke token approvals you no longer need. This limits damage if a contract is exploited.
+
+### Beware of phishing
+
+Always verify you're on the official Aerodrome domain before connecting your wallet. Bookmark the official site and use that bookmark.
 
 ## No financial guarantees
 
+<Warning>
 Aerodrome Finance is a decentralized protocol. Using the protocol does not guarantee:
 
 - **Yields**: Specific yields or returns
@@ -127,6 +144,7 @@ Aerodrome Finance is a decentralized protocol. Using the protocol does not guara
 - **Profit**: Earnings that exceed transaction costs
 
 **Past performance does not indicate future results.** Pool APRs fluctuate based on trading volume, emissions, and governance votes.
+</Warning>
 
 ## Regulatory considerations
 
@@ -140,10 +158,9 @@ DeFi protocols operate in an evolving regulatory landscape. You are responsible 
 
 Aerodrome Finance does not provide legal, tax, or financial advice.
 
----
-
 ## Your responsibility
 
+<Warning>
 By using Aerodrome Finance, you acknowledge:
 
 - You understand the risks outlined on this page
@@ -152,12 +169,23 @@ By using Aerodrome Finance, you acknowledge:
 - You will not hold the Aerodrome team, contributors, or community liable for losses
 
 If you're uncertain about any of these risks, consult with qualified professionals before proceeding.
+</Warning>
 
 ## Next steps
 
 Now that you understand the foundational risks and requirements:
 
-- [Learn core Aerodrome concepts](/overview/getting-started/key-concepts)
-- [Read the Aerodrome 101 guide](/overview/getting-started/aerodrome-101)
-- [See verified contract addresses](/reference/contracts)
-- [Review security audits](/security/audits)
+<CardGroup cols={2}>
+  <Card title="Key Concepts" icon="book" href="/overview/getting-started/key-concepts">
+    Learn core Aerodrome terminology
+  </Card>
+  <Card title="Aerodrome 101" icon="graduation-cap" href="/overview/getting-started/aerodrome-101">
+    Understand DeFi fundamentals
+  </Card>
+  <Card title="Contract Addresses" icon="shield" href="/overview/security/contract-addresses">
+    View verified contract addresses
+  </Card>
+  <Card title="Security Overview" icon="lock" href="/overview/security/overview">
+    Review security audits and practices
+  </Card>
+</CardGroup>
