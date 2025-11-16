@@ -3,7 +3,244 @@ title: "Third-Party Integrations"
 description: "Developer guides for integrating Aerodrome into your application or protocol"
 ---
 
+You will learn how to integrate Aerodrome's swap and liquidity functionality into your application or protocol, including contract interaction patterns and best practices.
 
-Integration guides for working with Aerodrome in your application.
+## Primary audience
 
-_Content to be added_
+Developers building applications, protocols, or services that need to interact with Aerodrome's smart contracts on Base. This includes DeFi aggregators, portfolio managers, wallet integrations, and protocol-to-protocol integrations.
+
+## Before you begin
+
+<Steps>
+  <Step title="Verify contract addresses">
+    Get verified contract addresses from the [Contract Addresses](/overview/security/contract-addresses) page. Never use addresses from unverified sources.
+  </Step>
+
+  <Step title="Set up Base network access">
+    Ensure your application can interact with Base network via RPC provider (e.g., Alchemy, Infura, or public Base RPC).
+  </Step>
+
+  <Step title="Review security considerations">
+    Read [Before You Begin](/overview/getting-started/before-you-begin) for smart contract risks and security best practices.
+  </Step>
+</Steps>
+
+<Warning>
+Smart contracts are immutable and transactions are irreversible. Test all integrations thoroughly on Base testnet before deploying to production.
+</Warning>
+
+## Core integration patterns
+
+### Querying pool data
+
+Use the [Sugar API](/development/sugar) for efficient on-chain data queries:
+
+**Coming soon**: Complete code examples for querying:
+- Available pools and their reserves
+- Current exchange rates and pricing
+- Liquidity positions and rewards
+- Voting and governance data
+
+### Executing swaps
+
+**Coming soon**: Integration guide for executing token swaps via Aerodrome Router contract, including:
+- Building swap transactions
+- Setting slippage tolerance
+- Handling multi-hop routes
+- Error handling and reverts
+
+**Key contracts:**
+- Router: See [Contract Addresses](/overview/security/contract-addresses)
+- UniversalRouter (for Slipstream/CL pools)
+
+### Adding and removing liquidity
+
+**Coming soon**: Integration guide for liquidity operations, including:
+- Depositing into Basic pools (volatile/stable)
+- Depositing into Slipstream (concentrated liquidity) pools
+- Withdrawing liquidity and claiming fees
+- Position management
+
+### Reading pool reserves and pricing
+
+**Coming soon**: Examples for calculating prices and amounts from pool reserves
+
+**Basic formula:**
+- Volatile pools use constant product: `x * y = k`
+- Stable pools use curve: `x³y + xy³ = k`
+
+## Common integration use cases
+
+### DeFi aggregators
+
+**Coming soon**: Best practices for integrating Aerodrome into DEX aggregators and routing protocols
+
+**Key considerations:**
+- Quote comparison across multiple pools
+- Gas optimization for routing
+- Slippage protection
+
+### Portfolio managers and vaults
+
+**Coming soon**: Guidance for protocols managing liquidity positions on behalf of users
+
+**Key considerations:**
+- Automated position management
+- Rebalancing strategies
+- Fee claiming and compounding
+
+### Analytics and dashboards
+
+For data integrations, see:
+- [Sugar API](/development/sugar) for on-chain queries
+- [Data & Analytics](/development/data-analytics) for external data sources
+
+## Code examples
+
+**Coming soon**: Complete code examples in multiple languages:
+
+### TypeScript (viem)
+
+```typescript
+// Coming soon: Example using viem for swap execution
+import { createPublicClient, http } from 'viem'
+import { base } from 'viem/chains'
+
+// Example structure - verify exact ABI and addresses
+const client = createPublicClient({
+  chain: base,
+  transport: http()
+})
+
+// Query pool data, execute swaps, etc.
+```
+
+### Python (web3.py)
+
+```python
+# Coming soon: Example using web3.py for Aerodrome integration
+from web3 import Web3
+
+# Connect to Base
+w3 = Web3(Web3.HTTPProvider('https://mainnet.base.org'))
+
+# Query pools, execute swaps, etc.
+```
+
+### Solidity (Protocol-to-Protocol)
+
+```solidity
+// Coming soon: Example Solidity contract integrating Aerodrome
+pragma solidity ^0.8.0;
+
+interface IAerodromeRouter {
+    // Interface definitions
+}
+
+contract YourProtocol {
+    // Integration example
+}
+```
+
+## Best practices
+
+### Security considerations
+
+- **Verify contract addresses**: Always cross-reference with official sources
+- **Test on testnet first**: Deploy and test integrations on Base Sepolia testnet
+- **Set appropriate slippage**: Protect users from MEV and sandwich attacks
+- **Handle reverts gracefully**: Implement proper error handling for failed transactions
+- **Validate inputs**: Never trust user input without validation
+
+### Gas optimization
+
+- **Batch operations**: Combine multiple calls when possible
+- **Use Sugar for queries**: More efficient than multiple individual contract calls
+- **Optimize routing**: Find optimal swap paths to minimize hops
+
+### User experience
+
+- **Provide clear feedback**: Show users what will happen before they sign
+- **Display price impact**: Warn users of high slippage or price impact
+- **Include transaction deadlines**: Protect against stale transactions
+- **Show expected outputs**: Calculate and display expected amounts
+
+## GitHub resources
+
+Explore the official Aerodrome contract repositories:
+
+- **[Core Contracts](https://github.com/aerodrome-finance/contracts)**: V2 core contract implementations
+- **[Slipstream](https://github.com/aerodrome-finance/slipstream)**: Concentrated liquidity (V3) contracts
+- **[Sugar API](https://github.com/velodrome-finance/sugar)**: On-chain data aggregation contract
+
+Each repository includes:
+- Full contract source code
+- ABI definitions
+- Deployment scripts
+- Integration examples
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Transaction reverts with 'Insufficient output amount'">
+    This indicates slippage protection triggered. The actual output amount was lower than your specified minimum.
+
+    **Solutions:**
+    - Increase slippage tolerance (carefully - higher slippage = higher MEV risk)
+    - Check pool liquidity depth before executing
+    - Break large trades into smaller chunks
+    - Wait for better market conditions
+  </Accordion>
+
+  <Accordion title="Cannot find pool for token pair">
+    The requested pool may not exist yet.
+
+    **Solutions:**
+    - Use Sugar API to query all available pools
+    - Check if pool exists for the reverse pair (TOKEN1/TOKEN0 vs TOKEN0/TOKEN1)
+    - Verify token addresses are correct
+    - Consider multi-hop routing through intermediate tokens
+  </Accordion>
+
+  <Accordion title="Gas estimation fails">
+    Transaction simulation is reverting, preventing gas estimation.
+
+    **Solutions:**
+    - Check token approvals are set correctly
+    - Verify all input parameters (amounts, addresses, deadlines)
+    - Ensure sufficient token balance
+    - Test with a smaller amount first
+    - Review error message for specific revert reason
+  </Accordion>
+
+  <Accordion title="How do I get contract ABIs?">
+    ABIs are available from multiple sources:
+
+    - **GitHub repositories**: Each contract repo includes ABI files
+    - **Basescan**: View verified contract ABIs on [Basescan](https://basescan.org)
+    - **Sugar repository**: Includes helper contract ABIs
+  </Accordion>
+</AccordionGroup>
+
+## Getting help
+
+**Coming soon**: Information on developer support channels and resources
+
+For protocol-specific questions, see the [Partner FAQs](/help/faqs/partners).
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Sugar API" icon="code" href="/development/sugar">
+    Efficient on-chain data queries
+  </Card>
+  <Card title="Contract Addresses" icon="shield" href="/overview/security/contract-addresses">
+    All verified contract addresses
+  </Card>
+  <Card title="Data & Analytics" icon="chart-line" href="/development/data-analytics">
+    External data sources and platforms
+  </Card>
+  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
+    Pool mathematics and mechanics
+  </Card>
+</CardGroup>

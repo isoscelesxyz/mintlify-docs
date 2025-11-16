@@ -3,7 +3,68 @@ title: "Data & Analytics"
 description: "External data sources and analytics platforms for tracking Aerodrome metrics and performance"
 ---
 
+This reference page lists verified data sources for Aerodrome Finance metrics, including TVL, volume, pool performance, and governance data.
 
-Sourcing reliable data in DeFi can be challenging. Much of the data related to Aerodrome is available directly in the UI. There are also a number of external sources people rely on.
+## Primary audience
 
-_INSERT LIST_
+Developers, data analysts, and protocol teams who need programmatic or visual access to Aerodrome metrics for analysis, dashboards, or integration purposes.
+
+## Official sources
+
+### Aerodrome UI
+
+The [Aerodrome application](https://aerodrome.finance) provides real-time data for:
+
+- Pool TVL and volume
+- Token prices and liquidity depth
+- Individual position performance
+- Voting and governance metrics
+- Emissions and rewards distribution
+
+### On-chain data via Sugar API
+
+For programmatic access to protocol data, use the [Sugar API](/development/sugar), Aerodrome's on-chain contract for efficient batch queries of pools, liquidity, and rewards.
+
+## Third-party analytics platforms
+
+### DefiLlama
+
+[DefiLlama](https://defillama.com/protocol/aerodrome-v2) tracks:
+
+- Total Value Locked (TVL) over time
+- Trading volume
+- Protocol fees and revenue
+- Chain-specific breakdowns (Base vs Optimism)
+
+### Dune Analytics
+
+**Coming soon**: Community dashboards for Aerodrome metrics
+
+### Token Terminal
+
+**Coming soon**: Verified metrics on Token Terminal
+
+### Additional platforms
+
+**Coming soon**: Other verified third-party analytics sources
+
+## Data APIs
+
+### On-chain indexing
+
+**Coming soon**: Subgraph endpoints and indexing services
+
+### Price feeds
+
+**Coming soon**: Oracle and price feed integrations
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Sugar API" icon="code" href="/development/sugar">
+    Query on-chain data directly
+  </Card>
+  <Card title="Third-Party Integrations" icon="plug" href="/development/third-party-integrations">
+    Integrate Aerodrome into your app
+  </Card>
+</CardGroup>
