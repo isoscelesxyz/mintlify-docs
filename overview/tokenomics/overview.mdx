@@ -3,6 +3,11 @@ title: "Tokenomics"
 description: "AERO and veAERO token mechanics, initial distribution, and vote-escrowed voting power system"
 ---
 
+## In this concept
+
+This page explains Aerodrome's token structure and economics for anyone participating in the protocol. You'll learn how `AERO` and veAERO work together, how voting power is calculated, and how tokens were initially distributed.
+
+**Primary audience**: DeFi participants, veAERO holders, and protocol teams evaluating Aerodrome
 
 To ensure maximal stakeholder alignment, Aerodrome puts its native token at the center of protocol mechanics, distributing 100% of revenue to users who lock it for voting power. Because of this, the token represents not just superficial governance rights, but a functional claim on the future productive capacity of the protocol.
 
@@ -11,11 +16,11 @@ To ensure maximal stakeholder alignment, Aerodrome puts its native token at the 
 - **`AERO`** - ERC-20 utility token
 - **veAERO** - ERC-721 governance token in the form of an NFT (the locked form of `AERO`)
 
-Each week, new `AERO` is automatically minted and distributed to liquidity providers (a process called "emissions").
+Each week, new `AERO` is minted and distributed to liquidity providers through a process called <Tooltip tip="Weekly distribution of newly minted AERO tokens to liquidity pools based on gauge votes">emissions</Tooltip>.
 
 **Creating veAERO:**
 
-veAERO is created by vote-escrowing (locking) `AERO`. It is sometimes referred to as a "Lock" or veNFT. Additional tokens can be added to a veAERO NFT at any time.
+veAERO is created by <Tooltip tip="Locking tokens for a specified period to gain voting rights and rewards">vote-escrowing</Tooltip> (locking) `AERO`. It is sometimes referred to as a "Lock" or veNFT. Additional tokens can be added to a veAERO NFT at any time.
 
 **Lock Period and Voting Power:**
 
@@ -41,3 +46,20 @@ Aerodrome Locks (veNFTs) can be set into Auto-Max Lock mode. In this mode, the p
 | Public Goods Fund (Auto Max-Locked)        |   105M |        21% |
 | Development Team Funding (Auto Max-Locked) |    95M |        19% |
 | Flight School (Auto Max-Locked)            |    50M |        10% |
+
+## Where to go next
+
+<CardGroup cols={2}>
+  <Card title="Emissions Schedule" icon="chart-line" href="/overview/tokenomics/emissions">
+    Learn how AERO emissions work and how the AERO Fed governs monetary policy
+  </Card>
+  <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+    Create veAERO to participate in governance and earn protocol revenue
+  </Card>
+  <Card title="Vote on Gauges" icon="check-to-slot" href="/overview/core-features/vote">
+    Use your veAERO to direct emissions and earn rewards
+  </Card>
+  <Card title="Claim Rewards" icon="gift" href="/overview/core-features/rewards">
+    Understand how to claim trading fees, bribes, and rebases
+  </Card>
+</CardGroup>
