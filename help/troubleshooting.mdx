@@ -3,11 +3,134 @@ title: "Troubleshooting"
 description: "Common issues and solutions for using Aerodrome Finance"
 ---
 
+This guide helps you resolve common issues when using Aerodrome. If your problem isn't covered here, reach out on [Discord](https://discord.gg/aerodrome).
 
-Common issues and how to resolve them.
+## Before you begin
+
+Make sure you have:
+
+- A Web3 wallet (MetaMask, Coinbase Wallet, or Rabby) connected to Base
+- Sufficient ETH on Base for gas fees
+- Latest version of your browser
+
+## Swapping Issues
+
+<AccordionGroup>
+  <Accordion title="Transaction fails with 'Insufficient liquidity'" icon="droplet">
+    **Cause:** The pool doesn't have enough liquidity to support your swap size at the current slippage tolerance.
+
+    **Solution:**
+    - Reduce your swap amount
+    - Increase slippage tolerance (be cautious of price impact)
+    - Try splitting the swap into smaller transactions
+  </Accordion>
+
+  <Accordion title="High slippage warning appears" icon="triangle-exclamation">
+    **Cause:** Large trades relative to pool liquidity cause significant price impact.
+
+    **Solution:**
+    - Reduce swap amount
+    - Check if you're using the correct token address
+    - Consider using a different route if available
+  </Accordion>
+
+  <Accordion title="'Approve' transaction required before swap" icon="check-circle">
+    **This is normal behavior.** Before swapping a token for the first time, you must approve the Aerodrome router contract to spend that token.
+
+    After approval completes, submit your swap transaction.
+  </Accordion>
+</AccordionGroup>
+
+## Liquidity Provision Issues
+
+<AccordionGroup>
+  <Accordion title="Can't find my token when adding liquidity" icon="magnifying-glass">
+    **Solution:**
+    - Verify the token contract address from an official source
+    - Paste the contract address directly into the token search field
+    - Ensure you're connected to Base network
+  </Accordion>
+
+  <Accordion title="Transaction fails when staking LP tokens" icon="layer-group">
+    **Causes:**
+    - Wallet/RPC connection issue
+    - Pool is not listed (only listed pools can be staked)
+
+    **Solutions:**
+    - Hard refresh the app (Ctrl+Shift+R or Cmd+Shift+R)
+    - Try a different RPC endpoint in your wallet settings
+    - Verify the pool is listed on Aerodrome
+  </Accordion>
+
+  <Accordion title="Not receiving emissions after staking" icon="coins">
+    **Possible reasons:**
+    - Pool received zero votes this epoch
+    - Your CL position is out of range
+    - Emissions haven't been distributed yet (check epoch timing)
+
+    **Check:**
+    - View the pool's vote weight on the Vote page
+    - For CL pools, verify your position is within the active price range
+    - Emissions distribute at the start of each Thursday epoch
+  </Accordion>
+</AccordionGroup>
+
+## Voting and Locking Issues
+
+<AccordionGroup>
+  <Accordion title="Can't vote - no veAERO balance showing" icon="lock">
+    **Cause:** You need to lock `AERO` to receive veAERO before voting.
+
+    **Solution:**
+    See [How to Lock AERO](/guides/vote/lock-aero) for step-by-step instructions.
+  </Accordion>
+
+  <Accordion title="Votes not updating immediately" icon="clock">
+    **This is normal.** Vote changes may take a few seconds to reflect on-chain.
+
+    Refresh the page after 10-15 seconds to see updated vote allocation.
+  </Accordion>
+
+  <Accordion title="Can't claim voting rewards" icon="gift">
+    **Possible causes:**
+    - Rewards haven't been distributed yet (Thursday 00:00 UTC)
+    - You didn't vote in the previous epoch
+    - No fees/incentives were generated for pools you voted for
+
+    **Solution:**
+    - Wait until Thursday after epoch flip
+    - Verify you voted before Wednesday 23:59 UTC deadline
+  </Accordion>
+</AccordionGroup>
+
+## Wallet and Connection Issues
+
+<AccordionGroup>
+  <Accordion title="Wallet won't connect" icon="wallet">
+    **Solutions:**
+    - Verify you're on Base network in your wallet
+    - Clear browser cache and cookies
+    - Try a different wallet or browser
+    - Disable browser extensions that might interfere
+  </Accordion>
+
+  <Accordion title="Transactions stuck as pending" icon="spinner">
+    **Solutions:**
+    - Check Base block explorer (basescan.org) for transaction status
+    - If stuck for >5 minutes, try increasing gas price and resubmitting
+    - Clear pending transactions in your wallet if needed
+  </Accordion>
+</AccordionGroup>
 
 ---
 
-<Info>
-This page will be populated with troubleshooting guides and solutions for common Aerodrome issues. If you encounter a problem not listed here, reach out to the community on [Discord](https://discord.gg/aerodrome).
-</Info>
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="FAQ for Users" icon="circle-question" href="/help/faqs/users">
+    Common questions about using Aerodrome
+  </Card>
+  <Card title="Join Discord" icon="discord" href="https://discord.gg/aerodrome">
+    Get help from the community
+  </Card>
+</CardGroup>
