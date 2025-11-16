@@ -60,6 +60,10 @@ Use the **mintlify-formatter** skill to:
 - Wrap procedures in `<Steps>` component
 - Add `<Warning>` for risk information
 - Use `<Info>` and `<Tip>` appropriately
+- Consider helpful patterns when appropriate:
+  - `<Tooltip>` on first use of advanced terms (slippage, price impact, etc.)
+  - `<AccordionGroup>` for troubleshooting section (if common issues exist)
+  - `<CardGroup>` for "Next steps" section at the bottom
 - Ensure code blocks have language specified
 - Use correct heading hierarchy
 

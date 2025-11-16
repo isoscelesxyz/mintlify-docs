@@ -15,8 +15,12 @@ Review the selected documentation page and verify:
 5. **Risk warnings**: Are `<Warning>` components present for DeFi operations?
 6. **Terminology**: veAERO, Epochs, MetaDEX used consistently?
 7. **Components**: Proper use of `<Steps>`, `<Tabs>`, `<Info>`, etc?
-8. **Frontmatter**: Complete with title and description?
-9. **Navigation**: Is this page linked from `docs.json`?
+8. **Helpful patterns**: Check if these would improve the page (when appropriate):
+   - `<Tooltip>` on first use of advanced terms (slippage, price impact, etc.)
+   - `<AccordionGroup>` for troubleshooting section (if common issues exist)
+   - `<CardGroup>` for "Next steps" section at the bottom
+9. **Frontmatter**: Complete with title and description?
+10. **Navigation**: Is this page linked from `docs.json`?
 
 **Note**: This project uses `docs.json` (not `mint.json`) for navigation configuration.
 

@@ -3,28 +3,98 @@ title: "Swap"
 description: "How to exchange tokens on Aerodrome with low fees and minimal slippage"
 ---
 
+In this guide, you will learn how to swap tokens on Aerodrome. This guide is for anyone who wants to exchange tokens on Base using Aerodrome's liquidity pools.
 
-As the essential trading hub of Base, Aerodrome is the exchange of choice for users who want to swap tokens on the network. Due to Aerodrome's deep liquidity and innovative mechanics, users typically experience low swap fees and minimal slippage when exchanging tokens.
+## How it works
 
-## To swap tokens on Aerodrome:
+Aerodrome enables token swaps by routing trades through liquidity pools. Due to deep liquidity and efficient routing, swaps typically experience low fees and minimal <Tooltip tip="The difference between the quoted price and the actual executed price due to market movements or liquidity depth">slippage</Tooltip>.
 
-1. Connect your wallet by hitting "Connect" in the upper right corner
-2. Once connected, select the token you'd like to swap in the "Sell" field
-3. Select the token you'd like to swap for in the "Buy" field
-4. Input amount you'd like to trade
-5. Review quote and ensure you are comfortable with the fees and exchange rate
-6. Approve tokens as needed
-7. Complete swap
-8. You can see a "receipt" of your transaction by hitting "View confirmation" (this may take a minute to generate)
+<Warning>
+Large swaps in low-liquidity pools can result in high slippage and price impact. Always review the quote and price impact before confirming your swap.
+</Warning>
 
----
+## Before you begin
 
-**Helpful tips:**
+- You need a Web3 wallet (like MetaMask, Coinbase Wallet, or Rainbow) connected to Base
+- You need the tokens you want to swap, plus ETH for gas fees
+- Ensure you understand slippage tolerance and price impact
 
-- **Slippage tolerance**: If a swap does not execute, try adjusting your slippage tolerance. Assets experiencing volatile pricing swings may require this.
-- **Token search**: If you cannot locate a token by searching for the ticker, search by the token address.
-- **Large swaps**: Be aware that swapping large amounts in low-liquidity pools can lead to high slippage and inefficient swaps.
+## How to swap
 
-<Info>
-"Slippage" refers to the difference between the price quoted before the swap and the actual executed price due to market movements or liquidity depth.
-</Info>
+<Steps>
+  <Step title="Connect your wallet">
+    Click **Connect** in the upper right corner of [Aerodrome Finance](https://aerodrome.finance/swap) and select your wallet.
+  </Step>
+
+  <Step title="Select tokens">
+    In the **Sell** field, select the token you want to swap from.
+
+    In the **Buy** field, select the token you want to receive.
+  </Step>
+
+  <Step title="Enter amount">
+    Input the amount you'd like to trade in either the Sell or Buy field. The other field will automatically calculate based on the current exchange rate.
+  </Step>
+
+  <Step title="Review the quote">
+    Review the exchange rate, fees, and slippage tolerance. Check the price impact percentage to ensure it's acceptable.
+  </Step>
+
+  <Step title="Approve tokens (if needed)">
+    If this is your first time swapping this token, you'll need to approve the contract to spend your tokens. Click **Approve** and confirm the transaction in your wallet.
+  </Step>
+
+  <Step title="Complete the swap">
+    Click **Swap** and confirm the transaction in your wallet.
+  </Step>
+
+  <Step title="View confirmation">
+    After the transaction completes, you can view the receipt by clicking **View confirmation**.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Swap fails or won't execute">
+    If your swap doesn't execute, try increasing your slippage tolerance. Assets experiencing volatile price swings may require higher slippage settings.
+
+    To adjust slippage: Click the settings icon and increase the slippage tolerance percentage.
+  </Accordion>
+
+  <Accordion title="Can't find a token">
+    If you cannot locate a token by searching for the ticker symbol, try searching by the contract address instead.
+
+    You can find verified contract addresses on [Aerodrome's security page](/overview/security/contract-addresses) or on [BaseScan](https://basescan.org/).
+  </Accordion>
+
+  <Accordion title="High slippage warning">
+    High slippage warnings typically occur when:
+    - The pool has low liquidity for the tokens you're swapping
+    - You're swapping a large amount relative to pool size
+    - The token price is highly volatile
+
+    Consider reducing your swap size or checking if there are alternative routes with better liquidity.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+For large swaps, consider splitting them into smaller trades to reduce price impact and slippage.
+</Tip>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+    Earn fees by providing liquidity to pools
+  </Card>
+  <Card title="Understanding Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/index">
+    Learn about different pool types
+  </Card>
+  <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+    Lock AERO to earn protocol revenue
+  </Card>
+  <Card title="Security" icon="shield" href="/overview/security/contract-addresses">
+    View verified contract addresses
+  </Card>
+</CardGroup>

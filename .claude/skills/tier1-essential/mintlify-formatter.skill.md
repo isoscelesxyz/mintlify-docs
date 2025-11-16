@@ -57,6 +57,39 @@ Automatically wrap content in appropriate Mintlify components:
 </Tip>
 ```
 
+**Inline definitions** → `<Tooltip>` component:
+```mdx
+<Tooltip tip="The difference between quoted and executed price">slippage</Tooltip>
+```
+
+**Troubleshooting sections** → `<AccordionGroup>` component:
+```mdx
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Common issue 1">
+    Solution and explanation
+  </Accordion>
+  <Accordion title="Common issue 2">
+    Solution and explanation
+  </Accordion>
+</AccordionGroup>
+```
+
+**Next steps navigation** → `<CardGroup>` component:
+```mdx
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Related action" icon="icon-name" href="/path/to/page">
+    Brief description
+  </Card>
+  <Card title="Learn more" icon="icon-name" href="/path/to/page">
+    Brief description
+  </Card>
+</CardGroup>
+```
+
 **Protocol differences** → `<Tabs>` component:
 ```mdx
 <Tabs>
@@ -91,10 +124,14 @@ When given content to format:
 1. Generate appropriate frontmatter
 2. Identify structural elements (steps, warnings, tips, tabs)
 3. Wrap in correct Mintlify components
-4. Ensure proper markdown syntax
-5. Validate heading hierarchy
-6. Add image paths if images are referenced
-7. Check that code blocks have language specified
+4. Consider helpful patterns (when appropriate):
+   - Add `<Tooltip>` on first use of advanced DeFi terms
+   - Add `<AccordionGroup>` for troubleshooting if common issues exist
+   - Add `<CardGroup>` for "Next steps" at the bottom
+5. Ensure proper markdown syntax
+6. Validate heading hierarchy
+7. Add image paths if images are referenced
+8. Check that code blocks have language specified
 
 ## Output
 

@@ -148,6 +148,9 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 - `<Warning>` for risk callouts and critical warnings
 - `<Info>` for helpful context and tips
 - `<Tip>` for pro tips and optimizations
+- `<Tooltip>` for inline definitions of technical terms and acronyms
+- `<Accordion>` and `<AccordionGroup>` for troubleshooting sections and expandable FAQs
+- `<Card>` and `<CardGroup>` for "Next steps" navigation sections
 - `<Tabs>` for Aerodrome vs Velodrome or Base vs Optimism differences
 - `<CodeGroup>` for multi-language code examples
 
@@ -157,6 +160,45 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 - Use `<Steps>` for any process with 2+ sequential actions
 - Use `<Tabs>` when content differs by protocol or chain (not for general alternatives)
 - Keep code blocks focused (one concept per block, with language specified)
+
+### Helpful Patterns (Use When Appropriate)
+
+When these patterns would improve the documentation, implement them naturally:
+
+**1. Inline definitions with `<Tooltip>`:**
+- On the first use of advanced DeFi terms, wrap them in a tooltip
+- Example: `<Tooltip tip="The difference between quoted and executed price">slippage</Tooltip>`
+- Common terms to tooltip: slippage, price impact, impermanent loss, liquidity depth, concentrated liquidity, vote-escrow, bribes, emissions, rebases
+
+**2. Troubleshooting sections with `<AccordionGroup>`:**
+- Add near the bottom of how-to guides when common issues exist
+- Use `## Troubleshooting` heading
+- Each common issue gets its own `<Accordion>` with descriptive title
+- Example topics: "Transaction fails", "Can't find token", "High slippage warning"
+
+**3. Next steps with `<CardGroup>`:**
+- Add at the very bottom of pages (after troubleshooting if present)
+- Use `## Next steps` heading
+- Include 2-4 related pages as cards with icons
+- Guide users to logical next actions or related concepts
+
+Example structure for a complete how-to guide:
+```mdx
+## How to [do thing]
+<Steps>...</Steps>
+
+## Troubleshooting
+<AccordionGroup>
+  <Accordion title="Common issue 1">...</Accordion>
+  <Accordion title="Common issue 2">...</Accordion>
+</AccordionGroup>
+
+## Next steps
+<CardGroup cols={2}>
+  <Card title="Related action" icon="..." href="...">...</Card>
+  <Card title="Learn more" icon="..." href="...">...</Card>
+</CardGroup>
+```
 
 ### Technical Implementation Notes
 

@@ -34,6 +34,11 @@ Once you have this information:
 
 4. Include `<Warning>` component if risk level is relevant
 
-5. After creating the file, remind me to:
+5. Consider helpful patterns when appropriate:
+   - `<Tooltip>` on first use of advanced DeFi terms
+   - `<AccordionGroup>` for troubleshooting (if common issues exist)
+   - `<CardGroup>` for "Next steps" at the bottom
+
+6. After creating the file, remind me to:
    - Add the page path to `docs.json` navigation
    - Verify the page appears in `mint dev`
