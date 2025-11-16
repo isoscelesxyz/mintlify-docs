@@ -3,67 +3,100 @@ title: "Relay"
 description: "Automated veAERO management for optimized voting, auto-compounding, and hands-free position maintenance"
 ---
 
+Relay is an automated veAERO management system for users who want hands-free position maintenance and optimized voting strategies.
 
-**Relay** simplifies the management of **veAERO** positions. It automates weekly voting and rewards claiming.
+In this concept, you'll learn how Relay works, the difference between compounder and convertor strategies, and how depositing your <Tooltip tip="Vote-escrowed AERO tokens locked for governance">veAERO</Tooltip> into a Relay affects your position and governance rights.
 
-**Core functions:**
+## How Relay works
 
-- **Auto Max-Lock:** veAERO is automatically set to Auto Max-Lock
-- **Automatic voting:** Votes are cast automatically each week
-- **Rebasing:** Rebases are autocompounded back into underlying position
-- **Rewards:** Handled according to chosen strategy
+When you deposit your veAERO into a Relay, the system automates several key functions:
 
----
+- **Auto max-lock**: Your veAERO lock duration automatically extends to the maximum (4 years) and maintains that duration
+- **Automatic voting**: The Relay strategy votes on your behalf each <Tooltip tip="7-day governance period from Thursday 00:00 UTC to Wednesday 23:59 UTC">epoch</Tooltip> according to its programmed logic
+- **Rebase auto-compounding**: Weekly <Tooltip tip="Emissions distributed to veAERO holders based on their voting power">rebases</Tooltip> are automatically claimed and added to your locked position
+- **Reward handling**: Trading fees and bribes are processed according to your chosen strategy type (see below)
 
-**Relay Strategy Types**
+<Warning>
+Depositing into a Relay automatically sets your veAERO to max-lock (4 years). You cannot unlock early, and withdrawals are only possible after the first epoch completes.
+</Warning>
 
-**Compounders**
+## Strategy types
 
-Compounders are designed for users who want to increase their voting power. They automatically claim all rebases and rewards and compound them into veAERO, increasing the underlying locked position. The compounder voting strategy is designed to maximize rewards by dollar value.
+Relay offers two strategy types that handle rewards differently:
 
-**Convertors**
+### Compounders
 
-Convertors are designed to generate liquid yield while maintaining veAERO positions. While rebases are still compounded back into your veNFT, all other rewards are converted into an asset specified by the Relay (eg. USDC, OP, ETH) and are then made claimable each week. Converter voting strategy may include voting for strategic pools that contain specific assets.
+**Goal**: Maximize veAERO voting power over time
 
-<Info>
-Withdrawal of veNFTs is possible only after the first week. Always make sure the automation was run before any withdrawal.
-</Info>
+Compounders automatically claim all rewards (rebases, trading fees, and <Tooltip tip="Incentives deposited by protocols to attract votes to their gauges">bribes</Tooltip>) and convert them to `AERO`, then lock that `AERO` to increase your veAERO position. This strategy votes for pools that generate high total rewards by value.
 
----
+**Best for**: Users who want to grow their veAERO holdings and don't need liquid yield.
 
-**Protocol-Run Relays**
+### Convertors
+
+**Goal**: Generate liquid yield while maintaining veAERO exposure
+
+Convertors compound rebases into your veAERO position (like compounders), but convert all other rewards into a specified asset (such as USDC, ETH, or OP) that you can claim weekly. The voting strategy may prioritize pools containing the target asset.
+
+**Best for**: Users who want regular claimable income while maintaining their veAERO position.
+
+<Warning>
+Withdrawals from Relay are only possible after the first epoch completes. Do not deposit if you need immediate access to your veAERO.
+</Warning>
+
+## Available Relay strategies
+
+### Protocol-run Relays
 
 The **veAERO MAXI Relay** uses a compounder strategy with these functions:
 
-- **Voting:** Votes to optimally achieve maximum rewards available
-- **Rebasing:** Claims the rebase
-- **Rewards conversion:** Claims & converts rewards into AERO
-- **Locking:** Locks all converted AERO, increasing the locked amount of those who deposited into the Relay
+- **Voting**: Votes for pools that historically generate high reward value
+- **Rebasing**: Claims the weekly rebase
+- **Rewards conversion**: Claims and converts rewards into `AERO`
+- **Locking**: Locks all converted `AERO`, increasing the locked amount of those who deposited into the Relay
 
-**Partner Relays**
+### Partner Relays
 
-These Relay strategies are run by or for protocol partners, usually other protocols with the goal of supporting specific liquidity pools.
+Partner Relay strategies are run by or for protocol partners—usually other protocols with the goal of supporting specific liquidity pools.
 
-These strategies generally vote to support their own liquidity and thus those who deposit into those pools. In comparison to the veAERO Maxi, these relays will likely achieve smaller but more consistent rewards for their pools.
+These strategies typically vote to support their own liquidity pools. Partner protocols may generate different reward profiles based on their pool focus compared to the veAERO MAXI strategy.
 
 Partner protocols can request a Relay strategy. This may soon require an open governance proposal to be voted and passed by veAERO voters.
 
----
+## Technical architecture
 
-**Architecture**
+Relay strategies use special managed veNFTs called <Tooltip tip="Managed veNFT that aggregates voting power from deposited veAERO positions">**(m)veNFTs**</Tooltip> that aggregate voting power from multiple deposited veAERO positions.
 
-Relay strategies are simple smart contracts that operate a specially managed **veNFT**, also known as **(m)veNFT**.
+When you deposit your veAERO into a Relay:
 
-The **(m)veNFTs** can be minted or deactivated by the protocol Governor and carry no voting power initially. Instead, these aggregate the voting power of any regular deposited veNFTs. Once withdrawn, the regular veNFTs receive a share of the aggregated voting power and the unlock date is set to maximum.
+1. Your veNFT's voting power is transferred to the Relay's (m)veNFT
+2. The Relay strategy manager (protocol or partner) controls voting for the (m)veNFT
+3. When you withdraw, your veNFT receives its share of the aggregated voting power
+4. Your lock duration is set to maximum (4 years)
 
-Owners of these (m)veNFTs can vote, claim rebases, and collect rewards. That is why these are usually granted to protocols or managers of the Relay strategies.
+Relay strategies are automated and operated by a decentralized network, with the exception of voting, which is handled by the (m)veNFT managers.
 
-In case of an issue with one of the (m)veNFTs, these get deactivated and the depositors will have to withdraw safely their veNFTs.
+<Info>
+If a Relay strategy encounters issues, the protocol can deactivate the (m)veNFT, allowing you to safely withdraw your veAERO.
+</Info>
 
-Relay was designed to solve the partner protocol needs and provide a flexible way to build strategies on top of (m)veNFTs. Relay strategies are automated and operated by a decentralized network, with the exception of the voting, which is handled by the (m)veNFT managers.
+## Governance rights
 
----
+Depositors retain their governance voting power. The protocol Governor tracks and reports the current locked amount of veNFTs managed by each Relay strategy, ensuring your governance weight is preserved even while deposited.
 
-**Governance**
+## Next steps
 
-Depositors are still able to exercise their governance voting power. The Governor will report the up-to-date locked amount of the veNFTs managed by a Relay strategy.
+<CardGroup cols={2}>
+  <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+    Learn how to create veAERO before depositing into a Relay
+  </Card>
+  <Card title="Vote" icon="square-check" href="/overview/core-features/vote">
+    Understand how voting works in Relay strategies
+  </Card>
+  <Card title="Rewards" icon="coins" href="/overview/core-features/rewards">
+    See how rewards are distributed to veAERO holders
+  </Card>
+  <Card title="Autopilot" icon="plane" href="/overview/core-features/autopilot">
+    Compare Relay with Autopilot automated LP management
+  </Card>
+</CardGroup>
