@@ -3,70 +3,172 @@ title: "Aerodrome 101"
 description: "Introduction to DeFi fundamentals, Ethereum, smart contracts, and how Aerodrome fits into the decentralized finance ecosystem"
 ---
 
-For anyone new to DeFi and Aerodrome, this brief explainer may help you understand how onchain systems work (and what “onchain” even means).
+This page explains DeFi fundamentals and how Aerodrome's MetaDEX model solves traditional DEX problems. Read this to understand the context and innovation behind Aerodrome. This guide is for anyone new to DeFi and Aerodrome who wants to understand how <Tooltip tip="On blockchain - activity that happens on a blockchain network">onchain</Tooltip> systems work.
 
 ## DeFi 101
 
-**Ethereum**
+### Ethereum
 
-Ethereum is a popular blockchain. A blockchain is a digital ledger that is distributed across a network of computers rather than living on a centralized server.
+Ethereum is a popular <Tooltip tip="A distributed digital ledger across a network of computers">blockchain</Tooltip>. Unlike Bitcoin, which functions as a currency, Ethereum is a platform where developers can build apps, ranging from financial services to social networks. ETH is the native currency of Ethereum, and it's used to pay <Tooltip tip="Transaction fees paid to network validators">gas fees</Tooltip>—the costs of running computations and storing data on the network.
 
-Unlike Bitcoin, which functions as a currency, Ethereum is a platform where developers can build apps, ranging from financial services to social networks. ETH is the native currency of Ethereum, and it's used to pay "gas fees," the costs of running computations and storing data on the network.
+### Smart contracts
 
-**Smart contracts**
+As a developer platform, Ethereum introduced a technology called <Tooltip tip="Self-executing code that runs autonomously and cannot be altered">smart contracts</Tooltip>. Smart contracts function like digital building blocks, enabling the creation of decentralized applications.
 
-As a developer platform, Ethereum introduced a technology called "smart contracts." Smart contracts are pieces of code that operate autonomously and are immutable (cannot be altered). Smart contracts function like digital building blocks, enabling the creation of decentralized applications.
-
+<Info>
 Long term, Ethereum may serve as infrastructure for a new vision of the internet powered by microtransactions, native currencies, and decentralized value distribution. This system would provide an alternative to today's digital economy, one driven largely by advertising and dominated by tech giants like Meta, Google, Microsoft, and Apple.
+</Info>
 
-**DeFi**
+### Decentralized Finance (DeFi)
 
 Decentralized Finance (DeFi) is a movement to give people around the globe easy access to financial instruments and services without the need for banks, brokers, or other intermediaries. DeFi isn't just a theory—millions of people use it today—but it's still evolving and comes with risks.
 
-Traditional finance relies on banks, brokers, and market makers to maintain "liquidity" (fast and easy access to assets, facilitating global trading and commerce). The current system works but it also includes inefficiencies and many layers of middlemen, each extracting fees.
+Traditional finance relies on banks, brokers, and market makers to maintain <Tooltip tip="Fast and easy access to assets for trading">liquidity</Tooltip>. The current system works but it also includes inefficiencies and many layers of middlemen, each extracting fees.
 
 DeFi aims to deliver financial services with transparency, security, lower costs, and improved accessibility.
 
-**Base and L2s**
+### Base and Layer 2s
 
-As Ethereum rose in popularity, the network became slower and more expensive to operate on. As a solution to this, developers started creating "Layer 2s" (L2s). These networks are blockchains themselves, but they are faster and cheaper to use because they batch transactions and send them to Ethereum less often, thus reducing gas costs and wait times. Base is an L2 created by Coinbase. It is one of the fastest-growing and most successful L2s to date.
+As Ethereum rose in popularity, the network became slower and more expensive to operate on. As a solution to this, developers started creating <Tooltip tip="Blockchains that batch transactions and settle to Ethereum, reducing costs">Layer 2s (L2s)</Tooltip>. These networks are blockchains themselves, but they are faster and cheaper to use because they batch transactions and send them to Ethereum less often, thus reducing gas costs and wait times.
 
-**The Importance of Liquidity**
+Base is an L2 created by Coinbase. It is one of the fastest-growing and most successful L2s to date.
 
-For an economy or marketplace to function, people must be able to easily access currencies and assets. This is called liquidity, and it’s one of DeFi’s most critical challenges. In a traditional system, people can go to a bank or currency exchange and get dollars or euros or yen. But, in a decentralized system, how can users access and buy digital currencies?
+### The liquidity challenge
+
+For an economy or marketplace to function, people must be able to easily access currencies and assets. This is called liquidity, and it's one of DeFi's most critical challenges. In a traditional system, people can go to a bank or currency exchange and get dollars or euros or yen. But in a decentralized system, how can users access and buy digital currencies?
 
 Centralized exchanges (CEXs) like Coinbase are one way to solve the liquidity problem. These exchanges operate similarly to banks, holding large amounts of digital assets and enabling users to trade them for traditional currencies. However, CEXs are limited in what assets they support and remain centralized points of control.
 
-**Decentralized liquidity**
+### How DEXs work
 
-Centralized exchanges require accounts, can freeze funds, and may exclude users based on geography or regulations. DEXs, by contrast, are censorship-resistant: anyone with a crypto wallet can trade, anywhere in the world, without permission. This open access is one of DeFi’s core promises—financial services available to anyone with an internet connection.
+Centralized exchanges require accounts, can freeze funds, and may exclude users based on geography or regulations. DEXs, by contrast, are censorship-resistant: anyone with a crypto wallet can trade, anywhere in the world, without permission.
+
+<Tip>
+This open access is one of DeFi's core promises—financial services available to anyone with an internet connection.
+</Tip>
 
 Decentralized exchanges (DEXs) address these limitations directly. Unlike centralized platforms, DEXs use peer-to-peer networks to facilitate asset swaps without holding user assets centrally. Instead, DEXs rely on users depositing tokens into "liquidity pools," pairs of assets (such as BTC and ETH) whose ratios determine token prices. When users swap tokens, they're actually trading directly through these decentralized pools rather than centralized entities.
 
-**A brief history of DEXs**
+### The evolution of DEXs
 
-Early DEXs like EtherDelta (2017) and 0x protocol used manual order books, struggling with low liquidity and slow trades. The breakthrough came in 2018 when Uniswap popularized the Automated Market Maker (AMM) model, allowing users to deposit paired tokens into liquidity pools and enabling automatic trades. Asset prices were determined algorithmically by the ratio of tokens in pools, dramatically improving liquidity and efficiency.
+Early DEXs like EtherDelta (2017) and 0x protocol used manual order books, struggling with low liquidity and slow trades. The breakthrough came in 2018 when Uniswap popularized the <Tooltip tip="Automated Market Maker - algorithms that govern liquidity pools and pricing">AMM</Tooltip> model, allowing users to deposit paired tokens into liquidity pools and enabling automatic trades. Asset prices were determined algorithmically by the ratio of tokens in pools, dramatically improving liquidity and efficiency.
 
-However, early AMMs quickly learned that liquidity providers (LPs)—the users depositing assets—were opportunistic, moving their tokens frequently between platforms chasing higher yields. This created instability and slippage (unexpected price changes during a trade) for users, challenging DEX reliability.
+However, early AMMs quickly learned that liquidity providers (LPs)—the users depositing assets—were opportunistic, moving their tokens frequently between platforms chasing higher yields. This created instability and <Tooltip tip="Unexpected price changes during a trade">slippage</Tooltip> for users, challenging DEX reliability.
 
 In response, modern DEXs recognized the necessity of not just innovative technology but also sophisticated economic systems to retain LPs.
 
-**Problems with traditional DEX design:**
+### Problems with traditional DEX design
 
-**Capped rewards:** Most DEXs incentivize LPs with a portion of swap fees, so if there is a slow trading week, LPs earn little rewards.
+Traditional DEXs face fundamental alignment problems:
 
-**Misaligned stakeholdership:** Most DEXs have to balance the needs and interests of many stakeholders. They have investors who want a return, a team that wants to get paid, LPs who want high rewards and, of course, token swappers who want reliable, low-fee trades. Many have also introduced another stakeholder group: tokenholders (people who hold the native token of the DEX). Historically, the challenge is one of misalignment: if they increase the value for one stakeholder, it's at the expense of another. The entire operation becomes a juggling act.
+#### Capped rewards
+Most DEXs incentivize LPs with a portion of swap fees, so if there is a slow trading week, LPs earn little rewards. This leads to LP flight and unstable liquidity.
 
----
+#### Misaligned stakeholders
+Most DEXs have to balance the needs and interests of many stakeholders:
+- **Investors** who want a return
+- **The team** that wants to get paid
+- **LPs** who want high rewards
+- **Swappers** who want reliable, low-fee trades
+- **Tokenholders** who want value capture
 
-## Aerodrome 101
+Historically, the challenge is one of misalignment: if they increase the value for one stakeholder, it's at the expense of another. The entire operation becomes a juggling act, with protocol revenue often going to teams or investors rather than participants.
 
-**The MetaDEX**
+## The MetaDEX Solution
 
-MetaDEXs (Velodrome and Aerodrome) solve the alignment problem with an innovative economic system that puts their native tokens at the center. See MetaDEX to learn more.
+Aerodrome uses the MetaDEX model to solve these alignment problems with an innovative economic system.
 
-**Where we are today**
+### What is a MetaDEX?
 
-Today, DeFi powers billions in daily trading volume. From simple swaps to advanced financial products, decentralized systems are becoming as reliable and liquid as traditional finance, but far more open. MetaDEXs represent the latest stage of this evolution, where economic incentives are designed for long-term sustainability.
+A MetaDEX (Meta Decentralized Exchange) is a next-generation DEX model that distributes **100% of protocol revenue** to active participants who vote to direct token emissions to liquidity pools.
 
-Aerodrome is the leading MetaDEX on Base. To get started, you’ll need a wallet, some tokens on Base, and an understanding of a few key concepts, covered in the glossary that follows.
+Unlike traditional DEXs that:
+- Keep protocol revenue for the team/treasury
+- Or distribute value to passive tokenholders
+- Or struggle to retain liquidity providers
+
+**MetaDEXs create sustainable alignment** by making active governance participation the path to earning protocol revenue.
+
+### How MetaDEX aligns stakeholders
+
+The MetaDEX model solves the alignment problem by unifying all stakeholder incentives:
+
+**For Traders:**
+- Deep, sustainable liquidity means low fees and minimal slippage
+- Reliable trading conditions backed by emissions-incentivized LPs
+
+**For Liquidity Providers:**
+- Earn both swap fees AND token emissions
+- Emissions provide steady rewards even during slow trading weeks
+- Can lock earned tokens to become voters and earn protocol revenue
+
+**For Tokenholders (veAERO voters):**
+- Earn 100% of protocol revenue (fees + bribes)
+- Direct emissions to pools, influencing LP behavior
+- Active participation = value capture
+
+**For Protocols:**
+- Bootstrap liquidity by depositing incentives (bribes)
+- Attract veAERO votes to direct emissions to their pools
+- Build liquid markets for their tokens
+
+Everyone benefits from protocol growth, creating a sustainable flywheel instead of a zero-sum game.
+
+### The MetaDEX flywheel
+
+The MetaDEX model creates a self-reinforcing cycle:
+
+<Steps>
+  <Step title="veAERO holders vote">
+    veAERO voters direct weekly `AERO` token emissions to liquidity pools
+  </Step>
+  <Step title="Emissions attract liquidity">
+    Liquidity providers stake in pools with high emissions to earn `AERO` rewards
+  </Step>
+  <Step title="Liquidity enables efficient swaps">
+    Deep liquidity means traders get better prices with minimal slippage
+  </Step>
+  <Step title="Swaps generate fees">
+    Trading activity generates swap fees that become protocol revenue
+  </Step>
+  <Step title="Revenue attracts votes">
+    100% of fees (plus bribes) go to voters, who continue voting for high-volume pools
+  </Step>
+</Steps>
+
+Each step reinforces the next, creating durable liquidity and long-term sustainability. This is the key innovation that sets MetaDEXs apart from traditional DEX designs.
+
+### Why Aerodrome chose the MetaDEX model
+
+Aerodrome recognized that DEX success requires more than just efficient trading algorithms—it requires aligned economic incentives.
+
+By distributing 100% of protocol revenue to veAERO voters:
+- **Liquidity stays put**: Emissions provide stable rewards, reducing LP flight
+- **Voters are aligned**: They benefit from directing emissions to high-volume pools
+- **Protocols can bootstrap**: Bribes attract votes, which attract LPs, which enable trading
+- **No team extraction**: Revenue goes to participants, not a central team
+
+This creates a sustainable system where all participants benefit from growth, making Aerodrome the leading DEX on Base.
+
+### Where we are today
+
+Today, DeFi powers billions in daily trading volume. From simple swaps to advanced financial products, decentralized systems are becoming as reliable and liquid as traditional finance, but far more open. MetaDEXs represent the latest stage of this evolution, where economic incentives are designed for long-term sustainability rather than short-term extraction.
+
+Aerodrome is the leading MetaDEX on Base. To get started, you'll need a wallet, some tokens on Base, and an understanding of a few key concepts.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Key Concepts" icon="book" href="/overview/getting-started/key-concepts">
+    Learn essential DeFi and Aerodrome terminology
+  </Card>
+  <Card title="What is Aerodrome?" icon="info" href="/overview/index">
+    Deep dive into the MetaDEX model
+  </Card>
+  <Card title="Before You Begin" icon="circle-check" href="/overview/getting-started/before-you-begin">
+    Understand risks and prerequisites
+  </Card>
+  <Card title="Start Swapping" icon="arrow-right-arrow-left" href="/overview/core-features/swap">
+    Make your first trade on Aerodrome
+  </Card>
+</CardGroup>
