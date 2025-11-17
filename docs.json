@@ -188,7 +188,7 @@
     "primary": {
       "type": "button",
       "label": "Launch App",
-      "href": "https://app.aerodrome.finance"
+      "href": "https://aerodrome.finance"
     }
   },
   "contextual": {

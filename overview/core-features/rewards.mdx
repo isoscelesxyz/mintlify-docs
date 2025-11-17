@@ -6,12 +6,14 @@ description: "How to claim voting rewards, fee distributions, and rebase rewards
 You will learn how to claim rewards from your veAERO voting positions and liquidity pools. Aerodrome distributes 100% of protocol revenue to voters each week through three reward types: fee distributions, voter incentives, and rebase rewards.
 
 <Warning>
-Always verify reward amounts before claiming. Gas fees may exceed small reward values, especially for individual pool claims.
+  Always verify reward amounts before claiming. Gas fees may exceed small reward
+  values, especially for individual pool claims.
 </Warning>
 
 ## Before you begin
 
 You should have:
+
 - A wallet connected to Aerodrome
 - veAERO tokens (for voting rewards) or staked liquidity positions (for fee rewards)
 - Voted in at least one Epoch (for voting rewards)
@@ -20,7 +22,7 @@ You should have:
 
 <Steps>
 <Step title="Navigate to your Dashboard">
-Go to [app.aerodrome.finance/dashboard](https://app.aerodrome.finance/dashboard) and connect your wallet.
+Go to [aerodrome.finance/dash](https://aerodrome.finance/dash) and connect your wallet.
 </Step>
 
 <Step title="View available rewards">
@@ -40,17 +42,20 @@ Choose one of:
 ## Understanding reward types
 
 **Fee distributions**
+
 - 100% of fees from staked liquidity + 10% fees from unstaked liquidity in emissions-eligible CL pools
 - Distributed in the same tokens as the liquidity pool (e.g., AERO/USDC pool distributes AERO and USDC)
 - Available for claim immediately as they accrue
 
 **Voter incentives**
+
 - Tokens deposited by protocols to encourage voting for specific pools
 - Only available for pools that qualify for emissions
 - Distributed proportionally to your share of votes on that pool
 - Claimable after the Epoch changes (Thursday 00:00 UTC)
 
 **Rebase rewards**
+
 - Weekly AERO emissions distributed to veAERO holders
 - Amount based on your veAERO balance and lock duration
 - Claimable after a new Epoch has started (Thursday 00:00 UTC)
@@ -86,16 +91,28 @@ Rewards are distributed proportionally based on:
 ## Next steps
 
 <CardGroup cols={2}>
-<Card title="Vote for pools" icon="check-to-slot" href="/overview/core-features/vote">
-Direct emissions to pools and earn rewards
-</Card>
-<Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
-Increase your veAERO balance for higher rewards
-</Card>
-<Card title="Incentivize voters" icon="gift" href="/overview/core-features/incentivize">
-Learn how protocols deposit incentives
-</Card>
-<Card title="Emissions schedule" icon="coins" href="/overview/tokenomics/emissions">
-Understand AERO emissions and decay
-</Card>
+  <Card
+    title="Vote for pools"
+    icon="check-to-slot"
+    href="/overview/core-features/vote"
+  >
+    Direct emissions to pools and earn rewards
+  </Card>
+  <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+    Increase your veAERO balance for higher rewards
+  </Card>
+  <Card
+    title="Incentivize voters"
+    icon="gift"
+    href="/overview/core-features/incentivize"
+  >
+    Learn how protocols deposit incentives
+  </Card>
+  <Card
+    title="Emissions schedule"
+    icon="coins"
+    href="/overview/tokenomics/emissions"
+  >
+    Understand AERO emissions and decay
+  </Card>
 </CardGroup>
