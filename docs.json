@@ -7,7 +7,7 @@
     "light": "#4A90FF",
     "dark": "#0041CC"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "metadata": {
     "description": "Official documentation for Aerodrome Finance - the essential trading hub and liquidity marketplace on Base",
     "og:site_name": "Aerodrome Documentation",
