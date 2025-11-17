@@ -1,0 +1,273 @@
+---
+title: "Advanced veNFT Management"
+description: "Learn advanced veNFT features including merging, splitting, delegation, permanent locks, and secondary market strategies."
+---
+
+This guide is for experienced veAERO holders who want to optimize their positions through advanced management features. You will learn how to merge positions, split veNFTs, delegate voting power, enable permanent locks, and leverage secondary markets.
+
+## Before you begin
+
+You'll need:
+- An existing veAERO position (see [Lock](/overview/core-features/lock))
+- Understanding of basic lock mechanics
+- ETH on Base for gas fees
+- Careful consideration of irreversible actions (merge, permanent lock)
+
+## Merge veNFTs
+
+Combine multiple veNFT positions into a single position to consolidate voting power and simplify management.
+
+<Steps>
+<Step title="Select source positions">
+  Navigate to your Locks dashboard and identify the veNFTs you want to merge. You must own all positions.
+</Step>
+
+<Step title="Initiate merge">
+  Select the veNFT you want to merge into (the "destination") and the veNFT(s) you want to merge from (the "source").
+</Step>
+
+<Step title="Understand lock duration calculation">
+  The resulting lock duration is a **weighted average** based on the amount of `AERO` and remaining lock time in each position.
+</Step>
+
+<Step title="Confirm transaction">
+  Review the resulting position details. Once confirmed, source veNFTs are permanently burned and cannot be recovered.
+</Step>
+</Steps>
+
+<Warning>
+Merging veNFTs is **irreversible**. Source veNFTs are burned permanently and cannot be recovered. Carefully verify which positions you are merging before confirming the transaction.
+</Warning>
+
+**When to merge:**
+- Consolidate fragmented positions from multiple locks
+- Simplify management by reducing the number of veNFTs to track
+- Prepare a position for transfer or sale
+
+## Split veNFTs
+
+Divide a single veNFT into multiple smaller positions while maintaining the original lock expiry date.
+
+<Steps>
+<Step title="Select position to split">
+  Navigate to the veNFT you want to divide into smaller positions.
+</Step>
+
+<Step title="Define split amounts">
+  Specify how much `AERO` each resulting veNFT should contain. The sum must equal your original position size.
+</Step>
+
+<Step title="Confirm split">
+  All resulting veNFTs will inherit the same lock expiry date as the original position. Voting power splits proportionally based on the amount in each new veNFT.
+</Step>
+</Steps>
+
+**When to split:**
+- Sell or transfer a portion of your locked position while retaining the rest
+- Delegate specific amounts of voting power to different strategies
+- Diversify voting across multiple independent positions
+- Create smaller positions for testing new strategies
+
+## Delegation
+
+Lend your voting power to another veNFT without transferring ownership or rewards.
+
+### How delegation works
+
+When you delegate your veNFT's voting power:
+- The **delegatee** (recipient veNFT) controls how your voting power is used
+- You (the delegator) **continue to earn all rebases and rewards**
+- You can revoke delegation at any time
+- You retain ownership of your veNFT
+
+<Steps>
+<Step title="Select position to delegate">
+  Navigate to the veNFT whose voting power you want to delegate.
+</Step>
+
+<Step title="Choose delegatee">
+  Enter the token ID of the veNFT that will receive your voting power. This can be another veNFT you own or one owned by another address.
+</Step>
+
+<Step title="Confirm delegation">
+  Your voting power is now controlled by the delegatee. You continue earning rewards but cannot vote with this position until you revoke delegation.
+</Step>
+
+<Step title="Revoke delegation (optional)">
+  To regain control of your voting power, revoke the delegation at any time. Your voting power returns immediately.
+</Step>
+</Steps>
+
+<Warning>
+While delegated, the delegatee has **full control** over how your voting power is used. Only delegate to addresses you trust. You cannot vote with a delegated position until you revoke the delegation.
+</Warning>
+
+**When to use delegation:**
+- Participate in managed voting services or strategies
+- Coordinate voting with protocol partners or DAOs
+- Delegate within a team while maintaining separate reward streams
+- Test voting strategies without creating new locks
+
+## Permanent locks (Auto-Max Lock)
+
+Enable permanent maximum voting power by locking your `AERO` indefinitely.
+
+### How permanent locks work
+
+A permanent lock:
+- Maintains **maximum voting power** (equivalent to a 4-year lock) indefinitely
+- **Never decays** - voting power remains constant
+- **Cannot be unlocked** - the `AERO` is locked forever
+- Continues earning rebases indefinitely
+- Can only be exited by selling or transferring the veNFT itself
+
+<Steps>
+<Step title="Select position">
+  Navigate to the veNFT you want to convert to a permanent lock.
+</Step>
+
+<Step title="Enable permanent lock">
+  Click "Enable Permanent Lock" and carefully review the warning that this action is irreversible.
+</Step>
+
+<Step title="Confirm transaction">
+  Your veNFT now has permanent maximum voting power and can never be unlocked.
+</Step>
+</Steps>
+
+<Warning>
+Permanent locks are **completely irreversible**. Your `AERO` will be locked forever and can never be unlocked. The only way to exit is to sell or transfer the veNFT itself on secondary markets. Only use permanent locks if you are committed to holding veAERO long-term.
+</Warning>
+
+**When to use permanent locks:**
+- Long-term conviction in Aerodrome protocol
+- Signal maximum commitment to potential buyers (e.g., protocols acquiring veAERO)
+- Eliminate the need to extend locks manually
+- Maximize consistent voting power without decay
+
+**Benefits:**
+- Maximum voting power permanently (no decay over time)
+- No need to extend locks or manage expiry dates
+- Continue earning rebases indefinitely
+- Clear signal of long-term alignment
+
+**Exit strategy:**
+- Sell the veNFT on secondary markets (often at a discount due to permanent lock)
+- Transfer to another wallet or protocol
+- Cannot unlock the underlying `AERO` under any circumstances
+
+## Voting power vs governance power
+
+veAERO provides two types of power that use the same numeric value but serve different purposes:
+
+### Voting power
+Used for **weekly gauge votes** to direct `AERO` emissions to liquidity pools. Your voting power determines how much influence you have over where emissions are allocated each epoch.
+
+- Calculated based on locked amount and remaining lock duration
+- Used every epoch to vote on pool gauges
+- Determines your share of voting incentives (bribes and fees)
+
+### Governance power
+Used for **protocol governance** via Snapshot voting on proposals that affect Aerodrome's parameters, upgrades, and strategic decisions.
+
+- Same numeric value as voting power
+- Used for infrequent governance votes (not weekly)
+- Represents your voice in protocol-level decisions
+
+<Info>
+Both powers use the same balance (`balanceOfNFT` in the contract), but they serve different purposes. Voting power is for weekly emissions allocation, while governance power is for protocol-level decisions.
+</Info>
+
+## veNFT transferability and secondary markets
+
+veAERO positions are implemented as **ERC-721 NFTs**, making them fully transferable and tradeable.
+
+### How transfers work
+
+- veNFTs can be transferred like any other NFT
+- The recipient gains all voting rights and future rewards
+- Lock duration and amount transfer with the NFT
+- Permanent locks transfer as permanent locks
+
+### Secondary markets
+
+veNFT holders can sell their positions on NFT marketplaces:
+
+**Typical pricing:**
+- veNFTs often trade at a **discount** to the underlying `AERO` value
+- Discount increases as lock expiry approaches
+- Permanent locks may trade at higher discounts due to irreversibility
+- Short remaining lock duration = larger discount
+
+**Buying considerations:**
+- Verify the lock expiry date before purchasing
+- Check if the lock is permanent (cannot be unlocked)
+- Understand that you cannot unlock early even if you buy at a discount
+- Evaluate whether voting rewards justify the discount
+
+**Selling considerations:**
+- Expect to sell at a discount to underlying `AERO` value
+- Longer remaining lock duration = better price
+- Permanent locks may be harder to sell
+- Consider unlocking and selling `AERO` directly if your lock has expired
+
+### Transfer use cases
+
+- **Exit liquidity**: Sell locked position before expiry without waiting
+- **OTC deals**: Transfer to protocols or partners acquiring veAERO
+- **Estate planning**: Transfer to another wallet you control
+- **Position rebalancing**: Sell one veNFT to buy another with different characteristics
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can I merge veNFTs with different lock expiry dates?">
+    Yes. When you merge veNFTs with different expiry dates, the resulting lock duration is calculated as a **weighted average** based on the amount of `AERO` and remaining lock time in each position.
+  </Accordion>
+
+  <Accordion title="What happens if I try to reverse a permanent lock?">
+    You cannot reverse a permanent lock under any circumstances. This is by design and cannot be changed. The only way to exit is to sell or transfer the veNFT itself. Never enable permanent lock unless you are certain of your long-term commitment.
+  </Accordion>
+
+  <Accordion title="Can I delegate to multiple veNFTs?">
+    No. Each veNFT can only delegate to one other veNFT at a time. To split delegation across multiple recipients, first split your veNFT into multiple positions, then delegate each to a different recipient.
+  </Accordion>
+
+  <Accordion title="Do I still earn rewards while my position is delegated?">
+    Yes. Delegation only transfers voting control, not ownership or rewards. You continue to earn all rebases and voting rewards (fees and bribes) based on how the delegatee votes on your behalf.
+  </Accordion>
+
+  <Accordion title="How do I know if a veNFT is permanently locked before buying it?">
+    Check the veNFT details on-chain or in the marketplace interface. Permanently locked veNFTs will show "Permanent Lock" status. If you're unsure, verify the contract state directly or ask in the Aerodrome Discord before purchasing.
+  </Accordion>
+
+  <Accordion title="Can I split a veNFT and change the lock duration?">
+    No. Split veNFTs always inherit the same lock expiry date as the original position. If you want different lock durations, you must unlock the original position (if expired) and create new locks with different durations.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Vote on Emissions"
+    icon="check-to-slot"
+    href="/overview/core-features/vote"
+  >
+    Use your veAERO voting power to direct emissions
+  </Card>
+  <Card
+    title="Understand Relays"
+    icon="tower-broadcast"
+    href="/overview/core-features/relay"
+  >
+    Automate veNFT management with Relays
+  </Card>
+  <Card
+    title="Back to Lock Basics"
+    icon="lock"
+    href="/overview/core-features/lock"
+  >
+    Review basic lock creation and management
+  </Card>
+</CardGroup>

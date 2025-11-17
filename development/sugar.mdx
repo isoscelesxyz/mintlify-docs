@@ -1,112 +1,16 @@
 ---
-title: "Sugar"
-description: "Aerodrome's on-chain API for efficiently fetching protocol data, pools, and liquidity information"
+title: "Sugar Contracts"
+description: "Decentralized on-chain API for Aerodrome protocol data"
 ---
 
-Sugar is Aerodrome's on-chain API contract that provides gas-efficient batch queries for protocol data including pools, liquidity positions, rewards, and governance information.
+Sugar is Aerodrome's on-chain API contract that enables fully decentralized data access without relying on centralized indexers, databases, or backend infrastructure.
 
-<CardGroup cols={2}>
-  <Card
-    title="Sugar on GitHub"
-    icon="github"
-    href="https://github.com/velodrome-finance/sugar"
-  >
-    Contract source code, ABI definitions, and integration examples
-  </Card>
-  <Card
-    title="JavaScript SDK"
-    icon="js"
-    href="https://github.com/velodrome-finance/sdk.js"
-  >
-    Official JavaScript/TypeScript SDK for Aerodrome integration
-  </Card>
-</CardGroup>
+By aggregating protocol data directly on-chain, Sugar allows frontends and applications to remain entirely in web3—avoiding the common pitfall of decentralized protocols depending on centralized data infrastructure. All protocol data is queryable through a single contract call, eliminating the need for traditional backend services.
 
-## Primary audience
-
-Developers building applications or integrations that need to fetch Aerodrome protocol data programmatically. Sugar enables efficient data queries without multiple separate contract calls.
-
-## What is Sugar?
-
-Sugar is a smart contract that aggregates data from multiple protocol contracts into single, gas-efficient calls. Instead of making dozens of individual contract calls to fetch pool data, liquidity positions, or rewards, you can use Sugar to batch these queries.
-
-**Key benefits:**
-
-- **Gas efficient**: Single contract call instead of multiple queries
-- **Comprehensive**: Returns structured data for pools, positions, rewards, and governance
-- **On-chain**: No reliance on external indexers or APIs
-- **Real-time**: Always reflects current blockchain state
-
-## Contract addresses
-
-**Coming soon**: Sugar contract addresses for Base network
-
-For the latest contract addresses, verify from the [official contract addresses page](/overview/security/contract-addresses).
-
-## Available endpoints
-
-### Pool queries
-
-**Coming soon**: Documentation for pool-related Sugar methods including:
-- `all()` - Fetch all pools with pagination
-- `byIndex()` - Fetch specific pool by index
-- `/pools/top` - Highest TVL pools (Sugar v3)
-
-### Position queries
-
-**Coming soon**: Documentation for liquidity position methods
-
-### Rewards queries
-
-**Coming soon**: Documentation for rewards and bribes data methods
-
-### Governance queries
-
-**Coming soon**: Documentation for voting and epoch data methods including:
-- `/epochs/latest` - Current epoch with voting deadlines (Sugar v3)
-
-## Usage examples
-
-**Coming soon**: Code examples for integrating Sugar API in TypeScript, Python, and other languages
-
-### Basic pool query example
-
-```typescript
-// Example structure (verify ABI and method names from GitHub)
-import { readContract } from 'viem'
-
-const pools = await readContract({
-  address: '0x...', // Sugar contract address
-  abi: sugarAbi,
-  functionName: 'all',
-  args: [limit, offset]
-})
-```
-
-## Version history
-
-### Sugar v3 (January 2025)
-
-Released with improved data endpoints:
-
-- New `/pools/top` endpoint for highest TVL pools
-- Enhanced `/epochs/latest` with voting deadline timestamps
-- Performance improvements across all endpoints (avg 40% faster)
-- Added WebSocket support for real-time pool updates
-
-See the [changelog](/changelog/README) for complete version history.
-
-## Integration guide
-
-For a complete integration guide including Sugar usage, see [Third-Party Integrations](/development/third-party-integrations).
-
-## Next steps
-
-<CardGroup cols={2}>
-  <Card title="Third-Party Integrations" icon="plug" href="/development/third-party-integrations">
-    Complete integration guide for developers
-  </Card>
-  <Card title="Contract Addresses" icon="shield" href="/overview/security/contract-addresses">
-    Verified contract addresses
-  </Card>
-</CardGroup>
+<Card
+  title="Sugar on GitHub"
+  icon="github"
+  href="https://github.com/velodrome-finance/sugar"
+>
+  Contract source code, ABI definitions, and integration examples
+</Card>
