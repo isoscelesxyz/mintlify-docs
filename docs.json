@@ -42,7 +42,13 @@
             "group": "Core Features",
             "icon": "star",
             "pages": [
-              "overview/core-features/swap",
+              {
+                "group": "Swap",
+                "pages": [
+                  "overview/core-features/swap/index",
+                  "overview/core-features/swap/advanced"
+                ]
+              },
               {
                 "group": "Liquidity",
                 "pages": [
