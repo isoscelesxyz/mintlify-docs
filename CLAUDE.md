@@ -135,7 +135,7 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 1. Start with "In this concept" summary
 2. Explain the mental model and why it matters
 3. Provide a simple, concrete example (when helpful)
-4. End with "Where to go next" or `## Next steps`
+4. End with `## Next steps` (when helpful)
 
 **For Reference Pages:**
 
@@ -153,7 +153,7 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 - `<Tooltip>` for inline definitions of technical terms and acronyms
 - `<Accordion>` and `<AccordionGroup>` for troubleshooting sections and expandable FAQs
 - `<Card>` and `<CardGroup>` for "Next steps" navigation sections
-- `<Tabs>` for Aerodrome vs Velodrome or Base vs Optimism differences
+- `<Tabs>` for multi-chain differences (Base vs Optimism) or version comparisons
 - `<CodeGroup>` for multi-language code examples
 
 ### Component Usage Rules

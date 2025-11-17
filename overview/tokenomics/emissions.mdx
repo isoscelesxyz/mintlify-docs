@@ -34,30 +34,43 @@ veAERO holders receive a <Tooltip tip="Additional AERO tokens distributed to veA
 
 The weekly rebase amount is calculated as:
 
-```
-rebase = weeklyEmissions × (1 - veAERO.totalSupply ÷ AERO.totalSupply)^2 × 0.5
-```
+<Latex>
+  rebase = weeklyEmissions × (1 - veAERO.totalSupply ÷ AERO.totalSupply)^2 × 0.5
+</Latex>
 
 Where:
+
 - `weeklyEmissions` = Total `AERO` minted in the current epoch
 - `veAERO.totalSupply` = Total locked veAERO supply
 - `AERO.totalSupply` = Total `AERO` token supply
 
 The rebase formula rewards veAERO holders most when locking rates decrease, incentivizing new participants to lock tokens. Note that veAERO supply does not affect weekly emissions distributed to liquidity providers through gauges—rebases are separate from gauge emissions.
 
-## Where to go next
+## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Tokenomics Overview" icon="coins" href="/overview/tokenomics/overview">
+  <Card
+    title="Tokenomics Overview"
+    icon="coins"
+    href="/overview/tokenomics/overview"
+  >
     Learn about AERO and veAERO token structure and initial distribution
   </Card>
   <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
     Create veAERO to earn rebases and participate in governance
   </Card>
-  <Card title="Vote on Gauges" icon="check-to-slot" href="/overview/core-features/vote">
+  <Card
+    title="Vote on Gauges"
+    icon="check-to-slot"
+    href="/overview/core-features/vote"
+  >
     Direct emissions using your veAERO voting power
   </Card>
-  <Card title="Claim Rewards" icon="gift" href="/overview/core-features/rewards">
+  <Card
+    title="Claim Rewards"
+    icon="gift"
+    href="/overview/core-features/rewards"
+  >
     Learn how to claim rebases, trading fees, and bribes
   </Card>
 </CardGroup>

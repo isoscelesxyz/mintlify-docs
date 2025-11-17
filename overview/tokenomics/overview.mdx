@@ -1,5 +1,5 @@
 ---
-title: "Tokenomics"
+title: "Tokenomics Overview"
 description: "AERO and veAERO token mechanics, initial distribution, and vote-escrowed voting power system"
 ---
 
@@ -24,10 +24,13 @@ veAERO is created by <Tooltip tip="Locking tokens for a specified period to gain
 
 **Lock Period and Voting Power:**
 
-The lock period (also known as vote-escrowed period, hence the "ve" prefix) can be up to four years. The longer the vesting time, the higher the voting power (voting weight) of the underlying locked balance, following the linear relationship below:
+The lock period (also known as vote-escrowed period, hence the "ve" prefix) can be up to four years. The longer the vesting time, the higher the voting
+power (voting weight) of the underlying locked balance:
 
 - 100 `AERO` locked for 4 years → 100 veAERO
 - 100 `AERO` locked for 1 year → 25 veAERO
+
+Voting power scales linearly: <Latex>veAERO = AERO × (lockDuration ÷ 4 years)</Latex>
 
 **Auto-Max Lock:**
 
@@ -47,19 +50,31 @@ Aerodrome Locks (veNFTs) can be set into Auto-Max Lock mode. In this mode, the p
 | Development Team Funding (Auto Max-Locked) |    95M |        19% |
 | Flight School (Auto Max-Locked)            |    50M |        10% |
 
-## Where to go next
+## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Emissions Schedule" icon="chart-line" href="/overview/tokenomics/emissions">
+  <Card
+    title="Emissions Schedule"
+    icon="chart-line"
+    href="/overview/tokenomics/emissions"
+  >
     Learn how AERO emissions work and how the AERO Fed governs monetary policy
   </Card>
   <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
     Create veAERO to participate in governance and earn protocol revenue
   </Card>
-  <Card title="Vote on Gauges" icon="check-to-slot" href="/overview/core-features/vote">
+  <Card
+    title="Vote on Gauges"
+    icon="check-to-slot"
+    href="/overview/core-features/vote"
+  >
     Use your veAERO to direct emissions and earn rewards
   </Card>
-  <Card title="Claim Rewards" icon="gift" href="/overview/core-features/rewards">
+  <Card
+    title="Claim Rewards"
+    icon="gift"
+    href="/overview/core-features/rewards"
+  >
     Understand how to claim trading fees, bribes, and rebases
   </Card>
 </CardGroup>
