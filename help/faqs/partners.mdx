@@ -237,104 +237,108 @@ For foundational information before launching on Aerodrome, see [Before You Begi
   </Accordion>
 </AccordionGroup>
 
-## Aero Launch
+## Launcher (Pool Creation)
+
+<Info>
+For a comprehensive guide to creating pools, choosing pool types, setting initial pricing, and lock strategies, see the [Launcher documentation](/overview/partners/launcher).
+</Info>
 
 <AccordionGroup>
-  <Accordion title="What is Aero Launch?" icon="rocket">
-    Aerodrome Launch is a tool that streamlines creating and deploying pools for token creators and launchpads. Included with the tool is a free liquidity locker that anyone can use.
+  <Accordion title="What is Launcher and how do I create a pool?" icon="plus">
+    Launcher is Aerodrome's permissionless pool creation system. Any project can create liquidity pools without approval, choose pool types (V2 or concentrated), and optionally lock liquidity to demonstrate commitment.
+
+    **Quick start:**
+    1. Go to [aerodrome.finance/liquidity](https://aerodrome.finance/liquidity)
+    2. Click "New Deposit" to start pool creation
+    3. Select pool type (V2 volatile/stable or CL)
+    4. Configure token pair and initial amounts
+    5. Optionally set liquidity lock duration
+
+    See [Launcher guide](/overview/partners/launcher) for complete step-by-step instructions, pool type selection guidance, and lock duration strategies.
   </Accordion>
 
-  <Accordion title="What are the benefits of using Aero Launch?" icon="check">
-    Aero Launch streamlines pool creation and management for token creators and launchpads:
+  <Accordion title="What are the benefits of locking liquidity?" icon="lock">
+    Locking LP tokens signals long-term commitment to your project and the ecosystem:
 
-    - **Simplified deployment**: User-friendly interface removes the need for complex smart contract interactions
-    - **Integrated liquidity locker**: Demonstrate long-term commitment to your project's liquidity
-    - **Ecosystem optimization**: Pools created via Aero Launch are automatically configured for Aerodrome's incentive mechanisms and future listing eligibility
-    - **Support and features**: Access to team support for fee optimization and exposure through features like the "emerging" tag
+    **For your project:**
+    - Demonstrates credibility and reduces rug pull concerns
+    - Shows confidence in long-term token viability
+    - May improve listing prospects and community trust
+    - Locked liquidity is publicly visible
 
+    **Lock features:**
+    - Owner receives 100% of rewards from locked position by default
+    - Optional beneficiary can be set with custom percentage split
+    - Lock ownership is transferable
+    - Duration configurable (1 month to 1+ year)
+
+    **Technical details:**
+    - Create pool, add liquidity, and lock can be done in one transaction
+    - Supports programmatic integration for launchpads
+    - See [Pool Launcher Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_POOL_LAUNCHER.md) for contract details
   </Accordion>
 
-{" "}
+  <Accordion title="Can I automate pool creation and locking?" icon="robot">
+    Yes, Launcher supports full programmatic integration. You can create pool, add liquidity, lock liquidity, set beneficiary, and transfer ownership in a single transaction.
 
-<Accordion title="Can you tell me more about the LP locking?" icon="lock">
-  You will be able to lock positions and become the owner of that lock, by
-  default receiving 100% of the rewards from the locked position. Additionally a
-  beneficiary can be set with a percentage. Ownership of that lock can be
-  transferred as well.
-</Accordion>
-
-{" "}
-
-<Accordion title="Can you only add 1 address as a beneficiary?" icon="user">
-  Yes, only 1 beneficiary address.
-</Accordion>
-
-{" "}
-
-<Accordion title="Can the Aero Launch functions be automated?" icon="robot">
-  Yes, create pool, add liquidity, lock liquidity, set beneficiary and/or
-  transfer ownership can be done in one transaction by your contracts.
-</Accordion>
-
-  <Accordion title="Do you have any integration docs for Aero Launch?" icon="book">
-    Technical documentation and specifications are available in the pool-launcher repository:
-
+    **Integration resources:**
     - [Pool Launcher Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_POOL_LAUNCHER.md) - Contract interface for creating pools
     - [Locker Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_LOCKER.md) - Contract interface for locking liquidity
 
+    This is ideal for launchpads and platforms that want to integrate Aerodrome pool creation into their own interfaces.
   </Accordion>
 </AccordionGroup>
 
 ## Aero Ignition
 
+<Info>
+For complete details on Aero Ignition including the full 4-week timeline, key benefits, emissions caps, and launch checklists, see the [Aero Ignition documentation](/overview/partners/aero-ignition).
+</Info>
+
 <AccordionGroup>
-  <Accordion title="What is the timing of everything for Community Launches?" icon="clock">
-    **Week 1**
+  <Accordion title="What is Aero Ignition?" icon="rocket">
+    Aero Ignition is Aerodrome's curated fair-launch framework for community-aligned token launches. Projects deposit unpriced incentives (up to 4% of supply) before trading begins, allowing veAERO voters to price the token through an auction-like mechanism. After 1 week, trading opens with organic liquidity formation and price discovery.
 
-    1-5% of supply deposited as incentives with no price. Voters vote for their share of these tokens. The value of the emissions voted that way gives an approximate initial value like an auction.
+    **Key features:**
+    - Fair distribution with anti-sniping protections
+    - Immediate Coinbase DEX integration listing
+    - Deep liquidity from AERO emissions
+    - Transparent onchain price discovery
+    - Curated launches (one at a time for maximum exposure)
 
-    **Week 2**
-
-    Trading opens, emissions flow to the pool, liquidity grows organically, price discovery happens, traders pay fees which will be deposited to attract votes and emissions in week 3. Projects then deposit one more week of incentives but by this time those incentives are market priced like any other so can be a much smaller % of total supply.
-
-    **Week 3**
-
-    Fees from week 1 can now carry it from here assuming they're sustaining enough (have the benefit of the 1.3-1.5x multiplier) or the project can add more incentives.
-
-    On net, a much better deal than 10% out the door day 1 — or than if teams were seeding and incentivizing directly. Giving projects way more of their own token to react to whatever the market throws at them later on.
-
+    **Timeline**: 4-week process from incentive deposit → trading opens → fees sustain liquidity. See [Aero Ignition documentation](/overview/partners/aero-ignition) for the complete timeline and requirements.
   </Accordion>
 
-{" "}
+  <Accordion title="Why is the implied FDV so low during Week 1?" icon="chart-line">
+    Implied FDV increases throughout the week as more veAERO voters allocate votes to the pool. Most voting activity happens in the final 24 hours of each epoch as voters wait to see total vote allocation before committing.
 
-<Accordion title="What are the gauge caps for Aero Ignition?" icon="gauge-high">
-  Aero Ignition pools are limited to 15% of total weekly emissions. If `veAERO`
-  votes push emissions beyond this threshold, the excess is redirected
-  proportionally to other pools according to vote weight.
-</Accordion>
+    **How it works:**
+    - Projects deposit unpriced incentives (e.g., 4% of supply)
+    - Voters bid for share of incentives by allocating votes
+    - More votes → higher estimated incentive value → higher implied FDV
 
-  <Accordion title="What's the implied FDV formula?" icon="square-root-variable">
-    Simple formula:
-    ```
-    FDV = (% of votes on pool * total epoch rewards) / % total supply of incentive
-    ```
+    **Formula**: `Implied FDV = (Estimated Incentive Value) / (% of supply deposited)`
 
-    Extended formula:
-    ```
-    FDV = (% votes on Pool * $ Total Emissions² * (1 - % Votes on Pool)) / (% Total Epoch Rewards * % Total Supply of Incentive)
-    ```
-
+    This gradual price discovery is intentional—it prevents manipulation and allows the market to organically determine fair value. By Wednesday evening (vote deadline), you'll see the final implied FDV based on total vote weight.
   </Accordion>
 
-{" "}
+  <Accordion title="How do I apply for an Aero Ignition launch?" icon="paper-plane">
+    Aero Ignition launches are highly curated and selective. Only one launch happens at a time to maximize exposure and reduce noise.
 
-<Accordion title="Why is the implied FDV so low?" icon="chart-line">
-  As voters continue to grow for the Community Launch pool, the FDV will
-  increase. Most voting happens in the last 24 hours of every epoch.
-</Accordion>
+    **Application process:**
+    1. Review the [project checklist](/overview/partners/aero-ignition#project-checklist) to ensure you meet requirements
+    2. Prepare project documentation: tokenomics, use case, community size, security audits
+    3. Reach out to the Aerodrome team via [Discord](https://discord.gg/aerodrome)
+    4. Be ready to discuss launch timing, incentive amounts, and coordination
 
-  <Accordion title="Where can I read more about Aero Ignition?" icon="newspaper">
-    Read the full announcement: [A New Era for Token Launches](https://medium.com/@aerodromefi/a-new-era-for-token-launches-3a9b173ae68f)
+    **What Aerodrome looks for:**
+    - Strong product-market fit and real utility
+    - Engaged community and social presence
+    - Transparent tokenomics and fair distribution
+    - Alignment with Base ecosystem growth
+    - Commitment to long-term liquidity provision
+
+    The team will work with selected projects to coordinate the launch timeline and ensure successful execution.
   </Accordion>
 </AccordionGroup>
 
