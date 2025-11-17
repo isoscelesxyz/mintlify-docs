@@ -10,6 +10,192 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
   for detailed instructions.
 </Info>
 
+## Getting Started
+
+<AccordionGroup>
+  <Accordion title="How do I connect my wallet and select the correct network?" icon="wallet">
+    To use Aerodrome, you need a Web3 wallet configured for Base network:
+
+    <Steps>
+      <Step title="Install a compatible wallet">
+        Popular options include:
+        - [Coinbase Wallet](https://www.coinbase.com/wallet) (recommended for beginners)
+        - [Rabby](https://rabby.io/)
+        - [Rainbow](https://rainbow.me/)
+        - MetaMask, WalletConnect, or other Web3 wallets
+      </Step>
+
+      <Step title="Add Base network">
+        Most modern wallets auto-detect Base. If not, add manually:
+        - **Network Name**: Base
+        - **Chain ID**: 8453
+        - **RPC URL**: https://mainnet.base.org
+        - **Currency Symbol**: ETH
+        - **Block Explorer**: https://basescan.org
+      </Step>
+
+      <Step title="Connect to Aerodrome">
+        1. Visit [aerodrome.finance](https://aerodrome.finance)
+        2. Click "Connect Wallet" in the top right
+        3. Select your wallet provider
+        4. Approve the connection request
+        5. Verify you're on **Base network** (shown in wallet)
+      </Step>
+
+      <Step title="Switch networks if needed">
+        If you're on the wrong network (e.g., Ethereum mainnet), your wallet will prompt you to switch. Click "Switch Network" to continue.
+      </Step>
+    </Steps>
+
+    <Info>
+    Aerodrome only works on Base network (chain ID: 8453). If you're on Ethereum mainnet or another network, you won't be able to interact with the protocol.
+    </Info>
+  </Accordion>
+
+  <Accordion title="Where can I get tokens on Base?" icon="coins">
+    You need tokens on Base network to swap, provide liquidity, or participate in governance.
+
+    **Option 1: Bridge from Ethereum**
+    - Use the official [Base Bridge](https://bridge.base.org) (recommended)
+    - Or bridge through [Coinbase](https://www.coinbase.com) for integrated experience
+    - Bridge ETH, USDC, or other supported tokens from Ethereum to Base
+
+    **Option 2: Buy directly on Base**
+    - Use fiat on-ramp services that support Base
+    - Purchase ETH or USDC directly on Base network
+    - Coinbase users can buy and send directly to Base
+
+    **Option 3: Receive from another wallet**
+    - Ask sender to send tokens to your Base address
+    - Your Ethereum address works on Base (same address, different network)
+    - **Warning**: Always verify the sender is using Base network, not Ethereum
+
+    **What tokens you'll need:**
+    - **ETH**: Required for gas fees (even small amounts work)
+    - **USDC/WETH**: Common for swapping and providing liquidity
+    - **AERO**: If you want to participate in governance (can swap for it on Aerodrome)
+
+    <Tip>
+    Start with at least $20 worth of ETH for gas fees and some USDC or WETH to experiment with swapping and liquidity provision.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="How do approvals work and when are they needed?" icon="check-circle">
+    **What are approvals?**
+
+    Approvals (also called "token allowances") give smart contracts permission to move your tokens. They're required before you can:
+    - Swap tokens
+    - Add liquidity to pools
+    - Stake LP tokens or CL positions
+    - Lock AERO for veAERO
+
+    **How approvals work:**
+
+    <Steps>
+      <Step title="First interaction">
+        The first time you use a token with a specific contract (e.g., swapping USDC), you'll see an "Approve" button.
+      </Step>
+
+      <Step title="Approve transaction">
+        Click "Approve" and confirm in your wallet. This transaction costs gas but doesn't move your tokens.
+      </Step>
+
+      <Step title="Set allowance">
+        The approval grants the contract permission to spend up to a specified amount (usually unlimited for convenience).
+      </Step>
+
+      <Step title="Proceed with action">
+        After approval confirms, you can proceed with the actual transaction (swap, deposit, etc.).
+      </Step>
+    </Steps>
+
+    **When you need approvals:**
+    - ✅ **Once per token per contract** - First time using a token in a specific action
+    - ✅ **After revoking** - If you previously revoked approvals for security
+    - ❌ **Not for receiving tokens** - Approvals only needed for spending
+    - ❌ **Not for ETH/native tokens** - ETH doesn't require approvals
+
+    **Approval tips:**
+    - Most wallets default to "unlimited" approval (saves gas on future transactions)
+    - You can set exact amounts if preferred (requires re-approval when exceeded)
+    - Revoke unused approvals for security using tools like [Revoke.cash](https://revoke.cash)
+
+    <Info>
+    Approvals are separate from the actual transaction. You'll confirm two transactions: (1) the approval, then (2) the swap/deposit/stake action.
+    </Info>
+  </Accordion>
+
+  <Accordion title="What are epochs and why do they matter?" icon="calendar-week">
+    **Epochs** are 7-day governance periods that run from **Thursday 00:00 UTC** to **Wednesday 23:59 UTC**. All protocol activities align with this weekly schedule.
+
+    **What happens each epoch:**
+
+    | Event | Timing | Details |
+    |-------|--------|---------|
+    | **Voting deadline** | Wednesday 23:59 UTC | Last chance to vote or change votes |
+    | **Epoch starts** | Thursday 00:00 UTC | New epoch begins |
+    | **Emissions distributed** | Thursday 00:00 UTC | AERO tokens sent to staked LPs based on votes |
+    | **Rewards accrue** | Throughout the week | Fees and emissions accumulate |
+    | **Voting rewards claimable** | Next Thursday | Fees and bribes from previous epoch become claimable |
+
+    **Why epochs matter to you:**
+
+    **If you're a veAERO voter:**
+    - Vote before Wednesday 23:59 UTC to direct next week's emissions
+    - Votes carry over automatically (no need to vote every week)
+    - Claim rewards (fees + bribes) after each epoch completes
+
+    **If you're a liquidity provider:**
+    - AERO emissions are distributed at epoch start (Thursday)
+    - Emissions accrue continuously throughout the epoch
+    - Claim emissions anytime during or after the epoch
+
+    **If you're swapping:**
+    - Epochs don't affect trading (swap anytime)
+    - Pool liquidity may shift based on weekly vote changes
+
+    **Key insight:**
+    Epochs create a predictable rhythm for governance, emissions, and rewards. Understanding this schedule helps you time votes, claims, and liquidity decisions.
+
+    <Tip>
+    Most active participants vote near the Wednesday deadline after seeing final incentive amounts. This maximizes information before committing votes.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Where do I find official links and contract addresses?" icon="link">
+    **Official websites and apps:**
+    - Main app: [aerodrome.finance](https://aerodrome.finance)
+    - Blog: [paragraph.com/@dromos](https://paragraph.com/@dromos)
+    - Documentation: You're here! [docs.aerodrome.finance](https://docs.aerodrome.finance)
+
+    **Social channels (verify official links):**
+    - Twitter/X: [@AerodromeFi](https://twitter.com/AerodromeFi)
+    - Discord: [discord.gg/aerodrome](https://discord.gg/aerodrome)
+    - Medium: [@AerodromeFi](https://medium.com/@AerodromeFi)
+
+    **Contract addresses:**
+
+    For verified contract addresses, see the [Contract Addresses](/overview/security/contract-addresses) page in documentation.
+
+    **Security best practices:**
+    - ✅ Bookmark official URLs and verify before connecting wallet
+    - ✅ Check contract addresses on [BaseScan](https://basescan.org) before interacting
+    - ✅ Join official Discord only through links from verified Twitter account
+    - ❌ Never trust contract addresses from Twitter DMs or random websites
+    - ❌ Beware of phishing sites with similar domains (aer0drome, aerodr0me, etc.)
+
+    <Warning>
+    Always verify you're on the official aerodrome.finance domain before connecting your wallet. Phishing sites often use similar-looking domains to steal credentials and funds.
+    </Warning>
+
+    **How to verify contract addresses:**
+    1. Go to [BaseScan](https://basescan.org)
+    2. Search for the contract address
+    3. Verify it's verified (green checkmark) and matches official documentation
+    4. Check deployment date and transaction history
+  </Accordion>
+</AccordionGroup>
+
 ## Tokens and Governance
 
 <AccordionGroup>
@@ -364,6 +550,158 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
 
   <Accordion title="What happens if I sell my veNFT?" icon="user-group">
     The recipient of the veNFT inherits all rights and control over the voting position.
+  </Accordion>
+</AccordionGroup>
+
+## Relay (Managed veNFTs)
+
+<AccordionGroup>
+  <Accordion title="Can I use Relay if my lock expires soon?" icon="hourglass">
+    Yes, but your lock will immediately extend to 4 years upon deposit. If your lock expires in 2 weeks and you deposit into Relay, you'll be locked for 4 years from that moment.
+
+    Consider whether this aligns with your liquidity needs before depositing. Learn more about lock extension implications in the [Relay documentation](/overview/core-features/relay#lock-extension-implications).
+  </Accordion>
+
+  <Accordion title="Do I lose governance voting power when depositing into Relay?" icon="vote-yea">
+    No. While the Relay manager controls your weekly gauge votes (which pools get emissions), you retain governance voting power for protocol proposals.
+
+    The protocol Governor tracks and reports your locked amount even while deposited, ensuring your governance weight is preserved. Learn more: [Governance Rights](/overview/core-features/relay#governance-rights)
+  </Accordion>
+</AccordionGroup>
+
+## Voting & Gauges
+
+<AccordionGroup>
+  <Accordion title="How do I split votes across multiple pools?" icon="chart-pie">
+    You can distribute your voting power across as many pools as you want:
+
+    <Steps>
+      <Step title="Navigate to Vote page">
+        Go to the [Vote page](https://aerodrome.finance/vote) on Aerodrome.
+      </Step>
+
+      <Step title="Find pools to vote for">
+        Search for or browse the pools you want to support. You can vote for 100+ pools at once.
+      </Step>
+
+      <Step title="Enter vote percentages">
+        For each pool, enter a percentage of your voting power. The UI shows a running total as you allocate.
+      </Step>
+
+      <Step title="Ensure total equals 100%">
+        Your vote percentages must total exactly 100%. The interface will prevent submission if they don't.
+      </Step>
+
+      <Step title="Submit votes">
+        All votes are submitted in a single transaction. Confirm in your wallet.
+      </Step>
+    </Steps>
+
+    **Example allocation:**
+    - 40% to AERO/USDC pool
+    - 35% to WETH/USDC pool
+    - 25% to wstETH/WETH pool
+
+    <Tip>
+    You can vote for as many pools as you want in a single transaction. There's no limit on the number of pools you can support.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Can I change my vote mid-epoch?" icon="rotate">
+    Yes, but with important caveats:
+
+    **How to change votes:**
+    1. You must **RESET all current votes** first (deletes your entire allocation)
+    2. Then allocate new votes from zero
+    3. New votes apply to the current epoch immediately
+
+    **Important considerations:**
+    - You **cannot incrementally adjust** votes - it's all-or-nothing
+    - Each reset costs gas fees
+    - Resetting and re-voting mid-epoch may affect your rewards
+
+    **Best practice:**
+    Vote once per epoch near the deadline (Wednesday before 23:59 UTC) after reviewing all incentives. This way you can see the final bribe amounts before committing your votes.
+
+    <Warning>
+    Changing votes mid-epoch requires resetting ALL votes, not just adjusting individual pools. Make sure the gas cost and potential reward changes justify the reset.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Do votes carry over to the next epoch?" icon="calendar-check">
+    **Yes, votes carry over automatically** unless:
+    - You manually reset your votes
+    - Your veNFT lock expires (voting power becomes zero)
+    - You transfer or sell your veNFT
+
+    **Benefits of automatic carryover:**
+    - "Set and forget" voting - no need to vote every week
+    - Your votes remain active even if you don't visit the app
+    - Reduces gas costs (only vote when you want to change allocation)
+
+    **However:**
+    The incentive landscape changes weekly. Active voters adjust their allocations to maximize returns based on current bribes and pool performance.
+
+    <Tip>
+    While votes carry over, consider reviewing your allocation weekly to capture the best opportunities as protocols adjust their incentives.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="When is the vote deadline and when do rewards start?" icon="clock">
+    **Weekly epoch timeline (all times UTC):**
+
+    | Event | Day/Time | Details |
+    |-------|----------|---------|
+    | **Vote deadline** | Wednesday 23:59 UTC | Last chance to vote or change votes for upcoming epoch |
+    | **New epoch starts** | Thursday 00:00 UTC | Emission distribution begins |
+    | **Emissions begin** | Thursday 00:00 UTC | AERO distributed immediately to staked LPs |
+    | **Rewards accrue** | Throughout epoch | Fees and emissions accumulate during the week |
+    | **Fees/bribes claimable** | After epoch completes (next Thursday) | Voting rewards become claimable |
+
+    **Timeline visual:**
+    ```
+    Wed 23:59 UTC → Vote deadline
+    Thu 00:00 UTC → Epoch starts, emissions begin
+    Thu-Wed      → Rewards accrue
+    Next Thu     → Claim voting rewards (fees + bribes)
+    ```
+
+    <Tip>
+    Vote near the Wednesday deadline to see final incentive amounts before committing your votes. Protocols often deposit bribes throughout the week.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="How do I choose pools to maximize returns?" icon="brain">
+    Choosing pools requires balancing multiple factors. Here are key considerations (not investment advice):
+
+    **1. Check incentives and bribes:**
+    - Look at $/vote ratio displayed on pool gauges
+    - Higher $/vote = more rewards per unit of voting power
+    - Compare across pools to find best opportunities
+
+    **2. Evaluate trading fees:**
+    - High-volume pools generate more fee revenue
+    - Fees are distributed to voters along with bribes
+    - Check 7-day and 30-day volume trends
+
+    **3. Balance risk and reward:**
+    - Established pools (WETH/USDC) = lower risk, stable returns
+    - Emerging pools = higher potential returns, higher risk
+    - New token pools = evaluate project fundamentals
+
+    **4. Consider diversification:**
+    - **Concentrated strategy**: Put all votes in 1-2 high-incentive pools
+    - **Diversified strategy**: Spread votes across 5-10 pools to reduce risk
+    - Both approaches have merit depending on your risk tolerance
+
+    **5. Monitor weekly changes:**
+    - Incentives change every epoch as protocols adjust bribes
+    - Pool popularity shifts based on market conditions
+    - Active management can improve returns
+
+    <Warning>
+    Past performance does not guarantee future results. Always do your own research before voting. Pool incentives, volumes, and returns fluctuate weekly based on market conditions and protocol strategies.
+    </Warning>
   </Accordion>
 </AccordionGroup>
 
