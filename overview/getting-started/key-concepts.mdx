@@ -1,9 +1,9 @@
 ---
-title: "Key Concepts"
-description: "Essential DeFi and Aerodrome terminology including tokens, liquidity pools, AMMs, and governance concepts"
+title: "Key Concepts & Terminology"
+description: "Comprehensive reference of DeFi and Aerodrome terms including liquidity, trading, governance, and concentrated liquidity concepts"
 ---
 
-This glossary defines essential terms for understanding Aerodrome and decentralized finance. Use this as a reference when encountering unfamiliar terminology throughout the documentation.
+This reference defines essential terms and concepts for understanding Aerodrome and decentralized finance. Use this as a comprehensive glossary when encountering unfamiliar terminology throughout the documentation.
 
 ## General DeFi Terms
 
@@ -41,7 +41,21 @@ This glossary defines essential terms for understanding Aerodrome and decentrali
 
 **Concentrated Pools (Slipstream)**: Concentrated liquidity pools that require LPs to select the price range where their liquidity is active. Inspired by UniV3, Slipstream introduces key enhancements, such as decoupling tick spacing from fees, wider tick spaces, and native reward streaming limited only to active liquidity.
 
-**Autopilot**: Automated liquidity management provided by Mellow. Without ALM, liquidity providers must manually adjust their positions in Slipstream pools. With ALM, this management is automated based on historical performance and dynamic parameters. Mellow collects 10% of the rewards earned for providing this service.
+**Price Impact**: The price change caused by your trade size relative to the pool's liquidity depth. Larger trades in smaller pools create more price impact. Different from slippage—price impact is predictable based on trade size, while slippage occurs from market movements or other transactions.
+
+## Concentrated Liquidity (Advanced)
+
+**Tick**: Discrete price levels in concentrated liquidity pools where liquidity can be placed. Slipstream pools divide the entire price curve into these individual ticks, allowing precise liquidity positioning.
+
+**Tick Spacing**: The minimum interval between usable ticks in a pool, determining how granular your price ranges can be. Lower tick spacing (1, 10) allows tighter ranges but requires more active management. Higher tick spacing (200, 2000) requires wider minimum ranges with less frequent rebalancing.
+
+**Active Range**: The specific price range where your concentrated liquidity position is currently earning fees and emissions. When the market price moves outside this range, your position stops earning until price returns or you rebalance.
+
+**Dynamic Fees**: Slipstream's automatic fee adjustment mechanism that increases fees during high volatility to compensate LPs for increased risk and price impact. Fees scale based on recent trading volatility and pool conditions.
+
+**Unstaked Fee Rake**: In concentrated liquidity pools, 10% of fees from unstaked positions are directed to veAERO voters, while 90% goes to the LP. This incentivizes voters to support CL pools even when liquidity isn't staked for emissions.
+
+**LVR (Loss-Versus-Rebalancing)**: The theoretical cost of providing liquidity compared to holding and rebalancing a static portfolio. Concentrated liquidity pools minimize LVR through dynamic fees and efficient capital deployment within active ranges.
 
 ## Aerodrome-Specific Terms
 
@@ -66,6 +80,40 @@ This glossary defines essential terms for understanding Aerodrome and decentrali
 **Locking**: In Aerodrome, "locking" refers to the process of converting liquid `AERO` into an NFT that grants its holder governance rights (namely, the ability to vote to direct weekly token emissions). Locked tokens do not disappear or decay, but they are made non-transferable until the lock period ends. The longer the lock period, the more voting power is granted.
 
 **Relay**: Aerodrome's automation tool for managing veAERO positions, including voting, reward claims, and position adjustments. Relays simplify governance participation for veAERO holders.
+
+## Advanced veNFT Concepts
+
+**veNFT**: The ERC-721 NFT token representing locked `AERO`. Each veNFT is transferable, can be merged or split, and grants voting rights proportional to the amount locked and lock duration remaining.
+
+**Managed veNFT (mveNFT)**: A special veNFT controlled by a Relay strategy that aggregates voting power from multiple deposited positions. Users deposit their veNFTs into an mveNFT to enable automated voting and reward management.
+
+**Permanent Lock (Auto-Max Lock)**: A veNFT setting that automatically maintains maximum lock duration (4 years) indefinitely. The lock never decays and voting power remains constant. This setting is irreversible—once enabled, the veNFT can only be transferred or sold, never unlocked.
+
+**Voting Power**: The weight of your veAERO when voting on weekly gauge emissions. Calculated as locked `AERO` amount multiplied by remaining lock duration. Used to direct `AERO` emissions to liquidity pools.
+
+**Governance Power**: The weight of your veAERO when voting on protocol proposals (via Snapshot or onchain governance). Same numeric value as voting power but used for protocol-level decisions rather than weekly emissions.
+
+**Merge**: Combining multiple veNFTs into a single position. All `AERO` from merged veNFTs consolidates into one NFT with a weighted-average lock duration. This operation is irreversible—merged veNFTs are permanently burned.
+
+**Split**: Dividing one veNFT into multiple smaller positions. All resulting veNFTs inherit the original lock expiry date. Useful for selling portions of a position or diversifying voting strategies.
+
+**Delegation**: Lending your veNFT's voting power to another address while retaining ownership and rebases. The delegatee controls gauge votes but you keep governance power and earn rebases. Delegation can be revoked at any time.
+
+## Protocol Programs & Tools
+
+**Aero Ignition**: Aerodrome's curated community fair-launch program for new tokens. Features structured price discovery, anti-MEV protections, and Foundation support. See [Aero Ignition](/overview/partners/aero-ignition) for details.
+
+**Flight School**: Foundation program that distributes veAERO to new participants who lock `AERO` for the first time. Funded through a dedicated wallet that uses 100% of voting rewards to buy `AERO` from the market and lock it for distribution. See [Flight School](/overview/partners/flight-school).
+
+**Slipstream**: Aerodrome's concentrated liquidity implementation with enhancements over Uniswap V3, including decoupled tick spacing, dynamic fees, and optimized reward streaming. Named to distinguish from basic V2-style pools.
+
+**Sugar**: Aerodrome's onchain API for querying protocol data without external dependencies. Provides read-only access to pool information, positions, rewards, and voting data directly from blockchain state. See [Sugar API](/development/sugar).
+
+**AERO Fed**: Governance system activated when emissions drop below 9M per epoch. Allows veAERO voters to collectively decide each week whether to increase (0.01% of supply), decrease (0.01% of supply), or maintain emission rates. This creates community-controlled monetary policy.
+
+**Launcher**: Permissionless pool creation system that allows any project to launch liquidity pools with optional liquidity locking. Projects can create V2 or concentrated pools, set initial pricing, and lock liquidity to signal long-term commitment. See [Launcher](/overview/partners/launcher).
+
+**Autopilot**: Automated liquidity management for concentrated pools provided by Mellow. Automatically rebalances CL positions to keep them in range based on market conditions and historical performance. Mellow collects 10% of rewards earned for providing this service. See [Autopilot](/overview/core-features/autopilot).
 
 ## Related Resources
 
