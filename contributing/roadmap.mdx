@@ -1,0 +1,279 @@
+---
+title: "Docs Roadmap"
+description: "Missing pages and planned documentation improvements - help wanted!"
+---
+
+This page tracks documentation gaps and planned improvements. These are great opportunities to contribute to Aerodrome documentation.
+
+<Info>
+  **Want to tackle one of these?** Comment on the linked GitHub issue or [create
+  a new issue](https://github.com/aerodrome-finance/docs/issues/new) to claim it
+  and discuss your approach.
+</Info>
+
+## 🔴 High Priority
+
+### Advanced Topics Section
+
+**Status**: Not started
+**Difficulty**: Medium-Hard
+**Estimated effort**: 6-8 hours across multiple pages
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Create a new "Advanced" section with deep-dive technical content:
+
+1. **APR Calculations Guide** (`/advanced/apr-calculations.mdx`)
+
+   - vAPR formula (veAERO voting APR)
+   - LP APR calculation (fees + emissions)
+   - CL APR with in-range considerations
+   - Worked examples for each
+   - Disclaimers: estimates only, not guarantees
+
+2. **Impermanent Loss Education** (`/advanced/impermanent-loss.mdx`)
+
+   - What is IL (fundamentals)
+   - V2 pool IL mechanics
+   - CL pool IL (amplified by concentration)
+   - IL mitigation strategies
+   - When fees offset IL
+
+3. **Position Management Strategies** (`/advanced/strategies.mdx`)
+
+   - V2 LP strategies (when to add/remove)
+   - CL active management (range selection, rebalancing)
+   - veNFT optimization (lock duration, merge/split tactics)
+   - Portfolio allocation framework
+
+4. **MetaDEX Technical Architecture** (`/advanced/architecture.mdx`)
+   - Framework components (registry, flywheel, inflationary model)
+   - Zero external dependencies (onchain API, static frontend)
+   - Dynamic reward caps mechanism
+   - Modular design advantages
+
+**Skills needed:** Technical writing, DeFi understanding, no marketing language
+
+---
+
+### Risk Education Content
+
+**Status**: Not started
+**Difficulty**: Easy-Medium
+**Estimated effort**: 2 hours
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Expand risk documentation across existing pages (not a new page):
+
+- **CL-specific risks**: Out-of-range = zero earnings, faster IL, rebalancing costs
+- **Permanent lock risk**: Cannot unlock AERO ever, only exit via selling veNFT
+- **Relay manager trust**: Manager controls votes, deactivation scenarios
+- **General DeFi risks**: Smart contract risk, market volatility
+
+**Where to add:**
+
+- Inline `<Warning>` components on relevant how-to pages
+- Expand "Before You Begin" risk section
+- Link to risks from troubleshooting sections
+
+**Skills needed:** Clear risk communication, understanding DeFi risks, neutral tone
+
+---
+
+### Voting Strategies Guide
+
+**Status**: Not started
+**Difficulty**: Medium
+**Estimated effort**: 2 hours
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Create `/advanced/voting-strategies.mdx` covering:
+
+- Understanding incentive types (bribes, fees, emissions)
+- Pool selection mechanics ($/vote calculation)
+- Vote allocation strategies (concentration vs diversification)
+- Bribe market dynamics (how protocols compete)
+- Risk considerations (pool rug risk, incentive sustainability)
+
+**Critical requirement:** Educational and mechanical only. **No investment advice**. Include heavy disclaimers.
+
+**Skills needed:** DeFi governance understanding, technical writing, neutral educational tone
+
+---
+
+## 🟡 Medium Priority
+
+### APR Calculations Guide (Standalone)
+
+**Status**: Not started
+**Difficulty**: Medium
+**Estimated effort**: 2-3 hours
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Create `/advanced/apr-calculations.mdx`:
+
+- **vAPR (veAERO voting APR)**: Formula currently TODO everywhere - needs team input
+- **LP APR components**: Swap fee APR + emissions APR calculations
+- **CL APR considerations**: In-range time percentage, dynamic fees
+- **Worked examples**: Step-by-step calculations for V2, CL, and veAERO
+- **Caveats**: Heavy disclaimers (estimates, not guarantees, past ≠ future)
+
+**Blocker:** vAPR formula needs to be provided by the Aerodrome team
+
+**Skills needed:** Financial calculations, clear technical explanations, DeFi APR understanding
+
+---
+
+### Impermanent Loss Education (Standalone)
+
+**Status**: Not started
+**Difficulty**: Medium
+**Estimated effort**: 2 hours
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Create `/advanced/impermanent-loss.mdx`:
+
+- IL fundamentals (what it is, why "impermanent")
+- V2 pool IL mechanics (50/50 rebalancing)
+- CL pool IL (amplified by concentration, out-of-range = 100% conversion)
+- IL mitigation strategies (correlated pairs, wider ranges, high-fee pools)
+- IL calculators and formulas
+- When fees offset IL (high volume pools)
+
+**Skills needed:** DeFi LP understanding, ability to explain complex concepts simply
+
+---
+
+### Position Management Strategies (Standalone)
+
+**Status**: Not started
+**Difficulty**: Medium
+**Estimated effort**: 3 hours
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Create `/advanced/strategies.mdx`:
+
+- V2 LP strategies (when to add/remove, rebalancing decisions)
+- CL active management (range selection methodology, rebalancing triggers, multi-position laddering)
+- veNFT optimization (lock duration choice, merge/split tactics, delegation strategies)
+- Portfolio allocation framework (LP vs veNFT balance, diversification)
+
+**Critical requirement:** Educational content, not financial advice. Clear disclaimers.
+
+**Skills needed:** Advanced DeFi strategy understanding, clear educational writing
+
+---
+
+### MetaDEX Technical Architecture (Standalone)
+
+**Status**: Not started
+**Difficulty**: Medium
+**Estimated effort**: 2 hours
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Create `/advanced/metadex-architecture.mdx` or enhance `/overview/contributors/dromos-labs.mdx`:
+
+- Framework components (registry, flywheel, inflationary model)
+- Zero external dependencies (completely onchain, Sugar API, static IPFS frontend)
+- Privacy-oriented design (no tracking, user RPC endpoints)
+- Dynamic reward caps mechanism
+- Modular design advantages
+
+**Source:** `/Users/liam/Sites/docs-exploration/raw-data/google-drive/MetaDEX.md` (has incomplete sections - only document completed content)
+
+**Skills needed:** Technical architecture writing, blockchain infrastructure understanding
+
+---
+
+## 🟢 Low Priority / Nice to Have
+
+### Interactive/Visual Content
+
+**Status**: Blocked (requires design/dev collaboration)
+**Difficulty**: Hard
+**Estimated effort**: 8+ hours (requires custom development)
+**GitHub Issue**: [#TBD](https://github.com/aerodrome-finance/docs/issues)
+
+Potential interactive elements:
+
+1. **Epoch Timeline Diagram**: Visual weekly cycle with countdown
+2. **Lock Duration → Voting Power Calculator**: Input AERO amount + duration, output veAERO
+3. **CL Range Visualizer**: Price chart with range overlay, in-range percentage
+4. **Pool Type Decision Tree**: Interactive questions recommending V2 vs CL
+5. **APR Breakdown Calculator**: Input pool parameters, show fees + emissions + bribes
+6. **Vote Split Simulator**: Allocate percentages, preview outcomes
+
+**Note:** These require custom components or external tools. Consider starting with static diagrams.
+
+**Skills needed:** React development, data visualization, design skills
+
+---
+
+## Contributing Guidelines
+
+### Before Starting Work:
+
+1. **Check GitHub issues** to see if someone is already working on it
+2. **Comment on the issue** to claim it (or [create a new issue](https://github.com/aerodrome-finance/docs/issues/new))
+3. **Review the [Style Guide](/contributing/style-guide)** for documentation standards
+4. **Ask questions** in [Discord](https://discord.gg/aerodrome) #docs-contributors channel
+
+### While Working:
+
+- Follow the [Style Guide](/contributing/style-guide) for voice, tone, and structure
+- Use canonical sources for data (never guess addresses, parameters, or formulas)
+- Include appropriate risk warnings using `<Warning>` components
+- Test your documentation by following it yourself
+
+### After Completion:
+
+- Submit a pull request with a clear description
+- Link to the GitHub issue in your PR description
+- Respond to review feedback promptly
+
+## Completed Recently ✅
+
+- **Swap documentation** - Complete step-by-step guide with troubleshooting
+- **Lock advanced features** - Merge, split, delegation, permanent locks
+- **Relay comprehensive guide** - Locked vs free rewards, strategy comparison
+- **Voting FAQs** - 5 detailed questions on voting mechanics
+- **SDK and Sugar pages** - Clean separation, minimal jumping-off points
+- **Troubleshooting audit** - Removed duplication, inline sections only
+
+## Have Another Idea?
+
+Don't see something on this list but think it should be documented? [Create a new issue](https://github.com/aerodrome-finance/docs/issues/new) and describe:
+
+- What's missing or could be improved
+- Who would benefit from this documentation
+- What you'd like to see covered
+
+We review all suggestions and will add high-value items to this roadmap.
+
+## Questions?
+
+<CardGroup cols={2}>
+  <Card
+    title="Read the Style Guide"
+    icon="book"
+    href="/contributing/style-guide"
+  >
+    Understand our documentation standards
+  </Card>
+  <Card title="Join Discord" icon="discord" href="https://discord.gg/aerodrome">
+    Ask questions in #docs-contributors
+  </Card>
+  <Card
+    title="View Open Issues"
+    icon="github"
+    href="https://github.com/aerodrome-finance/docs/issues"
+  >
+    See all documentation issues
+  </Card>
+  <Card
+    title="Contributing Overview"
+    icon="hand-wave"
+    href="/contributing/overview"
+  >
+    Learn how to contribute
+  </Card>
+</CardGroup>
