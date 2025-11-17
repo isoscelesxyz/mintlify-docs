@@ -61,7 +61,13 @@
                 ]
               },
               "overview/core-features/vote",
-              "overview/core-features/lock",
+              {
+                "group": "Lock",
+                "pages": [
+                  "overview/core-features/lock/index",
+                  "overview/core-features/lock/advanced"
+                ]
+              },
               "overview/core-features/incentivize",
               "overview/core-features/rewards",
               "overview/core-features/autopilot",
@@ -72,7 +78,9 @@
             "group": "Partners & Launch",
             "icon": "rocket-launch",
             "pages": [
-              "overview/partners/aero-ignition"
+              "overview/partners/aero-ignition",
+              "overview/partners/flight-school",
+              "overview/partners/launcher"
             ]
           },
           {
@@ -108,6 +116,7 @@
             "group": "Developer Resources",
             "icon": "code",
             "pages": [
+              "development/sdk",
               "development/sugar",
               "development/data-analytics",
               "development/third-party-integrations"
