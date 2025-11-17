@@ -33,31 +33,150 @@ Aerodrome's concentrated liquidity pools use <Tooltip tip="The minimum price mov
 
 The tick spacing for concentrated liquidity pools is identified in their pool title. For example, "CL1-wstETH/WETH" indicates tick spacing of 1, suggesting the token prices are closely correlated.
 
-## Concentrated Liquidity Pool Fees
+## Dynamic Fees (Slipstream V2)
 
-Pool swap fees can be adjusted independently from the pool type. Fees reflect partner protocols' needs and are adjusted based on the market's volatility. To reduce operational overhead, we are working on a dynamic fee module that will adjust fees based on demand.
+Slipstream V2 implements **dynamic fee structures** that automatically adjust swap fees in real-time based on market volatility—similar to surge pricing in traditional markets.
+
+### How dynamic fees work
+
+**In volatile markets:**
+- Fees increase to reflect heightened execution demand
+- Higher returns for LPs during periods when traders are fee-inelastic
+- Traders willing to pay premium fees for immediate execution
+
+**In stable markets:**
+- Fees decrease to attract more volume
+- Increases liquidity utilization while positions stay in range
+- Competitive pricing when traders are fee-elastic (shopping for best rates)
+
+### Fee algorithm parameters
+
+The dynamic fee system operates entirely onchain without external oracles or CEX price feeds. Key parameters include:
+
+**Volatility scaling:**
+- Monitors price deviation from moving average over customizable time window
+- Smooth, prompt response to volatility changes
+- Optimized for trade execution quality
+
+**Base fee and fee cap:**
+- **Base fee**: Charged during low volatility periods
+- **Fee cap**: Maximum fee during high volatility
+- Parameters tuned for competitiveness against fixed-fee AMMs
+
+<Tip>
+Dynamic fees enable Slipstream to compete effectively across market conditions—lowering fees to capture volume in stable markets, raising fees to maximize LP earnings during volatility.
+</Tip>
+
+### Benefits for different LP types
+
+**For staked LPs (earning emissions):**
+- Higher fee capture flows to veAERO voters during volatile periods
+- Increased long-term payouts over multiple epochs
+- Benefits from both emissions and fee revenue
+
+**For unstaked LPs (earning fees):**
+- Consistently rewarded closer to optimal market rate
+- Can capitalize on high-volatility fee surges
+- Orderbook-like execution efficiency onchain
+
+---
+
+## Tick Spacing Optimization
+
+One of Slipstream's key advantages is **wider tick spacing** compared to competitors like Uniswap V3.
+
+### Why wider tick spacing matters
+
+**Better LP management:**
+- LPs stay in active tick ranges longer
+- Reduced rebalancing frequency = lower gas costs
+- Significantly increased rewards over time
+
+**Superior TVL utilization:**
+- Greater liquidity depth per active range
+- Better execution for traders
+- Higher volume capture per dollar of liquidity
+
+**Example comparison (WETH/USDC):**
+- Uniswap V3: 10 tick spacing (0.1%)
+- Slipstream: 100 tick spacing (1%)
+- **Result**: Slipstream achieves better liquidity utilization despite theoretically lower capital efficiency
+
+<Info>
+Wider tick spacing is practically more efficient for LPs. While narrow ticks offer theoretical capital efficiency, they require constant management. Wider spacing balances efficiency with usability.
+</Info>
+
+### Tick spacing by pool type
+
+Available tick spacings optimized for different asset correlations:
+
+| Tick Spacing | Price Range | Best For |
+|--------------|-------------|----------|
+| 1 | 0.01% | Highly correlated (stablecoins, LSTs like wstETH/WETH) |
+| 10 | 0.05% | Stable/pegged assets (USDC/USDT) |
+| 50 | 0.5% | Correlated stable tokens |
+| 100 | 0.5% | Correlated volatiles |
+| 200 | 2% | Standard volatile pairs (AERO/WETH, USDC/WETH) |
+| 2000 | 20% | Emerging tokens (new launches, high volatility) |
+
+The tick spacing is displayed in pool names (e.g., "CL1-wstETH/WETH" = tick spacing 1).
+
+---
+
+## The Unstaked Fee Rake
+
+Slipstream offers LPs the choice between two earning strategies:
+
+### Staked positions
+- Earn `AERO` emissions based on veAERO votes
+- Forfeit swap fees (100% go to voters)
+- Best when emissions APR > fee APR
+
+### Unstaked positions
+- Earn **90% of swap fees** directly
+- **10% of fees** (the "rake") go to veAERO voters
+- Earn **zero emissions**
+- Best during high-volatility periods when fees surge above emissions
+
+<Warning>
+The 10% unstaked fee rake ensures veAERO voters still benefit from your liquidity even when you're unstaked. This alignment incentivizes voters to vote for your pool.
+</Warning>
+
+### When to unstake for fee capture
+
+**Unstake during:**
+- High volatility periods when dynamic fees surge
+- Temporary market dislocations where fees > emissions
+- Short-term liquidity provision (no long-term AERO exposure desired)
+
+**Stake for:**
+- Long-term LP positions
+- Pools with high veAERO vote allocation
+- Consistent emissions > trading fees
+- AERO token exposure
+
+The modular MetaDEX architecture allows the unstaked fee rake to be adjusted dynamically to optimize competitiveness while maintaining strong veAERO rewards.
 
 ---
 
 ## The Slipstream Advantage
 
-Slipstream outcompetes competitive concentrated liquidity solutions with these key features:
+Slipstream outcompetes competitive concentrated liquidity solutions with these integrated features:
 
-**Wider Tick Spacing**
+### 1. Wider tick spacing
+Increased tick spacing means LPs stay in the active tick for longer, significantly increasing rewards over time while reducing management burden.
 
-Increased tick spacing means LPs stay in the active tick for longer, significantly increasing rewards over time.
+### 2. Active tick emissions
+`AERO` emissions are only streamed to the active tick, rewarding LPs in that range with higher incentives compared to out-of-range positions.
 
-**Active Tick Rewards**
+### 3. Dynamic fee optimization
+Real-time fee adjustments maximize LP earnings during volatility while maintaining competitive pricing during stable periods.
 
-AERO emissions are only streamed to the active tick, rewarding LPs in that range with even higher incentives.
+### 4. Dual earning options
+LPs can choose between emissions (staked) or fees (unstaked), optimizing strategy based on current market conditions.
 
-**Emissions Structure**
-
-Aerodrome rewards LPs with `AERO` tokens. The value of emissions is often higher than swap fees in the same period. LPs can also choose not to stake their liquidity and earn swap fees instead.
-
-<Info>
-With Slipstream V2, fees dynamically adjust based on market conditions and price volatility. LPs can choose to temporarily unstake deposits to maximize fee capture during high-volatility periods.
-</Info>
+### 5. Modular architecture
+Seamless upgrades without disrupting operations—improvements like dynamic fees deployed without requiring liquidity migration.
 
 ## Next steps
 
