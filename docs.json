@@ -32,14 +32,14 @@
             "group": "Getting Started",
             "icon": "rocket",
             "pages": [
-              "overview/getting-started/quickstart",
+              "overview/getting-started/before-you-begin",
               "overview/getting-started/aerodrome-101",
               "overview/getting-started/key-concepts",
-              "overview/getting-started/before-you-begin"
+              "overview/getting-started/quickstart"
             ]
           },
           {
-            "group": "Core Features",
+            "group": "Features",
             "icon": "star",
             "pages": [
               {
@@ -60,7 +60,6 @@
                   "overview/core-features/liquidity-pools/technical-details"
                 ]
               },
-              "overview/core-features/vote",
               {
                 "group": "Lock",
                 "pages": [
@@ -68,18 +67,19 @@
                   "overview/core-features/lock/advanced"
                 ]
               },
+              "overview/core-features/vote",
               "overview/core-features/incentivize",
               "overview/core-features/rewards",
               "overview/core-features/autopilot",
-              "overview/core-features/relay"
+              "overview/core-features/relay",
+              "overview/getting-started/flight-school"
             ]
           },
           {
-            "group": "Partners & Launch",
+            "group": "Launching Tokens",
             "icon": "rocket-launch",
             "pages": [
               "overview/partners/aero-ignition",
-              "overview/partners/flight-school",
               "overview/partners/launcher"
             ]
           },
@@ -159,7 +159,7 @@
           {
             "group": "Updates",
             "icon": "clock",
-            "pages": ["changelog/README"]
+            "pages": ["changelog/index"]
           }
         ]
       }
