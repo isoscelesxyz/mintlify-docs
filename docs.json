@@ -39,7 +39,7 @@
             ]
           },
           {
-            "group": "Features",
+            "group": "For Users",
             "icon": "star",
             "pages": [
               {
@@ -64,23 +64,23 @@
                 "group": "Lock",
                 "pages": [
                   "overview/core-features/lock/index",
-                  "overview/core-features/lock/advanced"
+                  "overview/core-features/lock/advanced",
+                  "overview/core-features/autopilot",
+                  "overview/core-features/relay"
                 ]
               },
               "overview/core-features/vote",
-              "overview/core-features/incentivize",
               "overview/core-features/rewards",
-              "overview/core-features/autopilot",
-              "overview/core-features/relay",
               "overview/getting-started/flight-school"
             ]
           },
           {
-            "group": "Launching Tokens",
+            "group": "For Protocols",
             "icon": "rocket-launch",
             "pages": [
               "overview/partners/aero-ignition",
-              "overview/partners/launcher"
+              "overview/partners/launcher",
+              "overview/core-features/incentivize"
             ]
           },
           {
