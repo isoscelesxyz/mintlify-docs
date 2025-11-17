@@ -40,7 +40,7 @@
           },
           {
             "group": "For Users",
-            "icon": "star",
+            "icon": "user",
             "pages": [
               {
                 "group": "Swap",
@@ -76,8 +76,9 @@
           },
           {
             "group": "For Protocols",
-            "icon": "rocket-launch",
+            "icon": "users",
             "pages": [
+              "overview/partners/index",
               "overview/partners/aero-ignition",
               "overview/partners/launcher",
               "overview/core-features/incentivize"
@@ -101,7 +102,7 @@
           },
           {
             "group": "Contributors",
-            "icon": "users",
+            "icon": "handshake",
             "pages": [
               "overview/contributors/dromos-labs",
               "overview/contributors/aerodrome-foundation"
