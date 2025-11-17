@@ -117,6 +117,218 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
   </Accordion>
 </AccordionGroup>
 
+## Concentrated Liquidity (CL)
+
+<AccordionGroup>
+  <Accordion title="What are ticks and tick spacing in CL pools?" icon="ruler">
+    Concentrated liquidity pools divide the price curve into discrete "ticks." Tick spacing determines the granularity of ranges you can set. Lower tick spacing (1, 10) allows tighter ranges but requires more active management. Higher tick spacing (50, 100, 200) provides wider minimum ranges with less frequent rebalancing needs.
+
+    Different fee tiers have different tick spacings:
+    - Stable 1 (0.01% fee): tick spacing 1
+    - Stable 10 (0.05% fee): tick spacing 10
+    - Volatile 100 (0.05% fee): tick spacing 100
+    - Volatile 200 (0.3% fee): tick spacing 200
+    - Volatile 2000 (1% fee): tick spacing 2000
+
+    <Tip>
+    Lower tick spacing = tighter ranges = more active management required
+    </Tip>
+  </Accordion>
+
+  <Accordion title="How do I choose a narrow vs wide range for my CL position?" icon="arrows-left-right">
+    **Narrow ranges (1-5% price range):**
+    - Higher capital efficiency = more fees per dollar
+    - Requires active monitoring and frequent rebalancing
+    - Best for: Stable pairs (USDC/DAI), experienced LPs, high-volume pools
+
+    **Wide ranges (10-50% price range):**
+    - Lower capital efficiency but less management
+    - Stays in range longer during volatility
+    - Best for: Volatile pairs (AERO/WETH), passive LPs, lower-volume pools
+
+    **Consider:**
+    - Historical price volatility of the pair
+    - Your time commitment for rebalancing
+    - Fee tier of the pool (higher fees = wider ranges acceptable)
+
+    <Tip>
+    Check the pool's 7-day price range on the Aerodrome app to inform your range selection.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="What happens when price moves out of my CL range?" icon="circle-exclamation">
+    When the active price exits your selected range:
+
+    1. **You stop earning fees** - No swap activity occurs within your range
+    2. **No emissions if staked** - Staked CL positions only earn when in range
+    3. **Your position converts to 100% of one token** - Acts as a limit order
+    4. **You need to rebalance** - Either adjust your range or accept zero rewards
+
+    **To rebalance:**
+    - Remove liquidity from the current position
+    - Select a new range around current price
+    - Re-add liquidity (requires approvals and gas)
+
+    **Alternatives:**
+    - Use multiple positions with laddered ranges
+    - Use [Autopilot](/overview/core-features/autopilot) for automated rebalancing
+
+    <Warning>
+    Out-of-range positions earn zero rewards. Monitor your positions regularly or use Autopilot for automatic management.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="How do I rebalance a CL position?" icon="arrows-rotate">
+    Manual rebalancing requires removing and re-adding liquidity:
+
+    <Steps>
+      <Step title="Remove current position">
+        Go to your CL position and click "Remove Liquidity." You'll receive both tokens based on the current price.
+      </Step>
+
+      <Step title="Select new range">
+        Create a new position with an updated price range centered around the current market price.
+      </Step>
+
+      <Step title="Add liquidity">
+        Deposit both tokens into the new range. Approve tokens if first time.
+      </Step>
+
+      <Step title="Stake for emissions">
+        If the pool has a gauge, stake your new position to earn AERO emissions.
+      </Step>
+    </Steps>
+
+    **Gas costs**: Each rebalance requires multiple transactions (remove, approve, add, stake).
+
+    **Autopilot alternative**: [Autopilot](/overview/core-features/autopilot) handles rebalancing automatically for a 10% fee on earnings.
+  </Accordion>
+
+  <Accordion title="How do I add or remove liquidity from an existing CL position?" icon="plus-minus">
+    **Adding liquidity to existing position:**
+    - CL positions are NFTs representing specific ranges
+    - You **cannot** add to an existing NFT position
+    - Instead, create a new position with the same range parameters
+    - You'll have multiple NFTs for the same range
+
+    **Removing liquidity:**
+    1. Navigate to your position in the Aerodrome app
+    2. Click "Remove Liquidity"
+    3. Choose amount to remove (partial or full)
+    4. Confirm transaction
+    5. Receive both tokens based on current price and your range
+
+    **Partial removal**: You can remove a percentage of your position while keeping the rest active.
+
+    <Info>
+    Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that cannot be merged.
+    </Info>
+  </Accordion>
+
+  <Accordion title="How do I claim CL fees and when should I stake the position?" icon="coins">
+    **Claiming fees:**
+    CL position fees accumulate automatically. To claim:
+    1. Go to your Dashboard
+    2. Find your CL position
+    3. Click "Claim Fees"
+    4. Receive fees in both pool tokens
+
+    **When to stake your CL position:**
+
+    **Stake when:**
+    - Pool receives significant veAERO votes (check gauge voting)
+    - AERO emissions APR > swap fee APR
+    - You want exposure to AERO token
+
+    **Don't stake when:**
+    - Pool has low or zero votes
+    - Swap fees > potential emissions
+    - You prefer stable fee income over AERO
+    - Your position is out of range (staking would earn nothing)
+
+    <Tip>
+    Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="What are unstaked fees and why might I not stake my CL position?" icon="hand-holding-dollar">
+    When you provide CL liquidity **without staking**:
+    - You earn **90% of swap fees** directly to your position
+    - **10% of fees** go to veAERO voters (unstaked fee rake)
+    - You earn **zero AERO emissions**
+
+    **When NOT to stake:**
+
+    ✅ **High fee generation** - Pool has high swap volume relative to emissions
+
+    ✅ **Low votes** - Pool receives few veAERO votes (low AERO emissions)
+
+    ✅ **Stable income preference** - You prefer predictable fee income over AERO token exposure
+
+    ✅ **Out of range** - Your position is outside the active range (staking earns nothing anyway)
+
+    ✅ **Short-term position** - You plan to exit soon and don't want AERO exposure
+
+    The 10% unstaked fee rake goes to veAERO voters, incentivizing them to vote for your pool even if you're not staked.
+
+    <Info>
+    Check the pool's "Unstaked APR" on Aerodrome to see if fees alone provide good returns.
+    </Info>
+  </Accordion>
+
+  <Accordion title="What are ALM vaults and how do they work?" icon="vault">
+    ALM (Automated Liquidity Management) vaults, also called [Autopilot](/overview/core-features/autopilot), are automated position managers for concentrated liquidity.
+
+    **How they work:**
+    1. You deposit tokens into a vault (instead of managing your own CL position)
+    2. The vault automatically creates and manages CL positions
+    3. Rebalancing happens automatically when price moves near range edges
+    4. Multiple users share gas costs through batched operations
+    5. You receive vault tokens (ERC-20) representing your share
+
+    **Benefits:**
+    - Automatic rebalancing (no manual management)
+    - Lower gas costs (batched with other users)
+    - Optimized ranges based on market conditions
+    - Simple deposit/withdraw experience
+
+    **Costs:**
+    - 10% fee on all earnings (fees + emissions)
+    - Smart contract risk (vault + Aerodrome contracts)
+
+    **Powered by:** Mellow Finance provides the Autopilot automation
+
+    <Tip>
+    ALM vaults are ideal for users who want CL exposure without the complexity of manual range management.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="What fee tiers are available for CL pools and how should I choose?" icon="percent">
+    Slipstream CL pools offer multiple fee tiers optimized for different asset correlations:
+
+    **Available fee tiers:**
+
+    | Fee Tier | Tick Spacing | Best For | Example Pairs |
+    |----------|--------------|----------|---------------|
+    | 0.01% (1bps) | 1 | Highly correlated assets | USDC/DAI, wstETH/WETH |
+    | 0.05% (5bps) | 10 | Stable/pegged assets | USDC/USDT, LST pairs |
+    | 0.05% (5bps) | 100 | Correlated volatiles | WETH/wstETH |
+    | 0.3% (30bps) | 200 | Standard volatile pairs | AERO/WETH, USDC/WETH |
+    | 1% (100bps) | 2000 | Highly volatile/exotic | New tokens, low-liquidity pairs |
+
+    **How to choose:**
+    - **Lower fees** (0.01-0.05%): Stable pairs with high expected volume
+    - **Medium fees** (0.3%): Standard volatile pairs (most common)
+    - **Higher fees** (1%): Compensate for high volatility and wider spreads
+
+    **Dynamic fees:** Slipstream pools can adjust fees automatically based on volatility, optimizing for market conditions.
+
+    <Tip>
+    Check existing pool TVL and volume. If a fee tier already has significant liquidity, it's likely the right choice.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
 ## Security and Protocol
 
 <AccordionGroup>
