@@ -130,7 +130,7 @@
           {
             "group": "Support",
             "icon": "life-ring",
-            "pages": ["help/discord", "help/troubleshooting"]
+            "pages": ["help/discord"]
           },
           {
             "group": "FAQ",

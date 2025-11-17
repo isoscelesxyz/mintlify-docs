@@ -71,6 +71,17 @@ Before providing liquidity, ensure you have:
   <Accordion title="Position not earning rewards">
     For concentrated pools, verify your position is within the active price range. For staked positions, ensure you've completed the staking step after depositing.
   </Accordion>
+  <Accordion title="Can't redeem trading fees from my LP position" icon="coins">
+    **Cause**: V2 Basic and Stable pools (not CL pools) require fees to be claimed from the gauge after staking.
+
+    **Solution**:
+    1. Go to the pool page on Aerodrome
+    2. Navigate to your staked position
+    3. Look for "Claim Fees" button in the gauge section
+    4. Confirm the claim transaction
+
+    CL pools allow fee collection directly from positions without staking.
+  </Accordion>
 </AccordionGroup>
 
 ## Next steps
