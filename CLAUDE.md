@@ -121,10 +121,12 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 
 ### Content Structure Patterns
 
+**Important**: These patterns are **strong suggestions, not strict requirements**. Apply them when they genuinely help users. Skip patterns that would be forced or redundant for a particular page.
+
 **For How-To Guides:**
 
 1. Start with "You will learn how to X and why it matters"
-2. Include `## Before you begin` section with prerequisites
+2. Include `## Before you begin` section with prerequisites (when needed)
 3. Use numbered steps with clear headings
 4. End with `## Next steps` linking to related content
 
@@ -132,8 +134,8 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 
 1. Start with "In this concept" summary
 2. Explain the mental model and why it matters
-3. Provide a simple, concrete example
-4. End with "Where to go next"
+3. Provide a simple, concrete example (when helpful)
+4. End with "Where to go next" or `## Next steps`
 
 **For Reference Pages:**
 
@@ -163,7 +165,7 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 
 ### Helpful Patterns (Use When Appropriate)
 
-When these patterns would improve the documentation, implement them naturally:
+**Use pragmatically**: Apply these patterns when they genuinely help users. Don't force them just for consistency.
 
 **1. Inline definitions with `<Tooltip>`:**
 - On the first use of advanced DeFi terms, wrap them in a tooltip
@@ -171,9 +173,10 @@ When these patterns would improve the documentation, implement them naturally:
 - Common terms to tooltip: slippage, price impact, impermanent loss, liquidity depth, concentrated liquidity, vote-escrow, bribes, emissions, rebases
 
 **2. Troubleshooting sections with `<AccordionGroup>`:**
-- Add near the bottom of how-to guides when common issues exist
+- Add to how-to guides **only when users actually face common issues**
 - Use `## Troubleshooting` heading
 - Each common issue gets its own `<Accordion>` with descriptive title
+- **Skip if**: Page is conceptual, or no known user problems exist
 - Example topics: "Transaction fails", "Can't find token", "High slippage warning"
 
 **3. Next steps with `<CardGroup>`:**
@@ -181,6 +184,11 @@ When these patterns would improve the documentation, implement them naturally:
 - Use `## Next steps` heading
 - Include 2-4 related pages as cards with icons
 - Guide users to logical next actions or related concepts
+
+**When to skip patterns:**
+- Concept pages don't need "Before you begin" (they're not guides)
+- Pages without common user issues don't need "Troubleshooting"
+- Don't add sections just to match a template—add them when they help users
 
 Example structure for a complete how-to guide:
 ```mdx
