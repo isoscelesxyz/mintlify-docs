@@ -6,7 +6,8 @@ description: "Essential information for protocol teams launching tokens and mana
 This FAQ provides guidance for protocol teams and token issuers launching on Aerodrome. You'll learn how to create pools, manage liquidity, get listed, and optimize incentives. For end user questions, see [FAQ for Users](/help/faqs/users).
 
 <Info>
-For foundational information before launching on Aerodrome, see [Before You Begin](/overview/getting-started/before-you-begin).
+  For foundational information before launching on Aerodrome, see [Before You
+  Begin](/overview/getting-started/before-you-begin).
 </Info>
 
 ## Pool Creation and Management
@@ -27,10 +28,11 @@ For foundational information before launching on Aerodrome, see [Before You Begi
 
   </Accordion>
 
-{" "}
-
 <Accordion title="Which connector token should I choose?" icon="link">
-  The most common connector tokens are `WETH`, `USDC`, and `cbBTC`. `AERO` can also be used as a connector token. As a rule of thumb, token pairs that are more correlated will lead to less impermanent loss and thus lead to more TVL growth.
+  The most common connector tokens are `WETH`, `USDC`, and `cbBTC`. `AERO` can
+  also be used as a connector token. As a rule of thumb, token pairs that are
+  more correlated will lead to less impermanent loss and thus lead to more TVL
+  growth.
 </Accordion>
 
   <Accordion title="How much liquidity should my pool have?" icon="droplet">
@@ -82,8 +84,6 @@ For foundational information before launching on Aerodrome, see [Before You Begi
 
   </Accordion>
 
-{" "}
-
 <Accordion title="How do I start the listing process?" icon="paper-plane">
   You can begin the listing process by engaging directly with the Aerodrome
   team.
@@ -110,8 +110,6 @@ For foundational information before launching on Aerodrome, see [Before You Begi
     Projects can use third-party platforms like Merkl or Metrom to incentivize Aerodrome liquidity prior to listing.
   </Accordion>
 
-{" "}
-
 <Accordion
   title="If listed, how much should I deposit in incentives?"
   icon="coins"
@@ -123,8 +121,6 @@ For foundational information before launching on Aerodrome, see [Before You Begi
   projects may use 5% of their TVL in Connector Tokens as the incentive
   benchmark. We would recommend using the full 5% during the grace period.
 </Accordion>
-
-{" "}
 
 <Accordion title="Why should I stake my LP?" icon="layer-group">
   When you stake your liquidity, you choose to earn `AERO` emissions instead of
@@ -149,8 +145,6 @@ For foundational information before launching on Aerodrome, see [Before You Begi
     Aerodrome uses SmolDapp's decentralised hosting for token logos. To have your token logo displayed, submit a PR to the [SmolDapp tokenAssets repository](https://github.com/SmolDapp/tokenAssets) with your token's logo.
   </Accordion>
 
-{" "}
-
 <Accordion title="How can I migrate my LP from another network?" icon="bridge">
   LP tokens cannot be bridged directly. Instead, you will need to bridge your
   token to Base. To do this, you can create a bridged version of your token on
@@ -161,23 +155,19 @@ For foundational information before launching on Aerodrome, see [Before You Begi
   7-day delay, which can create a poor user experience.
 </Accordion>
 
-{" "}
-
 <Accordion title="How should I migrate my LP from another DEX?" icon="truck">
   You can migrate your liquidity in a single transaction, or you can spread it
   out across multiple withdrawals.
 </Accordion>
 
-{" "}
-
 <Accordion
   title="My token is not being priced on the frontend"
   icon="dollar-sign"
 >
-  For tokens to be priced on the frontend by default they need to be paired with a connector token like `WETH`, `USDC`, `cbBTC` or `AERO`; \$500 liquidity should be enough.
+  For tokens to be priced on the frontend by default they need to be paired with
+  a connector token like `WETH`, `USDC`, `cbBTC` or `AERO`; \$500 liquidity
+  should be enough.
 </Accordion>
-
-{" "}
 
 <Accordion
   title="Do you have a method for snapshotting LPs on Aerodrome?"
@@ -188,16 +178,12 @@ For foundational information before launching on Aerodrome, see [Before You Begi
   their positions at a specific point in time.
 </Accordion>
 
-{" "}
-
 <Accordion title="What are the default pool fees?" icon="percent">
   | Pool Type | Fee | |-----------|-----| | Basic Volatile | 0.3% | | Basic
   Stable | 0.05% | | Concentrated Stable 1 | 0.01% | | Concentrated Stable 10 |
   0.05% | | Concentrated Stable 50 | 0.05% | | Concentrated Volatile 100 | 0.05%
   | | Concentrated Volatile 200 | 0.3% | | Concentrated Volatile 2000 | 1% |
 </Accordion>
-
-{" "}
 
 <Accordion title="How can I update pool fees?" icon="pen-to-square">
   To update the fees for your pool, you will need to submit a request directly
@@ -240,7 +226,9 @@ For foundational information before launching on Aerodrome, see [Before You Begi
 ## Launcher (Pool Creation)
 
 <Info>
-For a comprehensive guide to creating pools, choosing pool types, setting initial pricing, and lock strategies, see the [Launcher documentation](/overview/partners/launcher).
+  For a comprehensive guide to creating pools, choosing pool types, setting
+  initial pricing, and lock strategies, see the [Launcher
+  documentation](/overview/partners/launcher).
 </Info>
 
 <AccordionGroup>
@@ -255,6 +243,7 @@ For a comprehensive guide to creating pools, choosing pool types, setting initia
     5. Optionally set liquidity lock duration
 
     See [Launcher guide](/overview/partners/launcher) for complete step-by-step instructions, pool type selection guidance, and lock duration strategies.
+
   </Accordion>
 
   <Accordion title="What are the benefits of locking liquidity?" icon="lock">
@@ -276,6 +265,7 @@ For a comprehensive guide to creating pools, choosing pool types, setting initia
     - Create pool, add liquidity, and lock can be done in one transaction
     - Supports programmatic integration for launchpads
     - See [Pool Launcher Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_POOL_LAUNCHER.md) for contract details
+
   </Accordion>
 
   <Accordion title="Can I automate pool creation and locking?" icon="robot">
@@ -286,13 +276,16 @@ For a comprehensive guide to creating pools, choosing pool types, setting initia
     - [Locker Specification](https://github.com/velodrome-finance/pool-launcher/blob/develop/SPECIFICATION_LOCKER.md) - Contract interface for locking liquidity
 
     This is ideal for launchpads and platforms that want to integrate Aerodrome pool creation into their own interfaces.
+
   </Accordion>
 </AccordionGroup>
 
 ## Aero Ignition
 
 <Info>
-For complete details on Aero Ignition including the full 4-week timeline, key benefits, emissions caps, and launch checklists, see the [Aero Ignition documentation](/overview/partners/aero-ignition).
+  For complete details on Aero Ignition including the full 4-week timeline, key
+  benefits, emissions caps, and launch checklists, see the [Aero Ignition
+  documentation](/overview/partners/aero-ignition).
 </Info>
 
 <AccordionGroup>
@@ -307,6 +300,7 @@ For complete details on Aero Ignition including the full 4-week timeline, key be
     - Curated launches (one at a time for maximum exposure)
 
     **Timeline**: 4-week process from incentive deposit → trading opens → fees sustain liquidity. See [Aero Ignition documentation](/overview/partners/aero-ignition) for the complete timeline and requirements.
+
   </Accordion>
 
   <Accordion title="Why is the implied FDV so low during Week 1?" icon="chart-line">
@@ -320,6 +314,7 @@ For complete details on Aero Ignition including the full 4-week timeline, key be
     **Formula**: `Implied FDV = (Estimated Incentive Value) / (% of supply deposited)`
 
     This gradual price discovery is intentional—it prevents manipulation and allows the market to organically determine fair value. By Wednesday evening (vote deadline), you'll see the final implied FDV based on total vote weight.
+
   </Accordion>
 
   <Accordion title="How do I apply for an Aero Ignition launch?" icon="paper-plane">
@@ -339,22 +334,6 @@ For complete details on Aero Ignition including the full 4-week timeline, key be
     - Commitment to long-term liquidity provision
 
     The team will work with selected projects to coordinate the launch timeline and ensure successful execution.
+
   </Accordion>
 </AccordionGroup>
-
----
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card title="Get in Touch" icon="discord" href="https://discord.gg/aerodrome">
-    Connect with the Aerodrome team on Discord
-  </Card>
-  <Card
-    title="Launch on Aerodrome"
-    icon="rocket"
-    href="https://aerodrome.finance"
-  >
-    Create a pool and get started
-  </Card>
-</CardGroup>

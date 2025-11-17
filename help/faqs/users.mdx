@@ -5,10 +5,34 @@ description: "Common questions about using Aerodrome for swapping, providing liq
 
 This FAQ addresses common questions for end users of Aerodrome Finance. If you're a protocol team or token issuer, see [FAQ for Partners](/help/faqs/partners).
 
+## Feature-Specific Help
+
 <Info>
-  Looking for step-by-step guides? Visit the [How-To Guides](/guides) section
-  for detailed instructions.
+**Looking for detailed troubleshooting?** Each feature has its own comprehensive troubleshooting section with step-by-step solutions:
 </Info>
+
+<CardGroup cols={3}>
+  <Card title="Swapping" icon="arrow-right-arrow-left" href="/overview/core-features/swap/index#troubleshooting">
+    Swap errors, slippage issues, and execution problems
+  </Card>
+  <Card title="Concentrated Liquidity" icon="chart-line" href="/overview/core-features/liquidity-pools/concentrated-pools#troubleshooting">
+    CL position management, ranges, and rebalancing
+  </Card>
+  <Card title="Staking" icon="layer-group" href="/overview/core-features/liquidity-pools/staking#troubleshooting">
+    LP staking, unstaking, and rewards
+  </Card>
+  <Card title="Lock & veAERO" icon="lock" href="/overview/core-features/lock/advanced#troubleshooting">
+    Lock management, merging, splitting, and transfers
+  </Card>
+  <Card title="Voting" icon="check-to-slot" href="/overview/core-features/vote">
+    Gauge voting and voting power
+  </Card>
+  <Card title="Relay" icon="robot" href="/overview/core-features/relay#troubleshooting">
+    Automated voting strategies and withdrawals
+  </Card>
+</CardGroup>
+
+---
 
 ## Getting Started
 
@@ -50,6 +74,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Info>
     Aerodrome only works on Base network (chain ID: 8453). If you're on Ethereum mainnet or another network, you won't be able to interact with the protocol.
     </Info>
+
   </Accordion>
 
   <Accordion title="Where can I get tokens on Base?" icon="coins">
@@ -78,6 +103,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Tip>
     Start with at least $20 worth of ETH for gas fees and some USDC or WETH to experiment with swapping and liquidity provision.
     </Tip>
+
   </Accordion>
 
   <Accordion title="How do approvals work and when are they needed?" icon="check-circle">
@@ -123,6 +149,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Info>
     Approvals are separate from the actual transaction. You'll confirm two transactions: (1) the approval, then (2) the swap/deposit/stake action.
     </Info>
+
   </Accordion>
 
   <Accordion title="What are epochs and why do they matter?" icon="calendar-week">
@@ -160,6 +187,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Tip>
     Most active participants vote near the Wednesday deadline after seeing final incentive amounts. This maximizes information before committing votes.
     </Tip>
+
   </Accordion>
 
   <Accordion title="Where do I find official links and contract addresses?" icon="link">
@@ -193,6 +221,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     2. Search for the contract address
     3. Verify it's verified (green checkmark) and matches official documentation
     4. Check deployment date and transaction history
+
   </Accordion>
 </AccordionGroup>
 
@@ -203,17 +232,13 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     `AERO` is the utility token of Aerodrome. It is distributed each week through a process called "emissions" in which voters direct newly minted tokens to liquidity providers with staked deposits. Learn more about [emissions and tokenomics](/overview/tokenomics/emissions).
   </Accordion>
 
-{" "}
-
 <Accordion title="What is veAERO, and how do I lock tokens?" icon="lock">
   `veAERO` is the governance token of Aerodrome. It is created by locking `AERO`
   for up to four years. Holders of `veAERO` vote each week to distribute `AERO`
   to LPs. In exchange for this service, voters receive 100% of protocol revenue
-  from the pools they vote for. See [How to Lock AERO](/guides/vote/lock-aero)
-  for step-by-step instructions.
+  from the pools they vote for. See [Lock](/overview/core-features/lock)
+  documentation for step-by-step instructions.
 </Accordion>
-
-{" "}
 
 <Accordion title="What is a gauge?" icon="gauge">
   A gauge functions like the clearing house for each liquidity pool that is
@@ -260,8 +285,6 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
 
   </Accordion>
 
-{" "}
-
 <Accordion title="What does it mean to 'stake' my LP?" icon="layer-group">
   Staking your deposit means you will no longer receive swap fees as rewards and
   instead will receive `AERO` emissions. This is beneficial when the `AERO`
@@ -291,212 +314,45 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
 ## Concentrated Liquidity (CL)
 
 <AccordionGroup>
-  <Accordion title="What are ticks and tick spacing in CL pools?" icon="ruler">
-    Concentrated liquidity pools divide the price curve into discrete "ticks." Tick spacing determines the granularity of ranges you can set. Lower tick spacing (1, 10) allows tighter ranges but requires more active management. Higher tick spacing (50, 100, 200) provides wider minimum ranges with less frequent rebalancing needs.
+  <Accordion title="What is concentrated liquidity and how does it work?" icon="chart-line">
+    Aerodrome's concentrated liquidity solution is called "Slipstream." LPs deposit liquidity within specific price ranges for higher capital efficiency. You only earn rewards when the active price is within your selected range.
 
-    Different fee tiers have different tick spacings:
-    - Stable 1 (0.01% fee): tick spacing 1
-    - Stable 10 (0.05% fee): tick spacing 10
-    - Volatile 100 (0.05% fee): tick spacing 100
-    - Volatile 200 (0.3% fee): tick spacing 200
-    - Volatile 2000 (1% fee): tick spacing 2000
+    **Key features:**
+    - Choose your own price range (ticks)
+    - Higher fees per dollar when in range
+    - Requires active management
+    - Can use Autopilot for automated rebalancing
+
+    **→ [Complete CL Guide](/overview/core-features/liquidity-pools/concentrated-pools)**
 
     <Tip>
-    Lower tick spacing = tighter ranges = more active management required
+    The concentrated pools page includes detailed guidance on tick spacing, range selection, rebalancing strategies, and comprehensive troubleshooting for all CL operations.
     </Tip>
   </Accordion>
 
-  <Accordion title="How do I choose a narrow vs wide range for my CL position?" icon="arrows-left-right">
-    **Narrow ranges (1-5% price range):**
-    - Higher capital efficiency = more fees per dollar
-    - Requires active monitoring and frequent rebalancing
-    - Best for: Stable pairs (USDC/DAI), experienced LPs, high-volume pools
+  <Accordion title="How do I manage my CL position?" icon="sliders">
+    For detailed guidance on managing concentrated liquidity positions, including:
+    - Choosing narrow vs wide ranges
+    - What happens when price moves out of range
+    - How to rebalance positions
+    - Adding/removing liquidity from CL positions
+    - When to stake vs unstake
+    - Claiming CL fees
 
-    **Wide ranges (10-50% price range):**
-    - Lower capital efficiency but less management
-    - Stays in range longer during volatility
-    - Best for: Volatile pairs (AERO/WETH), passive LPs, lower-volume pools
+    **→ [See CL Position Management Guide](/overview/core-features/liquidity-pools/concentrated-pools#managing-cl-positions)**
 
-    **Consider:**
-    - Historical price volatility of the pair
-    - Your time commitment for rebalancing
-    - Fee tier of the pool (higher fees = wider ranges acceptable)
-
-    <Tip>
-    Check the pool's 7-day price range on the Aerodrome app to inform your range selection.
-    </Tip>
+    **→ [CL Troubleshooting](/overview/core-features/liquidity-pools/concentrated-pools#troubleshooting)**
   </Accordion>
 
-  <Accordion title="What happens when price moves out of my CL range?" icon="circle-exclamation">
-    When the active price exits your selected range:
+  <Accordion title="Should I use Autopilot for my CL position?" icon="robot">
+    Autopilot is an automated liquidity management tool that handles rebalancing for you. Consider Autopilot if:
+    - You don't want to manually rebalance positions
+    - You can't actively monitor price movements
+    - Gas costs for manual rebalancing are high relative to position size
 
-    1. **You stop earning fees** - No swap activity occurs within your range
-    2. **No emissions if staked** - Staked CL positions only earn when in range
-    3. **Your position converts to 100% of one token** - Acts as a limit order
-    4. **You need to rebalance** - Either adjust your range or accept zero rewards
+    Autopilot charges 10% of earnings for automated management.
 
-    **To rebalance:**
-    - Remove liquidity from the current position
-    - Select a new range around current price
-    - Re-add liquidity (requires approvals and gas)
-
-    **Alternatives:**
-    - Use multiple positions with laddered ranges
-    - Use [Autopilot](/overview/core-features/autopilot) for automated rebalancing
-
-    <Warning>
-    Out-of-range positions earn zero rewards. Monitor your positions regularly or use Autopilot for automatic management.
-    </Warning>
-  </Accordion>
-
-  <Accordion title="How do I rebalance a CL position?" icon="arrows-rotate">
-    Manual rebalancing requires removing and re-adding liquidity:
-
-    <Steps>
-      <Step title="Remove current position">
-        Go to your CL position and click "Remove Liquidity." You'll receive both tokens based on the current price.
-      </Step>
-
-      <Step title="Select new range">
-        Create a new position with an updated price range centered around the current market price.
-      </Step>
-
-      <Step title="Add liquidity">
-        Deposit both tokens into the new range. Approve tokens if first time.
-      </Step>
-
-      <Step title="Stake for emissions">
-        If the pool has a gauge, stake your new position to earn AERO emissions.
-      </Step>
-    </Steps>
-
-    **Gas costs**: Each rebalance requires multiple transactions (remove, approve, add, stake).
-
-    **Autopilot alternative**: [Autopilot](/overview/core-features/autopilot) handles rebalancing automatically for a 10% fee on earnings.
-  </Accordion>
-
-  <Accordion title="How do I add or remove liquidity from an existing CL position?" icon="plus-minus">
-    **Adding liquidity to existing position:**
-    - CL positions are NFTs representing specific ranges
-    - You **cannot** add to an existing NFT position
-    - Instead, create a new position with the same range parameters
-    - You'll have multiple NFTs for the same range
-
-    **Removing liquidity:**
-    1. Navigate to your position in the Aerodrome app
-    2. Click "Remove Liquidity"
-    3. Choose amount to remove (partial or full)
-    4. Confirm transaction
-    5. Receive both tokens based on current price and your range
-
-    **Partial removal**: You can remove a percentage of your position while keeping the rest active.
-
-    <Info>
-    Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that cannot be merged.
-    </Info>
-  </Accordion>
-
-  <Accordion title="How do I claim CL fees and when should I stake the position?" icon="coins">
-    **Claiming fees:**
-    CL position fees accumulate automatically. To claim:
-    1. Go to your Dashboard
-    2. Find your CL position
-    3. Click "Claim Fees"
-    4. Receive fees in both pool tokens
-
-    **When to stake your CL position:**
-
-    **Stake when:**
-    - Pool receives significant veAERO votes (check gauge voting)
-    - AERO emissions APR > swap fee APR
-    - You want exposure to AERO token
-
-    **Don't stake when:**
-    - Pool has low or zero votes
-    - Swap fees > potential emissions
-    - You prefer stable fee income over AERO
-    - Your position is out of range (staking would earn nothing)
-
-    <Tip>
-    Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.
-    </Tip>
-  </Accordion>
-
-  <Accordion title="What are unstaked fees and why might I not stake my CL position?" icon="hand-holding-dollar">
-    When you provide CL liquidity **without staking**:
-    - You earn **90% of swap fees** directly to your position
-    - **10% of fees** go to veAERO voters (unstaked fee rake)
-    - You earn **zero AERO emissions**
-
-    **When NOT to stake:**
-
-    ✅ **High fee generation** - Pool has high swap volume relative to emissions
-
-    ✅ **Low votes** - Pool receives few veAERO votes (low AERO emissions)
-
-    ✅ **Stable income preference** - You prefer predictable fee income over AERO token exposure
-
-    ✅ **Out of range** - Your position is outside the active range (staking earns nothing anyway)
-
-    ✅ **Short-term position** - You plan to exit soon and don't want AERO exposure
-
-    The 10% unstaked fee rake goes to veAERO voters, incentivizing them to vote for your pool even if you're not staked.
-
-    <Info>
-    Check the pool's "Unstaked APR" on Aerodrome to see if fees alone provide good returns.
-    </Info>
-  </Accordion>
-
-  <Accordion title="What are ALM vaults and how do they work?" icon="vault">
-    ALM (Automated Liquidity Management) vaults, also called [Autopilot](/overview/core-features/autopilot), are automated position managers for concentrated liquidity.
-
-    **How they work:**
-    1. You deposit tokens into a vault (instead of managing your own CL position)
-    2. The vault automatically creates and manages CL positions
-    3. Rebalancing happens automatically when price moves near range edges
-    4. Multiple users share gas costs through batched operations
-    5. You receive vault tokens (ERC-20) representing your share
-
-    **Benefits:**
-    - Automatic rebalancing (no manual management)
-    - Lower gas costs (batched with other users)
-    - Optimized ranges based on market conditions
-    - Simple deposit/withdraw experience
-
-    **Costs:**
-    - 10% fee on all earnings (fees + emissions)
-    - Smart contract risk (vault + Aerodrome contracts)
-
-    **Powered by:** Mellow Finance provides the Autopilot automation
-
-    <Tip>
-    ALM vaults are ideal for users who want CL exposure without the complexity of manual range management.
-    </Tip>
-  </Accordion>
-
-  <Accordion title="What fee tiers are available for CL pools and how should I choose?" icon="percent">
-    Slipstream CL pools offer multiple fee tiers optimized for different asset correlations:
-
-    **Available fee tiers:**
-
-    | Fee Tier | Tick Spacing | Best For | Example Pairs |
-    |----------|--------------|----------|---------------|
-    | 0.01% (1bps) | 1 | Highly correlated assets | USDC/DAI, wstETH/WETH |
-    | 0.05% (5bps) | 10 | Stable/pegged assets | USDC/USDT, LST pairs |
-    | 0.05% (5bps) | 100 | Correlated volatiles | WETH/wstETH |
-    | 0.3% (30bps) | 200 | Standard volatile pairs | AERO/WETH, USDC/WETH |
-    | 1% (100bps) | 2000 | Highly volatile/exotic | New tokens, low-liquidity pairs |
-
-    **How to choose:**
-    - **Lower fees** (0.01-0.05%): Stable pairs with high expected volume
-    - **Medium fees** (0.3%): Standard volatile pairs (most common)
-    - **Higher fees** (1%): Compensate for high volatility and wider spreads
-
-    **Dynamic fees:** Slipstream pools can adjust fees automatically based on volatility, optimizing for market conditions.
-
-    <Tip>
-    Check existing pool TVL and volume. If a fee tier already has significant liquidity, it's likely the right choice.
-    </Tip>
+    **→ [Learn about Autopilot](/overview/core-features/autopilot)**
   </Accordion>
 </AccordionGroup>
 
@@ -520,37 +376,43 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
 ## veNFT Management
 
 <AccordionGroup>
-  <Accordion title="How do I transfer veNFT?" icon="arrow-right-arrow-left">
-    veNFTs are transferable like any other NFT. Simply send from your wallet to the address of your choice.
-  </Accordion>
+  <Accordion title="How do I transfer, sell, or manage my veNFT?" icon="arrow-right-arrow-left">
+    veNFTs are transferable like any other NFT and can be traded on third-party platforms.
 
-  <Accordion title="How do I sell my veNFT?" icon="tag">
-    veNFTs can easily be traded on third-party platforms, often at a discount.
+    **Transfer options:**
+    - Send to another wallet address
+    - Sell on NFT marketplaces (often at a discount)
+    - The recipient inherits all voting rights and rewards
 
-    <Tip>
-    veNFTs can be traded on third-party NFT marketplaces, often at a discount reflecting the lock duration.
-    </Tip>
+    For advanced operations including merging, splitting, delegation, and permanent locks:
 
-  </Accordion>
+    **→ [Advanced veNFT Management Guide](/overview/core-features/lock/advanced)**
 
-  <Accordion title="What happens if I sell my veNFT?" icon="user-group">
-    The recipient of the veNFT inherits all rights and control over the voting position.
+    **→ [veNFT Transferability Details](/overview/core-features/lock/advanced#venft-transferability-and-secondary-markets)**
   </Accordion>
 </AccordionGroup>
 
 ## Relay (Managed veNFTs)
 
 <AccordionGroup>
-  <Accordion title="Can I use Relay if my lock expires soon?" icon="hourglass">
-    Yes, but your lock will immediately extend to 4 years upon deposit. If your lock expires in 2 weeks and you deposit into Relay, you'll be locked for 4 years from that moment.
+  <Accordion title="What is Relay and how does it work?" icon="robot">
+    Relay is an automated veAERO management system that handles voting, lock extensions, and reward compounding for you.
 
-    Consider whether this aligns with your liquidity needs before depositing. Learn more about lock extension implications in the [Relay documentation](/overview/core-features/relay#lock-extension-implications).
+    **Key points:**
+    - Automatically extends your lock to 4 years
+    - Manages weekly voting on your behalf
+    - Auto-compounds rebases
+    - Two strategy types: Compounders (maximize voting power) and Convertors (liquid yield)
+
+    **→ [Complete Relay Guide](/overview/core-features/relay)**
+
+    **→ [Relay Troubleshooting](/overview/core-features/relay#troubleshooting)**
   </Accordion>
 
-  <Accordion title="Do I lose governance voting power when depositing into Relay?" icon="vote-yea">
-    No. While the Relay manager controls your weekly gauge votes (which pools get emissions), you retain governance voting power for protocol proposals.
+  <Accordion title="Do I retain governance rights with Relay?" icon="vote-yea">
+    Yes. While the Relay manager controls your weekly gauge votes, you retain governance voting power for protocol proposals.
 
-    The protocol Governor tracks and reports your locked amount even while deposited, ensuring your governance weight is preserved. Learn more: [Governance Rights](/overview/core-features/relay#governance-rights)
+    **→ [Learn more about governance rights](/overview/core-features/relay#governance-rights)**
   </Accordion>
 </AccordionGroup>
 
@@ -590,6 +452,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Tip>
     You can vote for as many pools as you want in a single transaction. There's no limit on the number of pools you can support.
     </Tip>
+
   </Accordion>
 
   <Accordion title="Can I change my vote mid-epoch?" icon="rotate">
@@ -611,6 +474,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Warning>
     Changing votes mid-epoch requires resetting ALL votes, not just adjusting individual pools. Make sure the gas cost and potential reward changes justify the reset.
     </Warning>
+
   </Accordion>
 
   <Accordion title="Do votes carry over to the next epoch?" icon="calendar-check">
@@ -630,6 +494,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Tip>
     While votes carry over, consider reviewing your allocation weekly to capture the best opportunities as protocols adjust their incentives.
     </Tip>
+
   </Accordion>
 
   <Accordion title="When is the vote deadline and when do rewards start?" icon="clock">
@@ -654,6 +519,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Tip>
     Vote near the Wednesday deadline to see final incentive amounts before committing your votes. Protocols often deposit bribes throughout the week.
     </Tip>
+
   </Accordion>
 
   <Accordion title="How do I choose pools to maximize returns?" icon="brain">
@@ -687,6 +553,7 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
     <Warning>
     Past performance does not guarantee future results. Always do your own research before voting. Pool incentives, volumes, and returns fluctuate weekly based on market conditions and protocol strategies.
     </Warning>
+
   </Accordion>
 </AccordionGroup>
 
@@ -704,20 +571,3 @@ This FAQ addresses common questions for end users of Aerodrome Finance. If you'r
 
   </Accordion>
 </AccordionGroup>
-
----
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card
-    title="Before You Begin"
-    icon="circle-info"
-    href="/overview/getting-started/before-you-begin"
-  >
-    Important considerations before using Aerodrome
-  </Card>
-  <Card title="How-To Guides" icon="book-open" href="/guides">
-    Step-by-step instructions for common tasks
-  </Card>
-</CardGroup>
