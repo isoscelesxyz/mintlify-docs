@@ -1,0 +1,597 @@
+---
+title: "Advanced Swapping"
+description: "Deep-dive into multi-hop routing, slippage mechanics, price impact optimization, and advanced trading strategies"
+---
+
+**Audience**: Power users, traders, and anyone wanting to understand Aerodrome's swap mechanics in depth
+
+**You will learn** how Aerodrome's routing works, when to adjust slippage, how to minimize price impact, and advanced swap optimization techniques.
+
+## Multi-Hop Routing
+
+Aerodrome's router automatically finds the optimal path for your swap, even when a direct pool doesn't exist.
+
+### How routing works
+
+The router searches for the best execution path across all available pools:
+
+**Single-hop (direct)**:
+```
+USDC → [USDC/WETH pool] → WETH
+```
+
+**Multi-hop (indirect)**:
+```
+RARE_TOKEN → [RARE_TOKEN/WETH pool] → WETH → [WETH/USDC pool] → USDC
+```
+
+### Route selection algorithm
+
+The router evaluates:
+1. **Available pools** - All pools containing input or output tokens
+2. **Liquidity depth** - How much liquidity is available at current price
+3. **Fee costs** - Pool fees for each potential route
+4. **Price impact** - How much the trade moves each pool's price
+5. **Gas costs** - More hops = higher gas, balanced against better pricing
+
+The router selects the path with the **best net price** after accounting for fees, impact, and gas.
+
+### Multi-hop considerations
+
+**Advantages**:
+- ✅ Access to tokens without direct pools
+- ✅ Better pricing through liquidity aggregation
+- ✅ Automatic optimization (no manual route selection)
+
+**Tradeoffs**:
+- ❌ Higher gas costs (each hop adds transactions)
+- ❌ Slightly higher slippage risk (price changes in multiple pools)
+- ❌ More complex failure modes
+
+<Info>
+The UI displays the route before you confirm. You'll see something like "USDC → WETH → AERO" showing the path your swap will take.
+</Info>
+
+### Common routing patterns
+
+**Intermediate tokens** frequently used in routes:
+- **WETH** - Most liquid base pair, connects most tokens
+- **USDC** - Stable liquidity hub
+- **AERO** - Native protocol token with deep liquidity
+
+**Example routes**:
+- cbBTC → USDC: `cbBTC → WETH → USDC`
+- AERO → DAI: `AERO → USDC → DAI`
+- Obscure token → Any: `TOKEN → WETH → [target]`
+
+<Tip>
+If a swap seems to have poor pricing, check if there's a more direct pool available. Sometimes providing liquidity to create a direct pair can be profitable.
+</Tip>
+
+---
+
+## Slippage Mechanics Deep-Dive
+
+### What slippage tolerance actually does
+
+When you set slippage tolerance to 0.5%, you're saying:
+> "I'll accept up to 0.5% worse price than the current quote, but if it's worse than that, the transaction should fail."
+
+**Example**:
+- Quote: 1 ETH = 3,000 USDC
+- 0.5% slippage: Accept as low as 2,985 USDC
+- If execution would give <2,985 USDC: transaction reverts
+
+### Why slippage happens
+
+**Legitimate causes**:
+1. **Market movement** - Price changed between submission and execution (common on volatile tokens)
+2. **Other transactions** - Someone else traded before your transaction processed
+3. **Low liquidity** - Your trade significantly moves the pool price (price impact)
+
+**Malicious causes**:
+4. **MEV/Sandwich attacks** - Bots front-run your trade to extract value
+5. **Rug pulls** - Token contract manipulates pricing
+
+### Slippage settings by scenario
+
+| Scenario | Recommended Slippage | Reasoning |
+|----------|---------------------|-----------|
+| Stablecoin swaps (USDC/DAI) | 0.1-0.3% | Very low volatility |
+| Established tokens (WETH/AERO) | 0.5-1% | Standard volatility |
+| Volatile pairs (new tokens) | 2-5% | High volatility, wide spreads |
+| Low liquidity pools | 3-5% | Large price impact expected |
+| Large trades (>$10k) | 1-2% | Price impact + timing risk |
+
+<Warning>
+Never set slippage above 10% unless you fully understand the risks. High slippage tolerance makes you vulnerable to MEV extraction and poor execution.
+</Warning>
+
+### Slippage vs price impact
+
+**These are different concepts**:
+
+**Price impact**:
+- How much your trade moves the market price
+- Determined by trade size vs pool liquidity
+- Shows BEFORE you submit transaction
+- Real economic cost (you're moving the market)
+
+**Slippage tolerance**:
+- Maximum additional price movement you'll accept
+- Protection mechanism (transaction reverts if exceeded)
+- Set by you
+- Acts as safety limit
+
+**Example**:
+- Trade shows 1.2% price impact (unavoidable)
+- You set 2% slippage tolerance
+- Transaction fails if execution is >2% worse than quote
+- You're protected from >2% total slippage, but still pay the 1.2% impact
+
+---
+
+## Price Impact Optimization
+
+### Understanding price impact
+
+Price impact is the difference between market price and your execution price caused by your trade size.
+
+**Formula concept**:
+```
+Price Impact = (Market Price - Your Execution Price) / Market Price × 100%
+```
+
+### Impact thresholds
+
+**< 0.1%** - Negligible
+- Normal for small trades in liquid pools
+- Minimal cost to you
+
+**0.1% - 0.5%** - Low
+- Acceptable for most trades
+- Standard for medium trades in liquid pools
+
+**0.5% - 1%** - Moderate
+- Acceptable for larger trades
+- Consider splitting if optimizing for price
+
+**1% - 3%** - High
+- Your trade is significant relative to pool
+- Consider splitting into multiple trades
+- Check for alternative routes
+
+**> 3%** - Very High
+- Trade size too large for pool liquidity
+- Splitting is strongly recommended
+- Consider OTC if available
+- Check for liquidity on other DEXs
+
+<Warning>
+Price impact is a real cost - not just a warning. A 5% price impact means you're paying 5% more than market price. This cost is separate from swap fees.
+</Warning>
+
+### Reducing price impact
+
+**1. Split large trades**:
+```
+Instead of: 1 trade of 100 ETH (5% impact)
+Do: 5 trades of 20 ETH each (1% impact each)
+
+Result: Better average price (lower total cost)
+Tradeoff: Higher gas costs (5 transactions)
+```
+
+**2. Use different pools**:
+- Check if alternative pool exists with better liquidity
+- CL pools vs V2 pools may have different liquidity
+- Different fee tiers may have different depth
+
+**3. Wait for better liquidity**:
+- LPs may add liquidity throughout the day
+- Epoch transitions (Thursday) often see liquidity changes
+- After veAERO votes, emissions change pool attractiveness
+
+**4. Provide liquidity yourself**:
+- If you trade frequently in a pair
+- Add liquidity to earn fees from your own (and others') trades
+- Reduce your future price impact
+
+---
+
+## Pool Fee Structures
+
+### V2 Pool Fees
+
+V2 pools have fixed fees per pool type:
+- **Stable pools**: 0.01-0.05% (low volatility pairs)
+- **Volatile pools**: 0.2-0.3% (standard pairs)
+- Custom fees: Some pools have protocol-specific fees
+
+### CL Pool Fees (Dynamic)
+
+Slipstream concentrated liquidity pools use **dynamic fees** that adjust based on volatility:
+
+**Volatile markets**:
+- Fees increase (can surge to 0.5-1%+)
+- Compensates LPs for providing liquidity during risk
+- Traders are fee-inelastic (willing to pay for execution)
+
+**Stable markets**:
+- Fees decrease (can drop to 0.01-0.05%)
+- Competitive pricing to capture volume
+- Traders are fee-elastic (shop for best rates)
+
+**Parameters**:
+- **Base fee**: Minimum fee during low volatility
+- **Fee cap**: Maximum fee during high volatility
+- **Volatility scaling**: How fast fees adjust
+
+<Info>
+Dynamic fees are calculated entirely onchain without oracles. The algorithm monitors recent price movements to determine current volatility.
+</Info>
+
+### How fees affect your swap
+
+Your total swap cost includes:
+1. **Pool fees**: 0.01% - 1% depending on pool and volatility
+2. **Price impact**: Depends on trade size and liquidity
+3. **Gas fees**: Base network transaction costs
+
+**Example**:
+```
+Swap 10 WETH → USDC in CL pool:
+- Market price: 1 WETH = $3,000
+- Pool fee: 0.3% = $9 per ETH
+- Price impact: 0.2% = $6 per ETH
+- Gas: ~$0.10 on Base
+
+Total cost: $150 fees + $60 impact + $0.10 gas = $210.10 total cost
+Effective price: $2,979 per WETH (vs $3,000 market)
+```
+
+---
+
+## Router Selection
+
+Aerodrome uses different routers for different pool types:
+
+### Router types
+
+**V2 Router**:
+- Handles V2 pool swaps (stable and volatile)
+- Constant product (x × y = k) pricing
+- Simple routing algorithm
+
+**CL Router (SwapRouter)**:
+- Handles Slipstream concentrated liquidity swaps
+- Tick-based pricing
+- More complex routing through ranges
+
+**Universal Router** (if applicable):
+- Can route through both V2 and CL pools
+- Finds best execution across all liquidity types
+- May combine V2 → CL or CL → V2 in same swap
+
+<Info>
+The Aerodrome UI automatically selects the appropriate router. You don't need to choose manually.
+</Info>
+
+### Cross-pool type routing
+
+The router can mix pool types for optimal pricing:
+
+**Example**:
+```
+TOKEN_A → WETH → USDC
+
+Route: TOKEN_A/WETH (V2 pool) → WETH/USDC (CL pool)
+
+Result: Best execution by using deepest liquidity for each hop
+```
+
+---
+
+## Advanced Trading Strategies
+
+### Timing your swaps
+
+**Optimal timing considerations**:
+
+**Low volatility periods**:
+- ✅ Lower dynamic fees (CL pools)
+- ✅ Tighter spreads
+- ✅ More predictable execution
+- Best for: Routine swaps, large trades
+
+**High volatility periods**:
+- ❌ Higher dynamic fees
+- ❌ Wider spreads
+- ❌ Less predictable execution
+- ⚠️ Only trade if necessary
+
+**Epoch transitions** (Thursday 00:00 UTC):
+- Votes change, emissions adjust
+- Liquidity may shift between pools
+- May affect routing and pricing
+- Generally minor impact on swaps
+
+### Large trade execution
+
+For trades >$10,000:
+
+**1. Check multiple pools**:
+- Compare pricing across V2 and CL versions of same pair
+- Check different fee tiers
+- Manually calculate which route is optimal
+
+**2. Split across time**:
+- Execute 25% of trade
+- Wait 5-10 minutes
+- Execute next 25%
+- Reduces visible order size
+
+**3. Consider OTC** (very large trades):
+- For >$100k trades
+- Direct negotiation with LPs or protocols
+- Better pricing, no public slippage
+- Contact via Discord for coordination
+
+### Monitoring pool liquidity
+
+Before large swaps, check:
+- **TVL**: Total value locked in pool
+- **Volume/TVL ratio**: Higher = better liquidity utilization
+- **Recent trades**: Check BaseScan for pool activity
+- **Price range** (CL pools): Ensure liquidity exists at target price
+
+<Tip>
+For swaps >1% of pool TVL, expect noticeable price impact. Consider alternative pools or splitting the trade.
+</Tip>
+
+---
+
+## MEV and Front-Running Protection
+
+### What is MEV?
+
+MEV (Maximal Extractable Value) refers to bots extracting value from pending transactions.
+
+**Sandwich attacks**:
+1. Bot sees your pending swap
+2. Bot front-runs: buys tokens before you
+3. Your swap executes at worse price
+4. Bot back-runs: sells tokens for profit
+
+Your loss = bot's profit (extracted via slippage tolerance)
+
+### Protection strategies
+
+**1. Use tighter slippage**:
+- Lower slippage = less room for MEV extraction
+- Tradeoff: Transaction may fail if market moves
+- Sweet spot: 0.5-1% for most trades
+
+**2. Private transactions** (if supported):
+- Flashbots Protect or similar
+- Prevents public mempool visibility
+- Not always available on Base
+
+**3. Split large trades**:
+- Smaller trades = less MEV profitability
+- Makes sandwich attacks uneconomical
+
+**4. Trade during low activity**:
+- Less bot competition
+- Lower mempool congestion
+- Better execution environment
+
+<Info>
+Base's fast block times (2 seconds) reduce MEV window compared to Ethereum. This provides some natural protection.
+</Info>
+
+---
+
+## Fee Comparison: Aerodrome vs Other DEXs
+
+### Why fees matter
+
+Swap fees are a percentage of your trade value, paid to liquidity providers:
+
+**0.01% fee** on $10,000 swap = $1 in fees
+**0.3% fee** on $10,000 swap = $30 in fees
+
+Over many trades, fees compound significantly.
+
+### Aerodrome's advantage
+
+**Dynamic fees** (CL pools):
+- Lower fees during stable periods (competitive with any DEX)
+- Higher fees during volatility (but you pay for execution certainty)
+- Averages better than fixed-fee competitors
+
+**V2 pools**:
+- Competitive fixed fees
+- Deep liquidity from emissions
+- Tight spreads
+
+**Routing efficiency**:
+- Finds cheapest path across all pools
+- May route through lower-fee pools when available
+- Optimizes for net price (fees + impact + gas)
+
+---
+
+## Understanding Execution Quality
+
+### What makes a good swap?
+
+Not just lowest fees - consider total execution quality:
+
+**1. Net price received**:
+- Quoted price - fees - price impact - slippage = actual price
+- Compare net price across DEXs, not just fees
+
+**2. Execution certainty**:
+- Will transaction succeed?
+- Is liquidity sufficient?
+- Is slippage tolerance appropriate?
+
+**3. Speed**:
+- Base: ~2 second blocks (very fast)
+- Transaction confirms quickly
+- Reduces timing risk
+
+**4. Cost efficiency**:
+- Gas costs on Base are low (~$0.05-0.20)
+- Multi-hop trades cost more but may save on price impact
+- Net cost = gas + fees + impact
+
+### Comparing quotes
+
+When evaluating swap quotes:
+
+```
+DEX A Quote:
+- Gross price: 3,000 USDC per ETH
+- Fee: 0.3% = $9
+- Price impact: 0.5% = $15
+- Gas: $0.10
+- Net received: 2,976 USDC
+- Total cost: $24.10
+
+DEX B Quote:
+- Gross price: 3,005 USDC per ETH
+- Fee: 0.05% = $1.50
+- Price impact: 2% = $60
+- Gas: $0.50
+- Net received: 2,943.50 USDC
+- Total cost: $62
+
+Winner: DEX A (better net execution despite higher fees)
+```
+
+Always compare **net received**, not just fees or gross quotes.
+
+---
+
+## Advanced Scenarios
+
+### Swapping new or exotic tokens
+
+**Challenges**:
+- Limited liquidity (high price impact)
+- No direct pools (requires multi-hop)
+- High volatility (requires higher slippage)
+- Potential scam tokens
+
+**Best practices**:
+1. **Verify token contract** - Check official sources
+2. **Start small** - Test with tiny amount first
+3. **Check liquidity** - See pool TVL and recent volume
+4. **Use higher slippage** - 3-5% may be necessary
+5. **Monitor chart** - Ensure price movement is legitimate
+
+### Swapping during high volatility
+
+**Market volatility affects swaps**:
+- Prices change rapidly between quote and execution
+- Higher slippage tolerance needed
+- Greater MEV risk (bots capitalize on volatility)
+
+**Strategies**:
+- Accept higher slippage (2-3%) for execution certainty
+- Use smaller trade sizes to reduce MEV profitability
+- Wait for volatility to calm if not urgent
+- Monitor multiple sources (is price change real?)
+
+### Using CL pools as limit orders
+
+Concentrated liquidity positions can function as limit orders:
+
+**Scenario**: Want to sell ETH if price hits $3,500
+
+**Strategy**:
+1. Create CL position with range $3,500-$3,600
+2. Deposit 100% ETH (at current price <$3,500, position is one-sided)
+3. When price hits range, swaps occur automatically
+4. Your ETH converts to USDC at your target price
+5. Earn fees while waiting
+
+**Benefit**: Passive limit order + fee earning while waiting
+
+---
+
+## Router Contract Details
+
+### Technical implementation
+
+**For developers and power users**:
+
+**Router contracts** (Base):
+- V2 Router: Handles constant product pools
+- CL Router: Handles concentrated liquidity (Slipstream)
+- Path encoding: Determines route through pools
+
+**Quote functions**:
+- `quoteExactInput`: Given input amount, calculate output
+- `quoteExactOutput`: Given desired output, calculate required input
+
+**Path construction**:
+- V2: Array of token addresses
+- CL: Token addresses + pool identifiers + fee tiers
+
+<Info>
+For integration details, see [Third-Party Integrations](/development/third-party-integrations) and [Sugar API](/development/sugar).
+</Info>
+
+---
+
+## Gas Optimization
+
+### Minimizing transaction costs
+
+**Gas costs on Base** (approximate):
+- Simple swap: $0.05 - $0.10
+- Swap with approval: $0.10 - $0.20
+- Multi-hop swap: $0.15 - $0.30
+
+**Optimization strategies**:
+
+**1. Batch operations when possible**:
+- If swapping multiple tokens, consider timing
+- Combine with other actions (claim + swap, etc.)
+
+**2. Approve once per token**:
+- First swap requires approval (~$0.05)
+- Subsequent swaps skip approval
+- Use infinite approval or approve exact amounts
+
+**3. Consider trade-offs**:
+- Multi-hop may cost more gas but save on price impact
+- Direct route may cost less gas but worse execution
+- Net savings = impact savings - gas increase
+
+**4. Monitor Base gas prices**:
+- Base is generally cheap and consistent
+- Occasional spikes during high activity
+- Rarely worth waiting for gas to drop
+
+---
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="How to Swap" icon="arrow-right-arrow-left" href="/overview/core-features/swap/index">
+    Back to basic swap guide and step-by-step instructions
+  </Card>
+  <Card title="Concentrated Pools" icon="chart-line" href="/overview/core-features/liquidity-pools/concentrated-pools">
+    Learn about dynamic fees and Slipstream mechanics
+  </Card>
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+    Earn fees by providing liquidity instead of swapping
+  </Card>
+  <Card title="Third-Party Integrations" icon="code" href="/development/third-party-integrations">
+    Integrate Aerodrome swaps into your application
+  </Card>
+</CardGroup>
