@@ -32,6 +32,7 @@
             "group": "Getting Started",
             "icon": "rocket",
             "pages": [
+              "overview/getting-started/quickstart",
               "overview/getting-started/aerodrome-101",
               "overview/getting-started/key-concepts",
               "overview/getting-started/before-you-begin"
@@ -49,6 +50,7 @@
                   "overview/core-features/liquidity-pools/providing-liquidity",
                   "overview/core-features/liquidity-pools/basic-pools",
                   "overview/core-features/liquidity-pools/concentrated-pools",
+                  "overview/core-features/liquidity-pools/staking",
                   "overview/core-features/liquidity-pools/technical-details"
                 ]
               },
@@ -58,6 +60,13 @@
               "overview/core-features/rewards",
               "overview/core-features/autopilot",
               "overview/core-features/relay"
+            ]
+          },
+          {
+            "group": "Partners & Launch",
+            "icon": "rocket-launch",
+            "pages": [
+              "overview/partners/aero-ignition"
             ]
           },
           {
