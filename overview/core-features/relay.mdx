@@ -20,6 +20,50 @@ When you deposit your veAERO into a Relay, the system automates several key func
 Depositing into a Relay automatically sets your veAERO to max-lock (4 years). You cannot unlock early, and withdrawals are only possible after the first epoch completes.
 </Warning>
 
+## Understanding locked vs free rewards
+
+Relay strategies process rewards differently depending on whether they are locked or free. This distinction determines when and how you can access your earnings.
+
+### Locked rewards (Compounder strategies)
+
+Locked rewards are automatically compounded back into your veAERO position and can only be claimed when you withdraw from the Relay.
+
+**How it works**:
+- Trading fees and <Tooltip tip="Incentives deposited by protocols to attract votes to their gauges">bribes</Tooltip> are claimed weekly by the Relay
+- Rewards are converted to `AERO` and locked into your veNFT position
+- Your voting power increases automatically as rewards compound
+- You receive all accumulated rewards when you withdraw from the Relay
+
+**Benefits**:
+- Maximum voting power growth over time
+- Automated position building
+- No manual claiming required
+
+**Trade-offs**:
+- Cannot access rewards while deposited in Relay
+- Must withdraw to realize earnings
+- Best for long-term holders focused on voting power
+
+### Free rewards (Convertor strategies)
+
+Free rewards are converted to a specific asset (like USDC or ETH) and are claimable anytime without withdrawing from the Relay.
+
+**How it works**:
+- Weekly <Tooltip tip="Emissions distributed to veAERO holders based on their voting power">rebases</Tooltip> are compounded into your veAERO position (same as compounders)
+- Trading fees and bribes are converted to the target asset (e.g., USDC)
+- Converted rewards accumulate in your claimable balance
+- You can claim rewards weekly without affecting your deposited veAERO
+
+**Benefits**:
+- Regular liquid income stream
+- Maintain veAERO position while earning yield
+- Flexibility to claim when needed
+
+**Trade-offs**:
+- Voting power grows slower than compounder strategies
+- Rewards don't auto-compound into position
+- Best for users wanting regular income
+
 ## Strategy types
 
 Relay offers two strategy types that handle rewards differently:
@@ -28,7 +72,14 @@ Relay offers two strategy types that handle rewards differently:
 
 **Goal**: Maximize veAERO voting power over time
 
-Compounders automatically claim all rewards (rebases, trading fees, and <Tooltip tip="Incentives deposited by protocols to attract votes to their gauges">bribes</Tooltip>) and convert them to `AERO`, then lock that `AERO` to increase your veAERO position. This strategy votes for pools that generate high total rewards by value.
+Compounders use the locked rewards mechanism. All rewards (rebases, trading fees, and bribes) are automatically converted to `AERO` and locked to increase your veAERO position. This strategy votes for pools that generate high total rewards by value.
+
+**Reward flow**:
+1. Relay votes for high-reward pools each <Tooltip tip="7-day governance period from Thursday 00:00 UTC to Wednesday 23:59 UTC">epoch</Tooltip>
+2. Trading fees and bribes accrue to the managed veNFT
+3. All rewards are converted to `AERO`
+4. `AERO` is locked, increasing your voting power
+5. Accumulated rewards are distributed proportionally when you withdraw
 
 **Best for**: Users who want to grow their veAERO holdings and don't need liquid yield.
 
@@ -36,13 +87,85 @@ Compounders automatically claim all rewards (rebases, trading fees, and <Tooltip
 
 **Goal**: Generate liquid yield while maintaining veAERO exposure
 
-Convertors compound rebases into your veAERO position (like compounders), but convert all other rewards into a specified asset (such as USDC, ETH, or OP) that you can claim weekly. The voting strategy may prioritize pools containing the target asset.
+Convertors use the free rewards mechanism. Rebases compound into your veAERO position, but all other rewards are converted to a target asset (such as USDC, ETH, or OP) that you can claim weekly. The voting strategy may prioritize pools containing the target asset.
+
+**Reward flow**:
+1. Relay votes for pools (often containing the target asset)
+2. Weekly rebases are auto-compounded into your veAERO
+3. Trading fees and bribes are converted to the target asset
+4. Converted rewards become claimable immediately
+5. You can claim rewards anytime without withdrawing
 
 **Best for**: Users who want regular claimable income while maintaining their veAERO position.
 
+## How to use Relay
+
+### Depositing into a Relay
+
+<Steps>
+  <Step title="Navigate to Relay page">
+    Go to the Relay section on [aerodrome.finance](https://aerodrome.finance) and review available Relay strategies.
+  </Step>
+
+  <Step title="Select a Relay strategy">
+    Choose between:
+    - **veAERO MAXI** (protocol-run compounder for maximum voting power growth)
+    - **Partner Relays** (protocol-specific strategies with different voting allocations)
+
+    Review each strategy's voting focus and reward mechanism before selecting.
+  </Step>
+
+  <Step title="Review lock extension warning">
+    Depositing will automatically extend your veAERO lock to maximum duration (4 years). This is required for all Relay deposits and cannot be bypassed.
+  </Step>
+
+  <Step title="Approve and deposit">
+    Approve the Relay contract to manage your veNFT, then confirm the deposit transaction. Your veNFT becomes managed by the Relay strategy.
+  </Step>
+
+  <Step title="Confirm deposit">
+    After the transaction confirms, your veAERO is now managed by the Relay. Automation begins at the next epoch.
+  </Step>
+</Steps>
+
 <Warning>
-Withdrawals from Relay are only possible after the first epoch completes. Do not deposit if you need immediate access to your veAERO.
+Depositing into Relay extends your lock to the maximum 4 years. You cannot withdraw during the first epoch after depositing (minimum 1 week).
 </Warning>
+
+### Withdrawing from a Relay
+
+<Steps>
+  <Step title="Check timing requirements">
+    Withdrawals are only possible after the first epoch completes following your deposit. Verify at least one full epoch has passed since you deposited.
+  </Step>
+
+  <Step title="Verify automation health">
+    Before withdrawing, check that the Relay automation is functioning correctly:
+    - Review last vote timestamp (should be recent)
+    - Check that the Relay strategy is still active
+    - Confirm the (m)veNFT is not deactivated
+  </Step>
+
+  <Step title="Initiate withdrawal">
+    Navigate to your deposited position in the Relay interface and select "Withdraw". Review what you will receive upon withdrawal.
+  </Step>
+
+  <Step title="Confirm withdrawal transaction">
+    Approve the withdrawal transaction. Your veNFT will be returned to your wallet.
+  </Step>
+
+  <Step title="Receive your veNFT and rewards">
+    After withdrawal completes, you receive:
+    - Your veNFT with its share of aggregated voting power
+    - Lock duration set to maximum (4 years)
+    - **Compounders only**: All accumulated locked rewards added to your veNFT
+    - **Convertors only**: Your veNFT (free rewards were claimable throughout)
+  </Step>
+</Steps>
+
+<Info>
+After withdrawal, your veNFT retains its maximum lock duration. If you want a shorter lock, you must wait for natural decay over time—locks cannot be manually shortened.
+</Info>
 
 ## Available Relay strategies
 
@@ -51,9 +174,11 @@ Withdrawals from Relay are only possible after the first epoch completes. Do not
 The **veAERO MAXI Relay** uses a compounder strategy with these functions:
 
 - **Voting**: Votes for pools that historically generate high reward value
-- **Rebasing**: Claims the weekly rebase
-- **Rewards conversion**: Claims and converts rewards into `AERO`
-- **Locking**: Locks all converted `AERO`, increasing the locked amount of those who deposited into the Relay
+- **Rebasing**: Claims the weekly rebase and locks it into deposited veNFTs
+- **Rewards conversion**: Claims trading fees and bribes, converts them to `AERO`
+- **Locking**: Locks all converted `AERO`, proportionally increasing voting power for all depositors
+
+**Strategy type**: Compounder (locked rewards)
 
 ### Partner Relays
 
@@ -61,7 +186,95 @@ Partner Relay strategies are run by or for protocol partners—usually other pro
 
 These strategies typically vote to support their own liquidity pools. Partner protocols may generate different reward profiles based on their pool focus compared to the veAERO MAXI strategy.
 
+**Common partner strategies**:
+- **Compounders**: Lock all rewards to grow depositor voting power while voting for partner pools
+- **Convertors**: Compound rebases but convert fees/bribes to target asset (often partner protocol token or stablecoin)
+
 Partner protocols can request a Relay strategy. This may soon require an open governance proposal to be voted and passed by veAERO voters.
+
+## Choosing a Relay strategy
+
+When selecting a Relay, consider these factors:
+
+| Factor | veAERO MAXI | Partner Compounders | Partner Convertors |
+|--------|-------------|---------------------|-------------------|
+| **Reward type** | Locked (claim on withdrawal) | Locked (claim on withdrawal) | Free (claimable weekly) |
+| **Voting focus** | High-reward pools | Partner protocol pools | Partner protocol pools |
+| **Voting power growth** | Maximum (all rewards locked) | Maximum (all rewards locked) | Moderate (only rebases locked) |
+| **Liquid income** | None | None | Yes (weekly claimable) |
+| **Best for** | Long-term AERO accumulators | Supporting partner protocols + growth | Regular income + protocol support |
+
+### Decision framework
+
+**Choose veAERO MAXI if**:
+- You want maximum voting power growth
+- You don't need liquid yield
+- You prefer diversified voting across high-reward pools
+- You trust the protocol team to optimize returns
+
+**Choose a Partner Compounder if**:
+- You want to support a specific protocol's pools
+- You still want maximum voting power growth
+- You believe the partner's pools will generate strong rewards
+- You trust the partner protocol team
+
+**Choose a Partner Convertor if**:
+- You want regular liquid income (weekly claimable)
+- You're comfortable with slower voting power growth
+- You want exposure to a specific asset (USDC, ETH, partner token)
+- You support a specific protocol but need yield
+
+### Performance tracking
+
+Monitor your Relay performance by checking:
+- **Voting power growth**: Compare your veAERO balance over time
+- **Automation health**: Verify the Relay is voting each epoch (check last vote timestamp)
+- **Reward accumulation**: For convertors, track your claimable balance
+- **Strategy alignment**: Ensure the Relay votes align with your expectations
+
+## Risks and considerations
+
+<Warning>
+Relay deposits involve specific risks beyond standard veAERO locking. Review these carefully before depositing.
+</Warning>
+
+### Manager trust assumptions
+
+When you deposit into a Relay, the strategy manager (protocol team or partner) controls how your veAERO votes each epoch. You trust them to:
+- Vote in alignment with the stated strategy
+- Maintain automation health and timeliness
+- Act in depositors' best interests
+
+You **retain governance voting power** for protocol proposals, but **do not control gauge voting** while deposited.
+
+### Smart contract risk
+
+Relay introduces additional smart contracts beyond the core veAERO system:
+- Managed veNFT (mveNFT) contracts
+- Reward distribution contracts (`LockedManagedReward.sol` and `FreeManagedReward.sol`)
+- Strategy automation contracts
+
+Each additional contract increases the attack surface. While contracts are audited, risk is not eliminated.
+
+### Lock extension implications
+
+Depositing into Relay **automatically extends your lock to maximum duration (4 years)**. This is unavoidable and happens immediately upon deposit.
+
+**Implications**:
+- Your unlock date moves to 4 years from deposit
+- Previous lock duration is overridden
+- Cannot be reversed—even by withdrawing immediately after first epoch
+- Must wait for natural decay if you want shorter lock duration
+
+### Deactivation scenarios
+
+The protocol can deactivate a Relay strategy's (m)veNFT in emergency situations:
+- Critical vulnerability discovered
+- Strategy manager becomes unresponsive
+- Automation failures persist
+- Governance vote to deactivate
+
+When deactivated, all depositors can withdraw safely, but automation stops until resolved.
 
 ## Technical architecture
 
@@ -84,6 +297,68 @@ If a Relay strategy encounters issues, the protocol can deactivate the (m)veNFT,
 
 Depositors retain their governance voting power. The protocol Governor tracks and reports the current locked amount of veNFTs managed by each Relay strategy, ensuring your governance weight is preserved even while deposited.
 
+**You retain**:
+- Governance voting power for protocol proposals
+- Your proportional share of the (m)veNFT's voting power
+- Right to withdraw after first epoch completes
+
+**The Relay manager controls**:
+- Weekly gauge voting decisions
+- Vote allocation across pools
+- Timing of votes within each epoch
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why can't I withdraw from Relay yet?" icon="clock">
+    Withdrawals are only possible after the first full epoch completes following your deposit. Epochs run from Thursday 00:00 UTC to Wednesday 23:59 UTC.
+
+    If you deposited on a Friday, you must wait until at least the following Thursday (when the next epoch begins) before withdrawing.
+
+    **Solution**: Check the current epoch and verify at least one complete epoch has passed since your deposit timestamp.
+  </Accordion>
+
+  <Accordion title="My lock extended to 4 years - is this expected?" icon="lock">
+    Yes, this is expected behavior. Depositing into any Relay automatically extends your veAERO lock to the maximum duration (4 years). This is required for all Relay deposits and cannot be bypassed.
+
+    **Why this happens**: Relay strategies maintain maximum voting power by keeping all deposited veAERO at max-lock.
+
+    **What you can do**: If you want a shorter lock duration, you must withdraw from the Relay and wait for natural lock decay over time. Locks cannot be manually shortened.
+  </Accordion>
+
+  <Accordion title="How do I know if the Relay automation is healthy?" icon="heart-pulse">
+    Check these indicators on the Relay interface:
+    - **Last vote timestamp**: Should be within the current or most recent epoch
+    - **Strategy status**: Should show "Active" (not "Deactivated")
+    - **Voting activity**: Review the pools the Relay voted for in recent epochs
+
+    If automation appears stale (no votes for 2+ epochs), the strategy may have issues. Contact the protocol team or strategy manager.
+  </Accordion>
+
+  <Accordion title="I deposited into a convertor - where are my free rewards?" icon="coins">
+    Free rewards from convertor strategies accumulate in your claimable balance and must be manually claimed.
+
+    **To claim**:
+    1. Navigate to the Relay interface
+    2. Find your deposited position
+    3. Look for "Claimable Rewards" section
+    4. Click "Claim" and confirm the transaction
+
+    Rewards typically become claimable weekly after each epoch completes. Rebases are auto-compounded into your veAERO and are not separately claimable.
+  </Accordion>
+
+  <Accordion title="Can I switch between Relay strategies without unlocking?" icon="arrows-rotate">
+    No, you must withdraw from your current Relay before depositing into a different one. There is no direct migration between strategies.
+
+    **Process**:
+    1. Withdraw from current Relay (after first epoch completes)
+    2. Receive your veNFT back (with max-lock)
+    3. Deposit into new Relay strategy
+
+    Note that both withdrawal and re-deposit reset the one-epoch waiting period before you can withdraw again.
+  </Accordion>
+</AccordionGroup>
+
 ## Next steps
 
 <CardGroup cols={2}>
@@ -91,12 +366,12 @@ Depositors retain their governance voting power. The protocol Governor tracks an
     Learn how to create veAERO before depositing into a Relay
   </Card>
   <Card title="Vote" icon="square-check" href="/overview/core-features/vote">
-    Understand how voting works in Relay strategies
+    Understand how voting works and compare manual vs Relay voting
   </Card>
   <Card title="Rewards" icon="coins" href="/overview/core-features/rewards">
-    See how rewards are distributed to veAERO holders
+    Learn about veAERO rewards and how Relay processes them
   </Card>
   <Card title="Autopilot" icon="plane" href="/overview/core-features/autopilot">
-    Compare Relay with Autopilot automated LP management
+    Compare Relay (veAERO automation) with Autopilot (CL pool automation)
   </Card>
 </CardGroup>
