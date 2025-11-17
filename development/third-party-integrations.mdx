@@ -3,11 +3,7 @@ title: "Third-Party Integrations"
 description: "Developer guides for integrating Aerodrome into your application or protocol"
 ---
 
-You will learn how to integrate Aerodrome's swap and liquidity functionality into your application or protocol, including contract interaction patterns and best practices.
-
-## Primary audience
-
-Developers building applications, protocols, or services that need to interact with Aerodrome's smart contracts on Base. This includes DeFi aggregators, portfolio managers, wallet integrations, and protocol-to-protocol integrations.
+This guide is for **developers building applications, protocols, or services that need to interact with Aerodrome's smart contracts on Base**—including DeFi aggregators, portfolio managers, wallet integrations, and protocol-to-protocol integrations. You will learn how to integrate Aerodrome's swap and liquidity functionality into your application, including contract interaction patterns and best practices.
 
 ## Before you begin
 
@@ -29,118 +25,29 @@ Developers building applications, protocols, or services that need to interact w
 Smart contracts are immutable and transactions are irreversible. Test all integrations thoroughly on Base testnet before deploying to production.
 </Warning>
 
-## Core integration patterns
+## Integration overview
 
-### Querying pool data
+Aerodrome provides multiple integration points for developers:
 
-Use the [Sugar API](/development/sugar) for efficient on-chain data queries:
+- **[Sugar API](/development/sugar)**: Efficient on-chain data queries for pools, liquidity, rewards, and governance
+- **Router contracts**: Execute swaps and manage liquidity positions
+- **Pool contracts**: Direct interaction with volatile and stable AMM pools
+- **UniversalRouter**: Slipstream (concentrated liquidity) operations
 
-**Coming soon**: Complete code examples for querying:
-- Available pools and their reserves
-- Current exchange rates and pricing
-- Liquidity positions and rewards
-- Voting and governance data
+### Key contracts
 
-### Executing swaps
-
-**Coming soon**: Integration guide for executing token swaps via Aerodrome Router contract, including:
-- Building swap transactions
-- Setting slippage tolerance
-- Handling multi-hop routes
-- Error handling and reverts
-
-**Key contracts:**
 - Router: See [Contract Addresses](/overview/security/contract-addresses)
 - UniversalRouter (for Slipstream/CL pools)
+- Sugar API for batch data queries
 
-### Adding and removing liquidity
+### Pool mathematics
 
-**Coming soon**: Integration guide for liquidity operations, including:
-- Depositing into Basic pools (volatile/stable)
-- Depositing into Slipstream (concentrated liquidity) pools
-- Withdrawing liquidity and claiming fees
-- Position management
+Understanding pool formulas helps with price calculations:
 
-### Reading pool reserves and pricing
+- **Volatile pools**: Constant product formula `x * y = k`
+- **Stable pools**: Curve formula `x³y + xy³ = k`
 
-**Coming soon**: Examples for calculating prices and amounts from pool reserves
-
-**Basic formula:**
-- Volatile pools use constant product: `x * y = k`
-- Stable pools use curve: `x³y + xy³ = k`
-
-## Common integration use cases
-
-### DeFi aggregators
-
-**Coming soon**: Best practices for integrating Aerodrome into DEX aggregators and routing protocols
-
-**Key considerations:**
-- Quote comparison across multiple pools
-- Gas optimization for routing
-- Slippage protection
-
-### Portfolio managers and vaults
-
-**Coming soon**: Guidance for protocols managing liquidity positions on behalf of users
-
-**Key considerations:**
-- Automated position management
-- Rebalancing strategies
-- Fee claiming and compounding
-
-### Analytics and dashboards
-
-For data integrations, see:
-- [Sugar API](/development/sugar) for on-chain queries
-- [Data & Analytics](/development/data-analytics) for external data sources
-
-## Code examples
-
-**Coming soon**: Complete code examples in multiple languages:
-
-### TypeScript (viem)
-
-```typescript
-// Coming soon: Example using viem for swap execution
-import { createPublicClient, http } from 'viem'
-import { base } from 'viem/chains'
-
-// Example structure - verify exact ABI and addresses
-const client = createPublicClient({
-  chain: base,
-  transport: http()
-})
-
-// Query pool data, execute swaps, etc.
-```
-
-### Python (web3.py)
-
-```python
-# Coming soon: Example using web3.py for Aerodrome integration
-from web3 import Web3
-
-# Connect to Base
-w3 = Web3(Web3.HTTPProvider('https://mainnet.base.org'))
-
-# Query pools, execute swaps, etc.
-```
-
-### Solidity (Protocol-to-Protocol)
-
-```solidity
-// Coming soon: Example Solidity contract integrating Aerodrome
-pragma solidity ^0.8.0;
-
-interface IAerodromeRouter {
-    // Interface definitions
-}
-
-contract YourProtocol {
-    // Integration example
-}
-```
+For detailed implementation examples and code snippets, see the [GitHub repositories](#github-resources) below.
 
 ## Best practices
 
@@ -221,12 +128,6 @@ Each repository includes:
     - **Sugar repository**: Includes helper contract ABIs
   </Accordion>
 </AccordionGroup>
-
-## Getting help
-
-**Coming soon**: Information on developer support channels and resources
-
-For protocol-specific questions, see the [Partner FAQs](/help/faqs/partners).
 
 ## Next steps
 
