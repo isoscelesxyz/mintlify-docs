@@ -178,6 +178,206 @@ LPs can choose between emissions (staked) or fees (unstaked), optimizing strateg
 ### 5. Modular architecture
 Seamless upgrades without disrupting operations—improvements like dynamic fees deployed without requiring liquidity migration.
 
+## Managing CL Positions
+
+### Choosing your price range
+
+**Narrow ranges (1-5% price range):**
+- Higher capital efficiency = more fees per dollar
+- Requires active monitoring and frequent rebalancing
+- Best for: Stable pairs (USDC/DAI), experienced LPs, high-volume pools
+
+**Wide ranges (10-50% price range):**
+- Lower capital efficiency but less management
+- Stays in range longer during volatility
+- Best for: Volatile pairs (AERO/WETH), passive LPs, lower-volume pools
+
+**Consider:**
+- Historical price volatility of the pair
+- Your time commitment for rebalancing
+- Fee tier of the pool (higher fees = wider ranges acceptable)
+
+<Tip>
+Check the pool's 7-day price range on the Aerodrome app to inform your range selection.
+</Tip>
+
+### What happens when price moves out of range
+
+When the active price exits your selected range:
+
+1. **You stop earning fees** - No swap activity occurs within your range
+2. **No emissions if staked** - Staked CL positions only earn when in range
+3. **Your position converts to 100% of one token** - Acts as a limit order
+4. **You need to rebalance** - Either adjust your range or accept zero rewards
+
+**To rebalance:**
+- Remove liquidity from the current position
+- Select a new range around current price
+- Re-add liquidity (requires approvals and gas)
+
+**Alternatives:**
+- Use multiple positions with laddered ranges
+- Use [Autopilot](/overview/core-features/autopilot) for automated rebalancing
+
+### Adding or removing liquidity
+
+**Adding liquidity to existing position:**
+- CL positions are NFTs representing specific ranges
+- You **cannot** add to an existing NFT position
+- Instead, create a new position with the same range parameters
+- You'll have multiple NFTs for the same range
+
+**Removing liquidity:**
+1. Navigate to your position in the Aerodrome app
+2. Click "Remove Liquidity"
+3. Choose amount to remove (partial or full)
+4. Confirm transaction
+5. Receive both tokens based on current price and your range
+
+**Partial removal**: You can remove a percentage of your position while keeping the rest active.
+
+<Info>
+Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that cannot be merged.
+</Info>
+
+### When to stake your CL position
+
+**Stake when:**
+- Pool receives significant veAERO votes (check gauge voting)
+- AERO emissions APR > swap fee APR
+- You want exposure to AERO token
+- Your position is in range
+
+**Don't stake when:**
+- Pool has low or zero votes
+- Swap fees > potential emissions
+- You prefer stable fee income over AERO
+- Your position is out of range (staking would earn nothing)
+
+<Tip>
+Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.
+</Tip>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="How do I rebalance a CL position?" icon="arrows-rotate">
+    Manual rebalancing requires removing and re-adding liquidity:
+
+    <Steps>
+      <Step title="Remove current position">
+        Go to your CL position and click "Remove Liquidity." You'll receive both tokens based on the current price.
+      </Step>
+
+      <Step title="Select new range">
+        Create a new position with an updated price range centered around the current market price.
+      </Step>
+
+      <Step title="Add liquidity">
+        Deposit both tokens into the new range. Approve tokens if first time.
+      </Step>
+
+      <Step title="Stake for emissions">
+        If the pool has a gauge, stake your new position to earn AERO emissions.
+      </Step>
+    </Steps>
+
+    **Gas costs**: Each rebalance requires multiple transactions (remove, approve, add, stake).
+
+    **Autopilot alternative**: [Autopilot](/overview/core-features/autopilot) handles rebalancing automatically for a 10% fee on earnings.
+
+  </Accordion>
+
+  <Accordion title="How do I claim CL fees?" icon="coins">
+    CL position fees accumulate automatically. To claim:
+
+    1. Go to your Dashboard
+    2. Find your CL position
+    3. Click "Claim Fees"
+    4. Receive fees in both pool tokens
+  </Accordion>
+
+  <Accordion title="Why are my CL fees lower than expected?" icon="chart-line-down">
+    Several factors affect CL fee earnings:
+
+    **Your position is out of range:**
+    - Check if current price is within your selected range
+    - Out-of-range positions earn zero fees
+
+    **Low trading volume:**
+    - Fees come from swap activity
+    - Check pool's 24h volume on the pool page
+
+    **Wide price range:**
+    - Wider ranges earn proportionally less per swap
+    - Your capital is spread across more price points
+
+    **Position is staked:**
+    - If staked, you forfeit fees for AERO emissions
+    - Check if "Staked" indicator is active on your position
+
+  </Accordion>
+
+  <Accordion title="What happens to my tokens when out of range?" icon="circle-exclamation">
+    When price exits your range, your position gradually converts to 100% of one token:
+
+    **Price above range:**
+    - Position becomes 100% of the lower-priced token
+    - Example: USDC/WETH pool, price rises → you hold 100% USDC
+
+    **Price below range:**
+    - Position becomes 100% of the higher-priced token
+    - Example: USDC/WETH pool, price falls → you hold 100% WETH
+
+    **This is automatic and irreversible while out of range.** Your position acts like a limit order until price returns or you rebalance.
+
+  </Accordion>
+
+  <Accordion title="Should I use narrow or wide ranges?" icon="arrows-left-right">
+    The right range depends on your goals and commitment level:
+
+    **Use narrow ranges (1-5%) if:**
+    - You can actively monitor and rebalance
+    - Pool has stable price action (stablecoins)
+    - High swap volume justifies management effort
+    - You're experienced with CL mechanics
+
+    **Use wide ranges (10-50%) if:**
+    - You prefer passive management
+    - Pool has volatile price action
+    - Lower volume doesn't justify frequent rebalancing
+    - You're new to CL or testing strategies
+
+    **Hybrid approach:**
+    - Create multiple positions with different ranges
+    - Narrow range for higher fees when in range
+    - Wide range as backstop for volatility
+
+  </Accordion>
+
+  <Accordion title="Why can't I stake my CL position?" icon="ban">
+    Common reasons:
+
+    **Pool has no gauge:**
+    - Not all pools are eligible for emissions
+    - Check if pool appears on the [Vote page](https://aerodrome.finance/vote)
+    - Only whitelisted pools with gauges can be staked
+
+    **Position already staked:**
+    - Check your Dashboard for staking status
+    - You may need to unstake first if managing the position
+
+    **Wallet connection issue:**
+    - Ensure you're connected with the wallet that holds the NFT
+    - CL positions are NFTs - verify you own the token ID
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
 ## Next steps
 
 <CardGroup cols={2}>
