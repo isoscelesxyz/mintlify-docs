@@ -1,0 +1,219 @@
+---
+title: "Aero Ignition"
+description: "Aerodrome's fair-launch framework for community-aligned token launches driven by veAERO voters"
+---
+
+**Audience**: Protocol teams launching new tokens on Base
+**You will learn**: How Aero Ignition works, the 4-week launch timeline, requirements for projects, and how to coordinate a successful community-aligned launch.
+
+## What is Aero Ignition?
+
+Aero Ignition is Aerodrome's fair-launch framework. It allows projects to launch tokens through community-aligned market creation driven by <Tooltip tip="Vote-escrowed AERO - locked AERO tokens that grant governance rights and voting power">veAERO</Tooltip> voters, LPs, and traders.
+
+Projects commit a small share of their supply as voter incentives before trading begins. Voters decide whether to allocate <Tooltip tip="Weekly AERO token rewards distributed to liquidity pools based on veAERO votes">emissions</Tooltip> to the new pool. After 1 week, trading begins and emissions stream to the pool. Liquidity forms organically to capture `AERO` emissions and price discovery takes place fully onchain.
+
+The result is a transparent, capital-efficient, and aligned launch model where all participants share in the growth they help create.
+
+## Key Benefits
+
+### 1. Deep Liquidity
+
+In return for projects' deposited incentives, `AERO` emissions (and trading fees) drive liquidity via LPing.
+
+### 2. Coinbase Listing via DEX Integration
+
+Tokens launched this way will immediately be available for trading on platforms with DEX integration, such as the Coinbase main app.
+
+### 3. Transparency & Organic Price Discovery
+
+Projects and users have full visibility onchain of token flows, which discourages manipulation by market makers and fosters organic price discovery.
+
+Because veAERO voters are the main liquidity providers, there is an incentive for early LPs to deposit liquidity as close to their estimate of the project's FDV as possible. Essentially, a community launch is a faster and cheaper method for projects to engage in price discovery — without paying 10% of total supply to centralized exchanges, which then allow bots buying at an artificially low price ("sniping") to accumulate excess value that should go to the project and other long-term holders.
+
+### 4. Fair Distribution (Anti-Sniping)
+
+Aero Ignition eliminates "sniping" by distributing supply widely and incentivizing liquidity providers to deposit liquidity at or near an anticipated FDV. During other launches, tokens are sniped by bots when pools are seeded with most of the token supply in 1 transaction at an artificially low price.
+
+### 5. High Quality Exposure
+
+Aero Ignition gives projects more exposure to potential users while maximizing opportunities to educate them via Twitter Spaces, podcasts, tailored announcements, and direct access to voters.
+
+### 6. Incentive Alignment
+
+Voters exchange their voter rewards for the project's token. Given they are putting their own capital at risk, this inherently incentivizes voters to research the project before giving their votes, and aligns voters with the project.
+
+### 7. Reduced Noise
+
+Aero Ignition projects are highly curated and can only happen one at a time. This helps projects cut through noise when others have to compete with each other for attention.
+
+## 4-Week Launch Timeline
+
+<Steps>
+  <Step title="Week 1 - Incentive Deposit">
+    Projects deposit up to 4% of supply as unpriced incentives. veAERO holders who vote for the pool will earn a proportional share of these tokens by the end of the week.
+
+    The cost to voters is the opportunity cost of not voting for a pool with rewards they know the value of. In other words, voters are at risk of earning less than the average voter reward if the token does not meet their FDV expectations.
+
+    The votes function as an auction, pricing the project's incentives as voters bid for a share of the deposited tokens. As votes are declared, the UI will display an estimated FDV based on the current number of votes.
+
+    <Info>
+    Many voters choose not to commit until the end of the week when they have more information on how votes have been allocated.
+    </Info>
+
+    **Implied FDV Formula**:
+    ```
+    Implied FDV = (Estimated Incentive Value) / (% of token supply deposited as incentives)
+    ```
+  </Step>
+
+  <Step title="Week 2 - Trading Begins">
+    Trading opens, emissions flow to the pool, liquidity grows organically, price discovery happens, traders pay fees which will be deposited to attract votes and emissions in Week 3.
+
+    Projects typically will deposit another batch of incentives this week. Since tokens are now priced, those incentives are market priced like any other and typically represent a smaller % of total supply.
+  </Step>
+
+  <Step title="Week 3 - Second Incentive Deposit">
+    Fees from Week 2 are now directing `AERO` to the pool and benefit from a ~1.5x emissions multiplier. The project can continue to add more incentives depending on its liquidity goals.
+  </Step>
+
+  <Step title="Week 4 - Fees Sustain Liquidity">
+    Voters claim trading fees from Week 2 and `AERO` emissions continue to be streamed to the pool. Incentives can still be deposited within the protocol's typical guidelines to attract even more liquidity. The flywheel is now in full effect.
+  </Step>
+</Steps>
+
+## Guidelines & Requirements
+
+### Rationale
+
+The Aero Ignition guidelines align with Aerodrome's vision to become the premiere decentralized exchange (DEX) for onchain trading. These guidelines aim to create the best conditions to achieve a successful launch for the project.
+
+### Key Requirements
+
+| Category | Requirement |
+|----------|-------------|
+| **Disclosure** | Submit disclosure doc and supply unlock spreadsheet |
+| **Valuation** | Price setting is done by Aero community |
+| **Incentives** | Reserve a small percentage of total supply for initial incentive deposit and future incentives |
+| **Liquidity** | Recommend against deposits by team or market maker in the first 48 hours; require full disclosure if that is part of the launch plan |
+| **CEXs** | No CEX listings on day 1 |
+
+### Assessment Process
+
+Aero Ignition launches are currently highly curated and require significantly more time & resources from Aerodrome contributors to execute. They can only happen one at a time.
+
+Projects are required to submit a **disclosure doc** and **supply unlock spreadsheet** which are used by Aerodrome to evaluate projects across a wide range of areas including:
+- Potential trading activity
+- Product-market fit
+- Tokenomics
+- Distribution
+- Security
+- Overall traction
+
+### Incentive Requirements
+
+Projects will need to deposit up to 4% (depending on Aerodrome's internal analysis) of total supply as incentives 1 week prior to trading going live. 100% of this supply goes to veAERO voters in exchange for `AERO` emissions that will stream to pools.
+
+<Info>
+CEXs typically require >10% of token supply to be floating before listing independently. A larger initial float is recommended to make it easier for available supply to accurately reflect market pricing and achieve wider distribution.
+</Info>
+
+Frontloading deposit of incentive supply is more effective than reserving them for future use, as volume and fees in the first week will often be enough to kickstart a sustainable flywheel, especially when there is organic trading volume.
+
+### Other Supply Considerations
+
+The amount of supply incentivized on Aerodrome during the first week directly correlates to supporting trading activity from airdropped supply. For market stability, it's important for Aerodrome's supply to not be massively diluted by other immediate unlocked supply.
+
+The Aerodrome pool can handle some dilution thanks to the `AERO` incentives attracting liquidity to form. Aerodrome contributors can advise further once they've evaluated all the information initially requested.
+
+### Providing Liquidity (POL) Guidelines
+
+<Warning>
+Projects should refrain from depositing any project-owned liquidity (POL) including engaging with a market maker to manage liquidity **in the first week of trading** to ensure organic price discovery.
+</Warning>
+
+After the first week of trading, POL can be deposited to protect the token's price from extreme volatility scenarios both to the upside and downside.
+
+**Best practices**:
+- POL should not make up a significant percentage of active tick liquidity
+- POL should not make up a significant percentage of total pool TVL
+- Full disclosure is required if POL will be used
+
+### Market Maker Supply
+
+Projects should disclose to Aerodrome which market maker they plan on engaging with (if any). Projects should refrain from transferring too much float to market makers as this will often be seen as a red flag for the community.
+
+## CEX Listing Coordination
+
+### CEX Airdrop Campaigns
+
+If a project plans to run a CEX Airdrop Campaign such as Binance Alpha, OKX Alpha Launch, MEXC Kickstarter, etc., it is **highly recommended** that this commence only after a full week as these typically require projects to seed $1M worth of liquidity into a 0.01% fee pool.
+
+<Warning>
+This prevents projects from earning anything from their pool and also raises their DEX market maker costs as the market maker will demand more payment for taking high volatility risk without making up for it with fees.
+</Warning>
+
+### Spot Markets
+
+A **48-hour minimum window** of Aerodrome-only trading is recommended. Fees can be set as high as 3% in order to maximize the amount of veAERO votes & `AERO` emissions that get directed to the pool in the following weeks.
+
+### Perp Markets
+
+CEX perpetual futures listings are **not recommended** within the first 2 weeks.
+
+## Emissions Cap
+
+Aero Ignition pools are limited to **15% of total weekly emissions** to maintain ecosystem balance. If veAERO votes push emissions beyond this threshold, the excess is redirected proportionally to other pools according to vote weight.
+
+This design preserves incentives for new launches while ensuring emissions continue to flow efficiently toward productive liquidity across Aerodrome.
+
+## Checklists
+
+### Project Checklist
+
+Before launching with Aero Ignition, projects should complete:
+
+- [ ] Submit supply unlock spreadsheet
+- [ ] Submit disclosure doc
+- [ ] Commit to incentive deposit & TGE dates
+- [ ] Announce Aero Ignition launch
+- [ ] Finalize CEX plans
+  - [ ] No CEX plans, OR
+  - [ ] Yes; how many days after trading begins?
+- [ ] Determine POL strategy
+  - [ ] No POL / Market maker / In-house
+  - [ ] What price range will liquidity be deposited?
+- [ ] Provide Aerodrome with token contract address
+- [ ] Submit PR for token logo
+- [ ] Distribute tokens
+
+### Aerodrome Checklist
+
+Aerodrome contributors will:
+
+- [ ] Add project team to Discord channels
+- [ ] Connect project to Seed Club team
+- [ ] Prepare Aero Ignition banner
+- [ ] Ensure integrations with Dexscreener
+- [ ] Review disclosure doc
+- [ ] Create Aero Ignition pool **as soon as contract address is provided**
+- [ ] Schedule Twitter Spaces/podcast with Aerodrome rep
+- [ ] Contact Blockaid if token is not showing on Coinbase DEX trading
+- [ ] Advise project on week 2 incentive amount
+- [ ] Advise project on week 3 incentive amount
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Incentivize Your Pool" icon="coins" href="/overview/core-features/incentivize">
+    Learn how to deposit incentives to attract votes and emissions
+  </Card>
+  <Card title="Understanding Voting" icon="check-to-slot" href="/overview/core-features/vote">
+    See how veAERO voters direct emissions to pools
+  </Card>
+  <Card title="Partner FAQ" icon="circle-question" href="/help/faqs/partners">
+    Common questions for protocols and token projects
+  </Card>
+  <Card title="Join Discord" icon="discord" href="/help/discord">
+    Connect with the Aerodrome team to discuss your launch
+  </Card>
+</CardGroup>
