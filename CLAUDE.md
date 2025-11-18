@@ -109,6 +109,10 @@ Never:
 
 ## Mintlify Conventions
 
+### MCP Server
+
+This project has the Mintlify MCP server configured (`.mcp.json`). Use `mcp__mintlify__SearchMintlify` to verify component syntax, features, configuration options, and implementation details when working with Mintlify-specific functionality.
+
 ### Required Frontmatter
 
 Every `.mdx` page must include:
