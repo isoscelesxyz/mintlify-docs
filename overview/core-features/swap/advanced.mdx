@@ -15,13 +15,13 @@ The router searches for the best execution path across all available pools:
 
 **Single-hop (direct)**:
 
-```
+```txt
 USDC → [USDC/WETH pool] → WETH
 ```
 
 **Multi-hop (indirect)**:
 
-```
+```txt
 RARE_TOKEN → [RARE_TOKEN/WETH pool] → WETH → [WETH/USDC pool] → USDC
 ```
 
@@ -151,7 +151,7 @@ Price impact is the difference between market price and your execution price cau
 
 **Formula concept**:
 
-```
+```txt
 Price Impact = (Market Price - Your Execution Price) / Market Price × 100%
 ```
 
@@ -194,7 +194,7 @@ Price Impact = (Market Price - Your Execution Price) / Market Price × 100%
 
 **1. Split large trades**:
 
-```
+```txt
 Instead of: 1 trade of 100 ETH (5% impact)
 Do: 5 trades of 20 ETH each (1% impact each)
 
@@ -269,7 +269,7 @@ Your total swap cost includes:
 
 **Example**:
 
-```
+```txt
 Swap 10 WETH → USDC in CL pool:
 - Market price: 1 WETH = $3,000
 - Pool fee: 0.3% = $9 per ETH
@@ -316,7 +316,7 @@ The router can mix pool types for optimal pricing:
 
 **Example**:
 
-```
+```txt
 TOKEN_A → WETH → USDC
 
 Route: TOKEN_A/WETH (V2 pool) → WETH/USDC (CL pool)
@@ -506,7 +506,7 @@ Not just lowest fees - consider total execution quality:
 
 When evaluating swap quotes:
 
-```
+```txt
 DEX A Quote:
 - Gross price: 3,000 USDC per ETH
 - Fee: 0.3% = $9
