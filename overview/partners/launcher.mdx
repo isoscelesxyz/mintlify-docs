@@ -18,6 +18,7 @@ Launcher provides a streamlined interface for creating liquidity pools on Aerodr
 - **Graduate to gauges**: Eligible pools can transition to earning `AERO` emissions
 
 **Difference from Aero Ignition**:
+
 - **Aero Ignition**: Curated, community-driven fair launches with structured price discovery
 - **Launcher**: Open, permissionless pool creation with flexible lock durations
 
@@ -34,11 +35,12 @@ Before creating a pool, ensure you have:
     Prepare both your token and the connector token (USDC, WETH, cbBTC, or AERO) for initial liquidity
 
     **Recommended minimum**: 1-2% of your token's <Tooltip tip="Fully Diluted Valuation - total supply multiplied by token price">FDV</Tooltip> in liquidity
+
   </Step>
 
-  <Step title="Pool strategy decided">
-    Determine your pool type (V2 vs CL) and lock duration based on your launch strategy
-  </Step>
+<Step title="Pool strategy decided">
+  Determine your pool type (V2 vs CL) and lock duration based on your launch strategy
+</Step>
 
   <Step title="Price determined">
     Calculate your target initial price for the token pair
@@ -46,7 +48,8 @@ Before creating a pool, ensure you have:
 </Steps>
 
 <Warning>
-Liquidity locks are irreversible for the lock duration. Choose your lock period carefully based on your project timeline and commitment capacity.
+  Liquidity locks are irreversible for the lock duration. Choose your lock period carefully based on
+  your project timeline and commitment capacity.
 </Warning>
 
 ## Choosing a pool type
@@ -58,12 +61,14 @@ The pool type you choose affects capital efficiency, management complexity, and 
 **How they work**: Liquidity spreads evenly across the entire price range (0 to infinity)
 
 **Best for**:
+
 - New tokens undergoing price discovery
 - Tokens without active market makers
 - Projects wanting "set and forget" liquidity management
 - Teams new to concentrated liquidity mechanics
 
 **Pool variants**:
+
 - **Volatile**: For uncorrelated pairs (e.g., NEW_TOKEN/WETH)
 - **Stable**: For correlated pairs (e.g., USDC/USDT, pegged tokens)
 
@@ -74,12 +79,14 @@ The pool type you choose affects capital efficiency, management complexity, and 
 **How they work**: Liquidity concentrated in specific price ranges for higher capital efficiency
 
 **Best for**:
+
 - Tokens with active market making teams
 - Projects using automated liquidity management (like Autopilot)
 - Established tokens with predictable price ranges
 - Teams comfortable with active position management
 
 **Requirements**:
+
 - Active liquidity management to keep positions in range
 - Minimum \$200,000-\$300,000 in connector token liquidity
 - Understanding of tick ranges and rebalancing
@@ -87,19 +94,20 @@ The pool type you choose affects capital efficiency, management complexity, and 
 **Fee tiers**: 0.01%, 0.05%, 0.30%, or 1.00% (choose based on volatility)
 
 <Info>
-For most new token launches, **V2 volatile pools** are recommended. They require less active management and work better during initial price discovery phases.
+  For most new token launches, **V2 volatile pools** are recommended. They require less active
+  management and work better during initial price discovery phases.
 </Info>
 
 ## Selecting a connector token
 
 Your connector token determines trading routes and liquidity accessibility.
 
-| Connector | Best for | Benefits |
-|-----------|----------|----------|
-| **USDC** | Stablecoin pairs, pricing in USD | Most liquid, clear USD valuation |
-| **WETH** | Native crypto pairs, DeFi tokens | High volume, connects to major tokens |
-| **cbBTC** | Bitcoin-adjacent projects | Access to BTC holders |
-| **AERO** | Protocol-aligned tokens | Direct connection to Aerodrome ecosystem |
+| Connector | Best for                         | Benefits                                 |
+| --------- | -------------------------------- | ---------------------------------------- |
+| **USDC**  | Stablecoin pairs, pricing in USD | Most liquid, clear USD valuation         |
+| **WETH**  | Native crypto pairs, DeFi tokens | High volume, connects to major tokens    |
+| **cbBTC** | Bitcoin-adjacent projects        | Access to BTC holders                    |
+| **AERO**  | Protocol-aligned tokens          | Direct connection to Aerodrome ecosystem |
 
 **Rule of thumb**: More correlated pairs (e.g., stablecoin/stablecoin) experience less <Tooltip tip="The difference between token value held vs simple hold strategy">impermanent loss</Tooltip> and tend to attract more sustainable liquidity.
 
@@ -116,6 +124,7 @@ For a NEW_TOKEN/USDC pool:
 3. **Set pool ratio**: Deposit tokens in the ratio that achieves this price
 
 **Example**:
+
 - Target market cap: \$10M
 - Total supply: 100M tokens
 - Initial price: \$10M / 100M = \$0.10 per token
@@ -124,10 +133,12 @@ For a NEW_TOKEN/USDC pool:
 ### Price discovery considerations
 
 <Warning>
-Initial price is not guaranteed. Market participants will immediately begin trading, potentially moving price significantly from your initial ratio.
+  Initial price is not guaranteed. Market participants will immediately begin trading, potentially
+  moving price significantly from your initial ratio.
 </Warning>
 
 **Best practices**:
+
 - Set a **fair initial price** based on fundamentals, not speculation
 - Avoid artificially high prices (leads to immediate selling pressure)
 - Consider liquidity depth relative to expected volume
@@ -140,18 +151,15 @@ Initial price is not guaranteed. Market participants will immediately begin trad
     Go to [aerodrome.finance/liquidity](https://aerodrome.finance/liquidity) and click "New Deposit"
   </Step>
 
-  <Step title="Select pool type">
-    Choose between:
-    - **V2 Volatile** (most new tokens)
-    - **V2 Stable** (correlated pairs only)
-    - **Concentrated Liquidity** (if you have active management)
-  </Step>
+<Step title="Select pool type">
+  Choose between: - **V2 Volatile** (most new tokens) - **V2 Stable** (correlated pairs only) -
+  **Concentrated Liquidity** (if you have active management)
+</Step>
 
-  <Step title="Select token pair">
-    - Enter your token address (or select from list)
-    - Choose connector token (USDC, WETH, cbBTC, or AERO)
-    - Confirm pair doesn't already exist
-  </Step>
+<Step title="Select token pair">
+  - Enter your token address (or select from list) - Choose connector token (USDC, WETH, cbBTC, or
+  AERO) - Confirm pair doesn't already exist
+</Step>
 
   <Step title="Choose fee tier">
     **For V2**: Automatic based on pool type (0.3% volatile, 0.05% stable)
@@ -161,14 +169,13 @@ Initial price is not guaranteed. Market participants will immediately begin trad
     - 0.05% - Less volatile pairs
     - 0.30% - Most volatile pairs (standard)
     - 1.00% - Very volatile or exotic pairs
+
   </Step>
 
-  <Step title="Set initial liquidity amounts">
-    Enter amounts for both tokens:
-    - Ratio determines initial price
-    - Minimum recommended: 1-2% of FDV
-    - For CL pools: \$200k+ in connector token recommended
-  </Step>
+<Step title="Set initial liquidity amounts">
+  Enter amounts for both tokens: - Ratio determines initial price - Minimum recommended: 1-2% of FDV
+  - For CL pools: \$200k+ in connector token recommended
+</Step>
 
   <Step title="Configure liquidity lock">
     **Lock duration options**:
@@ -177,13 +184,13 @@ Initial price is not guaranteed. Market participants will immediately begin trad
     - **1 year+**: Strong long-term signal
 
     Locked liquidity cannot be withdrawn until expiration.
+
   </Step>
 
-  <Step title="Review and approve">
-    - Review all parameters carefully
-    - Approve both tokens for the pool contract
-    - Confirm pool creation transaction
-  </Step>
+<Step title="Review and approve">
+  - Review all parameters carefully - Approve both tokens for the pool contract - Confirm pool
+  creation transaction
+</Step>
 
   <Step title="Add liquidity">
     After pool creation:
@@ -194,7 +201,8 @@ Initial price is not guaranteed. Market participants will immediately begin trad
 </Steps>
 
 <Info>
-Locked liquidity is visible to users and creates confidence in your project's commitment. Longer locks generally signal stronger dedication to the ecosystem.
+  Locked liquidity is visible to users and creates confidence in your project's commitment. Longer
+  locks generally signal stronger dedication to the ecosystem.
 </Info>
 
 ## Lock duration strategy
@@ -204,6 +212,7 @@ Your lock duration sends a signal to the market about your commitment level.
 ### Short-term (1-3 months)
 
 **Use when**:
+
 - Testing market demand before deeper commitment
 - Planning rapid iteration on tokenomics
 - Uncertain about long-term Base presence
@@ -213,6 +222,7 @@ Your lock duration sends a signal to the market about your commitment level.
 ### Medium-term (3-6 months)
 
 **Use when**:
+
 - Standard new token launch
 - Building initial community and traction
 - Preparing for potential gauge listing
@@ -222,6 +232,7 @@ Your lock duration sends a signal to the market about your commitment level.
 ### Long-term (1 year+)
 
 **Use when**:
+
 - Strong conviction in long-term success
 - Seeking gauge listing and emissions
 - Want to signal maximum commitment to ecosystem
@@ -229,7 +240,8 @@ Your lock duration sends a signal to the market about your commitment level.
 **Market perception**: High commitment, attracts long-term aligned LPs
 
 <Tip>
-Many successful projects start with 6-12 month locks and extend them as they approach gauge eligibility. This demonstrates growing commitment over time.
+  Many successful projects start with 6-12 month locks and extend them as they approach gauge
+  eligibility. This demonstrates growing commitment over time.
 </Tip>
 
 ## Post-launch actions
@@ -277,10 +289,12 @@ Pools that meet listing criteria can transition from emerging pools to full prot
 ### Listing requirements
 
 **Minimum volume thresholds**:
+
 - **DEX trading**: \$1M daily average over 30 days
 - **CEX trading**: \$2M daily average over 30 days
 
 **Additional factors evaluated**:
+
 - Product-market fit and real usage
 - Tokenomics and distribution quality
 - Security audits and contract verification
@@ -289,12 +303,14 @@ Pools that meet listing criteria can transition from emerging pools to full prot
 ### What changes after listing
 
 **Before listing** (emerging pool):
+
 - Trading fees accrue to LPs
 - No `AERO` emissions available
 - Cannot deposit on-platform incentives
 - Can use third-party incentives (Merkl, Metrom)
 
 **After listing** (gauged pool):
+
 - LPs can stake positions to earn `AERO` emissions
 - Project can deposit incentives directly
 - Pool competes for weekly veAERO votes
@@ -307,13 +323,13 @@ Pools that meet listing criteria can transition from emerging pools to full prot
     Achieve \$1M+ daily volume average over 30 days
   </Step>
 
-  <Step title="Engage with Aerodrome team">
-    Reach out through official channels to begin listing discussions
-  </Step>
+<Step title="Engage with Aerodrome team">
+  Reach out through official channels to begin listing discussions
+</Step>
 
-  <Step title="Provide project information">
-    Share details about your project, traction, security, and tokenomics
-  </Step>
+<Step title="Provide project information">
+  Share details about your project, traction, security, and tokenomics
+</Step>
 
   <Step title="Complete listing process">
     Work with team to complete evaluation and activate gauge
@@ -324,17 +340,18 @@ Pools that meet listing criteria can transition from emerging pools to full prot
 
 Understanding which launch method fits your project:
 
-| Feature | Launcher | Aero Ignition |
-|---------|----------|---------------|
-| **Access** | Permissionless (anyone) | Curated (application required) |
-| **Launch style** | Standard pool creation | Fair-launch price discovery event |
-| **Price setting** | Team sets initial price | Market discovers price through auction |
-| **Community focus** | Standard | High (community-driven launches) |
-| **Marketing support** | Self-driven | Protocol-supported event |
-| **Best for** | Established tokens, quick launches | New tokens, fair distribution focus |
+| Feature               | Launcher                           | Aero Ignition                          |
+| --------------------- | ---------------------------------- | -------------------------------------- |
+| **Access**            | Permissionless (anyone)            | Curated (application required)         |
+| **Launch style**      | Standard pool creation             | Fair-launch price discovery event      |
+| **Price setting**     | Team sets initial price            | Market discovers price through auction |
+| **Community focus**   | Standard                           | High (community-driven launches)       |
+| **Marketing support** | Self-driven                        | Protocol-supported event               |
+| **Best for**          | Established tokens, quick launches | New tokens, fair distribution focus    |
 
 <Info>
-Aero Ignition is designed for curated, community-focused fair launches. Most projects will use Launcher for standard pool creation and liquidity management.
+  Aero Ignition is designed for curated, community-focused fair launches. Most projects will use
+  Launcher for standard pool creation and liquidity management.
 </Info>
 
 ## Troubleshooting
@@ -352,12 +369,14 @@ Aero Ignition is designed for curated, community-focused fair launches. Most pro
     - Check if pool exists using pool explorer
     - Double-check token contract addresses
     - Try increasing gas limit manually
+
   </Accordion>
 
   <Accordion title="Can I extend my liquidity lock after creation?" icon="clock">
     Lock extensions depend on the specific implementation. Generally, locks can be extended but not shortened. Check the pool details interface for extension options.
 
     If uncertain, assume locks cannot be modified and choose your duration carefully at creation time.
+
   </Accordion>
 
   <Accordion title="What happens when my lock expires?" icon="unlock">
@@ -368,6 +387,7 @@ Aero Ignition is designed for curated, community-focused fair launches. Most pro
     - You can leave liquidity unlocked if preferred
 
     Expiration does not automatically withdraw—you must manually claim unlocked LP tokens.
+
   </Accordion>
 
   <Accordion title="Can I unlock liquidity early in an emergency?" icon="triangle-exclamation">
@@ -377,6 +397,7 @@ Aero Ignition is designed for curated, community-focused fair launches. Most pro
     - Only lock liquidity you can afford to have inaccessible
     - Choose lock durations conservatively
     - Maintain separate unlocked liquidity for flexibility
+
   </Accordion>
 
   <Accordion title="My pool isn't showing in the UI" icon="eye-slash">
@@ -389,6 +410,7 @@ Aero Ignition is designed for curated, community-focused fair launches. Most pro
     - Wait 5-10 minutes for indexing to complete
 
     If pool doesn't appear after 1 hour, contact Aerodrome support.
+
   </Accordion>
 </AccordionGroup>
 
@@ -398,7 +420,7 @@ Aero Ignition is designed for curated, community-focused fair launches. Most pro
   <Card title="Aero Ignition" icon="rocket" href="/overview/partners/aero-ignition">
     Compare with the curated fair-launch program
   </Card>
-  <Card title="Incentivize" icon="gift" href="/overview/core-features/incentivize">
+  <Card title="Incentivize" icon="gift" href="/overview/partners/incentivize">
     Learn how to deposit incentives after listing
   </Card>
   <Card title="Liquidity Pools" icon="droplet" href="/overview/core-features/liquidity-pools">

@@ -86,7 +86,7 @@
               "overview/partners/index",
               "overview/partners/aero-ignition",
               "overview/partners/launcher",
-              "overview/core-features/incentivize"
+              "overview/partners/incentivize"
             ]
           },
           {
@@ -145,11 +145,7 @@
           {
             "group": "Documentation",
             "icon": "book",
-            "pages": [
-              "contributing/overview",
-              "contributing/roadmap",
-              "contributing/style-guide"
-            ]
+            "pages": ["contributing/overview", "contributing/roadmap", "contributing/style-guide"]
           }
         ]
       },
@@ -192,16 +188,7 @@
     }
   },
   "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
   },
   "footer": {
     "socials": {
