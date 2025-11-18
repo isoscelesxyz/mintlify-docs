@@ -110,7 +110,7 @@
         ]
       },
       {
-        "tab": "Development",
+        "tab": "❓ Development",
         "groups": [
           {
             "group": "Developer Resources",
@@ -125,7 +125,7 @@
         ]
       },
       {
-        "tab": "Help",
+        "tab": "❓ Help",
         "groups": [
           {
             "group": "Support",
@@ -140,7 +140,7 @@
         ]
       },
       {
-        "tab": "Contributing",
+        "tab": "❓ Contributing",
         "groups": [
           {
             "group": "Documentation",
@@ -150,7 +150,7 @@
         ]
       },
       {
-        "tab": "Changelog",
+        "tab": "❓ Changelog",
         "groups": [
           {
             "group": "Updates",
