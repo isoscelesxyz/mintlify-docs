@@ -1,65 +1,84 @@
 ---
 title: "Tokenomics Overview"
-description: "AERO and veAERO token mechanics, initial distribution, and vote-escrowed voting power system"
+description: "Aligned tokenomics for swappers, liquidity providers, and tokenholders"
+sidebarTitle: "Overview"
 ---
-
-## In this concept
-
-This page is for **DeFi participants, veAERO holders, and protocol teams evaluating Aerodrome**. You'll learn how `AERO` and veAERO work together, how voting power is calculated, and how tokens were initially distributed.
 
 To ensure maximal stakeholder alignment, Aerodrome puts its native token at the center of protocol mechanics, distributing 100% of revenue to users who lock it for voting power. Because of this, the token represents not just superficial governance rights, but a functional claim on the future productive capacity of the protocol.
 
-`AERO` serves a dual role: it's distributed as **rewards** to liquidity providers through emissions, and provides **utility** when locked for governance and voting power. This design aligns incentives across all participants—LPs earn `AERO`, then lock it to become voters who direct future emissions.
+## Token Structure
 
-**Token Structure:**
+Aerodrome uses two tokens, one fungible and the other non-fungible:
 
-- **`AERO`** - ERC-20 utility token
-- **veAERO** - ERC-721 governance token in the form of an NFT (the locked form of `AERO`)
+- `AERO` — [ERC-20](https://ethereum.org/developers/docs/standards/tokens/erc-20/) utility token
+- `veAERO` — [ERC-721](https://ethereum.org/developers/docs/standards/tokens/erc-721/) governance token in the form of an NFT (the locked form of `AERO`)
 
-Each week, new `AERO` is minted and distributed to liquidity providers through a process called <Tooltip tip="Weekly distribution of newly minted AERO tokens to liquidity pools based on gauge votes">emissions</Tooltip>.
+## Locking, Voting, and Emissions
 
-**Creating veAERO:**
+Each week, new `AERO` is automatically minted and distributed to liquidity providers (a process called “emissions”).
 
-veAERO is created by <Tooltip tip="Locking tokens for a specified period to gain voting rights and rewards">vote-escrowing</Tooltip> (locking) `AERO`. It is sometimes referred to as a "Lock" or veNFT. Additional tokens can be added to a veAERO NFT at any time.
+`veAERO` is created by vote-escrowing (locking) `AERO`. It is sometimes referred to as a “Lock” or veNFT. Additional tokens can be added to a `veAERO` NFT at any time.
 
-**Lock Period and Voting Power:**
+The lock period (also known as vote-escrowed period, hence the “ve” prefix) can be up to four years. The longer the vesting time, the higher the voting power (voting weight) of the underlying locked balance, following the linear relationship shown below:
 
-The lock period (also known as vote-escrowed period, hence the "ve" prefix) can be up to four years. The longer the vesting time, the higher the voting
-power (voting weight) of the underlying locked balance:
+- 100 `AERO` locked for 4 years will become 100 `veAERO`
+- 100 `AERO` locked for 1 year will become 25 `veAERO`
 
-- 100 `AERO` locked for 4 years → 100 veAERO
-- 100 `AERO` locked for 1 year → 25 veAERO
-
-Voting power scales linearly: <Latex>veAERO = AERO × (lockDuration ÷ 4 years)</Latex>
-
-**Auto-Max Lock:**
-
-Aerodrome Locks (veNFTs) can be set into Auto-Max Lock mode. In this mode, the protocol treats them as perpetually locked for the maximum duration of four years, and their voting power does not decay. The Auto-Max Lock feature can be toggled on and off for each Lock (veNFT).
+Additionally, Aerodrome Locks (veNFTs) can be set into Auto-Max Lock, which are treated by the protocol as being perpetually locked for the maximum duration of four years, and their voting power does not decay. The Auto-Max Lock feature can be turned on and off for each Lock (veNFT).
 
 ## Initial Distribution
 
-| AERO                         | Amount | Percentage |
+| `AERO`                       | Amount | Percentage |
 | :--------------------------- | -----: | ---------: |
 | Voter Incentives             |    40M |         8% |
 | Genesis Liquidity Incentives |    10M |         2% |
 
-| veAERO                                     | Amount | Percentage |
+| `veAERO`                                   | Amount | Percentage |
 | :----------------------------------------- | -----: | ---------: |
-| Airdrop for veVELO Lockers                 |   200M |        40% |
+| Airdrop for `veVELO` Lockers               |   200M |        40% |
 | Public Goods Fund (Auto Max-Locked)        |   105M |        21% |
 | Development Team Funding (Auto Max-Locked) |    95M |        19% |
 | Flight School (Auto Max-Locked)            |    50M |        10% |
 
+## Emissions
+
+The initial supply of `AERO` was 500M, with 450M distributed as vote-locked (`veAERO`) tokens.
+
+Weekly emissions began at 10M `AERO` (2% of the initial supply). The emission schedule was broken into three phases:
+
+### Take-off
+
+During the first 14 weeks (epochs), emissions increased at 3% per week, allowing for rapid growth in protocol activity and partner onboarding.
+
+### Cruise
+
+After Epoch 14, emissions decayed at 1% per epoch, ensuring total supply inflation decreased over time as the protocol matured.
+
+### AERO Fed
+
+When emissions programmatically dropped under 9M per epoch, a transition period began which is designed to end in `veAERO` voters taking control of Aerodrome's monetary policy through the AERO Fed system, determining each epoch one of three outcomes:
+
+- **Increase emissions** by 0.01% of total supply (0.52% annualized)
+- **Decrease emissions** by 0.01% of total supply (0.52% annualized)
+- **Maintain emissions** unchanged as a % of total supply
+
+The winning vote will be determined by simple majority. If an Increase or Decrease is selected, the emission rate will change one full epoch after the vote. A max emission rate will be set at 1% of total supply per week (52% annualized) and a minimum rate at 0.01% per week (0.52% annualized).
+
+### Rebase
+
+veAERO holders receive a rebase proportional to AERO emissions and to the ratio of veAERO to AERO supply, reducing vote power dilution for veAERO.
+
+The weekly rebase amount is calculated with the following formula:
+
+<Latex>
+  rebase = weeklyEmissions × (1 - veAERO.totalSupply ÷ AERO.totalSupply)^2 × 0.5
+</Latex>
+
+This rebase formula will reward `veAERO` holders most when locking rates decrease, incentivizing new lockers to step in. `veAERO` supply does not affect weekly emissions distributed to liquidity providers.
+
 ## Next steps
 
-<CardGroup cols={2}>
-  <Card
-    title="Emissions Schedule"
-    icon="chart-line"
-    href="/overview/tokenomics/emissions"
-  >
-    Learn how AERO emissions work and how the AERO Fed governs monetary policy
-  </Card>
+<CardGroup cols={3}>
   <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
     Create veAERO to participate in governance and earn protocol revenue
   </Card>

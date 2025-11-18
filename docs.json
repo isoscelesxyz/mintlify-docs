@@ -92,10 +92,7 @@
           {
             "group": "Tokenomics",
             "icon": "coins",
-            "pages": [
-              "overview/tokenomics/overview",
-              "overview/tokenomics/emissions"
-            ]
+            "pages": ["overview/tokenomics/overview"]
           },
           {
             "group": "Security",
