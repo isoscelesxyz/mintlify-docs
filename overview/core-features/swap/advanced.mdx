@@ -3,6 +3,11 @@ title: "Advanced Swapping"
 description: "Deep-dive into multi-hop routing, slippage mechanics, price impact optimization, and advanced trading strategies"
 ---
 
+<Danger>
+  TODO: This is new content - is it too much? Helpful information but perhaps there's a better way
+  to present this or a better location for it.
+</Danger>
+
 This deep-dive is for **power users, traders, and anyone wanting to understand Aerodrome's swap mechanics in depth**. You will learn how Aerodrome's routing works, when to adjust slippage, how to minimize price impact, and advanced swap optimization techniques.
 
 ## Multi-Hop Routing
@@ -573,7 +578,7 @@ Concentrated liquidity positions can function as limit orders:
 **Strategy**:
 
 1. Create CL position with range $3,500-$3,600
-2. Deposit 100% ETH (at current price <$3,500, position is one-sided)
+2. Deposit 100% ETH (at current price &lt;$3,500, position is one-sided)
 3. When price hits range, swaps occur automatically
 4. Your ETH converts to USDC at your target price
 5. Earn fees while waiting
