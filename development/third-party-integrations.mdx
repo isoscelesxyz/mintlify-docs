@@ -9,12 +9,14 @@ This guide is for **developers building applications, protocols, or services tha
 
 <Steps>
   <Step title="Verify contract addresses">
-    Get verified contract addresses from the [Contract Addresses](/overview/security/contract-addresses) page. Never use addresses from unverified sources.
+    Get verified contract addresses from the [Contract Addresses](/overview/security/overview#contract-addresses) page. Never use addresses from unverified sources.
   </Step>
 
-  <Step title="Set up Base network access">
-    Ensure your application can interact with Base network via RPC provider (e.g., Alchemy, Infura, or public Base RPC).
-  </Step>
+{" "}
+<Step title="Set up Base network access">
+  Ensure your application can interact with Base network via RPC provider (e.g.,
+  Alchemy, Infura, or public Base RPC).
+</Step>
 
   <Step title="Review security considerations">
     Read [Before You Begin](/overview/getting-started/before-you-begin) for smart contract risks and security best practices.
@@ -22,7 +24,8 @@ This guide is for **developers building applications, protocols, or services tha
 </Steps>
 
 <Warning>
-Smart contracts are immutable and transactions are irreversible. Test all integrations thoroughly on Base testnet before deploying to production.
+  Smart contracts are immutable and transactions are irreversible. Test all
+  integrations thoroughly on Base testnet before deploying to production.
 </Warning>
 
 ## Integration overview
@@ -36,7 +39,7 @@ Aerodrome provides multiple integration points for developers:
 
 ### Key contracts
 
-- Router: See [Contract Addresses](/overview/security/contract-addresses)
+- Router: See [Contract Addresses](/overview/security/overview#contract-addresses)
 - UniversalRouter (for Slipstream/CL pools)
 - Sugar API for batch data queries
 
@@ -81,6 +84,7 @@ Explore the official Aerodrome contract repositories:
 - **[Sugar API](https://github.com/velodrome-finance/sugar)**: On-chain data aggregation contract
 
 Each repository includes:
+
 - Full contract source code
 - ABI definitions
 - Deployment scripts
@@ -97,6 +101,7 @@ Each repository includes:
     - Check pool liquidity depth before executing
     - Break large trades into smaller chunks
     - Wait for better market conditions
+
   </Accordion>
 
   <Accordion title="Cannot find pool for token pair">
@@ -107,6 +112,7 @@ Each repository includes:
     - Check if pool exists for the reverse pair (TOKEN1/TOKEN0 vs TOKEN0/TOKEN1)
     - Verify token addresses are correct
     - Consider multi-hop routing through intermediate tokens
+
   </Accordion>
 
   <Accordion title="Gas estimation fails">
@@ -118,6 +124,7 @@ Each repository includes:
     - Ensure sufficient token balance
     - Test with a smaller amount first
     - Review error message for specific revert reason
+
   </Accordion>
 
   <Accordion title="How do I get contract ABIs?">
@@ -126,6 +133,7 @@ Each repository includes:
     - **GitHub repositories**: Each contract repo includes ABI files
     - **Basescan**: View verified contract ABIs on [Basescan](https://basescan.org)
     - **Sugar repository**: Includes helper contract ABIs
+
   </Accordion>
 </AccordionGroup>
 
@@ -135,13 +143,25 @@ Each repository includes:
   <Card title="Sugar API" icon="code" href="/development/sugar">
     Efficient on-chain data queries
   </Card>
-  <Card title="Contract Addresses" icon="shield" href="/overview/security/contract-addresses">
+  <Card
+    title="Contract Addresses"
+    icon="shield"
+    href="/overview/security/overview#contract-addresses"
+  >
     All verified contract addresses
   </Card>
-  <Card title="Data & Analytics" icon="chart-line" href="/development/data-analytics">
+  <Card
+    title="Data & Analytics"
+    icon="chart-line"
+    href="/development/data-analytics"
+  >
     External data sources and platforms
   </Card>
-  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
+  <Card
+    title="Technical Details"
+    icon="flask"
+    href="/overview/core-features/liquidity-pools/technical-details"
+  >
     Pool mathematics and mechanics
   </Card>
 </CardGroup>

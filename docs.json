@@ -97,10 +97,7 @@
           {
             "group": "Security",
             "icon": "shield",
-            "pages": [
-              "overview/security/overview",
-              "overview/security/contract-addresses"
-            ]
+            "pages": ["overview/security/overview"]
           },
           {
             "group": "Contributors",
