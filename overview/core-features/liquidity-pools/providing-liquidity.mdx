@@ -3,38 +3,14 @@ title: "Providing Liquidity"
 description: "How to deposit tokens into Aerodrome pools to earn swap fees or AERO emissions"
 ---
 
-This how-to guide helps **liquidity providers** deposit tokens into Aerodrome pools. You will learn the step-by-step process to provide liquidity, choose between staked and unstaked positions, and understand what rewards you can earn.
-
-Aerodrome is a decentralized exchange, which means that tokens on the platform are not held by a custodial entity like a bank, but rather are deposited by users. Without these liquidity providers (LPs), users would not be able to swap tokens on Aerodrome.
-
-In exchange for depositing tokens to facilitate swaps, LPs receive a portion of swap fees when their liquidity is unstaked, or they can take full advantage of the system by staking their liquidity to earn <Tooltip tip="AERO tokens distributed weekly to liquidity providers based on gauge votes">`AERO` emissions</Tooltip> each week.
-
-<Warning>
-  Providing liquidity exposes you to{" "}
-  <Tooltip tip="The difference between holding tokens versus providing them as liquidity when prices diverge">
-    impermanent loss
-  </Tooltip>{" "}
-  if token prices diverge. Concentrated liquidity pools require active management - your position
-  stops earning if the price moves outside your range. Read [Before You
-  Begin](/overview/getting-started/before-you-begin) for full risk disclosure.
-</Warning>
-
-## Before you begin
-
-Before providing liquidity, ensure you have:
-
-- A Web3 wallet connected to Base network
-- Sufficient amounts of both tokens for the pool
-- ETH on Base for gas fees
-- Understanding of [Basic Pools](/overview/core-features/liquidity-pools/basic-pools) vs [Concentrated Pools](/overview/core-features/liquidity-pools/concentrated-pools)
+Aerodrome is a decentralized exchange, which means that tokens on the platform are not held by a custodial entity like a bank, but rather are deposited by users. Without these liquidity providers (LPs), users would not be able to swap tokens on Aerodrome. In exchange for depositing tokens to facilitate swaps, LPs receive a portion of swap fees when their liquidity is unstaked, or they can take full advantage of the system by staking their liquidity to earn AERO emissions each week
 
 ## How to provide liquidity
 
 <Steps>
-  <Step>Connect your wallet by hitting "Connect" in the upper right corner</Step>
-  <Step>Select "New deposit"</Step>
-  <Step>Choose the two tokens you'd like to deposit</Step>
+  <Step>Visit the [Liquidity page](https://aerodrome.finance/liquidity)</Step>
   <Step>Select the liquidity pool where you'd like to deposit (you can filter by type)</Step>
+  <Step>Select "New deposit"</Step>
   <Step>
     If depositing into a concentrated pool, select the range where your liquidity will be active, or
     select{" "}
@@ -45,7 +21,7 @@ Before providing liquidity, ensure you have:
   </Step>
   <Step>Complete deposit</Step>
   <Step>Choose whether to stake your deposit or leave it unstaked</Step>
-  <Step>Go to your dashboard to view all deposits</Step>
+  <Step>Go to your [dashboard](https://aerodrome.finance/dash) to view all deposits</Step>
 </Steps>
 
 ---
@@ -76,7 +52,7 @@ Before providing liquidity, ensure you have:
   <Accordion title="Position not earning rewards">
     For concentrated pools, verify your position is within the active price range. For staked positions, ensure you've completed the staking step after depositing.
   </Accordion>
-  <Accordion title="Can't redeem trading fees from my LP position" icon="coins">
+  <Accordion title="Can't redeem trading fees from my LP position">
     **Cause**: V2 Basic and Stable pools (not CL pools) require fees to be claimed from the gauge after staking.
 
     **Solution**:
@@ -100,7 +76,7 @@ Before providing liquidity, ensure you have:
   >
     Stake LP tokens or NFTs to earn AERO emissions
   </Card>
-  <Card title="Autopilot" icon="robot" href="/overview/core-features/autopilot">
+  <Card title="Autopilot" icon="robot" href="/overview/core-features/lock/autopilot">
     Automate CL position management
   </Card>
   <Card

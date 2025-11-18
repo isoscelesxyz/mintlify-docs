@@ -70,8 +70,8 @@
                 "pages": [
                   "overview/core-features/lock/index",
                   "overview/core-features/lock/advanced",
-                  "overview/core-features/autopilot",
-                  "overview/core-features/relay"
+                  "overview/core-features/lock/autopilot",
+                  "overview/core-features/lock/relay"
                 ]
               },
               "overview/core-features/vote",
