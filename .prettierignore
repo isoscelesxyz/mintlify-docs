@@ -1,0 +1,53 @@
+# Prettier ignore file for Aerodrome Finance Documentation
+# Files and directories that should NOT be formatted by Prettier
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Git
+.git/
+
+# Editor directories
+.vscode/
+.idea/
+
+# AI working directory (gitignored)
+ai-notes/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Lock files (should not be formatted)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Mintlify generated files
+.mintlify/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Images and media
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.webp
+*.mp4
+*.mov
+
+# PDF files
+*.pdf

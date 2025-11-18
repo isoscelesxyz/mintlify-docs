@@ -5,13 +5,28 @@
   "private": true,
   "scripts": {
     "dev": "mint dev --port 8453",
-    "clear": "mint clear"
+    "clear": "mint clear",
+    "format": "prettier --write \"**/*.{mdx,md,json}\"",
+    "format:check": "prettier --check \"**/*.{mdx,md,json}\"",
+    "format:mdx": "prettier --write \"**/*.mdx\"",
+    "format:json": "prettier --write \"**/*.json\"",
+    "lint": "pnpm lint:js && pnpm lint:md",
+    "lint:js": "eslint .",
+    "lint:md": "markdownlint-cli2",
+    "lint:mdx": "markdownlint-cli2 \"**/*.mdx\"",
+    "lint:fix": "markdownlint-cli2 --fix",
+    "validate": "pnpm format:check && pnpm lint"
   },
   "engines": {
     "node": ">=19.0.0"
   },
   "devDependencies": {
-    "mint": "latest"
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "markdownlint-cli2": "^0.19.0",
+    "markdownlint-cli2-formatter-pretty": "^0.0.9",
+    "mint": "latest",
+    "prettier": "^3.6.2"
   },
   "keywords": [
     "aerodrome",

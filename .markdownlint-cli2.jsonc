@@ -1,0 +1,42 @@
+{
+  // markdownlint-cli2 configuration
+  // Extends the main .markdownlint.jsonc config
+
+  "config": {
+    // Extends the base config
+    "extends": ".markdownlint.jsonc"
+  },
+
+  // Globs to process
+  "globs": [
+    "**/*.md",
+    "**/*.mdx"
+  ],
+
+  // Globs to ignore
+  "ignores": [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/.claude/**",
+    "**/ai-notes/**",
+    "**/.pnpm-store/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    "**/.vscode/**",
+    "**/pnpm-lock.yaml",
+    "README.md",
+    "CLAUDE.md",
+    "CONTRIBUTING.md"
+  ],
+
+  // Output formatter
+  "outputFormatters": [
+    [
+      "markdownlint-cli2-formatter-pretty",
+      {
+        "appendLink": true
+      }
+    ]
+  ]
+}
