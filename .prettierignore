@@ -30,6 +30,11 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 
+# JSONC config files (allow trailing commas)
+*.jsonc
+.markdownlint.jsonc
+.markdownlint-cli2.jsonc
+
 # Mintlify generated files
 .mintlify/
 

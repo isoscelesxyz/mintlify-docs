@@ -10,18 +10,18 @@
 
   // MD003: Heading style (consistent)
   "MD003": {
-    "style": "atx"
+    "style": "atx",
   },
 
   // MD004: Unordered list style (consistent dashes)
   "MD004": {
-    "style": "dash"
+    "style": "dash",
   },
 
   // MD007: Unordered list indentation (2 spaces)
   "MD007": {
     "indent": 2,
-    "start_indented": false
+    "start_indented": false,
   },
 
   // MD010: No hard tabs
@@ -29,7 +29,7 @@
 
   // MD012: Multiple consecutive blank lines (max 2)
   "MD012": {
-    "maximum": 2
+    "maximum": 2,
   },
 
   // MD013: Line length - disabled for MDX (Prettier handles this)
@@ -43,17 +43,17 @@
 
   // MD024: Multiple headings with the same content (allow in different sections)
   "MD024": {
-    "siblings_only": true
+    "siblings_only": true,
   },
 
   // MD025: Multiple top-level headings in the same document
   "MD025": {
-    "front_matter_title": "^\\s*title\\s*[:=]"
+    "front_matter_title": "^\\s*title\\s*[:=]",
   },
 
   // MD026: Trailing punctuation in heading (allow ? and !)
   "MD026": {
-    "punctuation": ".,;:"
+    "punctuation": ".,;:",
   },
 
   // MD033: Inline HTML - allow for MDX components
@@ -75,7 +75,8 @@
   // MD044: Proper names should have the correct capitalization
   "MD044": {
     "names": ["Aerodrome", "MetaDEX", "veAERO", "AERO", "DeFi", "Base", "Ethereum", "Mintlify"],
-    "code_blocks": false
+    "code_blocks": false,
+    "html_elements": false,
   },
 
   // MD045: Images should have alternate text (alt text)
@@ -83,7 +84,7 @@
 
   // MD046: Code block style (fenced)
   "MD046": {
-    "style": "fenced"
+    "style": "fenced",
   },
 
   // MD047: Files should end with a single newline character
@@ -91,17 +92,17 @@
 
   // MD048: Code fence style (backticks)
   "MD048": {
-    "style": "backtick"
+    "style": "backtick",
   },
 
   // MD049: Emphasis style (underscores)
   "MD049": {
-    "style": "underscore"
+    "style": "underscore",
   },
 
   // MD050: Strong style (asterisks)
   "MD050": {
-    "style": "asterisk"
+    "style": "asterisk",
   },
 
   // MD051: Link fragments should be valid
@@ -111,5 +112,5 @@
   "MD052": true,
 
   // MD053: Link and image reference definitions should be needed
-  "MD053": true
+  "MD053": true,
 }
