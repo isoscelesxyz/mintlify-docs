@@ -4,6 +4,7 @@
 // This config only handles JavaScript/TypeScript files
 
 import js from '@eslint/js'
+import prettierConfig from 'eslint-config-prettier'
 
 export default [
   // Ignore patterns (files to skip)
@@ -23,7 +24,7 @@ export default [
       '**/*.jpg',
       '**/*.svg',
       '**/*.ico',
-      // Skip MDX and MD files for now (Prettier handles formatting)
+      // Skip MDX and MD files (Prettier + markdownlint handle these)
       '**/*.mdx',
       '**/*.md',
     ],
@@ -31,6 +32,9 @@ export default [
 
   // Base JavaScript/TypeScript rules
   js.configs.recommended,
+
+  // Disable ESLint formatting rules that conflict with Prettier
+  prettierConfig,
 
   // Global rules for JavaScript files
   {
