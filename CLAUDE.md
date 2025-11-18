@@ -29,19 +29,16 @@ Documentation for Aerodrome Finance is **task-oriented, not marketing**. Every p
 ### Audience Tiers
 
 1. **End Users (DeFi participants)**
-
    - Goal: Swap tokens, provide liquidity, earn rewards, participate in governance
    - Needs: Step-by-step guides, clear risk warnings, prerequisite checks
    - Examples: "How to provide liquidity", "How to vote with veAERO"
 
 2. **Protocol Teams and Token Issuers**
-
    - Goal: Launch tokens, bootstrap liquidity, attract voters
    - Needs: Incentive mechanics, gauge strategy, emissions optimization
    - Examples: "How to create a gauge", "How to incentivize voters"
 
 3. **Developers and Integrators**
-
    - Goal: Build on top of Aerodrome, integrate contracts, fetch data
    - Needs: API references, contract addresses, technical specifications
    - Examples: "Sugar API reference", "Contract addresses"
@@ -84,16 +81,19 @@ Never:
 ### Risk Posture
 
 **Use `<Warning>` components only for page-specific risks**:
+
 - Risks unique to that particular operation or feature
 - Technical gotchas specific to that page's content
 - Critical safety issues that apply to that specific action
 
 **Examples of appropriate inline warnings**:
+
 - "CL pools require active management to stay in range"
 - "Relocking extends your lock duration - you cannot unlock early"
 - "Voting locks your tokens for the full epoch"
 
 **DO NOT include generic warnings in every page**:
+
 - ❌ "You need a wallet" (basic assumption)
 - ❌ "Smart contracts have risks" (covered in disclaimers)
 - ❌ "Impermanent loss exists" (unless specific to that pool type)
@@ -102,6 +102,7 @@ Never:
 **For general protocol risks**: Link to [Before You Begin](/overview/getting-started/before-you-begin) instead of repeating generic warnings on every page.
 
 **Never encourage**:
+
 - Leverage, looping, or high-risk strategies
 - Specific investment amounts or timing
 - Trading strategies or price predictions
@@ -168,11 +169,13 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 **Use pragmatically**: Apply these patterns when they genuinely help users. Don't force them just for consistency.
 
 **1. Inline definitions with `<Tooltip>`:**
+
 - On the first use of advanced DeFi terms, wrap them in a tooltip
 - Example: `<Tooltip tip="The difference between quoted and executed price">slippage</Tooltip>`
 - Common terms to tooltip: slippage, price impact, impermanent loss, liquidity depth, concentrated liquidity, vote-escrow, bribes, emissions, rebases
 
 **2. Troubleshooting sections with `<AccordionGroup>`:**
+
 - Add to how-to guides **only when users actually face common issues**
 - Use `## Troubleshooting` heading
 - Each common issue gets its own `<Accordion>` with descriptive title
@@ -180,31 +183,41 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 - Example topics: "Transaction fails", "Can't find token", "High slippage warning"
 
 **3. Next steps with `<CardGroup>`:**
+
 - Add at the very bottom of pages (after troubleshooting if present)
 - Use `## Next steps` heading
 - Include 2-4 related pages as cards with icons
 - Guide users to logical next actions or related concepts
 
 **When to skip patterns:**
+
 - Concept pages don't need "Before you begin" (they're not guides)
 - Pages without common user issues don't need "Troubleshooting"
 - Don't add sections just to match a template—add them when they help users
 
 Example structure for a complete how-to guide:
+
 ```mdx
 ## How to [do thing]
+
 <Steps>...</Steps>
 
 ## Troubleshooting
+
 <AccordionGroup>
   <Accordion title="Common issue 1">...</Accordion>
   <Accordion title="Common issue 2">...</Accordion>
 </AccordionGroup>
 
 ## Next steps
+
 <CardGroup cols={2}>
-  <Card title="Related action" icon="..." href="...">...</Card>
-  <Card title="Learn more" icon="..." href="...">...</Card>
+  <Card title="Related action" icon="..." href="...">
+    ...
+  </Card>
+  <Card title="Learn more" icon="..." href="...">
+    ...
+  </Card>
 </CardGroup>
 ```
 

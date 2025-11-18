@@ -311,7 +311,6 @@ Hooks run automatically after certain events to catch issues.
    ```
 
 2. **Answer prompts**:
-
    - Audience: End User
    - Job: "Provide liquidity and earn fees"
    - Type: How-To Guide
@@ -319,13 +318,11 @@ Hooks run automatically after certain events to catch issues.
    - Risk level: Yes
 
 3. **Review the draft**:
-
    - Check structure (You will learn, Before you begin, Steps, Next steps)
    - Verify `<Warning>` component present
    - Confirm frontmatter complete
 
 4. **Add to navigation**:
-
    - Edit `docs.json`
    - Add path to appropriate tab/group
    - Example: `"overview/core-features/deposit/provide-liquidity"`
@@ -354,17 +351,14 @@ Hooks run automatically after certain events to catch issues.
    ```
 
 3. **Fix critical issues**:
-
    - Address all "Critical" items first
    - These block merge
 
 4. **Consider important issues**:
-
    - "Important" issues impact quality
    - Should be fixed but not blocking
 
 5. **Optional improvements**:
-
    - "Minor" issues are nice-to-haves
    - Fix if time permits
 

@@ -15,7 +15,6 @@ I need to create a new documentation page. Before writing, ask me:
 Once you have this information:
 
 1. Determine the appropriate directory:
-
    - End user content → `overview/`
    - Developer content → `development/`
    - Support content → `help/`

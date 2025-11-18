@@ -6,16 +6,10 @@
   "scripts": {
     "dev": "mint dev --port 8453",
     "clear": "mint clear",
-    "format": "prettier --write \"**/*.{mdx,md,json}\"",
-    "format:check": "prettier --check \"**/*.{mdx,md,json}\"",
-    "format:mdx": "prettier --write \"**/*.mdx\"",
-    "format:json": "prettier --write \"**/*.json\"",
-    "lint": "pnpm lint:js && pnpm lint:md",
-    "lint:js": "eslint .",
-    "lint:md": "markdownlint-cli2",
-    "lint:mdx": "markdownlint-cli2 \"**/*.mdx\"",
+    "format": "prettier --write \"**/*.{mdx,md,json,jsonc}\"",
+    "lint": "eslint . && markdownlint-cli2",
     "lint:fix": "markdownlint-cli2 --fix",
-    "validate": "pnpm format:check && pnpm lint"
+    "validate": "prettier --check \"**/*.{mdx,md,json,jsonc}\" && pnpm lint"
   },
   "engines": {
     "node": ">=19.0.0"

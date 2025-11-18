@@ -25,58 +25,51 @@ description: "One-sentence summary for SEO and previews (max 160 chars)"
 Automatically wrap content in appropriate Mintlify components:
 
 **Sequential instructions** → `<Steps>` component:
+
 ```mdx
 <Steps>
-  <Step title="First step">
-    Content for first step
-  </Step>
-  <Step title="Second step">
-    Content for second step
-  </Step>
+  <Step title="First step">Content for first step</Step>
+  <Step title="Second step">Content for second step</Step>
 </Steps>
 ```
 
 **Risk warnings** → `<Warning>` component:
+
 ```mdx
-<Warning>
-  Important risk information here
-</Warning>
+<Warning>Important risk information here</Warning>
 ```
 
 **Helpful context** → `<Info>` component:
+
 ```mdx
-<Info>
-  Supplementary information here
-</Info>
+<Info>Supplementary information here</Info>
 ```
 
 **Pro tips** → `<Tip>` component:
+
 ```mdx
-<Tip>
-  Optimization or advanced tip here
-</Tip>
+<Tip>Optimization or advanced tip here</Tip>
 ```
 
 **Inline definitions** → `<Tooltip>` component:
+
 ```mdx
 <Tooltip tip="The difference between quoted and executed price">slippage</Tooltip>
 ```
 
 **Troubleshooting sections** → `<AccordionGroup>` component:
+
 ```mdx
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Common issue 1">
-    Solution and explanation
-  </Accordion>
-  <Accordion title="Common issue 2">
-    Solution and explanation
-  </Accordion>
+  <Accordion title="Common issue 1">Solution and explanation</Accordion>
+  <Accordion title="Common issue 2">Solution and explanation</Accordion>
 </AccordionGroup>
 ```
 
 **Next steps navigation** → `<CardGroup>` component:
+
 ```mdx
 ## Next steps
 
@@ -91,18 +84,16 @@ Automatically wrap content in appropriate Mintlify components:
 ```
 
 **Protocol differences** → `<Tabs>` component:
+
 ```mdx
 <Tabs>
-  <Tab title="Aerodrome">
-    Aerodrome-specific content
-  </Tab>
-  <Tab title="Velodrome">
-    Velodrome-specific content
-  </Tab>
+  <Tab title="Aerodrome">Aerodrome-specific content</Tab>
+  <Tab title="Velodrome">Velodrome-specific content</Tab>
 </Tabs>
 ```
 
 **Code examples** → Always specify language:
+
 ````mdx
 ```solidity
 // Solidity code here
@@ -136,6 +127,7 @@ When given content to format:
 ## Output
 
 Always produce valid `.mdx` files that:
+
 - Have complete frontmatter
 - Use Mintlify components correctly
 - Follow markdown best practices

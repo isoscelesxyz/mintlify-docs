@@ -10,6 +10,7 @@ This skill validates documentation against Aerodrome's voice and tone guidelines
 ## Voice Standards
 
 Documentation should be:
+
 - **Calm and technical**: No hype, no marketing language, no speculation
 - **Direct and precise**: Use second person ("you"), active voice, short sentences
 - **Risk-aware**: Always mention relevant risks for DeFi operations
@@ -20,7 +21,9 @@ Documentation should be:
 Scan for and flag these violations:
 
 ### Absolute Claims (Critical)
+
 ❌ Forbidden terms:
+
 - "guaranteed"
 - "risk-free"
 - "safe yield"
@@ -30,12 +33,15 @@ Scan for and flag these violations:
 - "certain returns"
 
 ✅ Compliant alternatives:
+
 - "may provide" instead of "guarantees"
 - "potential yield" instead of "safe yield"
 - "consider the risks" instead of "risk-free"
 
 ### Investment Advice (Critical)
+
 ❌ Never recommend:
+
 - Specific trading strategies
 - Buy/sell timing
 - Price predictions
@@ -43,12 +49,15 @@ Scan for and flag these violations:
 - Optimal investment amounts
 
 ✅ Instead use:
+
 - "Users can choose to..."
 - "Consider your risk tolerance..."
 - "Evaluate the trade-offs..."
 
 ### Speculative Language (Important)
+
 ❌ Avoid:
+
 - "will moon"
 - "going to pump"
 - "token going to explode"
@@ -56,7 +65,9 @@ Scan for and flag these violations:
 - Market timing advice
 
 ### Style Violations (Important)
+
 ❌ Flag:
+
 - Emojis in body text (🚀, 💰, 🔥, etc.)
 - Excessive slang ("degen", "ape in", "WAGMI" in formal docs)
 - First person ("we", "us", "our team")
@@ -64,6 +75,7 @@ Scan for and flag these violations:
 - Overly long sentences (>25 words)
 
 ✅ Preferred:
+
 - Second person: "you", "your"
 - Active voice: "You provide liquidity" not "Liquidity is provided"
 - Short sentences: 10-20 words average
@@ -71,6 +83,7 @@ Scan for and flag these violations:
 ## Sentence Analysis
 
 Check for:
+
 - **Sentence length**: Flag sentences over 30 words
 - **Passive voice**: Suggest active alternatives
 - **Clarity**: Flag jargon without definition
@@ -79,27 +92,32 @@ Check for:
 ## Risk Warning Guidelines
 
 **Use inline `<Warning>` components ONLY for**:
+
 - Risks specific to that particular operation or feature
 - Critical safety issues unique to that page's content
 - Technical gotchas that could cause immediate loss
 
 **Examples of page-specific warnings**:
+
 - "CL pools require active management to stay in range"
 - "Relocking extends your lock duration, you cannot unlock early"
 - "Voting locks your tokens for the full epoch"
 
 **DO NOT include generic warnings**:
+
 - "You need a wallet" (basic assumption)
 - "Smart contracts have risks" (applies to all DeFi)
 - "Impermanent loss exists" (if not specific to that pool type)
 - "Verify contract addresses" (general best practice)
 
 **For general protocol risks**: Link to the Before You Begin page instead:
+
 ```mdx
 See [Before You Begin](/overview/getting-started/before-you-begin) for general DeFi and smart contract risks.
 ```
 
 **When to use warnings**:
+
 - Liquidity provision: Only warn about specific pool risks (e.g., CL range management)
 - Token locking: Warn about lock duration and inability to unlock early
 - Governance voting: Warn about tokens being locked during epoch

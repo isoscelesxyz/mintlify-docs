@@ -16,11 +16,13 @@ Built with [Mintlify](https://mintlify.com/), a modern documentation platform th
 ### Setup
 
 1. **Install dependencies** (optional but recommended):
+
    ```bash
    pnpm install
    ```
 
 2. **Install Mintlify CLI globally** (required):
+
    ```bash
    # Using pnpm (recommended)
    pnpm add -g mint

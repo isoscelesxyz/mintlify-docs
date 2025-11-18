@@ -20,23 +20,14 @@
       "files": ["*.mdx", "*.md"],
       "options": {
         "parser": "mdx",
-        "proseWrap": "preserve",
-        "printWidth": 100
+        "proseWrap": "preserve"
       }
     },
     {
-      "files": ["*.json"],
+      "files": ["*.jsonc"],
       "options": {
         "parser": "json",
-        "printWidth": 100
-      }
-    },
-    {
-      "files": ["docs.json", "package.json"],
-      "options": {
-        "parser": "json",
-        "tabWidth": 2,
-        "printWidth": 100
+        "trailingComma": "none"
       }
     }
   ]

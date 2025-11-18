@@ -10,8 +10,8 @@ In this guide, you will learn how to swap tokens on Aerodrome. This guide is for
 Aerodrome enables token swaps by routing trades through liquidity pools. Due to deep liquidity and efficient routing, swaps typically experience low fees and minimal <Tooltip tip="The difference between the quoted price and the actual executed price due to market movements or liquidity depth">slippage</Tooltip>.
 
 <Warning>
-  Large swaps in low-liquidity pools can result in high slippage and price
-  impact. Always review the quote and price impact before confirming your swap.
+  Large swaps in low-liquidity pools can result in high slippage and price impact. Always review the
+  quote and price impact before confirming your swap.
 </Warning>
 
 ## Before you begin
@@ -35,28 +35,29 @@ Aerodrome enables token swaps by routing trades through liquidity pools. Due to 
   </Step>
 
 {" "}
+
 <Step title="Enter amount">
-  Input the amount you'd like to trade in either the Sell or Buy field. The
-  other field will automatically calculate based on the current exchange rate.
+  Input the amount you'd like to trade in either the Sell or Buy field. The other field will
+  automatically calculate based on the current exchange rate.
 </Step>
 
 {" "}
+
 <Step title="Review the quote">
-  Review the exchange rate, fees, and slippage tolerance. Check the price impact
-  percentage to ensure it's acceptable.
+  Review the exchange rate, fees, and slippage tolerance. Check the price impact percentage to
+  ensure it's acceptable.
 </Step>
 
 {" "}
+
 <Step title="Approve tokens (if needed)">
-  If this is your first time swapping this token, you'll need to approve the
-  contract to spend your tokens. Click **Approve** and confirm the transaction
-  in your wallet.
+  If this is your first time swapping this token, you'll need to approve the contract to spend your
+  tokens. Click **Approve** and confirm the transaction in your wallet.
 </Step>
 
 {" "}
-<Step title="Complete the swap">
-  Click **Swap** and confirm the transaction in your wallet.
-</Step>
+
+<Step title="Complete the swap">Click **Swap** and confirm the transaction in your wallet.</Step>
 
   <Step title="View confirmation">
     After the transaction completes, you can view the receipt by clicking **View confirmation**.
@@ -69,8 +70,8 @@ Aerodrome enables token swaps by routing trades through liquidity pools. Due to 
 
 <Tooltip tip="The difference between the quoted price and the actual executed price">
   Slippage
-</Tooltip> occurs when the price changes between when you submit a transaction and
-when it's executed onchain.
+</Tooltip>
+occurs when the price changes between when you submit a transaction and when it's executed onchain.
 
 **Slippage tolerance** is the maximum price movement you'll accept:
 
@@ -80,8 +81,8 @@ when it's executed onchain.
 - **Stable pairs**: Can use 0.1-0.3%
 
 <Warning>
-  Setting slippage too high (>5%) exposes you to MEV attacks and poor execution.
-  Only increase when necessary.
+  Setting slippage too high (>5%) exposes you to MEV attacks and poor execution. Only increase when
+  necessary.
 </Warning>
 
 ### Price impact
@@ -94,8 +95,8 @@ Price impact shows how much your trade will move the market price:
 - **Greater than 5%**: Very high - trade size too large for pool liquidity
 
 <Tip>
-  For large swaps, split into smaller trades to reduce price impact. This may
-  cost more in gas but results in better execution.
+  For large swaps, split into smaller trades to reduce price impact. This may cost more in gas but
+  results in better execution.
 </Tip>
 
 ### Route preview
@@ -109,8 +110,8 @@ The UI shows the route before you confirm. Multi-hop routes cost more gas but ma
 
 <Info>
   Want to understand routing in detail? See [Advanced
-  Swapping](/overview/core-features/swap/advanced) for multi-hop mechanics and
-  optimization strategies.
+  Swapping](/overview/core-features/swap/advanced) for multi-hop mechanics and optimization
+  strategies.
 </Info>
 
 ---
@@ -190,11 +191,7 @@ The UI shows the route before you confirm. Multi-hop routes cost more gas but ma
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Advanced Swapping"
-    icon="route"
-    href="/overview/core-features/swap/advanced"
-  >
+  <Card title="Advanced Swapping" icon="route" href="/overview/core-features/swap/advanced">
     Deep-dive into routing, slippage mechanics, and optimization
   </Card>
   <Card

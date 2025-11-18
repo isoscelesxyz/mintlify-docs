@@ -20,6 +20,7 @@ Autopilot vaults monitor pool price movements in real-time, tracking when positi
 ### Automatic rebalancing
 
 When the price moves out of range or approaches range boundaries, Autopilot automatically:
+
 1. Removes liquidity from the current position
 2. Calculates optimal new range based on volatility and market depth
 3. Re-deposits liquidity in the updated range
@@ -36,15 +37,18 @@ Autopilot positions capture swap fees and `AERO` emissions while in range. The a
 ## Fee structure
 
 <Info>
-Mellow Finance collects **10% of the rewards earned** for providing automated liquidity management. This fee is automatically deducted from your position's earnings.
+  Mellow Finance collects **10% of the rewards earned** for providing automated liquidity
+  management. This fee is automatically deducted from your position's earnings.
 </Info>
 
 **What you earn:**
+
 - 90% of swap fees from your position
 - 90% of `AERO` emissions from gauge staking
 - Reduced gas costs through batched rebalancing
 
 **What Mellow earns:**
+
 - 10% of your total rewards (fees + emissions)
 
 ## When to use Autopilot
@@ -74,19 +78,20 @@ Mellow Finance collects **10% of the rewards earned** for providing automated li
 ❌ **Pool has low volume** - 10% fee may outweigh benefits in low-earning pools
 
 <Tip>
-For most users, Autopilot vaults offer a simpler way to earn from concentrated liquidity without the complexity of manual position management.
+  For most users, Autopilot vaults offer a simpler way to earn from concentrated liquidity without
+  the complexity of manual position management.
 </Tip>
 
 ## Autopilot vs manual CL management
 
-| Feature | Autopilot | Manual CL |
-|---------|-----------|-----------|
-| **Rebalancing** | Automatic | Manual |
-| **Gas costs** | Lower (batched) | Higher (per rebalance) |
-| **Time required** | Passive | Active monitoring |
-| **Fees** | 10% of earnings | 0% management fee |
-| **Range control** | Automated optimization | Full control |
-| **Best for** | Passive LPs, volatile pairs | Active LPs, stable pairs |
+| Feature           | Autopilot                   | Manual CL                |
+| ----------------- | --------------------------- | ------------------------ |
+| **Rebalancing**   | Automatic                   | Manual                   |
+| **Gas costs**     | Lower (batched)             | Higher (per rebalance)   |
+| **Time required** | Passive                     | Active monitoring        |
+| **Fees**          | 10% of earnings             | 0% management fee        |
+| **Range control** | Automated optimization      | Full control             |
+| **Best for**      | Passive LPs, volatile pairs | Active LPs, stable pairs |
 
 ## Getting started with Autopilot
 
@@ -95,17 +100,20 @@ For most users, Autopilot vaults offer a simpler way to earn from concentrated l
     Visit the [Pools page](https://aerodrome.finance/pools) and filter for Autopilot vaults. These are marked with an "Autopilot" badge.
   </Step>
 
-  <Step title="Deposit liquidity">
-    Select your desired Autopilot vault and deposit both tokens in the required ratio. The vault will automatically create and manage the CL position.
-  </Step>
+<Step title="Deposit liquidity">
+  Select your desired Autopilot vault and deposit both tokens in the required ratio. The vault will
+  automatically create and manage the CL position.
+</Step>
 
-  <Step title="Receive vault tokens">
-    You'll receive ERC-20 vault tokens representing your share of the Autopilot vault. These tokens can be staked to earn additional `AERO` emissions.
-  </Step>
+<Step title="Receive vault tokens">
+  You'll receive ERC-20 vault tokens representing your share of the Autopilot vault. These tokens
+  can be staked to earn additional `AERO` emissions.
+</Step>
 
-  <Step title="Monitor performance">
-    Track your vault's performance through the Aerodrome UI. Autopilot will handle all rebalancing automatically.
-  </Step>
+<Step title="Monitor performance">
+  Track your vault's performance through the Aerodrome UI. Autopilot will handle all rebalancing
+  automatically.
+</Step>
 
   <Step title="Withdraw when ready">
     Withdraw from the vault at any time. You'll receive the underlying tokens based on your vault token balance.
@@ -127,7 +135,8 @@ When Autopilot rebalances your position:
 5. **Auto-staking** - Position automatically staked in gauge for emissions
 
 <Warning>
-During rebalancing, there may be brief periods where your position is not earning fees. Autopilot minimizes this downtime, but it's a normal part of automated management.
+  During rebalancing, there may be brief periods where your position is not earning fees. Autopilot
+  minimizes this downtime, but it's a normal part of automated management.
 </Warning>
 
 ## Understanding Autopilot performance
@@ -135,12 +144,14 @@ During rebalancing, there may be brief periods where your position is not earnin
 ### What affects returns
 
 **Positive factors:**
+
 - High trading volume = more swap fees
 - veAERO votes to your pool = higher emissions
 - Efficient rebalancing = more time in range
 - Lower gas costs through batching
 
 **Costs to consider:**
+
 - 10% management fee to Mellow
 - Impermanent loss (same as manual CL)
 - Gas costs for deposits/withdrawals
@@ -149,18 +160,20 @@ During rebalancing, there may be brief periods where your position is not earnin
 ### Comparing to alternatives
 
 **Autopilot vs Basic Pools (V2)**:
+
 - ✅ Higher capital efficiency when in range
 - ❌ More complex, requires rebalancing
 - ✅ Automated management removes manual work
 
 **Autopilot vs Manual CL**:
+
 - ✅ Lower gas costs (batched rebalancing)
 - ✅ Automated optimization
 - ❌ 10% fee on earnings
 - ❌ Less control over exact ranges
 
 <Tip>
-Check the vault's historical APR on the Aerodrome app to see net returns after fees and gas costs.
+  Check the vault's historical APR on the Aerodrome app to see net returns after fees and gas costs.
 </Tip>
 
 ## Risk considerations
@@ -174,15 +187,24 @@ Autopilot does not eliminate concentrated liquidity risks. You are still exposed
 - **Fee impact** - 10% management fee reduces net earnings
 
 See [Before You Begin](/overview/getting-started/before-you-begin) for general DeFi risks.
+
 </Warning>
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Concentrated Liquidity Pools" icon="chart-line" href="/overview/core-features/liquidity-pools/concentrated-pools">
+  <Card
+    title="Concentrated Liquidity Pools"
+    icon="chart-line"
+    href="/overview/core-features/liquidity-pools/concentrated-pools"
+  >
     Learn about CL mechanics and how Slipstream works
   </Card>
-  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+  <Card
+    title="Provide Liquidity"
+    icon="droplet"
+    href="/overview/core-features/liquidity-pools/providing-liquidity"
+  >
     General guide to providing liquidity on Aerodrome
   </Card>
   <Card title="Basic Pools" icon="water" href="/overview/core-features/liquidity-pools/basic-pools">

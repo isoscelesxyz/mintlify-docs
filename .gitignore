@@ -24,8 +24,15 @@ pnpm-debug.log*
 .Trashes
 Thumbs.db
 
-# IDE
-.vscode/
+# IDE - VS Code
+# Keep workspace settings, ignore user settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# JetBrains
 .idea/
 
 # AI notes and scratch work

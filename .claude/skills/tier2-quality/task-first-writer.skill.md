@@ -12,6 +12,7 @@ This skill enforces task-oriented documentation structure, ensuring every page e
 **Every page must answer**: "What can the reader DO after reading this?"
 
 If a page doesn't enable a concrete action, it should be:
+
 - Split into actionable components
 - Merged with a task-oriented page
 - Reconsidered for removal
@@ -25,15 +26,18 @@ If a page doesn't enable a concrete action, it should be:
 **Required sections**:
 
 1. **Opening statement** (required):
+
    ```mdx
    You will learn how to [specific task] and why it matters for [outcome].
    ```
 
 2. **Before you begin** (if prerequisites exist):
+
    ```mdx
    ## Before you begin
 
    Before [task], ensure you have:
+
    - [Specific prerequisite for this task]
    - [Required technical setup]
    - [Specific access or permission needed]
@@ -50,20 +54,18 @@ If a page doesn't enable a concrete action, it should be:
    - ✅ "Complete KYC verification for this feature"
 
 3. **Steps** (required):
+
    ```mdx
    ## [Action verb] [object]
 
    <Steps>
-     <Step title="First action">
-       Detailed instructions with screenshots if helpful
-     </Step>
-     <Step title="Second action">
-       More instructions
-     </Step>
+     <Step title="First action">Detailed instructions with screenshots if helpful</Step>
+     <Step title="Second action">More instructions</Step>
    </Steps>
    ```
 
 4. **Verification** (recommended):
+
    ```mdx
    ## Verify your [result]
 
@@ -71,16 +73,19 @@ If a page doesn't enable a concrete action, it should be:
    ```
 
 5. **Next steps** (required):
+
    ```mdx
    ## Next steps
 
    Now that you've [completed task], you can:
+
    - [Related task 1] - link
    - [Related task 2] - link
    - [Advanced topic] - link
    ```
 
 **Example opening**:
+
 ```mdx
 You will learn how to provide liquidity to an Aerodrome pool and why concentrated
 liquidity pools can improve your capital efficiency.
@@ -95,6 +100,7 @@ liquidity pools can improve your capital efficiency.
 **Required sections**:
 
 1. **In this concept** (required):
+
    ```mdx
    In this concept, you'll understand [system/model] and how it [benefits/works].
    ```
@@ -109,6 +115,7 @@ liquidity pools can improve your capital efficiency.
    - Show how concept applies in practice
 
 4. **Where to go next** (required):
+
    ```mdx
    ## Where to go next
 
@@ -118,6 +125,7 @@ liquidity pools can improve your capital efficiency.
    ```
 
 **Example opening**:
+
 ```mdx
 In this concept, you'll understand how Epochs coordinate governance and emissions
 cycles, ensuring synchronized protocol operations.
@@ -132,6 +140,7 @@ cycles, ensuring synchronized protocol operations.
 **Required sections**:
 
 1. **Brief description** (required):
+
    ```mdx
    This reference lists [type of information] for [protocol/system].
    ```
@@ -151,6 +160,7 @@ cycles, ensuring synchronized protocol operations.
    - Link to concepts that explain the reference
 
 **Keep minimal**:
+
 - Reference pages should be scannable
 - Avoid lengthy explanations (link to concepts instead)
 - Focus on accurate, structured data
@@ -169,6 +179,7 @@ Each page should explicitly state the job:
 You will learn how to deposit tokens into an Aerodrome liquidity pool and start
 earning trading fees.
 ```
+
 Clear job: deposit tokens, earn fees
 
 ```mdx
@@ -177,6 +188,7 @@ Clear job: deposit tokens, earn fees
 In this concept, you'll understand how your veAERO balance and lock duration
 determine your voting power in governance.
 ```
+
 Clear job: understand voting power mechanics
 
 ```mdx
@@ -185,6 +197,7 @@ Clear job: understand voting power mechanics
 This reference lists all deployed Aerodrome contracts on Base, including routers,
 factories, and core protocol contracts.
 ```
+
 Clear job: look up contract addresses
 
 ### ❌ Bad Examples
@@ -194,6 +207,7 @@ Clear job: look up contract addresses
 
 Liquidity pools are an important part of Aerodrome.
 ```
+
 No clear job, vague topic
 
 ```mdx
@@ -201,6 +215,7 @@ No clear job, vague topic
 
 veAERO is really cool and powerful.
 ```
+
 Marketing language, no specific job
 
 ```mdx
@@ -208,6 +223,7 @@ Marketing language, no specific job
 
 Here are some things about the protocol.
 ```
+
 No focus, unclear purpose
 
 ---
@@ -216,12 +232,12 @@ No focus, unclear purpose
 
 Verify the stated job matches the target audience:
 
-| Audience | Good Jobs | Bad Jobs |
-|----------|-----------|----------|
-| End Users | "Swap tokens", "Provide liquidity", "Vote on gauges" | "Integrate our API", "Deploy contracts" |
-| Protocol Teams | "Create a gauge", "Incentivize voters" | "Debug transaction errors" |
-| Developers | "Integrate Router contract", "Query Sugar API" | "Decide which pool to use" |
-| Advanced Users | "Optimize veAERO lock duration", "Analyze emission weights" | "Basic wallet setup" |
+| Audience       | Good Jobs                                                   | Bad Jobs                                |
+| -------------- | ----------------------------------------------------------- | --------------------------------------- |
+| End Users      | "Swap tokens", "Provide liquidity", "Vote on gauges"        | "Integrate our API", "Deploy contracts" |
+| Protocol Teams | "Create a gauge", "Incentivize voters"                      | "Debug transaction errors"              |
+| Developers     | "Integrate Router contract", "Query Sugar API"              | "Decide which pool to use"              |
+| Advanced Users | "Optimize veAERO lock duration", "Analyze emission weights" | "Basic wallet setup"                    |
 
 ---
 

@@ -8,7 +8,9 @@ This guide helps **active liquidity providers** and **protocol teams** understan
 Slipstream is Aerodrome's concentrated liquidity (CL) solution. Concentrated pools require liquidity providers to deposit their capital within specific price ranges. With Slipstream, LPs can earn higher rewards while providing better execution for traders, but there is also an increased risk of idle liquidity if it is not properly managed.
 
 <Warning>
-CL pools require active management to stay in range. If market prices move outside your chosen range, your position becomes temporarily inactive and stops earning rewards until the price returns to your range or you adjust your position.
+  CL pools require active management to stay in range. If market prices move outside your chosen
+  range, your position becomes temporarily inactive and stops earning rewards until the price
+  returns to your range or you adjust your position.
 </Warning>
 
 ## Benefits
@@ -40,11 +42,13 @@ Slipstream V2 implements **dynamic fee structures** that automatically adjust sw
 ### How dynamic fees work
 
 **In volatile markets:**
+
 - Fees increase to reflect heightened execution demand
 - Higher returns for LPs during periods when traders are fee-inelastic
 - Traders willing to pay premium fees for immediate execution
 
 **In stable markets:**
+
 - Fees decrease to attract more volume
 - Increases liquidity utilization while positions stay in range
 - Competitive pricing when traders are fee-elastic (shopping for best rates)
@@ -54,27 +58,32 @@ Slipstream V2 implements **dynamic fee structures** that automatically adjust sw
 The dynamic fee system operates entirely onchain without external oracles or CEX price feeds. Key parameters include:
 
 **Volatility scaling:**
+
 - Monitors price deviation from moving average over customizable time window
 - Smooth, prompt response to volatility changes
 - Optimized for trade execution quality
 
 **Base fee and fee cap:**
+
 - **Base fee**: Charged during low volatility periods
 - **Fee cap**: Maximum fee during high volatility
 - Parameters tuned for competitiveness against fixed-fee AMMs
 
 <Tip>
-Dynamic fees enable Slipstream to compete effectively across market conditions—lowering fees to capture volume in stable markets, raising fees to maximize LP earnings during volatility.
+  Dynamic fees enable Slipstream to compete effectively across market conditions—lowering fees to
+  capture volume in stable markets, raising fees to maximize LP earnings during volatility.
 </Tip>
 
 ### Benefits for different LP types
 
 **For staked LPs (earning emissions):**
+
 - Higher fee capture flows to veAERO voters during volatile periods
 - Increased long-term payouts over multiple epochs
 - Benefits from both emissions and fee revenue
 
 **For unstaked LPs (earning fees):**
+
 - Consistently rewarded closer to optimal market rate
 - Can capitalize on high-volatility fee surges
 - Orderbook-like execution efficiency onchain
@@ -88,36 +97,41 @@ One of Slipstream's key advantages is **wider tick spacing** compared to competi
 ### Why wider tick spacing matters
 
 **Better LP management:**
+
 - LPs stay in active tick ranges longer
 - Reduced rebalancing frequency = lower gas costs
 - Significantly increased rewards over time
 
 **Superior TVL utilization:**
+
 - Greater liquidity depth per active range
 - Better execution for traders
 - Higher volume capture per dollar of liquidity
 
 **Example comparison (WETH/USDC):**
+
 - Uniswap V3: 10 tick spacing (0.1%)
 - Slipstream: 100 tick spacing (1%)
 - **Result**: Slipstream achieves better liquidity utilization despite theoretically lower capital efficiency
 
 <Info>
-Wider tick spacing is practically more efficient for LPs. While narrow ticks offer theoretical capital efficiency, they require constant management. Wider spacing balances efficiency with usability.
+  Wider tick spacing is practically more efficient for LPs. While narrow ticks offer theoretical
+  capital efficiency, they require constant management. Wider spacing balances efficiency with
+  usability.
 </Info>
 
 ### Tick spacing by pool type
 
 Available tick spacings optimized for different asset correlations:
 
-| Tick Spacing | Price Range | Best For |
-|--------------|-------------|----------|
-| 1 | 0.01% | Highly correlated (stablecoins, LSTs like wstETH/WETH) |
-| 10 | 0.05% | Stable/pegged assets (USDC/USDT) |
-| 50 | 0.5% | Correlated stable tokens |
-| 100 | 0.5% | Correlated volatiles |
-| 200 | 2% | Standard volatile pairs (AERO/WETH, USDC/WETH) |
-| 2000 | 20% | Emerging tokens (new launches, high volatility) |
+| Tick Spacing | Price Range | Best For                                               |
+| ------------ | ----------- | ------------------------------------------------------ |
+| 1            | 0.01%       | Highly correlated (stablecoins, LSTs like wstETH/WETH) |
+| 10           | 0.05%       | Stable/pegged assets (USDC/USDT)                       |
+| 50           | 0.5%        | Correlated stable tokens                               |
+| 100          | 0.5%        | Correlated volatiles                                   |
+| 200          | 2%          | Standard volatile pairs (AERO/WETH, USDC/WETH)         |
+| 2000         | 20%         | Emerging tokens (new launches, high volatility)        |
 
 The tick spacing is displayed in pool names (e.g., "CL1-wstETH/WETH" = tick spacing 1).
 
@@ -128,28 +142,33 @@ The tick spacing is displayed in pool names (e.g., "CL1-wstETH/WETH" = tick spac
 Slipstream offers LPs the choice between two earning strategies:
 
 ### Staked positions
+
 - Earn `AERO` emissions based on veAERO votes
 - Forfeit swap fees (100% go to voters)
 - Best when emissions APR > fee APR
 
 ### Unstaked positions
+
 - Earn **90% of swap fees** directly
 - **10% of fees** (the "rake") go to veAERO voters
 - Earn **zero emissions**
 - Best during high-volatility periods when fees surge above emissions
 
 <Warning>
-The 10% unstaked fee rake ensures veAERO voters still benefit from your liquidity even when you're unstaked. This alignment incentivizes voters to vote for your pool.
+  The 10% unstaked fee rake ensures veAERO voters still benefit from your liquidity even when you're
+  unstaked. This alignment incentivizes voters to vote for your pool.
 </Warning>
 
 ### When to unstake for fee capture
 
 **Unstake during:**
+
 - High volatility periods when dynamic fees surge
 - Temporary market dislocations where fees > emissions
 - Short-term liquidity provision (no long-term AERO exposure desired)
 
 **Stake for:**
+
 - Long-term LP positions
 - Pools with high veAERO vote allocation
 - Consistent emissions > trading fees
@@ -164,18 +183,23 @@ The modular MetaDEX architecture allows the unstaked fee rake to be adjusted dyn
 Slipstream outcompetes competitive concentrated liquidity solutions with these integrated features:
 
 ### 1. Wider tick spacing
+
 Increased tick spacing means LPs stay in the active tick for longer, significantly increasing rewards over time while reducing management burden.
 
 ### 2. Active tick emissions
+
 `AERO` emissions are only streamed to the active tick, rewarding LPs in that range with higher incentives compared to out-of-range positions.
 
 ### 3. Dynamic fee optimization
+
 Real-time fee adjustments maximize LP earnings during volatility while maintaining competitive pricing during stable periods.
 
 ### 4. Dual earning options
+
 LPs can choose between emissions (staked) or fees (unstaked), optimizing strategy based on current market conditions.
 
 ### 5. Modular architecture
+
 Seamless upgrades without disrupting operations—improvements like dynamic fees deployed without requiring liquidity migration.
 
 ## Managing CL Positions
@@ -183,23 +207,24 @@ Seamless upgrades without disrupting operations—improvements like dynamic fees
 ### Choosing your price range
 
 **Narrow ranges (1-5% price range):**
+
 - Higher capital efficiency = more fees per dollar
 - Requires active monitoring and frequent rebalancing
 - Best for: Stable pairs (USDC/DAI), experienced LPs, high-volume pools
 
 **Wide ranges (10-50% price range):**
+
 - Lower capital efficiency but less management
 - Stays in range longer during volatility
 - Best for: Volatile pairs (AERO/WETH), passive LPs, lower-volume pools
 
 **Consider:**
+
 - Historical price volatility of the pair
 - Your time commitment for rebalancing
 - Fee tier of the pool (higher fees = wider ranges acceptable)
 
-<Tip>
-Check the pool's 7-day price range on the Aerodrome app to inform your range selection.
-</Tip>
+<Tip>Check the pool's 7-day price range on the Aerodrome app to inform your range selection.</Tip>
 
 ### What happens when price moves out of range
 
@@ -211,23 +236,27 @@ When the active price exits your selected range:
 4. **You need to rebalance** - Either adjust your range or accept zero rewards
 
 **To rebalance:**
+
 - Remove liquidity from the current position
 - Select a new range around current price
 - Re-add liquidity (requires approvals and gas)
 
 **Alternatives:**
+
 - Use multiple positions with laddered ranges
 - Use [Autopilot](/overview/core-features/autopilot) for automated rebalancing
 
 ### Adding or removing liquidity
 
 **Adding liquidity to existing position:**
+
 - CL positions are NFTs representing specific ranges
 - You **cannot** add to an existing NFT position
 - Instead, create a new position with the same range parameters
 - You'll have multiple NFTs for the same range
 
 **Removing liquidity:**
+
 1. Navigate to your position in the Aerodrome app
 2. Click "Remove Liquidity"
 3. Choose amount to remove (partial or full)
@@ -237,26 +266,27 @@ When the active price exits your selected range:
 **Partial removal**: You can remove a percentage of your position while keeping the rest active.
 
 <Info>
-Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that cannot be merged.
+  Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that
+  cannot be merged.
 </Info>
 
 ### When to stake your CL position
 
 **Stake when:**
+
 - Pool receives significant veAERO votes (check gauge voting)
 - AERO emissions APR > swap fee APR
 - You want exposure to AERO token
 - Your position is in range
 
 **Don't stake when:**
+
 - Pool has low or zero votes
 - Swap fees > potential emissions
 - You prefer stable fee income over AERO
 - Your position is out of range (staking would earn nothing)
 
-<Tip>
-Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.
-</Tip>
+<Tip>Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.</Tip>
 
 ---
 
@@ -297,6 +327,7 @@ Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether 
     2. Find your CL position
     3. Click "Claim Fees"
     4. Receive fees in both pool tokens
+
   </Accordion>
 
   <Accordion title="Why are my CL fees lower than expected?" icon="chart-line-down">
@@ -381,16 +412,28 @@ Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+  <Card
+    title="Provide Liquidity"
+    icon="droplet"
+    href="/overview/core-features/liquidity-pools/providing-liquidity"
+  >
     Deposit into CL pools
   </Card>
   <Card title="Autopilot" icon="robot" href="/overview/core-features/autopilot">
     Automate CL position management
   </Card>
-  <Card title="Basic Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/basic-pools">
+  <Card
+    title="Basic Pools"
+    icon="layer-group"
+    href="/overview/core-features/liquidity-pools/basic-pools"
+  >
     Compare with full-range pools
   </Card>
-  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
+  <Card
+    title="Technical Details"
+    icon="flask"
+    href="/overview/core-features/liquidity-pools/technical-details"
+  >
     Deep dive into CL mechanics
   </Card>
 </CardGroup>

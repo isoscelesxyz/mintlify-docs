@@ -10,6 +10,7 @@ This skill prevents fabricated data by enforcing that all addresses, parameters,
 ## Critical Rule
 
 **Never guess, estimate, or fabricate**:
+
 - Contract addresses
 - Token addresses
 - ABI function signatures
@@ -22,12 +23,14 @@ This skill prevents fabricated data by enforcing that all addresses, parameters,
 ### Contract Addresses
 
 **Only from**:
+
 1. `config/contracts/*.json` files (when repo has this structure)
 2. MCP tool: `mcp__aero-registry__get_contract` (future)
 3. Official documentation at: https://aerodrome.finance/security
 4. Deployed contract verification on blockchain explorers
 
 **Never from**:
+
 - Memory or prior knowledge
 - Other documentation sites
 - Social media or Discord
@@ -36,12 +39,14 @@ This skill prevents fabricated data by enforcing that all addresses, parameters,
 ### Token Metadata
 
 **Only from**:
+
 1. `config/tokens/*.json` files (when repo has this structure)
 2. MCP tool: `mcp__token-registry__get_token` (future)
 3. Verified blockchain data (on-chain token contract)
 4. Official token lists
 
 **Required fields**:
+
 - Symbol (exact casing)
 - Name (full name)
 - Decimals (precise number)
@@ -50,6 +55,7 @@ This skill prevents fabricated data by enforcing that all addresses, parameters,
 ### Emissions & Tokenomics
 
 **Only from**:
+
 1. Single authoritative page: `overview/tokenomics/emissions.mdx`
 2. Smart contract source code
 3. Official governance proposals
@@ -59,6 +65,7 @@ This skill prevents fabricated data by enforcing that all addresses, parameters,
 ### Governance Parameters
 
 **Only from**:
+
 1. Contract source code
 2. Official governance documentation
 3. On-chain governance proposals
@@ -102,6 +109,7 @@ When numeric values appear:
 If a canonical source cannot be accessed:
 
 1. **Insert placeholder**:
+
    ```
    TODO: VERIFY [contract address/parameter] FROM [source name]
    ```
@@ -131,16 +139,19 @@ Before allowing any address or parameter:
 ```mdx
 The AERO token address is 0x940181a94A35A4569E4529A3CDfB74e38FD98631
 ```
+
 No source cited.
 
 ```mdx
 Emissions are roughly 100,000 AERO per week
 ```
+
 Vague numeric claim without source.
 
 ```mdx
 The router fee is about 0.3%
 ```
+
 "About" indicates guessing.
 
 ### ✅ Good Examples
@@ -149,17 +160,20 @@ The router fee is about 0.3%
 The AERO token address on Base is `0x940181a94A35A4569E4529A3CDfB74e38FD98631`
 ([verified on Basescan](https://basescan.org/address/0x940181a94A35A4569E4529A3CDfB74e38FD98631))
 ```
+
 Source cited with link.
 
 ```mdx
 Weekly emissions decay at 1% per epoch. See the complete emissions schedule
 in [Tokenomics > Emissions](/overview/tokenomics/emissions).
 ```
+
 Links to authoritative page.
 
 ```mdx
 TODO: VERIFY Router address FROM config/contracts/base.json
 ```
+
 Proper placeholder when source unavailable.
 
 ## Usage Pattern

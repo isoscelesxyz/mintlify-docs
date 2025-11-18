@@ -21,7 +21,6 @@ Thank you for contributing to the Aerodrome Finance documentation! This guide wi
 ### Creating New Pages
 
 1. **Create the `.mdx` file** in the appropriate directory:
-
    - Core docs → `overview/`
    - Developer resources → `development/`
    - Help content → `help/`
@@ -37,7 +36,6 @@ Thank you for contributing to the Aerodrome Finance documentation! This guide wi
    ```
 
 3. **Update `docs.json`** to add the page to navigation:
-
    - Find the appropriate tab and group
    - Add your page path (without `.mdx` extension)
    - Example: `"overview/new-page"` for `overview/new-page.mdx`
@@ -66,19 +64,16 @@ Documentation for Aerodrome Finance is **task-oriented, not marketing**. Every p
 When creating content, identify your primary audience:
 
 1. **End Users (DeFi participants)**
-
    - Goal: Swap tokens, provide liquidity, earn rewards, participate in governance
    - Needs: Step-by-step guides, clear risk warnings, prerequisite checks
    - Examples: "How to provide liquidity", "How to vote with veAERO"
 
 2. **Protocol Teams and Token Issuers**
-
    - Goal: Launch tokens, bootstrap liquidity, attract voters
    - Needs: Incentive mechanics, gauge strategy, emissions optimization
    - Examples: "How to create a gauge", "How to incentivize voters"
 
 3. **Developers and Integrators**
-
    - Goal: Build on top of Aerodrome, integrate contracts, fetch data
    - Needs: API references, contract addresses, technical specifications
    - Examples: "Sugar API reference", "Contract addresses"

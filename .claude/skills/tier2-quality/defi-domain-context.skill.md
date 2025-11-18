@@ -10,11 +10,13 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ## Core Terminology
 
 ### veAERO / veVELO
+
 **Definition**: Vote-escrowed AERO/VELO tokens - locked tokens that grant governance rights and revenue share
 
 **Capitalization**: Always "veAERO" (not "veAero", "VeAERO", "veaero")
 
 **Usage**:
+
 - "Lock AERO to receive veAERO"
 - "veAERO holders earn protocol revenue"
 - "Your veAERO balance determines voting power"
@@ -24,11 +26,13 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### Epochs
+
 **Definition**: 7-day governance and emissions cycles (Thursday 00:00 UTC to Wednesday 23:59 UTC)
 
 **Capitalization**: Capitalize when referring to the concept, lowercase in general use
 
 **Usage**:
+
 - "Epochs run from Thursday to Wednesday" (concept)
 - "Rewards are distributed at the end of each epoch"
 - "Vote before the epoch ends"
@@ -38,9 +42,11 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### Gauges
+
 **Definition**: Voting mechanisms that direct AERO emissions to specific liquidity pools
 
 **Usage**:
+
 - "Vote on gauges to direct emissions"
 - "Each pool has a corresponding gauge"
 - "Gauge weights determine emission distribution"
@@ -50,11 +56,13 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### Bribes / Incentives
+
 **Definition**: Additional rewards deposited by protocols to attract votes to their pool's gauge
 
 **Terminology**: Use "incentives" in user-facing docs, "bribes" in technical/advanced docs
 
 **Usage**:
+
 - User docs: "Protocols offer incentives to attract voters"
 - Technical: "Bribe contracts hold external incentives"
 
@@ -63,9 +71,11 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### Emissions
+
 **Definition**: AERO tokens distributed weekly to liquidity providers based on gauge votes
 
 **Usage**:
+
 - "Weekly emissions are distributed to staked LPs"
 - "Emissions decay at 1% per epoch"
 - "Gauge votes determine emission allocation"
@@ -75,11 +85,13 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### MetaDEX
+
 **Definition**: Next-generation DEX model where 100% of protocol revenue goes to voters as incentives
 
 **Capitalization**: Always "MetaDEX" (not "Meta-DEX", "metaDEX", "meta DEX")
 
 **Usage**:
+
 - "Aerodrome uses the MetaDEX model"
 - "MetaDEX aligns LP, voter, and protocol incentives"
 
@@ -88,9 +100,11 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### ve(3,3)
+
 **Definition**: Economic model combining vote-escrow (ve) tokenomics with (3,3) game theory from OlympusDAO
 
 **Usage**:
+
 - "Built on ve(3,3) economics"
 - "The ve(3,3) model encourages long-term alignment"
 
@@ -99,11 +113,13 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### CL Pools
+
 **Definition**: Concentrated Liquidity pools (Uniswap v3 style) with capital efficiency
 
 **Alternative terms**: "Concentrated pools", "slipstream pools" (for Velodrome)
 
 **Usage**:
+
 - "CL pools offer greater capital efficiency"
 - "Choose between basic pools and CL pools"
 
@@ -112,10 +128,12 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ---
 
 ### Basic Pools / Stable Pools
-**Definition**: Constant product (x*y=k) or stableswap pools for correlated assets
+
+**Definition**: Constant product (x\*y=k) or stableswap pools for correlated assets
 
 **Usage**:
-- "Basic pools use the x*y=k formula"
+
+- "Basic pools use the x\*y=k formula"
 - "Stable pools are optimized for correlated assets like USDC/USDT"
 
 **Link to**: `/overview/core-features/liquidity-pools/basic-pools`
@@ -127,11 +145,13 @@ This skill provides canonical definitions and usage rules for Aerodrome/Velodrom
 ### When to Link vs Define
 
 **First mention on a page**: Link to concept page
+
 ```mdx
 Lock your AERO as [veAERO](/overview/core-features/lock/locking-aero) to earn protocol revenue.
 ```
 
 **Subsequent mentions**: No link needed
+
 ```mdx
 Your veAERO balance determines your voting power.
 ```
@@ -143,11 +163,13 @@ Your veAERO balance determines your voting power.
 ### Protocol-Specific Terminology
 
 **Aerodrome (Base)**:
+
 - Token: AERO
 - veToken: veAERO
 - Chain: Base
 
 **Velodrome (Optimism)**:
+
 - Token: VELO
 - veToken: veVELO
 - Chain: Optimism
@@ -160,6 +182,7 @@ When writing for both protocols, use `<Tabs>` for differences.
 ### Avoid These Mistakes
 
 ❌ **Don't**:
+
 - "veAero" (wrong capitalization)
 - "Aero token" (inconsistent, use "AERO")
 - "The epoch is a week long" (awkward phrasing)
@@ -167,6 +190,7 @@ When writing for both protocols, use `<Tabs>` for differences.
 - Use "bribe" in beginner docs (use "incentive")
 
 ✅ **Do**:
+
 - "veAERO" (correct capitalization)
 - "AERO token" or just "AERO"
 - "Epochs are 7-day periods"

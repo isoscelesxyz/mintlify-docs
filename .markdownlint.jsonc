@@ -1,116 +1,28 @@
 {
-  // Markdownlint configuration for Aerodrome Finance Documentation
+  // Markdownlint configuration for Mintlify documentation
   // See https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 
-  // Enable all rules by default
   "default": true,
 
-  // MD001: Heading levels should only increment by one level at a time
-  "MD001": true,
+  // MDX-specific overrides
+  "MD013": false, // Line length - Prettier handles this
+  "MD024": false, // Allow duplicate headings (intentional patterns)
+  "MD026": false, // Allow trailing punctuation in headings (colons often intentional)
+  "MD033": false, // Allow inline HTML (MDX components)
+  "MD034": false, // Allow bare URLs (MDX uses JSX links)
+  "MD036": false, // Allow emphasis as styling (not all bold text is a heading)
+  "MD041": false, // First line doesn't need to be heading (frontmatter first)
+  "MD046": false, // Code block style conflicts with MDX component indentation
 
-  // MD003: Heading style (consistent)
-  "MD003": {
-    "style": "atx",
-  },
+  // Mintlify conventions
+  "MD003": { "style": "atx" }, // Use ## headings (required for Mintlify TOC)
+  "MD025": { "front_matter_title": "^\\s*title\\s*[:=]" }, // Allow title in frontmatter
+  "MD040": true, // Code blocks must have language specified
 
-  // MD004: Unordered list style (consistent dashes)
-  "MD004": {
-    "style": "dash",
-  },
-
-  // MD007: Unordered list indentation (2 spaces)
-  "MD007": {
-    "indent": 2,
-    "start_indented": false,
-  },
-
-  // MD010: No hard tabs
-  "MD010": true,
-
-  // MD012: Multiple consecutive blank lines (max 2)
-  "MD012": {
-    "maximum": 2,
-  },
-
-  // MD013: Line length - disabled for MDX (Prettier handles this)
-  "MD013": false,
-
-  // MD014: Dollar signs used before commands without showing output
-  "MD014": false,
-
-  // MD022: Headings should be surrounded by blank lines
-  "MD022": true,
-
-  // MD024: Multiple headings with the same content (allow in different sections)
-  "MD024": {
-    "siblings_only": true,
-  },
-
-  // MD025: Multiple top-level headings in the same document
-  "MD025": {
-    "front_matter_title": "^\\s*title\\s*[:=]",
-  },
-
-  // MD026: Trailing punctuation in heading (allow ? and !)
-  "MD026": {
-    "punctuation": ".,;:",
-  },
-
-  // MD033: Inline HTML - allow for MDX components
-  "MD033": false,
-
-  // MD034: Bare URL used - disabled (MDX uses JSX links)
-  "MD034": false,
-
-  // MD036: Emphasis used instead of a heading
-  "MD036": true,
-
-  // MD040: Fenced code blocks should have a language specified
-  "MD040": true,
-
-  // MD041: First line in file should be a top level heading
-  // Disabled because MDX files start with frontmatter
-  "MD041": false,
-
-  // MD044: Proper names should have the correct capitalization
+  // Aerodrome-specific terminology
   "MD044": {
-    "names": ["Aerodrome", "MetaDEX", "veAERO", "AERO", "DeFi", "Base", "Ethereum", "Mintlify"],
+    "names": ["MetaDEX", "veAERO", "DeFi", "Mintlify"],
     "code_blocks": false,
-    "html_elements": false,
-  },
-
-  // MD045: Images should have alternate text (alt text)
-  "MD045": true,
-
-  // MD046: Code block style (fenced)
-  "MD046": {
-    "style": "fenced",
-  },
-
-  // MD047: Files should end with a single newline character
-  "MD047": true,
-
-  // MD048: Code fence style (backticks)
-  "MD048": {
-    "style": "backtick",
-  },
-
-  // MD049: Emphasis style (underscores)
-  "MD049": {
-    "style": "underscore",
-  },
-
-  // MD050: Strong style (asterisks)
-  "MD050": {
-    "style": "asterisk",
-  },
-
-  // MD051: Link fragments should be valid
-  "MD051": true,
-
-  // MD052: Reference links and images should use a label that is defined
-  "MD052": true,
-
-  // MD053: Link and image reference definitions should be needed
-  "MD053": true,
+    "html_elements": false
+  }
 }
