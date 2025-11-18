@@ -17,12 +17,5 @@
   // Mintlify conventions
   "MD003": { "style": "atx" }, // Use ## headings (required for Mintlify TOC)
   "MD025": { "front_matter_title": "^\\s*title\\s*[:=]" }, // Allow title in frontmatter
-  "MD040": true, // Code blocks must have language specified
-
-  // Aerodrome-specific terminology
-  "MD044": {
-    "names": ["MetaDEX", "veAERO", "DeFi", "Mintlify"],
-    "code_blocks": false,
-    "html_elements": false
-  }
+  "MD040": true // Code blocks must have language specified
 }
