@@ -48,14 +48,14 @@
             "icon": "user",
             "pages": [
               {
-                "group": "Swap",
+                "group": "❓ Swap",
                 "pages": [
                   "overview/core-features/swap/index",
                   "overview/core-features/swap/advanced"
                 ]
               },
               {
-                "group": "Liquidity",
+                "group": "❓ Liquidity",
                 "pages": [
                   "overview/core-features/liquidity-pools/index",
                   "overview/core-features/liquidity-pools/providing-liquidity",
