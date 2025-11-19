@@ -16,5 +16,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.markdownlint": "explicit"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#0C8C5E",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#0C8C5E",
+    "titleBar.inactiveForeground": "#e0e0e0"
   }
 }

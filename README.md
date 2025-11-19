@@ -4,6 +4,15 @@ Official documentation for [Aerodrome Finance](https://aerodrome.finance) - the 
 
 Built with [Mintlify](https://mintlify.com/), a modern documentation platform that makes it easy to create and maintain beautiful docs.
 
+## Todo
+
+- [ ] Revisit formatting setup based on [mintlify formatting docs](https://www.mintlify.com/docs/installation#formatting)
+- [ ] Customize
+  - [ ] Finalize [`theme`](https://www.mintlify.com/docs/organize/settings#param-theme) selection
+  - [ ] Set up [thumbnails](https://www.mintlify.com/docs/organize/settings#param-thumbnails) for key pages
+- [ ] [SEO settings](https://www.mintlify.com/docs/organize/settings#seo-and-search)
+- [ ] Finalize Changelog decision - now vs. later
+
 ## Local Development
 
 ### Prerequisites
