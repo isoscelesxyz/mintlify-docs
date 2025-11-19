@@ -37,3 +37,7 @@ Thumbs.db
 
 # AI notes and scratch work
 ai-notes/
+
+# Claude Code configuration (not ready for open source)
+.claude/
+CLAUDE.md
