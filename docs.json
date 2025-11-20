@@ -97,7 +97,10 @@
           {
             "group": "Security",
             "icon": "shield",
-            "pages": ["overview/security/overview"]
+            "pages": [
+              "overview/security/overview",
+              "overview/security/audits"
+            ]
           },
           {
             "group": "Contributors",
