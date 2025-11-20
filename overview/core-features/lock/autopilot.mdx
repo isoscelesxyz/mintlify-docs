@@ -1,23 +1,17 @@
 ---
 title: "Autopilot"
 description: "Automated liquidity management for Slipstream concentrated liquidity pools powered by Mellow Finance"
-sidebarTitle: "❓ Autopilot"
 ---
 
-<Danger>
-TODO
+Put your liquidity on Autopilot and start earning passively. Autopilot is the automated liquidity management solution on Aerodrome, powered by [Mellow](https://mellow.finance).
 
-Placeholder content below.
-
-</Danger>
-
-This guide is for **liquidity providers seeking automated concentrated liquidity management**. You will learn how Autopilot automates concentrated liquidity position management, when to use it versus manual CL positions, and the fee structure.
+Using Mellow vaults and strategies, Autopilot manages liquidity ranges, automatically rebalances positions, and compounds returns for liquidity providers. Simply select an Autopilot-enabled pool, deposit your liquidity, and enjoy steady rewards with fully automated management.
 
 ## What is Autopilot?
 
-Autopilot provides automated liquidity management for <Tooltip tip="Concentrated liquidity pools with customizable price ranges and dynamic fees">Slipstream</Tooltip> concentrated liquidity pools, powered by Mellow Finance.
+Autopilot provides **100% passive, onchain, and non-custodial** automated liquidity management for <Tooltip tip="Concentrated liquidity pools with customizable price ranges and dynamic fees">Slipstream</Tooltip> concentrated liquidity pools.
 
-Without automated liquidity management (ALM), liquidity providers must manually adjust their <Tooltip tip="Concentrated liquidity pool positions represented as NFTs">CL positions</Tooltip> to stay within profitable price ranges. Autopilot handles this rebalancing automatically based on market conditions and historical performance.
+Without automated liquidity management (ALM), liquidity providers must manually adjust their <Tooltip tip="Concentrated liquidity pool positions represented as NFTs">CL positions</Tooltip> to stay within profitable price ranges. Autopilot handles this rebalancing automatically based on market conditions and historical performance, helping to mitigate <Tooltip tip="The difference in value between holding tokens versus providing liquidity">impermanent loss</Tooltip> through active range management.
 
 ## How Autopilot works
 
@@ -44,20 +38,19 @@ Autopilot positions capture swap fees and `AERO` emissions while in range. The a
 
 ## Fee structure
 
-<Info>
-  Mellow Finance collects **10% of the rewards earned** for providing automated liquidity
-  management. This fee is automatically deducted from your position's earnings.
-</Info>
+Autopilot is **100% free** to use with **zero management fees**.
 
 **What you earn:**
 
-- 90% of swap fees from your position
-- 90% of `AERO` emissions from gauge staking
+- 100% of swap fees from your position
+- 100% of `AERO` emissions from gauge staking
 - Reduced gas costs through batched rebalancing
 
-**What Mellow earns:**
+**What you pay:**
 
-- 10% of your total rewards (fees + emissions)
+- No management fees
+- No performance fees
+- Only standard network gas costs for deposits and withdrawals
 
 ## When to use Autopilot
 
@@ -83,8 +76,6 @@ Autopilot positions capture swap fees and `AERO` emissions while in range. The a
 
 ❌ **You can monitor regularly** - Able to rebalance manually when needed
 
-❌ **Pool has low volume** - 10% fee may outweigh benefits in low-earning pools
-
 <Tip>
   For most users, Autopilot vaults offer a simpler way to earn from concentrated liquidity without
   the complexity of manual position management.
@@ -97,7 +88,7 @@ Autopilot positions capture swap fees and `AERO` emissions while in range. The a
 | **Rebalancing**   | Automatic                   | Manual                   |
 | **Gas costs**     | Lower (batched)             | Higher (per rebalance)   |
 | **Time required** | Passive                     | Active monitoring        |
-| **Fees**          | 10% of earnings             | 0% management fee        |
+| **Fees**          | 0% management fee           | 0% management fee        |
 | **Range control** | Automated optimization      | Full control             |
 | **Best for**      | Passive LPs, volatile pairs | Active LPs, stable pairs |
 
@@ -160,7 +151,6 @@ When Autopilot rebalances your position:
 
 **Costs to consider:**
 
-- 10% management fee to Mellow
 - Impermanent loss (same as manual CL)
 - Gas costs for deposits/withdrawals
 - Brief downtime during rebalances
@@ -177,7 +167,7 @@ When Autopilot rebalances your position:
 
 - ✅ Lower gas costs (batched rebalancing)
 - ✅ Automated optimization
-- ❌ 10% fee on earnings
+- ✅ Zero management fees
 - ❌ Less control over exact ranges
 
 <Tip>
@@ -191,12 +181,66 @@ Autopilot does not eliminate concentrated liquidity risks. You are still exposed
 
 - **Impermanent loss** - Price divergence between tokens affects your position value
 - **Range risk** - Even with rebalancing, extreme volatility can cause losses
-- **Smart contract risk** - Both Aerodrome and Mellow Finance contracts
-- **Fee impact** - 10% management fee reduces net earnings
+- **Smart contract risk** - Both Aerodrome and Mellow contracts
 
 See [Before You Begin](/overview/getting-started/before-you-begin) for general DeFi risks.
 
 </Warning>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why should I use Autopilot instead of managing my liquidity?">
+    Autopilot removes the complexity and time commitment of managing concentrated liquidity positions. Instead of monitoring price movements and manually rebalancing your position when it goes out of range, Autopilot handles this automatically. This is especially valuable for volatile pairs that require frequent rebalancing, or if you don't have time to actively manage positions daily. Batched rebalancing also reduces gas costs significantly compared to manual management.
+  </Accordion>
+
+<Accordion title="How is my liquidity managed?">
+  Autopilot uses Mellow vaults that continuously monitor your pool's price movements. When the price
+  approaches or moves outside your position's range, the vault automatically removes liquidity,
+  calculates an optimal new range based on volatility and market depth, and re-deposits liquidity in
+  the updated range. The position is then automatically staked to earn `AERO` emissions. All
+  operations are batched with other users to minimize gas costs.
+</Accordion>
+
+<Accordion title="How do rewards work with Autopilot?">
+  Your Autopilot position earns both swap fees from trading activity and `AERO` emissions from gauge
+  staking. When you deposit into an Autopilot vault, you receive ERC-20 vault tokens representing
+  your share. These vault tokens can be staked to earn additional `AERO` emissions. The vault
+  automatically compounds returns by reinvesting earned fees back into the position during
+  rebalancing operations.
+</Accordion>
+
+<Accordion title="Are there any fees or costs associated with Autopilot?">
+  Autopilot is completely free to use with zero management fees or performance fees. You keep 100% of all swap fees and `AERO` emissions earned by your position. The only costs are standard network gas fees for deposits and withdrawals, which are minimized through batched rebalancing operations.
+</Accordion>
+
+<Accordion title="Is Autopilot available for all pools?">
+  Autopilot is available for select Slipstream (concentrated liquidity) pools on Aerodrome. You can
+  find Autopilot-enabled pools by visiting the [Pools page](https://aerodrome.finance/pools) and
+  filtering for pools with the "Autopilot" badge. The availability depends on Mellow vault
+  deployments for specific pool pairs.
+</Accordion>
+
+<Accordion title="What are the risks of using Autopilot?">
+  Autopilot does not eliminate the fundamental risks of concentrated liquidity provision. You are
+  still exposed to impermanent loss when token prices diverge, range risk during extreme volatility,
+  and smart contract risk from both Aerodrome and Mellow contracts. During rebalancing operations, there may be brief periods where
+  your position is not actively earning fees. See the Risk Considerations section above for more
+  details.
+</Accordion>
+
+<Accordion title="Does Aerodrome manage the liquidity in Autopilot?">
+  No, Aerodrome does not manage Autopilot liquidity. Autopilot is powered by Mellow (Mellow
+  Finance), an independent automated liquidity management provider. Mellow's vaults and strategies
+  handle all rebalancing, range optimization, and position management. Aerodrome provides the
+  underlying Slipstream pools where the liquidity is deployed, but the automation layer is entirely
+  managed by Mellow.
+</Accordion>
+
+  <Accordion title="Is Autopilot audited?">
+    Autopilot uses Mellow's audited smart contracts for vault management. For specific audit reports and security information about Mellow, visit [mellow.finance](https://mellow.finance). As with all DeFi protocols, you should review the audit reports and understand that audits do not eliminate all smart contract risks.
+  </Accordion>
+</AccordionGroup>
 
 ## Next steps
 
