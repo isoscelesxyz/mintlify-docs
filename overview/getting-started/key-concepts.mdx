@@ -4,9 +4,11 @@ description: "Comprehensive reference of DeFi and Aerodrome terms including liqu
 sidebarTitle: "Key Concepts & Terminology"
 ---
 
-<Danger>TODO: Needs more thorough review.</Danger>
+<Danger>
+  TODO: Needs more thorough review.
+</Danger>
 
-This reference defines essential terms and concepts for understanding Aerodrome and decentralized finance. Use this as a comprehensive glossary when encountering unfamiliar terminology throughout the documentation.
+This reference defines key terms and concepts for understanding Aerodrome and decentralized finance. Use this as a comprehensive glossary when encountering unfamiliar terminology throughout the documentation.
 
 ## General DeFi Terms
 
@@ -64,9 +66,9 @@ This reference defines essential terms and concepts for understanding Aerodrome 
 
 **MetaDEX**: A next-generation DEX model that distributes 100% of protocol revenue to active voters who direct token emissions. This creates sustainable alignment between traders, liquidity providers, and tokenholders. See [What is Aerodrome?](/overview/index) for a full explanation.
 
-**`AERO`**: The native protocol token of Aerodrome, used for governance and rewards. Users can lock `AERO` to receive veAERO and participate in voting.
+**AERO**: The native protocol token of Aerodrome. Users can lock `AERO` to receive veAERO and participate in voting.
 
-**veAERO**: Vote-escrowed `AERO` - locked `AERO` tokens that grant governance rights and voting power. The longer the lock period (1 week to 4 years), the more voting power granted. veAERO holders vote to direct emissions and earn protocol revenue.
+**veAERO** (vote-escrowed `AERO):` Locked `AERO` tokens that grant governance rights and voting power. The longer the lock period (1 week to 4 years), the more voting power granted. veAERO holders vote to direct emissions and earn protocol revenue.
 
 **Epochs**: Aerodrome operates on seven-day epochs, starting every Thursday at 00:00 UTC and ending the following Wednesday at 23:59 UTC. Emissions, fee distributions, voting, governance actions, and all other protocol activities align with this weekly schedule.
 
@@ -74,13 +76,13 @@ This reference defines essential terms and concepts for understanding Aerodrome 
 
 **Gauges**: Gauges act as clearing houses for activity related to specific pools, aggregating swap fees, votes, and incentives for weekly distribution. Only pools with active gauges are eligible to receive emissions.
 
-**Incentives (Bribes)**: Tokens deposited into gauges (often by protocols) to incentivize voters to direct emissions to specific pools. Incentives are distributed to veAERO voters who vote for that pool.
+**Incentives**: Tokens deposited (generally by protocols) to incentivize voters to direct emissions to specific pools. Incentives are distributed to veAERO voters who vote for that pool.
 
 **Protocol Revenue**: Any value that is internalized by the protocol or claimable by tokenholders. There are currently three sources of revenue: 100% of swap fees from staked liquidity, 10% of swap fees from unstaked liquidity in emissions-eligible Slipstream pools, and 100% of incentive deposits. All protocol revenue goes to veAERO voters.
 
 **Rebase**: Each week, veAERO holders receive additional veAERO tokens proportional to their voting power, reducing dilution from new emissions. For example, if you hold 100 veAERO, you might receive 2-3 additional veAERO weekly depending on the rebase rate.
 
-**Locking**: In Aerodrome, "locking" refers to the process of converting liquid `AERO` into an NFT that grants its holder governance rights (namely, the ability to vote to direct weekly token emissions). Locked tokens do not disappear or decay, but they are made non-transferable until the lock period ends. The longer the lock period, the more voting power is granted.
+**Locking**: In Aerodrome, "locking" most often refers to the process of converting liquid `AERO` into an NFT that grants its holder governance rights (namely, the ability to vote to direct weekly token emissions). The longer the lock period, the more voting power is granted.
 
 **Relay**: Aerodrome's automation tool for managing veAERO positions, including voting, reward claims, and position adjustments. Relays simplify governance participation for veAERO holders.
 
@@ -114,9 +116,9 @@ This reference defines essential terms and concepts for understanding Aerodrome 
 
 **AERO Fed**: Governance system activated when emissions drop below 9M per epoch. Allows veAERO voters to collectively decide each week whether to increase (0.01% of supply), decrease (0.01% of supply), or maintain emission rates. This creates community-controlled monetary policy.
 
-**Launcher**: Permissionless pool creation system that allows any project to launch liquidity pools with optional liquidity locking. Projects can create V2 or concentrated pools, set initial pricing, and lock liquidity to signal long-term commitment. See [Launcher](/overview/partners/launcher).
+**Aero Launch**: Permissionless pool creation system that allows any project to launch liquidity pools with optional liquidity locking. Projects can create V2 or concentrated pools, set initial pricing, and lock liquidity to signal long-term commitment.
 
-**Autopilot**: Automated liquidity management for concentrated pools provided by Mellow. Automatically rebalances CL positions to keep them in range based on market conditions and historical performance. Mellow collects 10% of rewards earned for providing this service. See [Autopilot](/overview/core-features/lock/autopilot).
+**Autopilot**: Automated liquidity management for concentrated pools provided by Mellow. Automatically rebalances CL positions to keep them in range based on market conditions and historical performance. Mellow collects 10% of rewards earned for providing this service.
 
 ## Next steps
 
@@ -127,11 +129,7 @@ This reference defines essential terms and concepts for understanding Aerodrome 
   <Card title="What is Aerodrome?" icon="info" href="/overview/index">
     Understand the MetaDEX model
   </Card>
-  <Card
-    title="Before You Begin"
-    icon="circle-check"
-    href="/overview/getting-started/before-you-begin"
-  >
+  <Card title="Before You Begin" icon="circle-check" href="/overview/getting-started/before-you-begin">
     Prerequisites for using Aerodrome
   </Card>
   <Card title="Tokenomics" icon="coins" href="/overview/tokenomics/overview">

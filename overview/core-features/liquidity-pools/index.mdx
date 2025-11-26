@@ -4,27 +4,31 @@ description: "Overview of Aerodrome's Basic and Concentrated liquidity pools wit
 sidebarTitle: "❓ Liquidity Pools"
 ---
 
-This guide helps **liquidity providers** and **DeFi users** understand Aerodrome's two pool types and choose the right one for their tokens. You will learn the difference between Basic and Concentrated pools, and when to use volatile vs stable formulas.
+This guide helps **liquidity providers** and **DeFi users** understand Aerodrome's pool types. You will learn the difference between Basic and Concentrated pools, and when to use volatile vs stable formulas.
 
 Aerodrome Finance enables users to securely swap tokens with low fees and minimal <Tooltip tip="The difference between quoted and executed price">slippage</Tooltip>. This functionality is powered by <Tooltip tip="Pairs of tokens deposited by users that are available for trading">liquidity pools</Tooltip>: pairs of tokens, deposited by users, that are available for trading 24/7. Aerodrome offers two pool types: Basic and Concentrated. Basic pools make all liquidity available for trading at all prices. Concentrated pools require LPs to identify specific price ranges where their liquidity will be active.
 
 <Warning>
-  Providing liquidity involves risks including impermanent loss, smart contract risk, and potential
-  loss of capital. Read [Before You Begin](/overview/getting-started/before-you-begin) before
-  depositing.
+  Providing liquidity involves risks including impermanent loss, smart contract risk, and potential loss of capital. Read [Before You Begin](/overview/getting-started/before-you-begin) before depositing.
 </Warning>
 
 Both Basic and Concentrated pools can be optimized for different asset relationships:
 
 **Volatile**
 
-Tokens with high price volatility (e.g. `AERO/ETH`, `WETH/USDC`). These pools use a generic AMM formula: <Latex>x × y ≥ k</Latex>
+Tokens with high price volatility (e.g. `AERO/ETH`, `WETH/USDC`). These pools use a generic AMM formula: <Latex>
+  x × y ≥ k
+</Latex>
+
 
 This constant product formula enables price discovery between assets with different volatility profiles while maintaining pool balance.
 
 **Stable**
 
-Tokens which have little to no volatility (e.g. `cbBTC/wBTC`, `USDC/USDT`). The formula used for pricing tokens allows for low slippage even on large traded volumes: <Latex>x³y + xy³ ≥ k</Latex>
+Tokens which have little to no volatility (e.g. `cbBTC/wBTC`, `USDC/USDT`). The formula used for pricing tokens allows for low slippage even on large traded volumes: <Latex>
+  x³y + xy³ ≥ k
+</Latex>
+
 
 This specialized curve dramatically reduces slippage for similar-value tokens, enabling efficient large-volume trades with minimal price impact.
 
@@ -43,32 +47,16 @@ Both **Stable** and **Volatile** formulas maintain constant pool liquidity while
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Provide Liquidity"
-    icon="droplet"
-    href="/overview/core-features/liquidity-pools/providing-liquidity"
-  >
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
     Learn how to deposit tokens into pools
   </Card>
-  <Card
-    title="Basic Pools"
-    icon="layer-group"
-    href="/overview/core-features/liquidity-pools/basic-pools"
-  >
+  <Card title="Basic Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/basic-pools">
     Understand set-and-forget full-range pools
   </Card>
-  <Card
-    title="Concentrated Pools"
-    icon="bullseye"
-    href="/overview/core-features/liquidity-pools/concentrated-pools"
-  >
+  <Card title="Concentrated Pools" icon="bullseye" href="/overview/core-features/liquidity-pools/concentrated-pools">
     Explore capital-efficient CL pools
   </Card>
-  <Card
-    title="Technical Details"
-    icon="flask"
-    href="/overview/core-features/liquidity-pools/technical-details"
-  >
+  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
     Deep dive into pool mechanics
   </Card>
 </CardGroup>

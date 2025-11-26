@@ -1,6 +1,6 @@
 ---
 title: "Swapping Tokens"
-description: "How to exchange tokens on Aerodrome with low fees and minimal slippage"
+description: "How to exchange tokens on Aerodrome"
 sidebarTitle: "❓ Swap"
 ---
 
@@ -12,42 +12,29 @@ As the essential trading hub of Base, Aerodrome is the exchange of choice for us
   <Step title="Connect your wallet">
     Visit the [Swap page](https://aerodrome.finance/swap) and click "Connect" in the upper right corner to connect your wallet.
   </Step>
-
   <Step title="Select tokens">
     In the **Sell** field, select the token you want to swap from.
 
     In the **Buy** field, select the token you want to receive.
-
   </Step>
+  <Step title="Enter amount">
+    Input the amount you'd like to trade in either the Sell or Buy field. The other field will automatically calculate based on the current exchange rate.
+  </Step>
+  <Step title="Review the quote">
+    Review the exchange rate, fees, and slippage tolerance. Check the price impact percentage to ensure it's acceptable.
+  </Step>
+  <Step title="Approve tokens (if needed)">
+    If this is your first time swapping this token, you'll need to approve the contract to spend your tokens. Click **Approve** and confirm the transaction in your wallet.
 
-<Step title="Enter amount">
-  Input the amount you'd like to trade in either the Sell or Buy field. The other field will
-  automatically calculate based on the current exchange rate.
-</Step>
-
-<Step title="Review the quote">
-  Review the exchange rate, fees, and slippage tolerance. Check the price impact percentage to
-  ensure it's acceptable.
-</Step>
-
-<Step title="Approve tokens (if needed)">
-  If this is your first time swapping this token, you'll need to approve the contract to spend your
-  tokens. Click **Approve** and confirm the transaction in your wallet.
-
-_This is giving permission to the contract to spend your tokens on your behalf for the amount you've chosen in order to make the swap._
-
-</Step>
-
-<Step title="Complete the swap">Click **Swap** and confirm the transaction in your wallet.</Step>
-
+    _This is giving permission to the contract to spend your tokens on your behalf for the amount you've chosen in order to make the swap._
+  </Step>
   <Step title="View confirmation">
     After the transaction completes, you can view the receipt by clicking **View confirmation**.
   </Step>
 </Steps>
 
 <Danger>
-  TODO: Below is new content - is it too much? Helpful information but perhaps there's a better way
-  to present this or a better location for it.
+  TODO: Below is new content - is it too much? Helpful information but perhaps there's a better way to present this or a better location for it.
 </Danger>
 
 ---
@@ -55,8 +42,7 @@ _This is giving permission to the contract to spend your tokens on your behalf f
 ## Understanding swap basics
 
 <Warning>
-  Large swaps in low-liquidity pools can result in high slippage and price impact. Always review the
-  quote and price impact before confirming your swap.
+  Large swaps in low-liquidity pools can result in high slippage and price impact. Always review the quote and price impact before confirming your swap.
 </Warning>
 
 ### Slippage tolerance
@@ -64,6 +50,7 @@ _This is giving permission to the contract to spend your tokens on your behalf f
 <Tooltip tip="The difference between the quoted price and the actual executed price">
   Slippage
 </Tooltip>
+
 occurs when the price changes between when you submit a transaction and when it's executed onchain.
 
 **Slippage tolerance** is the maximum price movement you'll accept:
@@ -74,8 +61,7 @@ occurs when the price changes between when you submit a transaction and when it'
 - **Stable pairs**: Can use 0.1-0.3%
 
 <Warning>
-  Setting slippage too high (>5%) exposes you to MEV attacks and poor execution. Only increase when
-  necessary.
+  Setting slippage too high (\>5%) exposes you to MEV attacks and poor execution. Only increase when necessary.
 </Warning>
 
 ### Price impact
@@ -88,8 +74,7 @@ Price impact shows how much your trade will move the market price:
 - **Greater than 5%**: Very high - trade size too large for pool liquidity
 
 <Tip>
-  For large swaps, split into smaller trades to reduce price impact. This may cost more in gas but
-  results in better execution.
+  For large swaps, split into smaller trades to reduce price impact. This may cost more in gas but results in better execution.
 </Tip>
 
 ### Route preview
@@ -103,8 +88,7 @@ The UI shows the route before you confirm. Multi-hop routes cost more gas but ma
 
 <Info>
   Want to understand routing in detail? See [Advanced
-  Swapping](/overview/core-features/swap/advanced) for multi-hop mechanics and optimization
-  strategies.
+  Swapping](/overview/core-features/swap/advanced) for multi-hop mechanics and optimization strategies.
 </Info>
 
 ---
@@ -116,68 +100,63 @@ The UI shows the route before you confirm. Multi-hop routes cost more gas but ma
     **Cause**: You haven't approved the token for the Aerodrome router.
 
     **Solution**:
+
     1. Click **"Approve [TOKEN]"** button
     2. Confirm approval transaction in wallet
     3. Wait for confirmation
     4. Retry swap
 
     <Info>
-    Approvals are one-time per token. After approving once, you won't need to approve again for that token.
+      Approvals are one-time per token. After approving once, you won't need to approve again for that token.
     </Info>
-
   </Accordion>
-
   <Accordion title="Transaction failed: 'Transaction deadline exceeded'" icon="clock">
     **Cause**: Transaction took too long to process (default 30-minute deadline).
 
     **Solution**:
+
     - Retry the swap with current prices
     - Increase deadline in swap settings if network is congested
     - Check Base network status for issues
-
   </Accordion>
-
   <Accordion title="High slippage warning" icon="percent">
     **Cause**: Low pool liquidity or large trade size relative to available liquidity.
 
     **Solution**:
+
     - **Reduce trade amount** to lower price impact
     - **Increase slippage tolerance** carefully (be aware of MEV risks)
     - **Wait for better liquidity** in the pool
     - **Check alternative routes** or pools
 
     <Tip>
-    Check the pool's TVL before large swaps. Pools with >$100k liquidity typically handle larger trades better.
+      Check the pool's TVL before large swaps. Pools with \>\$100k liquidity typically handle larger trades better.
     </Tip>
-
   </Accordion>
-
   <Accordion title="Can't find a token" icon="magnifying-glass">
     **Cause**: Token not in default list or misspelled ticker.
 
     **Solution**:
+
     1. Click token selector dropdown
     2. Paste token **contract address** directly
     3. Verify address from official sources
     4. Token appears if it exists on Base
 
     <Warning>
-    Always verify contract addresses from official project sources. Scam tokens with similar names exist.
+      Always verify contract addresses from official project sources. Scam tokens with similar names exist.
     </Warning>
-
     Verified addresses: [Contract Addresses](/overview/security/overview#contract-addresses) or [BaseScan](https://basescan.org/)
-
   </Accordion>
-
   <Accordion title="Swap quote seems wrong or outdated" icon="circle-question">
     **Cause**: Prices moved since quote was generated, or pool liquidity changed.
 
     **Solution**:
+
     - Refresh the swap page
     - Re-enter amounts to get fresh quote
     - Check if you're comparing against different pools/CEXs (prices vary)
     - Verify you're looking at the correct token (many have similar names)
-
   </Accordion>
 </AccordionGroup>
 
@@ -187,18 +166,10 @@ The UI shows the route before you confirm. Multi-hop routes cost more gas but ma
   <Card title="Advanced Swapping" icon="route" href="/overview/core-features/swap/advanced">
     Deep-dive into routing, slippage mechanics, and optimization
   </Card>
-  <Card
-    title="Provide Liquidity"
-    icon="droplet"
-    href="/overview/core-features/liquidity-pools/providing-liquidity"
-  >
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
     Earn fees by providing liquidity to pools
   </Card>
-  <Card
-    title="Understanding Pools"
-    icon="layer-group"
-    href="/overview/core-features/liquidity-pools/index"
-  >
+  <Card title="Understanding Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/index">
     Learn about different pool types
   </Card>
   <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">

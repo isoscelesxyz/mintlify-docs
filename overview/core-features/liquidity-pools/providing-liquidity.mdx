@@ -4,25 +4,22 @@ description: "How to deposit tokens into Aerodrome pools to earn swap fees or AE
 sidebarTitle: "❓ Providing Liquidity"
 ---
 
-Aerodrome is a decentralized exchange, which means that tokens on the platform are not held by a custodial entity like a bank, but rather are deposited by users. Without these liquidity providers (LPs), users would not be able to swap tokens on Aerodrome. In exchange for depositing tokens to facilitate swaps, LPs receive a portion of swap fees when their liquidity is unstaked, or they can take full advantage of the system by staking their liquidity to earn AERO emissions each week
+Aerodrome is a decentralized exchange, which means that tokens on the platform are not held by a custodial entity like a bank, but rather are deposited by users. Without these liquidity providers (LPs), users would not be able to swap tokens on Aerodrome. In exchange for depositing tokens to facilitate swaps, LPs receive a portion of swap fees when their liquidity is unstaked, or they can take full advantage of the system by staking their liquidity to earn AERO emissions.
 
 ## How to provide liquidity
 
 <Steps>
-  <Step>Visit the [Liquidity page](https://aerodrome.finance/liquidity)</Step>
-  <Step>Select the liquidity pool where you'd like to deposit (you can filter by type)</Step>
-  <Step>Select "New deposit"</Step>
   <Step>
-    If depositing into a concentrated pool, select the range where your liquidity will be active, or
-    select{" "}
+    If depositing into a concentrated pool, select the range where your liquidity will be active, or select" "
+
     <Tooltip tip="Automated liquidity management service that rebalances your position">
-      "Autopilot"
-    </Tooltip>{" "}
+  "Autopilot"
+</Tooltip>
+
+    {" "}
+
     for automated rebalancing
   </Step>
-  <Step>Complete deposit</Step>
-  <Step>Choose whether to stake your deposit or leave it unstaked</Step>
-  <Step>Go to your [dashboard](https://aerodrome.finance/dash) to view all deposits</Step>
 </Steps>
 
 ---
@@ -34,8 +31,7 @@ Aerodrome is a decentralized exchange, which means that tokens on the platform a
 - **Autopilot**: If you'd like your liquidity management to be "set it and forget it", consider Autopilot.
 
 <Info>
-  Choosing between staked and unstaked liquidity depends on your preference: maximize farming
-  rewards (staked) or maximize fee capture (unstaked).
+  Choosing between staked and unstaked liquidity depends on your preference: maximize farming rewards (staked) or maximize fee capture (unstaked).
 </Info>
 
 ## Troubleshooting
@@ -57,41 +53,29 @@ Aerodrome is a decentralized exchange, which means that tokens on the platform a
     **Cause**: V2 Basic and Stable pools (not CL pools) require fees to be claimed from the gauge after staking.
 
     **Solution**:
+
     1. Go to the pool page on Aerodrome
     2. Navigate to your staked position
     3. Look for "Claim Fees" button in the gauge section
     4. Confirm the claim transaction
 
     CL pools allow fee collection directly from positions without staking.
-
   </Accordion>
 </AccordionGroup>
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Stake Your Position"
-    icon="layer-group"
-    href="/overview/core-features/liquidity-pools/staking"
-  >
+  <Card title="Stake Your Position" icon="layer-group" href="/overview/core-features/liquidity-pools/staking">
     Stake LP tokens or NFTs to earn AERO emissions
   </Card>
   <Card title="Autopilot" icon="robot" href="/overview/core-features/lock/autopilot">
     Automate CL position management
   </Card>
-  <Card
-    title="Basic Pools"
-    icon="layer-group"
-    href="/overview/core-features/liquidity-pools/basic-pools"
-  >
+  <Card title="Basic Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/basic-pools">
     Understand full-range pools
   </Card>
-  <Card
-    title="Concentrated Pools"
-    icon="bullseye"
-    href="/overview/core-features/liquidity-pools/concentrated-pools"
-  >
+  <Card title="Concentrated Pools" icon="bullseye" href="/overview/core-features/liquidity-pools/concentrated-pools">
     Learn about CL pools
   </Card>
 </CardGroup>
