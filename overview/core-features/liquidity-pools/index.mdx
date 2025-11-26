@@ -16,18 +16,14 @@ Both Basic and Concentrated pools can be optimized for different asset relations
 
 **Volatile**
 
-Tokens with high price volatility (e.g. `AERO/ETH`, `WETH/USDC`). These pools use a generic AMM formula: <Latex>
-  x × y ≥ k
-</Latex>
+Tokens with high price volatility (e.g. `AERO/ETH`, `WETH/USDC`). These pools use a generic AMM formula: <Latex>x × y ≥ k</Latex>
 
 
 This constant product formula enables price discovery between assets with different volatility profiles while maintaining pool balance.
 
 **Stable**
 
-Tokens which have little to no volatility (e.g. `cbBTC/wBTC`, `USDC/USDT`). The formula used for pricing tokens allows for low slippage even on large traded volumes: <Latex>
-  x³y + xy³ ≥ k
-</Latex>
+Tokens which have little to no volatility (e.g. `cbBTC/wBTC`, `USDC/USDT`). The formula used for pricing tokens allows for low slippage even on large traded volumes: <Latex>x³y + xy³ ≥ k</Latex>
 
 
 This specialized curve dramatically reduces slippage for similar-value tokens, enabling efficient large-volume trades with minimal price impact.
