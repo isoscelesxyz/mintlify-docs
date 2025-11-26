@@ -1,24 +1,22 @@
 ---
-title: "Incentivizes"
+title: "Incentives"
 description: "How protocols deposit incentives to attract votes and bootstrap liquidity for their pools"
 ---
 
 <Warning>
+  **Most users will never interact with the incentive function** on Aerodrome. Incentives are almost always deposited by protocols with the aim of encouraging voting for a specific pool as a way to attract votes/emissions that will then attract liquidity providers.
 
-**Most users will never interact with the incentive function** on Aerodrome. Incentives are almost always deposited by protocols with the aim of encouraging voting for a specific pool as a way to attract votes/emissions that will then attract liquidity providers.
-
-If you're a user looking to _claim_ rewards from voting, see [Claim Rewards](/overview/core-features/rewards).
-
+  If you're a user looking to _claim_ rewards from voting, see [Claim Rewards](/overview/core-features/rewards).
 </Warning>
 
 <Danger>
-  **TODO** <br /> Decide if we want to keep things simple with a description and instructions for
-  getting in touch or include some starter content like the following.
+  **TODO** \
+  Decide if we want to keep things simple with a description and instructions for getting in touch or include some starter content like the following.
 </Danger>
 
 ## What are voting incentives?
 
-Voting incentives (also called <Tooltip tip="Incentives deposited by protocols to attract votes to their gauges">bribes</Tooltip>) are rewards that protocols deposit to encourage veAERO holders to vote for their liquidity pools. When veAERO holders vote for your pool, it receives a larger share of weekly <Tooltip tip="AERO tokens distributed weekly to liquidity providers based on gauge votes">`AERO` emissions</Tooltip>, which attracts more liquidity providers.
+Voting incentives are rewards that protocols deposit to encourage veAERO holders to vote for their liquidity pools. When veAERO holders vote for your pool, it receives a larger share of weekly `<Tooltip tip="AERO tokens distributed weekly to liquidity providers based on gauge votes">AERO emissions</Tooltip>`, which attracts more liquidity providers.
 
 ### The incentive flywheel
 
@@ -31,9 +29,7 @@ Voting incentives (also called <Tooltip tip="Incentives deposited by protocols t
 This creates a self-reinforcing cycle where incentives drive liquidity, which drives volume, which justifies more incentives.
 
 <Warning>
-  Incentive spending should align with your protocol's liquidity needs and budget. Unsustainable
-  incentive programs can create mercenary liquidity that disappears when incentives stop. Plan for
-  long-term liquidity sustainability.
+  Incentive spending should align with your protocol's liquidity needs and budget. Unsustainable incentive programs can create mercenary liquidity that disappears when incentives stop. Plan for long-term liquidity sustainability.
 </Warning>
 
 ## Before you begin
@@ -48,21 +44,14 @@ Before depositing incentives, ensure you have:
 ## How to deposit voting incentives
 
 <Steps>
-  <Step>Navigate to the "Vote" page on Aerodrome</Step>
   <Step>
-    Find the{" "}
-    <Tooltip tip="Voting mechanisms for directing emissions to liquidity pools">gauge</Tooltip> for
-    your target pool
+    Find the" " <Tooltip tip="Voting mechanisms for directing emissions to liquidity pools">gauge</Tooltip> for your target pool
   </Step>
-  <Step>Click "Add incentive" on the gauge</Step>
   <Step>
     Select the token you want to use as incentive (your protocol token, AERO, stablecoins, etc.)
   </Step>
-  <Step>Enter the incentive amount</Step>
-  <Step>Approve the token spend and confirm the transaction</Step>
   <Step>
-    Incentives will be distributed to voters at the end of the current{" "}
-    <Tooltip tip="7-day voting periods from Thursday to Wednesday">Epoch</Tooltip>
+    Incentives will be distributed to voters at the end of the current" " <Tooltip tip="7-day voting periods from Thursday to Wednesday">Epoch</Tooltip>
   </Step>
 </Steps>
 
@@ -76,7 +65,7 @@ Different tokens work better for different goals:
 
 - **Protocol tokens**: Build token holder base, distribute governance
 - **Stablecoins (USDC, USDT)**: Attract professional voters, predictable costs
-- **`AERO` tokens**: Attract long-term aligned voters, bootstrap veAERO positions
+- **`AERO tokens`**: Attract long-term aligned voters, bootstrap veAERO positions
 
 ### Timing
 
@@ -106,32 +95,23 @@ Track these metrics to measure incentive effectiveness:
 **Build relationships**: Engage with large veAERO holders and voting protocols directly.
 
 <Tip>
-  Many successful protocols commit to incentive programs spanning 4-12 epochs (1-3 months) to
-  demonstrate long-term commitment and attract stable liquidity.
+  Many successful protocols commit to incentive programs spanning 4-12 epochs (1-3 months) to demonstrate long-term commitment and attract stable liquidity.
 </Tip>
 
 ## Common questions
 
 <AccordionGroup>
   <Accordion title="What's a good incentive rate?">
-    Competitive incentive rates vary by market conditions. As a baseline, track the ratio of
-    incentive value to emissions value on similar pools. Aim for 50-150% of the emissions value as a
-    starting point, then adjust based on results.
+    Competitive incentive rates vary by market conditions. As a baseline, track the ratio of incentive value to emissions value on similar pools. Aim for 50-150% of the emissions value as a starting point, then adjust based on results.
   </Accordion>
   <Accordion title="Should I use my protocol token or stablecoins?">
-    Protocol tokens help distribute governance and build community, but may have variable value.
-    Stablecoins provide predictable costs and attract professional voters. Many protocols use a mix
-    of both.
+    Protocol tokens help distribute governance and build community, but may have variable value. Stablecoins provide predictable costs and attract professional voters. Many protocols use a mix of both.
   </Accordion>
   <Accordion title="How do I measure ROI on incentives?">
-    Compare your incentive spend to: (1) liquidity attracted, (2) trading volume generated, and (3)
-    emissions received. If you spend $100k in incentives to receive $150k in emissions value, that's
-    a 1.5x return before considering volume benefits.
+    Compare your incentive spend to: (1) liquidity attracted, (2) trading volume generated, and (3) emissions received. If you spend $100k in incentives to receive $150k in emissions value, that's a 1.5x return before considering volume benefits.
   </Accordion>
   <Accordion title="When should I reduce or stop incentives?">
-    Reduce incentives when organic volume can sustain liquidity without subsidies, or when ROI drops
-    below your threshold. Test gradual reductions rather than stopping abruptly to avoid liquidity
-    flight.
+    Reduce incentives when organic volume can sustain liquidity without subsidies, or when ROI drops below your threshold. Test gradual reductions rather than stopping abruptly to avoid liquidity flight.
   </Accordion>
 </AccordionGroup>
 

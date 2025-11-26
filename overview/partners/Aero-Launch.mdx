@@ -1,15 +1,15 @@
 ---
-title: "Launcher"
+title: "Aero Launch"
 description: "Permissionless pool creation and liquidity locking for new token launches on Aerodrome"
 ---
 
-Launcher is Aerodrome's permissionless pool creation system that enables any project to launch liquidity pools with built-in locking mechanisms to demonstrate long-term commitment.
+Launch is Aerodrome's permissionless pool creation system that enables any project to launch liquidity pools with built-in locking mechanisms to demonstrate long-term commitment.
 
 In this guide, you'll learn how to create a pool for a new token, choose the right pool type, set initial pricing, configure liquidity locks, and navigate the path from emerging pool to full protocol integration with gauge voting.
 
-## What is Launcher?
+## What is Aero Launch?
 
-Launcher provides a streamlined interface for creating liquidity pools on Aerodrome without requiring permission or approval. Projects can:
+Launch provides a streamlined interface for creating liquidity pools on Aerodrome without requiring permission or approval. Projects can:
 
 - **Create pools permissionlessly**: No approval needed to launch
 - **Lock liquidity**: Signal commitment by locking LP tokens for a configurable duration
@@ -20,7 +20,7 @@ Launcher provides a streamlined interface for creating liquidity pools on Aerodr
 **Difference from Aero Ignition**:
 
 - **Aero Ignition**: Curated, community-driven fair launches with structured price discovery
-- **Launcher**: Open, permissionless pool creation with flexible lock durations
+- **Aero Launch**: Open, permissionless pool creation with flexible lock durations
 
 ## Before you launch
 
@@ -30,26 +30,21 @@ Before creating a pool, ensure you have:
   <Step title="Token deployed on Base">
     Your token contract must be deployed and verified on Base network
   </Step>
-
   <Step title="Liquidity ready">
     Prepare both your token and the connector token (USDC, WETH, cbBTC, or AERO) for initial liquidity
 
     **Recommended minimum**: 1-2% of your token's <Tooltip tip="Fully Diluted Valuation - total supply multiplied by token price">FDV</Tooltip> in liquidity
-
   </Step>
-
-<Step title="Pool strategy decided">
-  Determine your pool type (V2 vs CL) and lock duration based on your launch strategy
-</Step>
-
+  <Step title="Pool strategy decided">
+    Determine your pool type (V2 vs CL) and lock duration based on your launch strategy
+  </Step>
   <Step title="Price determined">
     Calculate your target initial price for the token pair
   </Step>
 </Steps>
 
 <Warning>
-  Liquidity locks are irreversible for the lock duration. Choose your lock period carefully based on
-  your project timeline and commitment capacity.
+  Liquidity locks are irreversible for the lock duration. Choose your lock period carefully based on your project timeline and commitment capacity.
 </Warning>
 
 ## Choosing a pool type
@@ -94,8 +89,7 @@ The pool type you choose affects capital efficiency, management complexity, and 
 **Fee tiers**: 0.01%, 0.05%, 0.30%, or 1.00% (choose based on volatility)
 
 <Info>
-  For most new token launches, **V2 volatile pools** are recommended. They require less active
-  management and work better during initial price discovery phases.
+  For most new token launches, **V2 volatile pools** are recommended. They require less active management and work better during initial price discovery phases.
 </Info>
 
 ## Selecting a connector token
@@ -133,8 +127,7 @@ For a NEW_TOKEN/USDC pool:
 ### Price discovery considerations
 
 <Warning>
-  Initial price is not guaranteed. Market participants will immediately begin trading, potentially
-  moving price significantly from your initial ratio.
+  Initial price is not guaranteed. Market participants will immediately begin trading, potentially moving price significantly from your initial ratio.
 </Warning>
 
 **Best practices**:
@@ -150,50 +143,42 @@ For a NEW_TOKEN/USDC pool:
   <Step title="Navigate to Liquidity page">
     Go to [aerodrome.finance/liquidity](https://aerodrome.finance/liquidity) and click "New Deposit"
   </Step>
-
-<Step title="Select pool type">
-  Choose between: - **V2 Volatile** (most new tokens) - **V2 Stable** (correlated pairs only) -
-  **Concentrated Liquidity** (if you have active management)
-</Step>
-
-<Step title="Select token pair">
-  - Enter your token address (or select from list) - Choose connector token (USDC, WETH, cbBTC, or
-  AERO) - Confirm pair doesn't already exist
-</Step>
-
+  <Step title="Select pool type">
+    Choose between: - **V2 Volatile** (most new tokens) - **V2 Stable** (correlated pairs only) - **Concentrated Liquidity** (if you have active management)
+  </Step>
+  <Step title="Select token pair">
+    - Enter your token address (or select from list) - Choose connector token (USDC, WETH, cbBTC, or AERO) - Confirm pair doesn't already exist
+  </Step>
   <Step title="Choose fee tier">
     **For V2**: Automatic based on pool type (0.3% volatile, 0.05% stable)
 
     **For CL**: Select fee tier:
+
     - 0.01% - Stablecoins, highly correlated pairs
     - 0.05% - Less volatile pairs
     - 0.30% - Most volatile pairs (standard)
     - 1.00% - Very volatile or exotic pairs
-
   </Step>
+  <Step title="Set initial liquidity amounts">
+    Enter amounts for both tokens: - Ratio determines initial price - Minimum recommended: 1-2% of FDV
 
-<Step title="Set initial liquidity amounts">
-  Enter amounts for both tokens: - Ratio determines initial price - Minimum recommended: 1-2% of FDV
-  - For CL pools: \$200k+ in connector token recommended
-</Step>
-
+    - For CL pools: \$200k+ in connector token recommended
+  </Step>
   <Step title="Configure liquidity lock">
     **Lock duration options**:
+
     - **1 month**: Short-term liquidity test
     - **3-6 months**: Standard launch commitment
     - **1 year+**: Strong long-term signal
 
     Locked liquidity cannot be withdrawn until expiration.
-
   </Step>
-
-<Step title="Review and approve">
-  - Review all parameters carefully - Approve both tokens for the pool contract - Confirm pool
-  creation transaction
-</Step>
-
+  <Step title="Review and approve">
+    - Review all parameters carefully - Approve both tokens for the pool contract - Confirm pool creation transaction
+  </Step>
   <Step title="Add liquidity">
     After pool creation:
+
     - Deposit your prepared liquidity
     - Lock LP tokens for chosen duration
     - Transaction confirms your locked position
@@ -201,8 +186,7 @@ For a NEW_TOKEN/USDC pool:
 </Steps>
 
 <Info>
-  Locked liquidity is visible to users and creates confidence in your project's commitment. Longer
-  locks generally signal stronger dedication to the ecosystem.
+  Locked liquidity is visible to users and creates confidence in your project's commitment. Longer locks generally signal stronger dedication to the ecosystem.
 </Info>
 
 ## Lock duration strategy
@@ -240,8 +224,7 @@ Your lock duration sends a signal to the market about your commitment level.
 **Market perception**: High commitment, attracts long-term aligned LPs
 
 <Tip>
-  Many successful projects start with 6-12 month locks and extend them as they approach gauge
-  eligibility. This demonstrates growing commitment over time.
+  Many successful projects start with 6-12 month locks and extend them as they approach gauge eligibility. This demonstrates growing commitment over time.
 </Tip>
 
 ## Post-launch actions
@@ -322,25 +305,22 @@ Pools that meet listing criteria can transition from emerging pools to full prot
   <Step title="Meet volume requirements">
     Achieve \$1M+ daily volume average over 30 days
   </Step>
-
-<Step title="Engage with Aerodrome team">
-  Reach out through official channels to begin listing discussions
-</Step>
-
-<Step title="Provide project information">
-  Share details about your project, traction, security, and tokenomics
-</Step>
-
+  <Step title="Engage with Aerodrome team">
+    Reach out through official channels to begin listing discussions
+  </Step>
+  <Step title="Provide project information">
+    Share details about your project, traction, security, and tokenomics
+  </Step>
   <Step title="Complete listing process">
     Work with team to complete evaluation and activate gauge
   </Step>
 </Steps>
 
-## Launcher vs Aero Ignition
+## Aero Launch vs Aero Ignition
 
 Understanding which launch method fits your project:
 
-| Feature               | Launcher                           | Aero Ignition                          |
+| Feature               | Aero Launch                        | Aero Ignition                          |
 | --------------------- | ---------------------------------- | -------------------------------------- |
 | **Access**            | Permissionless (anyone)            | Curated (application required)         |
 | **Launch style**      | Standard pool creation             | Fair-launch price discovery event      |
@@ -350,8 +330,7 @@ Understanding which launch method fits your project:
 | **Best for**          | Established tokens, quick launches | New tokens, fair distribution focus    |
 
 <Info>
-  Aero Ignition is designed for curated, community-focused fair launches. Most projects will use
-  Launcher for standard pool creation and liquidity management.
+  Aero Ignition is designed for curated, community-focused fair launches. Most projects will use Aero Launch for standard pool creation and liquidity management.
 </Info>
 
 ## Troubleshooting
@@ -359,58 +338,54 @@ Understanding which launch method fits your project:
 <AccordionGroup>
   <Accordion title="Pool creation transaction fails" icon="triangle-exclamation">
     **Common causes**:
+
     - Insufficient token approvals (approve both tokens)
     - Pool already exists for this pair/fee tier
     - Incorrect token addresses
     - Gas estimation failure
 
     **Solutions**:
+
     - Verify both tokens are approved for pool creation
     - Check if pool exists using pool explorer
     - Double-check token contract addresses
     - Try increasing gas limit manually
-
   </Accordion>
-
   <Accordion title="Can I extend my liquidity lock after creation?" icon="clock">
     Lock extensions depend on the specific implementation. Generally, locks can be extended but not shortened. Check the pool details interface for extension options.
 
     If uncertain, assume locks cannot be modified and choose your duration carefully at creation time.
-
   </Accordion>
-
   <Accordion title="What happens when my lock expires?" icon="unlock">
     When your liquidity lock expires:
+
     - LP tokens become withdrawable
     - You can remove liquidity from the pool
     - You can extend the lock for another period
     - You can leave liquidity unlocked if preferred
 
     Expiration does not automatically withdraw—you must manually claim unlocked LP tokens.
-
   </Accordion>
-
   <Accordion title="Can I unlock liquidity early in an emergency?" icon="triangle-exclamation">
     No. Liquidity locks are smart contract-enforced and cannot be unlocked early, even in emergencies. This is by design to ensure credible commitment.
 
     **Plan accordingly**:
+
     - Only lock liquidity you can afford to have inaccessible
     - Choose lock durations conservatively
     - Maintain separate unlocked liquidity for flexibility
-
   </Accordion>
-
   <Accordion title="My pool isn't showing in the UI" icon="eye-slash">
     Newly created pools may take a few minutes to appear in the interface.
 
     **To verify your pool**:
+
     - Check the transaction on [BaseScan](https://basescan.org)
     - Note the pool address from transaction logs
     - Use direct pool address to interact if needed
     - Wait 5-10 minutes for indexing to complete
 
     If pool doesn't appear after 1 hour, contact Aerodrome support.
-
   </Accordion>
 </AccordionGroup>
 
