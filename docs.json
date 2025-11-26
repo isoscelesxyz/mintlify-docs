@@ -97,10 +97,7 @@
           {
             "group": "Security",
             "icon": "shield",
-            "pages": [
-              "overview/security/overview",
-              "overview/security/audits"
-            ]
+            "pages": ["overview/security/overview", "overview/security/audits"]
           },
           {
             "group": "Contributors",
@@ -192,6 +189,9 @@
   },
   "contextual": {
     "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
+  },
+  "styling": {
+    "latex": true
   },
   "footer": {
     "socials": {
