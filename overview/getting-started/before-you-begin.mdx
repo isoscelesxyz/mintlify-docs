@@ -4,9 +4,7 @@ description: "Information about DeFi risks, wallet security, and protocol consid
 sidebarTitle: "Before You Begin"
 ---
 
-<Danger>
-  TODO: Needs more thorough review.
-</Danger>
+<Danger>TODO: Needs more thorough review.</Danger>
 
 This page explains the risks and prerequisites for using Aerodrome. Read this before engaging with the protocol to understand what you'll need and the inherent risks common to all <Tooltip tip="Decentralized Finance - financial services without intermediaries like banks">DeFi</Tooltip> protocols.
 
@@ -52,7 +50,7 @@ Aerodrome runs on smart contracts deployed to Base. While these contracts are au
 
 When you provide liquidity to a pool, you deposit two tokens. If the price ratio between those tokens changes, you may have less value than if you had simply held the tokens.
 
-Learn more: [What is Impermanent Loss?](https://www.coinbase.com/learn/crypto-glossary/what-is-impermanent-loss) (external resource)
+Learn more: [What is Impermanent Loss?](https://www.coinbase.com/learn/crypto-glossary/what-is-impermanent-loss)
 
 #### What this means for you
 
@@ -79,7 +77,7 @@ Aerodrome is governed by veAERO holders who vote on emissions distribution and p
 #### Mitigations
 
 - Participate in governance by locking `AERO` for veAERO
-- Monitor governance proposals that may affect your positions
+- Participate in voting for pools to direct emissions to liquidity pools
 - Diversify across multiple pools to reduce concentration risk
 
 ### Liquidity risk
@@ -94,9 +92,12 @@ Some pools may have low liquidity, making it difficult to enter or exit position
 
 #### Mitigations
 
-- Check pool liquidity (TVL) before providing liquidity
-- Start with high-liquidity pools like WETH/USDC or major stablecoin pairs
-- Use limit orders or split large trades across time
+- <Tooltip tip="often checked by looking at the total value locked (TVL) in the pool">
+    Check pool liquidity
+  </Tooltip>
+  before providing liquidity
+- Start with high-liquidity pools or major stablecoin pairs
+- Start with small amounts to better understand pool dynamics
 
 ### Counterparty and bridge risk
 
@@ -111,7 +112,6 @@ To use Aerodrome on Base, you typically bridge assets from Ethereum or other cha
 #### Mitigations
 
 - Use official bridges like the [Base bridge](https://bridge.base.org)
-- Verify token addresses before trading (see [Contract Addresses](/overview/security/overview#contract-addresses))
 - Bridge only what you plan to use in the near term
 
 ## Wallet security best practices
@@ -124,11 +124,11 @@ Hardware wallets like [NGRAVE](https://ngrave.io/), [Ledger](https://www.ledger.
 
 ### Never share your seed phrase
 
-Your seed phrase (recovery phrase) gives complete control of your wallet. No legitimate service will ever ask for it.
+Your <Tooltip tip="sometimes called a recovery phrase, a list of words that can be used to recover your wallet">seed phrase</Tooltip> gives complete control of your wallet. No legitimate service will ever ask for it.
 
 ### Verify contract addresses
 
-Before approving token allowances, verify you're interacting with official Aerodrome contracts. See [Contract Addresses](/overview/security/overview#contract-addresses).
+Before approving token allowances, verify you're interacting with official [Aerodrome contracts](/overview/security/overview#contract-addresses).
 
 ### Revoke unused token approvals
 
@@ -143,12 +143,13 @@ Always verify you're on the official Aerodrome domain before connecting your wal
 <Warning>
   Aerodrome Finance is a decentralized protocol. Using the protocol does not guarantee:
 
-  - **Yields**: Specific yields or returns
-  - **Loss protection**: Protection from impermanent loss
-  - **Capital preservation**: Preservation of capital
-  - **Profit**: Earnings that exceed transaction costs
+- **Yields**: Specific yields or returns
+- **Loss protection**: Protection from impermanent loss
+- **Capital preservation**: Preservation of capital
+- **Profit**: Earnings that exceed transaction costs
 
-  **Past performance does not indicate future results.** Pool APRs fluctuate based on trading volume, emissions, and governance votes.
+**Past performance does not indicate future results.** Pool APRs fluctuate based on trading volume, emissions, and governance votes.
+
 </Warning>
 
 ## Regulatory considerations
@@ -168,12 +169,13 @@ Aerodrome Finance does not provide legal, tax, or financial advice.
 <Warning>
   By using Aerodrome Finance, you acknowledge:
 
-  - You understand the risks outlined on this page
-  - You are responsible for your own research and decisions
-  - You accept full responsibility for any losses incurred
-  - You will not hold the Aerodrome team, contributors, or community liable for losses
+- You understand the risks outlined on this page
+- You are responsible for your own research and decisions
+- You accept full responsibility for any losses incurred
+- You will not hold the Aerodrome team, contributors, or community liable for losses
 
-  If you're uncertain about any of these risks, consult with qualified professionals before proceeding.
+If you're uncertain about any of these risks, consult with qualified professionals before proceeding.
+
 </Warning>
 
 ## Next steps
@@ -187,7 +189,11 @@ Now that you understand the foundational risks and requirements:
   <Card title="Aerodrome 101" icon="graduation-cap" href="/overview/getting-started/aerodrome-101">
     Understand DeFi fundamentals
   </Card>
-  <Card title="Contract Addresses" icon="shield" href="/overview/security/overview#contract-addresses">
+  <Card
+    title="Contract Addresses"
+    icon="shield"
+    href="/overview/security/overview#contract-addresses"
+  >
     View verified contract addresses
   </Card>
   <Card title="Security Overview" icon="lock" href="/overview/security/overview">

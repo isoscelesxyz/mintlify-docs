@@ -4,15 +4,14 @@ description: "Introduction to DeFi fundamentals, Ethereum, smart contracts, and 
 sidebarTitle: "Aerodrome 101"
 ---
 
-<Danger>
-  TODO: Needs more thorough review.
-</Danger>
+<Danger>TODO: Needs more thorough review.</Danger>
 
-This page explains DeFi fundamentals and how Aerodrome's MetaDEX model solves traditional DEX problems. Read this to understand the context and innovation behind Aerodrome. This guide is for anyone new to DeFi and Aerodrome who wants to understand how <Tooltip tip="On blockchain - activity that happens on a blockchain network">onchain</Tooltip> systems work.
+This page explains DeFi fundamentals and how Aerodrome's MetaDEX model solves traditional DEX problems. Read this to understand the context and innovation behind Aerodrome. This guide is for anyone new to DeFi and Aerodrome who wants to understand how onchain systems work.
 
 <Tip>
   **Looking up a specific term?** Use [Key Concepts &
-  Terminology](/overview/getting-started/key-concepts) as a quick reference while reading the documentation.
+  Terminology](/overview/getting-started/key-concepts) as a quick reference while reading the
+  documentation.
 </Tip>
 
 ## DeFi 101
@@ -25,9 +24,9 @@ Ethereum is a popular <Tooltip tip="A distributed digital ledger across a networ
 
 As a developer platform, Ethereum introduced a technology called <Tooltip tip="Self-executing code that runs autonomously and cannot be altered">smart contracts</Tooltip>. Smart contracts function like digital building blocks, enabling the creation of decentralized applications.
 
-### Decentralized Finance (DeFi)
+### Decentralized Finance
 
-Decentralized Finance (DeFi) is a movement to give people around the globe easy access to financial instruments and services without the need for banks, brokers, or other intermediaries. DeFi isn't just a theory—millions of people use it today—but it's still evolving and comes with risks.
+More commonly known as DeFi, is a movement to give people around the globe easy access to financial instruments and services without the need for banks, brokers, or other intermediaries. DeFi isn't just a theory—millions of people use it today—but it's still evolving and comes with risks.
 
 Traditional finance relies on banks, brokers, and market makers to maintain <Tooltip tip="Fast and easy access to assets for trading">liquidity</Tooltip>. The current system works but it also includes inefficiencies and many layers of middlemen, each extracting fees.
 
@@ -35,7 +34,7 @@ DeFi aims to deliver financial services with transparency, security, lower costs
 
 ### Base and Layer 2s
 
-As Ethereum rose in popularity, the network became slower and more expensive to operate on. As a solution to this, developers started creating <Tooltip tip="Blockchains that batch transactions and settle to Ethereum, reducing costs">Layer 2s (L2s)</Tooltip>. These networks are blockchains themselves, but they are faster and cheaper to use because they batch transactions and send them to Ethereum less often, thus reducing gas costs and wait times.
+As Ethereum rose in popularity, the network became slower and more expensive to operate on. As a solution to this, developers started creating <Tooltip tip="Also known as L2s, are Blockchains that batch transactions and settle to Ethereum, reducing costs">Layer 2</Tooltip> chains. These networks are blockchains themselves, but they are faster and cheaper to use because they batch transactions and send them to Ethereum less often, thus reducing gas costs and wait times.
 
 Base is an L2 created by Coinbase. It is one of the fastest-growing and most successful L2s to date.
 
@@ -50,7 +49,8 @@ Centralized exchanges (CEXs) like Coinbase are one way to solve the liquidity pr
 Centralized exchanges require accounts, can freeze funds, and may exclude users based on geography or regulations. Decentralized exchanges (DEXs), by contrast, are censorship-resistant: anyone with a crypto wallet can trade, anywhere in the world (they are "permissionless").
 
 <Tip>
-  Open access is one of DeFi's core promises—financial services available to anyone with an internet connection.
+  Open access is one of DeFi's core promises—financial services available to anyone with an internet
+  connection.
 </Tip>
 
 DEXs use peer-to-peer networks to facilitate asset swaps, relying on users depositing tokens into "liquidity pools": pairs of assets (such as BTC and ETH) whose ratios determine token prices. When users swap tokens, they're actually trading directly through these decentralized pools rather than centralized entities.
@@ -82,7 +82,9 @@ Most DEXs have to balance the needs and interests of three primary stakeholders:
 Historically, the challenge is one of misalignment: if they increase the value for one stakeholder, it's at the expense of another. And this is before factoring in other parties such as investors and contributors.
 
 <Info>
-  **Solving the DEX Trilemma**: Traditional DEXs create competing interests between traders (want low fees), LPs (want high fees), and token holders (want value accrual). Aerodrome's MetaDEX model unifies all stakeholders through veAERO voting and 100% fee distribution to voters.
+  **Solving the DEX Trilemma**: Traditional DEXs create competing interests between traders (want
+  low fees), LPs (want high fees), and token holders (want value accrual). Aerodrome's MetaDEX model
+  unifies all stakeholders through veAERO voting and 100% fee distribution to voters.
 </Info>
 
 ### The MetaDEX flywheel
@@ -91,13 +93,16 @@ The MetaDEX model creates a self-reinforcing cycle:
 
 <Steps>
   <Step title="Token Operators (veAERO holders) vote">
-    veAERO voters direct weekly `AERO` token emissions to liquidity pools and share 100% of protocol revenue from pools they vote for (ensuring rewards go to productive liquidity)
+    veAERO voters direct weekly `AERO` token emissions to liquidity pools and share 100% of protocol
+    revenue from pools they vote for (ensuring rewards go to productive liquidity)
   </Step>
   <Step title="Emissions attract liquidity">
-    Liquidity providers deposit and stake to earn `AERO` rewards (which are generally higher in value and more steadily streamed than LP rewards in legacy DEXs)
+    Liquidity providers deposit and stake to earn `AERO` rewards (which are generally higher in
+    value and more steadily streamed than LP rewards in legacy DEXs)
   </Step>
   <Step title="Liquidity enables efficient swaps">
-    Deep liquidity means traders get better swaps with minimal slippage, increasing volume (which increases revenue)
+    Deep liquidity means traders get better swaps with minimal slippage, increasing volume (which
+    increases revenue)
   </Step>
   <Step title="Revenue attracts votes" stepNumber={4}>
     100% of revenue goes to token operators (veAERO voters) in exchange for voting
@@ -119,7 +124,11 @@ Aerodrome is the leading MetaDEX on Base. To get started, you'll need a wallet, 
   <Card title="What is Aerodrome?" icon="info" href="/overview/index">
     Deep dive into the MetaDEX model
   </Card>
-  <Card title="Before You Begin" icon="circle-check" href="/overview/getting-started/before-you-begin">
+  <Card
+    title="Before You Begin"
+    icon="circle-check"
+    href="/overview/getting-started/before-you-begin"
+  >
     Understand risks and prerequisites
   </Card>
   <Card title="Start Swapping" icon="arrow-right-arrow-left" href="/overview/core-features/swap">

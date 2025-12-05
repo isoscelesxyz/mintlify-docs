@@ -51,21 +51,20 @@ Estimated time: 10-20 minutes
     - Purchase ETH or USDC directly on Base network
 
     <Tip>
-    For this quickstart, get at least $20 worth of USDC and $20 worth of ETH on Base to cover trading and gas fees.
+    For this quickstart, get at least \$20 worth of USDC and $20 worth of ETH on Base to cover trading and gas fees.
     </Tip>
 
   </Step>
 
   <Step title="Make your first swap">
-    Let's swap ETH for USDC:
-
     1. Go to the [Swap](https://aerodrome.finance/swap) page
-    2. Select tokens: **ETH** → **USDC**
-    3. Enter amount (e.g., 0.01 ETH)
-    4. Review <Tooltip tip="Maximum price movement you'll accept before the transaction fails">slippage tolerance</Tooltip> (default 0.5% is usually fine)
-    5. Click **"Swap"**
-    6. Approve the transaction in your wallet
-    7. Wait for confirmation (usually 5-10 seconds on Base)
+    2. Select the token you want to **sell** (e.g., ETH or USDC)
+    3. Select the token you want to **buy**
+    4. Enter your amount
+    5. Review <Tooltip tip="Maximum price movement you'll accept before the transaction fails">slippage tolerance</Tooltip> (default 0.5% is usually fine)
+    6. Click **"Swap"**
+    7. Approve the transaction in your wallet
+    8. Wait for confirmation (usually 5-10 seconds on Base)
 
     **Congratulations!** You've made your first swap on Aerodrome.
 
@@ -79,11 +78,11 @@ Estimated time: 10-20 minutes
     Now let's add liquidity to earn fees and <Tooltip tip="Weekly AERO token rewards distributed to liquidity pools based on veAERO votes">emissions</Tooltip>. We'll use a V2 stable pool (the simplest option for beginners):
 
     1. Go to the [Pools](https://aerodrome.finance/liquidity) page
-    2. Search for **"USDC/USDbC"** (a stable pool)
-    3. Click **"Add Liquidity"**
-    4. Enter amount for one token (the pool auto-balances the other)
-    5. Click **"Approve USDC"** (first time only)
-    6. Click **"Approve USDbC"** (first time only)
+    2. Filter by **"Stable"** pool type
+    3. Choose a pool with tokens you already hold (if needed, use Swap to acquire the tokens for your chosen pool)
+    4. Click **"Add Liquidity"**
+    5. Enter amount for one token (the pool auto-balances the other)
+    6. Approve each token if prompted (first time only)
     7. Click **"Add Liquidity"** and confirm transaction
     8. Receive LP tokens representing your pool position
 
@@ -94,9 +93,9 @@ Estimated time: 10-20 minutes
   </Step>
 
   <Step title="Stake in a gauge to earn AERO">
-    Staking your LP tokens allows you to earn `AERO` emissions:
+    After depositing liquidity, you will be prompted to stake your position, allowing you to earn `AERO` emissions:
 
-    1. On the same pool page, find the **"Stake"** section
+    1. After adding liquidity, you will be prompted to stake your position. Otherwise you can find these actions on your [Dashboard](https://aerodrome.finance/dash).
     2. Enter your LP token amount (or click **"Max"**)
     3. Click **"Stake"** and confirm transaction
     4. Your position is now earning `AERO` emissions!
@@ -107,7 +106,8 @@ Estimated time: 10-20 minutes
 
     **What happens when you stake:**
     - ✅ Earn `AERO` emissions proportional to the pool's votes
-    - ❌ Forfeit trading fees (they go to veAERO voters instead)
+    - ❌ Forfeit trading fees<br />
+      _They go to veAERO voters instead, which can be you if you lock your AERO emissions and vote for the pool_
     - ✅ Can unstake at any time with no penalty
 
   </Step>
@@ -115,14 +115,14 @@ Estimated time: 10-20 minutes
   <Step title="Claim your first rewards">
     Rewards accrue continuously and can be claimed anytime:
 
-    1. Go to your [Dashboard](https://aerodrome.finance/dashboard)
+    1. Go to your [Dashboard](https://aerodrome.finance/dash)
     2. See your claimable `AERO` emissions in the rewards section
     3. Click **"Claim All"**
     4. Confirm the transaction
     5. `AERO` tokens are sent to your wallet!
 
     <Tip>
-    Consider locking your earned AERO to create veAERO. This gives you voting power to earn protocol fees and direct emissions to your favorite pools.
+    Consider [locking](/overview/core-features/lock) your earned AERO to create veAERO. This gives you voting power to earn protocol fees and direct emissions to your favorite pools.
     </Tip>
 
   </Step>
@@ -151,7 +151,7 @@ Now that you understand the basics, explore more advanced features:
   <Card title="Lock AERO for veAERO" icon="lock" href="/overview/core-features/lock">
     Lock your AERO to earn voting rewards and protocol fees
   </Card>
-  <Card title="Vote on Gauges" icon="check-to-slot" href="/overview/core-features/vote">
+  <Card title="Vote on Pools" icon="check-to-slot" href="/overview/core-features/vote">
     Direct AERO emissions to pools and earn 100% of their fees
   </Card>
   <Card
@@ -251,91 +251,3 @@ Now that you understand the basics, explore more advanced features:
 
   </Accordion>
 </AccordionGroup>
-
----
-
-## Understanding your position
-
-### Position types on Aerodrome
-
-**You now have:**
-
-- **LP tokens** - Represent your liquidity in the USDC/USDbC pool
-- **Staked position** - Your LP tokens are staked in the gauge
-- **Claimable rewards** - `AERO` emissions accumulating from gauge
-
-### How rewards work
-
-**Emissions (what you're earning now):**
-
-- Distributed based on veAERO votes for your pool
-- Accrue continuously throughout the week (epoch)
-- Claimable at any time
-- No lock period on claimed `AERO`
-
-**Trading fees (what voters earn):**
-
-- When you staked your LP tokens, you forwarded fee rights to veAERO voters
-- Voters receive 100% of swap fees from the pool
-- This incentivizes voters to vote for your pool (more votes = more emissions for you)
-
-### What to do with earned AERO
-
-#### Option 1: Sell for stablecoins
-
-- Swap your `AERO` for USDC or other tokens
-- Realize profits immediately
-
-#### Option 2: Lock for veAERO (recommended)
-
-- [Lock AERO](/overview/core-features/lock) for up to 4 years
-- Earn voting rewards (fees + incentives from pools you vote for)
-- Earn rebases (additional `AERO` distributed to veAERO holders)
-- Participate in governance
-
-#### Option 3: Provide more liquidity
-
-- Use earned `AERO` to create new LP positions
-- Compound your returns by increasing liquidity
-
----
-
-## Learning path
-
-### What you just completed
-
-✅ Basic swapping
-
-✅ V2 liquidity provision
-
-✅ Gauge staking
-
-✅ Reward claiming
-
-### Beginner → Intermediate
-
-1. [Lock AERO for veAERO](/overview/core-features/lock) - Earn protocol fees
-2. [Vote on gauges](/overview/core-features/vote) - Direct emissions and earn rewards
-3. [Understand tokenomics](/overview/tokenomics/overview) - How the ecosystem works
-
-### Intermediate → Advanced
-
-1. [Concentrated Liquidity](/overview/core-features/liquidity-pools/concentrated-pools) - Higher capital efficiency
-2. [Autopilot](/overview/core-features/lock/autopilot) - Automated CL management
-3. [Relay](/overview/core-features/lock/relay) - Automated veAERO management
-
----
-
-## Getting help
-
-<CardGroup cols={3}>
-  <Card title="User FAQ" icon="user" href="/help/faqs/users">
-    Common questions and answers for Aerodrome users
-  </Card>
-  <Card title="Join Discord" icon="discord" href="/help/discord">
-    Get help from the community and team
-  </Card>
-  <Card title="Key Concepts" icon="book" href="/overview/getting-started/key-concepts">
-    Glossary of important terms
-  </Card>
-</CardGroup>

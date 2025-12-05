@@ -63,10 +63,10 @@ Aero Ignition projects are highly curated and can only happen one at a time. Thi
     The UI displays an estimated FDV based on how voters are pricing the incentives relative to known `AERO` rewards:
 
     $$
-    
+
 \text{Implied FDV} = \frac{\left(\frac{\text{Total Rewards}}{1 - \text{Vote Share}}\right) - \text{Total Rewards}}{\text{Token
 Share in Incentive}}
-    $$
+$$
 
     Where:
 
@@ -80,17 +80,19 @@ Share in Incentive}}
       If voters allocate 40% of votes to an Ignition pool with 1% of token supply as incentives, and total epoch rewards are \$3M:
 
       $$
-      
+
 \text{Implied FDV} = \frac{\frac{\$3M}{1 - 0.40} - \$3M}{0.01} = \frac{\$5M - \$3M}{0.01} = \frac{\$2M}{0.01} = \$200M
-      $$
+$$
 
       The more votes a pool attracts relative to its incentive share, the higher the implied FDV.
     </Accordion>
+
   </Step>
   <Step title="Week 2 - Trading Begins">
     Trading opens, emissions flow to the pool, liquidity grows organically, price discovery happens, traders pay fees which will be deposited to attract votes and emissions in Week 3.
 
     Projects typically will deposit another batch of incentives this week. Since tokens are now priced, those incentives are market priced like any other and typically represent a smaller % of total supply.
+
   </Step>
   <Step title="Week 3 - Second Incentive Deposit">
     Fees from Week 2 are now directing `AERO` to the pool and benefit from a ~1.5x emissions multiplier. The project can continue to add more incentives depending on its liquidity goals.
@@ -134,7 +136,9 @@ Projects are required to submit a **disclosure doc** and **supply unlock spreads
 Projects will need to deposit up to 4% (depending on Aerodrome's internal analysis) of total supply as incentives 1 week prior to trading going live. 100% of this supply goes to veAERO voters in exchange for `AERO` emissions that will stream to pools.
 
 <Info>
-  CEXs typically require \>10% of token supply to be floating before listing independently. A larger initial float is recommended to make it easier for available supply to accurately reflect market pricing and achieve wider distribution.
+  CEXs typically require \>10% of token supply to be floating before listing independently. A larger
+  initial float is recommended to make it easier for available supply to accurately reflect market
+  pricing and achieve wider distribution.
 </Info>
 
 Frontloading deposit of incentive supply is more effective than reserving them for future use, as volume and fees in the first week will often be enough to kickstart a sustainable flywheel, especially when there is organic trading volume.
@@ -148,7 +152,9 @@ The Aerodrome pool can handle some dilution thanks to the `AERO` incentives attr
 ### Providing Liquidity (POL) Guidelines
 
 <Warning>
-  Projects should refrain from depositing any project-owned liquidity (POL) including engaging with a market maker to manage liquidity **in the first week of trading** to ensure organic price discovery.
+  Projects should refrain from depositing any project-owned liquidity (POL) including engaging with
+  a market maker to manage liquidity **in the first week of trading** to ensure organic price
+  discovery.
 </Warning>
 
 After the first week of trading, POL can be deposited to protect the token's price from extreme volatility scenarios both to the upside and downside.
@@ -170,7 +176,9 @@ Projects should disclose to Aerodrome which market maker they plan on engaging w
 If a project plans to run a CEX Airdrop Campaign such as Binance Alpha, OKX Alpha Launch, MEXC Kickstarter, etc., it is **highly recommended** that this commence only after a full week as these typically require projects to seed \$1M worth of liquidity into a 0.01% fee pool.
 
 <Warning>
-  This prevents projects from earning anything from their pool and also raises their DEX market maker costs as the market maker will demand more payment for taking high volatility risk without making up for it with fees.
+  This prevents projects from earning anything from their pool and also raises their DEX market
+  maker costs as the market maker will demand more payment for taking high volatility risk without
+  making up for it with fees.
 </Warning>
 
 ### Spot Markets
@@ -225,7 +233,7 @@ Aerodrome contributors will:
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Incentivize Your Pool" icon="coins" href="/overview/partners/incentivize">
+  <Card title="Incentivize Your Pool" icon="coins" href="/overview/partners/incentives">
     Learn how to deposit incentives to attract votes and emissions
   </Card>
   <Card title="Understanding Voting" icon="check-to-slot" href="/overview/core-features/vote">
