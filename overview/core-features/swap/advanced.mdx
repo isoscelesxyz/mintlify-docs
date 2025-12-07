@@ -4,20 +4,15 @@ description: "Deep-dive into multi-hop routing, slippage mechanics, price impact
 sidebarTitle: "❓ Advanced Swapping"
 ---
 
-<Danger>
-  TODO: This is new content - is it too much? Helpful information but perhaps there's a better way
-  to present this or a better location for it.
-</Danger>
-
 This deep-dive is for **power users, traders, and anyone wanting to understand Aerodrome's swap mechanics in depth**. You will learn how Aerodrome's routing works, when to adjust slippage, how to minimize price impact, and advanced swap optimization techniques.
 
 ## Multi-Hop Routing
 
-Aerodrome's router automatically finds the optimal path for your swap, even when a direct pool doesn't exist.
+Aerodrome automatically finds the optimal path for your swap, even when a direct pool doesn't exist.
 
 ### How routing works
 
-The router searches for the best execution path across all available pools:
+The Aerodrome interface discovers the best execution path by evaluating all possible routes across available pools:
 
 **Single-hop (direct)**:
 
@@ -31,17 +26,16 @@ USDC → [USDC/WETH pool] → WETH
 RARE_TOKEN → [RARE_TOKEN/WETH pool] → WETH → [WETH/USDC pool] → USDC
 ```
 
-### Route selection algorithm
+### Route selection
 
-The router evaluates:
+The interface evaluates potential routes by:
 
-1. **Available pools** - All pools containing input or output tokens
-2. **Liquidity depth** - How much liquidity is available at current price
-3. **Fee costs** - Pool fees for each potential route
-4. **Price impact** - How much the trade moves each pool's price
-5. **Gas costs** - More hops = higher gas, balanced against better pricing
+1. **Discovering paths** - Finding all possible routes up to 3 hops, prioritizing high-liquidity connector tokens (USDC, WETH, AERO)
+2. **Fetching quotes** - Querying on-chain quoter contracts for each potential route
+3. **Comparing outputs** - Selecting the route that returns the most tokens after fees and price impact
+4. **Mixing pool types** - Routes can combine Basic, Stable, and CL pools for optimal pricing
 
-The router selects the path with the **best net price** after accounting for fees, impact, and gas.
+The interface selects the path with the **best net output** and submits it to the Universal Router contract for execution.
 
 ### Multi-hop considerations
 
@@ -211,7 +205,7 @@ Tradeoff: Higher gas costs (5 transactions)
 **2. Use different pools**:
 
 - Check if alternative pool exists with better liquidity
-- CL pools vs V2 pools may have different liquidity
+- CL pools vs Basic pools may have different liquidity
 - Different fee tiers may have different depth
 
 **3. Wait for better liquidity**:
@@ -230,46 +224,37 @@ Tradeoff: Higher gas costs (5 transactions)
 
 ## Pool Fee Structures
 
-### V2 Pool Fees
+### Basic Pool Fees
 
-V2 pools have fixed fees per pool type:
+Basic pools have fixed fees:
 
-- **Stable pools**: 0.01-0.05% (low volatility pairs)
-- **Volatile pools**: 0.2-0.3% (standard pairs)
-- Custom fees: Some pools have protocol-specific fees
+- **Stable pools**: 0.05% (optimized for low-volatility pairs like stablecoins)
+- **Volatile pools**: 0.30% (standard pairs)
+- **Custom fees**: Governance can set custom fees (0-3%) for specific pools
 
-### CL Pool Fees (Dynamic)
+### CL Pool Fees
 
-Slipstream concentrated liquidity pools use **dynamic fees** that adjust based on volatility:
+Slipstream concentrated liquidity pools have fees based on tick spacing:
 
-**Volatile markets**:
+| Tick Spacing | Fee    | Typical Use Case |
+| ------------ | ------ | ---------------- |
+| 1            | 0.01%  | Highly correlated pairs |
+| 50           | 0.05%  | Stable pairs |
+| 100          | 0.05%  | Stable pairs |
+| 200          | 0.30%  | Standard volatile pairs |
+| 2000         | 1.00%  | Exotic/low-liquidity pairs |
 
-- Fees increase (can surge to 0.5-1%+)
-- Compensates LPs for providing liquidity during risk
-- Traders are fee-inelastic (willing to pay for execution)
-
-**Stable markets**:
-
-- Fees decrease (can drop to 0.01-0.05%)
-- Competitive pricing to capture volume
-- Traders are fee-elastic (shop for best rates)
-
-**Parameters**:
-
-- **Base fee**: Minimum fee during low volatility
-- **Fee cap**: Maximum fee during high volatility
-- **Volatility scaling**: How fast fees adjust
+Governance can set custom fees (up to 3%) for specific pools via a modular fee system.
 
 <Info>
-  Dynamic fees are calculated entirely onchain without oracles. The algorithm monitors recent price
-  movements to determine current volatility.
+  All fees are calculated entirely onchain. The fee for each pool is determined by its tick spacing configuration.
 </Info>
 
 ### How fees affect your swap
 
 Your total swap cost includes:
 
-1. **Pool fees**: 0.01% - 1% depending on pool and volatility
+1. **Pool fees**: 0.01% - 1% depending on pool type and configuration
 2. **Price impact**: Depends on trade size and liquidity
 3. **Gas fees**: Base network transaction costs
 
@@ -288,47 +273,36 @@ Effective price: $2,979 per WETH (vs $3,000 market)
 
 ---
 
-## Router Selection
+## Router Architecture
 
-Aerodrome uses different routers for different pool types:
+Aerodrome uses a Universal Router that handles all swap types in a single transaction.
 
-### Router types
+### How it works
 
-**V2 Router**:
+The Universal Router is a command-based contract that can:
 
-- Handles V2 pool swaps (stable and volatile)
-- Constant product (x × y = k) pricing
-- Simple routing algorithm
-
-**CL Router (SwapRouter)**:
-
-- Handles Slipstream concentrated liquidity swaps
-- Tick-based pricing
-- More complex routing through ranges
-
-**Universal Router** (if applicable):
-
-- Can route through both V2 and CL pools
-- Finds best execution across all liquidity types
-- May combine V2 → CL or CL → V2 in same swap
+- Execute swaps across **Basic pools** (stable and volatile)
+- Execute swaps across **CL pools** (concentrated liquidity)
+- **Mix pool types** in a single route for optimal pricing
+- Handle ETH wrapping/unwrapping automatically
 
 <Info>
-  The Aerodrome UI automatically selects the appropriate router. You don't need to choose manually.
+  The Aerodrome interface automatically constructs the optimal route and submits it to the Universal Router. You don't need to interact with router contracts directly.
 </Info>
 
 ### Cross-pool type routing
 
-The router can mix pool types for optimal pricing:
-
-**Example**:
+Routes can mix pool types for optimal pricing:
 
 ```txt
 TOKEN_A → WETH → USDC
 
-Route: TOKEN_A/WETH (V2 pool) → WETH/USDC (CL pool)
+Route: TOKEN_A/WETH (Basic pool) → WETH/USDC (CL pool)
 
 Result: Best execution by using deepest liquidity for each hop
 ```
+
+The interface groups consecutive pools of the same type and generates optimized commands for the Universal Router.
 
 ---
 
@@ -340,16 +314,16 @@ Result: Best execution by using deepest liquidity for each hop
 
 **Low volatility periods**:
 
-- ✅ Lower dynamic fees (CL pools)
 - ✅ Tighter spreads
 - ✅ More predictable execution
+- ✅ Lower price impact
 - Best for: Routine swaps, large trades
 
 **High volatility periods**:
 
-- ❌ Higher dynamic fees
 - ❌ Wider spreads
 - ❌ Less predictable execution
+- ❌ Higher MEV risk
 - ⚠️ Only trade if necessary
 
 **Epoch transitions** (Thursday 00:00 UTC):
@@ -365,7 +339,7 @@ For trades >$10,000:
 
 **1. Check multiple pools**:
 
-- Compare pricing across V2 and CL versions of same pair
+- Compare pricing across Basic and CL versions of same pair
 - Check different fee tiers
 - Manually calculate which route is optimal
 
@@ -459,23 +433,23 @@ Over many trades, fees compound significantly.
 
 ### Aerodrome's advantage
 
-**Dynamic fees** (CL pools):
+**CL pools**:
 
-- Lower fees during stable periods (competitive with any DEX)
-- Higher fees during volatility (but you pay for execution certainty)
-- Averages better than fixed-fee competitors
+- Concentrated liquidity means deeper liquidity at active prices
+- Multiple fee tiers (0.01% to 1%) for different pair types
+- Lower price impact for trades within active ranges
 
-**V2 pools**:
+**Basic pools**:
 
-- Competitive fixed fees
-- Deep liquidity from emissions
-- Tight spreads
+- Competitive fixed fees (0.05% stable, 0.30% volatile)
+- Deep liquidity from emissions incentives
+- Tight spreads on popular pairs
 
 **Routing efficiency**:
 
-- Finds cheapest path across all pools
+- Finds cheapest path across all pool types
 - May route through lower-fee pools when available
-- Optimizes for net price (fees + impact + gas)
+- Optimizes for net output (fees + impact + gas)
 
 ---
 
@@ -570,51 +544,6 @@ Always compare **net received**, not just fees or gross quotes.
 - Wait for volatility to calm if not urgent
 - Monitor multiple sources (is price change real?)
 
-### Using CL pools as limit orders
-
-Concentrated liquidity positions can function as limit orders:
-
-**Scenario**: Want to sell ETH if price hits $3,500
-
-**Strategy**:
-
-1. Create CL position with range $3,500-$3,600
-2. Deposit 100% ETH (at current price &lt;$3,500, position is one-sided)
-3. When price hits range, swaps occur automatically
-4. Your ETH converts to USDC at your target price
-5. Earn fees while waiting
-
-**Benefit**: Passive limit order + fee earning while waiting
-
----
-
-## Router Contract Details
-
-### Technical implementation
-
-**For developers and power users**:
-
-**Router contracts** (Base):
-
-- V2 Router: Handles constant product pools
-- CL Router: Handles concentrated liquidity (Slipstream)
-- Path encoding: Determines route through pools
-
-**Quote functions**:
-
-- `quoteExactInput`: Given input amount, calculate output
-- `quoteExactOutput`: Given desired output, calculate required input
-
-**Path construction**:
-
-- V2: Array of token addresses
-- CL: Token addresses + pool identifiers + fee tiers
-
-<Info>
-  For integration details, see [Third-Party Integrations](/development/third-party-integrations) and
-  [Sugar API](/development/sugar).
-</Info>
-
 ---
 
 ## Gas Optimization
@@ -665,7 +594,7 @@ Concentrated liquidity positions can function as limit orders:
     icon="chart-line"
     href="/overview/core-features/liquidity-pools/concentrated-pools"
   >
-    Learn about dynamic fees and Slipstream mechanics
+    Learn about Slipstream concentrated liquidity mechanics
   </Card>
   <Card
     title="Provide Liquidity"
