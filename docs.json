@@ -47,13 +47,7 @@
             "group": "For Users",
             "icon": "user",
             "pages": [
-              {
-                "group": "Swap",
-                "pages": [
-                  "overview/core-features/swap/index",
-                  "overview/core-features/swap/advanced"
-                ]
-              },
+              "overview/core-features/swap",
               {
                 "group": "Liquidity",
                 "pages": [
