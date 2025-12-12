@@ -89,13 +89,14 @@ Governance can set custom fees (0-3%) for specific pools.
 
 Slipstream concentrated liquidity pools have fees based on tick spacing:
 
-| Tick Spacing | Fee    | Typical Use Case           |
-| ------------ | ------ | -------------------------- |
-| 1            | 0.01%  | Highly correlated pairs    |
-| 50           | 0.05%  | Stable pairs               |
-| 100          | 0.05%  | Stable pairs               |
-| 200          | 0.30%  | Standard volatile pairs    |
-| 2000         | 1.00%  | Exotic/low-liquidity pairs |
+| Tick Spacing | Fee    | Typical Use Case                    |
+| ------------ | ------ | ----------------------------------- |
+| 1            | 0.01%  | Highly correlated (LSTs, wrappers)  |
+| 10           | 0.05%  | Stable pairs                        |
+| 50           | 0.05%  | Stable pairs                        |
+| 100          | 0.05%  | Correlated volatile pairs           |
+| 200          | 0.30%  | Standard volatile pairs             |
+| 2000         | 1.00%  | Exotic/low-liquidity pairs          |
 
 Governance can set custom fees (up to 3%) for specific pools.
 

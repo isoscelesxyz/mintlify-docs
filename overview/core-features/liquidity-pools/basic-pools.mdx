@@ -1,57 +1,54 @@
 ---
 title: "Basic Pools"
 description: "Full-range liquidity pools with constant-product and stable swap curves"
-sidebarTitle: "❓ Basic Pools"
+sidebarTitle: "Basic Pools"
 ---
 
-This page helps \*\*liquidity providers \*\*understand Basic pools. You will learn how <Tooltip tip="Liquidity available at all prices from 0 to infinity">full-range liquidity</Tooltip> works, when to choose Basic over Concentrated pools, and the trade-offs involved.
+import PoolTypes from '/snippets/pool-types.mdx';
 
 Basic pools use full-range liquidity provision, meaning all deposited tokens are available for trading at every possible price. These pools reward each LP evenly, proportional to their share of deposited assets.
 
 ## Benefits for LPs
 
 - **Deposit once**: Low gas fees, no rebalancing or management required
-- **Always-on liquidity**: Earn steady returns based on market activity
+- **Always-on liquidity**: Earn rewards from every trade in the pool
 
----
+## Volatile vs Stable
 
-**Liquidity Distribution**
+<PoolTypes />
 
-All deposits are spread uniformly across the entire price curve with these characteristics:
+Below is a visual comparison of the stable (red) and volatile (blue) AMM pricing curves:
 
-- **Uniform coverage**: All deposits span from 0 to ∞ prices
-- **Continuous rewards**: Every trade at any price level generates rewards for all positions
-- **No idle capital**: No "dead zones" where capital sits unused
-- **Proportional collection**: Rewards are collected proportionally to each LP's pool share
+- **x**: Amount of first token in the pool
+- **y**: Amount of second token in the pool
+- **k**: A fixed constant
 
-**Rebalancing Mechanism**
+![AMM Pricing Equations](/images/content/amm-pricing-equations.svg)
 
-Pools maintain optimal balance automatically:
+## How Basic pools work
 
-- **Automatic adjustment**: Pools rebalance as prices change
-- **Optimal ratios**: Maintains optimal ratios for continued trading
-- **Zero management**: No user intervention needed
+**Liquidity distribution**: All deposits are spread uniformly across the entire price curve from 0 to ∞. Every trade at any price generates rewards for all LPs proportional to their pool share.
 
-**Fee Structure**
-
-Fees vary by pool type:
-
-- **Volatile Pools**: 0.30% per trade (standard)
-- **Stable Pools**: 0.05% per trade (optimized for volume)
+**Automatic rebalancing**: Pools adjust token ratios automatically as prices change. No user intervention needed.
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+  <Card
+    title="Provide Liquidity"
+    icon="droplet"
+    href="/overview/core-features/liquidity-pools/providing-liquidity"
+  >
     Start depositing into Basic pools
   </Card>
-  <Card title="Concentrated Pools" icon="bullseye" href="/overview/core-features/liquidity-pools/concentrated-pools">
+  <Card
+    title="Concentrated Pools"
+    icon="bullseye"
+    href="/overview/core-features/liquidity-pools/concentrated-pools"
+  >
     Compare with CL pools for active management
   </Card>
-  <Card title="Stake Your Position" icon="coins" href="/overview/core-features/rewards">
+  <Card title="Stake Your Position" icon="coins" href="/overview/core-features/liquidity-pools/staking">
     Learn how to stake for AERO emissions
-  </Card>
-  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
-    Understand pool mechanics
   </Card>
 </CardGroup>

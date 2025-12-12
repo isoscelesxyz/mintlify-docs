@@ -53,10 +53,10 @@
                 "pages": [
                   "overview/core-features/liquidity-pools/index",
                   "overview/core-features/liquidity-pools/providing-liquidity",
+                  "overview/core-features/liquidity-pools/staking",
                   "overview/core-features/liquidity-pools/basic-pools",
                   "overview/core-features/liquidity-pools/concentrated-pools",
-                  "overview/core-features/liquidity-pools/staking",
-                  "overview/core-features/liquidity-pools/technical-details"
+                  "overview/core-features/liquidity-pools/autopilot"
                 ]
               },
               {
@@ -64,7 +64,6 @@
                 "pages": [
                   "overview/core-features/lock/index",
                   "overview/core-features/lock/advanced",
-                  "overview/core-features/lock/autopilot",
                   "overview/core-features/lock/relay"
                 ]
               },

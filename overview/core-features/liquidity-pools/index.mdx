@@ -1,58 +1,61 @@
 ---
 title: "Liquidity Pools"
-description: "Overview of Aerodrome's Basic and Concentrated liquidity pools with volatile and stable AMM formulas"
-sidebarTitle: "❓ Liquidity Pools"
+description: "Deposit tokens to earn swap fees or AERO emissions"
+sidebarTitle: "Overview"
 ---
 
-This guide helps **liquidity providers** and **DeFi users** understand Aerodrome's pool types. You will learn the difference between Basic and Concentrated pools, and when to use volatile vs stable formulas.
-
-Aerodrome Finance enables users to securely swap tokens with low fees and minimal <Tooltip tip="The difference between quoted and executed price">slippage</Tooltip>. This functionality is powered by <Tooltip tip="Pairs of tokens deposited by users that are available for trading">liquidity pools</Tooltip>: pairs of tokens, deposited by users, that are available for trading 24/7. Aerodrome offers two pool types: Basic and Concentrated. Basic pools make all liquidity available for trading at all prices. Concentrated pools require LPs to identify specific price ranges where their liquidity will be active.
+Liquidity pools power token swaps on Aerodrome. Users deposit token pairs into pools, enabling 24/7 trading. In return, liquidity providers (LPs) earn swap fees or `AERO` emissions.
 
 <Warning>
-  Providing liquidity involves risks including impermanent loss, smart contract risk, and potential loss of capital. Read [Before You Begin](/overview/getting-started/before-you-begin) before depositing.
+  Providing liquidity involves risks including impermanent loss, smart contract risk, and potential
+  loss of capital. Read [Before You Begin](/overview/getting-started/before-you-begin) before
+  depositing.
 </Warning>
 
-Both Basic and Concentrated pools can be optimized for different asset relationships:
+Aerodrome offers two pool types:
 
-**Volatile**
+1. **Basic pools** spread your liquidity across all prices: set-and-forget.
+2. **Concentrated pools** let you focus liquidity within specific price ranges: higher efficiency, active management required.
 
-Tokens with high price volatility (e.g. `AERO/ETH`, `WETH/USDC`). These pools use a generic AMM formula: <Latex>x × y ≥ k</Latex>
+For the best of both worlds, **Autopilot** is an automated liquidity management solution for concentrated pools. You can deposit into a concentrated pool and let Autopilot manage your position for you.
 
-
-This constant product formula enables price discovery between assets with different volatility profiles while maintaining pool balance.
-
-**Stable**
-
-Tokens which have little to no volatility (e.g. `cbBTC/wBTC`, `USDC/USDT`). The formula used for pricing tokens allows for low slippage even on large traded volumes: <Latex>x³y + xy³ ≥ k</Latex>
-
-
-This specialized curve dramatically reduces slippage for similar-value tokens, enabling efficient large-volume trades with minimal price impact.
-
----
-
-Both **Stable** and **Volatile** formulas maintain constant pool liquidity while optimizing for their specific use cases. Below, you can find a visual comparison between the stable (red) and volatile (blue) AMM pricing equations:
-
-- **x**: Amount of first token in the pool
-- **y**: Amount of second token in the same pool
-- **k**: A fixed constant
-
-<Info>
-  Aerodrome also supports custom factories, so new pool types can be integrated in the future.
-</Info>
-
-## Next steps
+## Provide & stake liquidity
 
 <CardGroup cols={2}>
-  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
-    Learn how to deposit tokens into pools
+  <Card
+    title="Provide Liquidity"
+    icon="droplet"
+    href="/overview/core-features/liquidity-pools/providing-liquidity"
+  >
+    Deposit tokens into a pool
   </Card>
-  <Card title="Basic Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/basic-pools">
-    Understand set-and-forget full-range pools
+  <Card
+    title="Stake Your Position"
+    icon="coins"
+    href="/overview/core-features/liquidity-pools/staking"
+  >
+    Earn AERO emissions on your liquidity
   </Card>
-  <Card title="Concentrated Pools" icon="bullseye" href="/overview/core-features/liquidity-pools/concentrated-pools">
-    Explore capital-efficient CL pools
+</CardGroup>
+
+## Pool types
+
+<CardGroup cols={3}>
+  <Card
+    title="Basic Pools"
+    icon="layer-group"
+    href="/overview/core-features/liquidity-pools/basic-pools"
+  >
+    Full-range, passive liquidity
   </Card>
-  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
-    Deep dive into pool mechanics
+  <Card
+    title="Concentrated Pools"
+    icon="bullseye"
+    href="/overview/core-features/liquidity-pools/concentrated-pools"
+  >
+    Custom ranges, active management
+  </Card>
+  <Card title="Autopilot" icon="robot" href="/overview/core-features/liquidity-pools/autopilot">
+    Automated CL position management
   </Card>
 </CardGroup>

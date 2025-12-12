@@ -1,7 +1,7 @@
 ---
 title: "Staking Liquidity"
-description: "How to stake LP tokens and CL positions to earn AERO emissions from gauge rewards"
-sidebarTitle: "❓ Staking Liquidity"
+description: "How to stake your liquidity to earn AERO emissions"
+sidebarTitle: "Staking"
 ---
 
 After providing liquidity, you can stake your position to earn <Tooltip tip="Weekly AERO token rewards distributed to liquidity pools based on veAERO votes">`AERO` emissions</Tooltip>. Staking directs your LP tokens or CL position NFTs into <Tooltip tip="Reward distribution contracts that receive AERO emissions based on veAERO votes">gauges</Tooltip>, where they earn rewards based on weekly veAERO voting.
@@ -42,42 +42,34 @@ After providing liquidity, you can stake your position to earn <Tooltip tip="Wee
 - ✅ Keep earning as long as you stay staked
 - ✅ Claim accumulated rewards without unstaking
 
-### Staked vs unstaked decision
+### How staking affects earnings
 
-<Tip>
-  Compare "Staked APR" vs "Unstaked APR" on the pool page before staking. Stake when emissions
-  exceed fees.
-</Tip>
+**Staked positions earn**
 
-**Stake when**:
+- AERO emissions based on the pool's veAERO votes
+- Nothing if the pool has zero votes
+- Nothing if CL position is out of range
 
-- Pool receives significant veAERO votes (high emissions)
-- Emissions APR > fee APR
-- You want `AERO` token exposure
-- Long-term liquidity provision
+**Unstaked positions earn**
 
-**Stay unstaked when**:
-
-- Pool has low or zero votes (minimal emissions)
-- Trading fees > potential emissions
-- You prefer stable fee income over `AERO`
-- CL position is out of range (staking would earn nothing)
-- Short-term liquidity provision
+- Swap fees directly (90% for CL, 100% for Basic)
+- Nothing from Emissions
 
 ---
 
 ## How to stake V2 LP tokens
 
-V2 pools (Basic Pools) use fungible ERC-20 LP tokens that can be staked in gauges.
+V2 pools (Basic Pools) use fungible ERC-20 LP tokens that can be staked in <Tooltip tip="Reward distribution contracts that receive AERO emissions based on veAERO votes">gauges</Tooltip>.
 
 <Steps>
   <Step title="Navigate to your pool">
-    Go to the [Pools page](https://aerodrome.finance/liquidity) and find the pool where you provided liquidity.
+    Visit your [dashboard](https://aerodrome.finance/dash) and open your deposit to see if it's staked or unstaked. Or,
+    go to the [Pools page](https://aerodrome.finance/liquidity) and find the pool where you provided liquidity.
   </Step>
 
 <Step title="Check gauge availability">
-  Verify the pool has an active gauge. Look for the "Stake" section on the pool page. If it's not
-  available, the pool cannot receive emissions.
+  All eligible pools will have a "Stake" button if a gauge is available.If it's not available, the
+  pool cannot receive emissions.
 </Step>
 
 <Step title="Enter stake amount">
@@ -112,6 +104,11 @@ V2 pools (Basic Pools) use fungible ERC-20 LP tokens that can be staked in gauge
 Concentrated liquidity positions are represented as NFTs and have a different staking process.
 
 <Steps>
+  <Step title="Navigate to your pool">
+    Visit your [dashboard](https://aerodrome.finance/dash) and open your deposit to see if it's staked or unstaked. Or,
+    go to the [Pools page](https://aerodrome.finance/liquidity) and find the pool where you provided liquidity.
+  </Step>
+
   <Step title="Ensure position is in range">
     CL positions only earn emissions when the active price is within your selected range. Check your position status before staking.
 
@@ -121,12 +118,9 @@ Concentrated liquidity positions are represented as NFTs and have a different st
 
   </Step>
 
-<Step title="Navigate to your CL position">
-  Go to your [Dashboard](https://aerodrome.finance/dash) and find your CL position NFT.
-</Step>
-
 <Step title="Check gauge availability">
-  Verify the pool has a CL gauge (CLGauge). Not all CL pools have gauges enabled.
+  All eligible pools will have a "Stake" button if a gauge is available. If it's not available, the
+  pool cannot receive emissions.
 </Step>
 
 <Step title="Approve NFT (first time only)">
@@ -147,19 +141,13 @@ Concentrated liquidity positions are represented as NFTs and have a different st
 
 **Key differences from V2 staking**:
 
-| Aspect                 | V2 LP Tokens             | CL Position NFTs           |
-| ---------------------- | ------------------------ | -------------------------- |
-| **Token type**         | ERC-20 (fungible)        | ERC-721 (non-fungible)     |
-| **Earning condition**  | Always (full-range)      | Only when in range         |
-| **Multiple positions** | Combine into one balance | Each NFT staked separately |
-| **Contract**           | Gauge.sol                | CLGauge.sol                |
-| **Unstaked fees**      | 0% (all to voters)       | 90% to you, 10% to voters  |
-
-<Info>
-  CL positions require more attention when staked. An out-of-range staked CL position earns nothing,
-  while an unstaked out-of-range position at least earns zero (doesn't forfeit fees you're not
-  earning anyway).
-</Info>
+| Aspect                 | V2 LP Tokens                                                                                     | CL Position NFTs                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Token type**         | ERC-20 (fungible)                                                                                | ERC-721 (non-fungible)                                                                               |
+| **Earning condition**  | Always (full-range)                                                                              | Only when in range                                                                                   |
+| **Multiple positions** | Combine into one balance                                                                         | Each NFT staked separately                                                                           |
+| **Contract**           | [Gauge.sol](https://github.com/aerodrome-finance/contracts/blob/main/contracts/gauges/Gauge.sol) | [CLGauge.sol](https://github.com/aerodrome-finance/slipstream/blob/main/contracts/gauge/CLGauge.sol) |
+| **Unstaked fees**      | 0% (all to voters)                                                                               | 90% to you, 10% to voters                                                                            |
 
 ---
 
@@ -172,19 +160,15 @@ Your `AERO` emissions depend on:
 3. **Your stake share** - Your % of total staked liquidity in the pool
 4. **Time in range** (CL only) - Emissions only accrue when position is active
 
-**Formula**:
+### Formula
 
 ```txt
 Your Emissions = (Weekly Pool Emissions) × (Your Staked %) × (Time in Range %)
 ```
 
 **For V2 pools**: Time in Range = 100% (always active)
-**For CL pools**: Time in Range = % of epoch your position was in active range
 
-<Tip>
-  Pools with higher veAERO votes receive more emissions. Check vote allocation on the [Vote
-  page](https://aerodrome.finance/vote) to see which pools are most rewarded.
-</Tip>
+**For CL pools**: Time in Range = % of epoch your position was in active range
 
 ---
 
@@ -203,12 +187,11 @@ Emissions accrue continuously and can be claimed at any time.
 </Step>
 
 <Step title="Claim rewards">
-  Click **"Claim"** on individual positions or **"Claim All"** to collect all rewards in one
-  transaction.
+  Click "Claim" on individual positions or "Claim All" to collect all rewards in one transaction.
 </Step>
 
   <Step title="Receive AERO">
-    `AERO` tokens are sent directly to your wallet. You can swap them, lock them for veAERO, or provide more liquidity.
+    `AERO` tokens are sent directly to your wallet. You can swap them, [lock them](/overview/core-features/lock) for veAERO, or provide more liquidity.
   </Step>
 </Steps>
 
@@ -240,7 +223,7 @@ Unstaking returns your LP tokens or NFT to your wallet and stops emissions earni
 
 <Steps>
   <Step title="Navigate to staked position">
-    Go to your [Dashboard](https://aerodrome.finance/dash) and find your staked position.
+    Go to your [Dashboard](https://aerodrome.finance/dash) and find your staked position and click "Unstake"
   </Step>
 
 <Step title="Enter unstake amount">
@@ -258,6 +241,9 @@ Unstaking returns your LP tokens or NFT to your wallet and stops emissions earni
   <Step title="Receive tokens">
     - **V2**: LP tokens returned to your wallet
     - **CL**: Position NFT returned to your wallet
+
+    Confirm by refreshing your dashboard and seeing your position as unstaked.
+
   </Step>
 </Steps>
 
@@ -284,66 +270,10 @@ Unstaking returns your LP tokens or NFT to your wallet and stops emissions earni
 
 ---
 
-## Finding pools with gauges
-
-Not all pools have gauges. To find stakeable pools:
-
-### On the Pools page:
-
-1. Look for "Gauge" indicator on pool cards
-2. Check "Staked APR" column (if shown, gauge exists)
-3. Filter by "Has Gauge" (if available)
-
-### On the Vote page:
-
-1. Visit [Vote page](https://aerodrome.finance/vote)
-2. All pools listed have active gauges
-3. See current vote allocation and projected emissions
-
-### Pool eligibility:
-
-Pools must be:
-
-- ✅ Whitelisted by governance
-- ✅ Created with approved tokens
-- ✅ Receiving at least some veAERO votes
-
-**New pools**: May not have gauges immediately. Protocol teams can [incentivize](/overview/partners/incentives) to attract votes and emissions.
-
----
-
-## Maximizing staking rewards
-
-### 1. Choose high-emission pools
-
-Pools with more veAERO votes receive more `AERO` emissions. Check vote allocation to identify high-reward pools.
-
-### 2. For CL: Stay in range
-
-Monitor your CL positions regularly. Out-of-range positions earn zero emissions even when staked. Use [Autopilot](/overview/core-features/lock/autopilot) for automatic range management.
-
-### 3. Compound strategically
-
-Claim and reinvest rewards to compound returns. Options:
-
-- Lock claimed `AERO` for veAERO (earn voting rewards)
-- Add to existing LP positions
-- Diversify into other pools
-
-### 4. Monitor vote changes
-
-veAERO votes change weekly. A pool with high emissions this week may have low emissions next week. Stay informed about vote dynamics.
-
-### 5. Consider unstaking during volatility
-
-For CL pools during high-volatility periods, unstaking to capture 90% of swap fees may outperform emissions. Check real-time APRs.
-
----
-
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="My staked position shows zero emissions" icon="circle-question">
+  <Accordion title="My staked position shows zero emissions">
     **Common causes**:
     - Pool received zero votes this epoch (check Vote page)
     - CL position is out of range (check position status)
@@ -357,7 +287,7 @@ For CL pools during high-volatility periods, unstaking to capture 90% of swap fe
 
   </Accordion>
 
-  <Accordion title="Can't stake my LP tokens" icon="triangle-exclamation">
+  <Accordion title="Can't stake my LP tokens">
     **Possible causes**:
     - Pool doesn't have a gauge (not eligible for emissions)
     - Haven't approved the gauge contract yet
@@ -370,7 +300,7 @@ For CL pools during high-volatility periods, unstaking to capture 90% of swap fe
 
   </Accordion>
 
-  <Accordion title="CL position won't stake" icon="nft">
+  <Accordion title="CL position won't stake">
     **Possible causes**:
     - Pool doesn't have CLGauge enabled
     - Haven't approved NFT transfer
@@ -383,7 +313,7 @@ For CL pools during high-volatility periods, unstaking to capture 90% of swap fe
 
   </Accordion>
 
-  <Accordion title="Should I unstake to claim rewards?" icon="hand-holding-dollar">
+  <Accordion title="Should I unstake to claim rewards?">
     **No.** You can claim accumulated emissions without unstaking.
 
     **Process**:
@@ -396,13 +326,13 @@ For CL pools during high-volatility periods, unstaking to capture 90% of swap fe
 
   </Accordion>
 
-  <Accordion title="Lost rewards after unstaking?" icon="question">
-    **No rewards are lost.** Unstaking does not forfeit previously earned emissions.
+  <Accordion title="Do I lose rewards after unstaking?">
+    **No, your rewards are not lost.** Unstaking does not forfeit previously earned emissions.
 
     **What happens**:
     - Previously earned rewards remain claimable
     - You stop earning NEW emissions
-    - Claim accumulated rewards from your Dashboard
+    - Claim accumulated rewards from your [Dashboard](https://aerodrome.finance/dash)
 
     If you don't see rewards, check:
     - Pool had votes this epoch (zero votes = zero emissions)
@@ -414,21 +344,13 @@ For CL pools during high-volatility periods, unstaking to capture 90% of swap fe
 
 ---
 
-## V2 vs CL staking comparison
-
-| Feature                  | V2 LP Token Staking           | CL Position NFT Staking     |
-| ------------------------ | ----------------------------- | --------------------------- |
-| **What you stake**       | ERC-20 LP tokens              | ERC-721 NFT position        |
-| **Earning condition**    | Always (full-range liquidity) | Only when in active range   |
-| **Unstaked alternative** | No fees, no emissions         | 90% of swap fees            |
-| **Gauge contract**       | Gauge.sol                     | CLGauge.sol                 |
-| **Flexibility**          | Partial stake/unstake         | All-or-nothing (entire NFT) |
-| **Management**           | Passive                       | Active (monitor range)      |
-| **Best for**             | Passive LPs, stable pairs     | Active LPs, volatile pairs  |
-
----
-
 ## Advanced staking strategies
+
+<Warning>
+  **The following is not investment advice.** It is just a guide to help you understand the
+  flexibility of Aerodrome's staking mechanics and their potential effects on your rewards and/or
+  emissions.
+</Warning>
 
 ### 1. Split staking (V2 pools)
 
@@ -462,50 +384,6 @@ Follow the votes:
 - Stake to capture emissions surge
 - Monitor vote changes and adjust accordingly
 - Higher risk but potentially higher rewards
-
-<Warning>
-  Advanced strategies require active management and carry additional risks. New users should start
-  with simple, long-term staking in established pools.
-</Warning>
-
----
-
-## What to do with earned AERO
-
-After claiming staking rewards, consider these options:
-
-### Option 1: Lock for veAERO (recommended for long-term)
-
-[Lock your `AERO`](/overview/core-features/lock) for up to 4 years to receive:
-
-- Voting power to direct future emissions
-- 100% of fees from pools you vote for
-- Weekly rebases (additional `AERO`)
-- Governance participation
-
-### Option 2: Compound into LP positions
-
-Use earned `AERO` to:
-
-- Add to existing liquidity positions
-- Create new AERO/WETH or AERO/USDC positions
-- Increase earning potential
-
-### Option 3: Swap for stablecoins
-
-Realize profits by swapping `AERO` for USDC or other tokens. Useful for:
-
-- Regular income needs
-- Risk management (reduce `AERO` exposure)
-- Rebalancing portfolio
-
-### Option 4: Hold AERO
-
-Keep liquid `AERO` in your wallet for:
-
-- Future locking opportunities
-- Flexibility to respond to market conditions
-- Speculation on `AERO` price appreciation
 
 ---
 

@@ -1,0 +1,9 @@
+Both Basic and Concentrated pools can be configured for different asset relationships:
+
+**Volatile pools** are for tokens with independent price movement (e.g., `AERO/WETH`, `WETH/USDC`). They use the constant product formula:
+
+<Latex>x × y ≥ k</Latex>
+
+**Stable pools** are for tokens that should maintain similar values (e.g., `USDC/USDT`, `cbBTC/wBTC`). They use a specialized curve that reduces slippage for large trades:
+
+<Latex>x³y + xy³ ≥ k</Latex>

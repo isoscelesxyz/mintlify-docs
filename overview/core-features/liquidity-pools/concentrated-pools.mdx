@@ -1,15 +1,15 @@
 ---
 title: "Concentrated Pools"
 description: "Slipstream concentrated liquidity pools with custom price ranges for capital-efficient liquidity provision"
-sidebarTitle: "❓ Concentrated Pools"
+sidebarTitle: "Concentrated Pools"
 ---
-
-This guide helps**liquidity providers**  and **protocol teams** understand Slipstream <Tooltip tip="Liquidity deposited within specific price ranges for higher capital efficiency">concentrated liquidity</Tooltip>. You will learn how to choose <Tooltip tip="Specific price points where liquidity can be placed">tick ranges</Tooltip>, manage CL positions, and maximize capital efficiency.
 
 Slipstream is Aerodrome's concentrated liquidity (CL) solution. Concentrated pools require liquidity providers to deposit their capital within specific price ranges. With Slipstream, LPs can earn higher rewards while providing better execution for traders, but there is also an increased risk of idle liquidity if it is not properly managed.
 
 <Warning>
-  CL pools require management to stay in range. If market prices move outside your chosen range, your position becomes temporarily inactive and stops earning rewards until the price returns to your range or you adjust your position.
+  CL pools require management to stay in range. If market prices move outside your chosen range,
+  your position becomes temporarily inactive and stops earning rewards until the price returns to
+  your range or you adjust your position.
 </Warning>
 
 ## Benefits
@@ -25,18 +25,13 @@ LPs choose specific price ranges (ticks) where their liquidity will be active. W
 
 **Tick System**
 
-Aerodrome's concentrated liquidity pools use <Tooltip tip="The minimum price movement between liquidity ranges">"tick spacing,"</Tooltip> which refers to the minimum price movement between liquidity ranges. Each pool type has a different tick spacing:
+Concentrated liquidity pools use <Tooltip tip="The minimum price movement between liquidity ranges">"tick spacing,"</Tooltip> which refers to the minimum price movement between liquidity ranges. Smaller tick spacing allows tighter price ranges but requires more active management. The tick spacing is displayed just below the pool name. (e.g., "Concentrated Volatile 100" = tick spacing 100, or "Concentrated Stable 1" = tick spacing 1).
 
-- **Stable token pools**: 0.5% price range boundary (tick space 50)
-- **Volatile token pools**: 2% price range boundary (tick space 200)
-- **Highly correlated tokens**: 0.01% price range boundary (tick space 1) for stablecoins and liquid-staked tokens
-- **Emerging tokens**: 20% price range boundary (tick space 2000) for tokens like AERO and VELO to reduce rebalancing needs
+See [Tick spacing by pool type](#tick-spacing-by-pool-type) for the full list of available tick spacings and their typical use cases.
 
-The tick spacing for concentrated liquidity pools is identified in their pool title. For example, "CL1-wstETH/WETH" indicates tick spacing of 1, suggesting the token prices are closely correlated.
+## Dynamic Fees
 
-## Dynamic Fees (Slipstream V2)
-
-Slipstream V2 implements **dynamic fee structures** that automatically adjust swap fees in real-time based on market volatility—similar to surge pricing in traditional markets.
+Slipstream implements **dynamic fee structures** that automatically adjust swap fees in real-time based on market volatility—similar to surge pricing in traditional markets.
 
 ### How dynamic fees work
 
@@ -69,7 +64,8 @@ The dynamic fee system operates entirely onchain without external oracles or CEX
 - Parameters tuned for competitiveness against fixed-fee AMMs
 
 <Tip>
-  Dynamic fees enable Slipstream to compete effectively across market conditions—lowering fees to capture volume in stable markets, raising fees to maximize LP earnings during volatility.
+  Dynamic fees enable Slipstream to compete effectively across market conditions—lowering fees to
+  capture volume in stable markets, raising fees to maximize LP earnings during volatility.
 </Tip>
 
 ### Benefits for different LP types
@@ -88,11 +84,11 @@ The dynamic fee system operates entirely onchain without external oracles or CEX
 
 ---
 
-## Tick Spacing Optimization
+## Tick Spacing
 
-One of Slipstream's key advantages is **wider tick spacing** compared to competitors like Uniswap V3.
+Slipstream uses **wider tick spacing** than some other CL implementations. Wider tick spacing means positions stay in range longer, reducing management overhead for LPs.
 
-### Why wider tick spacing matters
+### How wider tick spacing affects LPs
 
 **Better LP management:**
 
@@ -106,28 +102,24 @@ One of Slipstream's key advantages is **wider tick spacing** compared to competi
 - Better execution for traders
 - Higher volume capture per dollar of liquidity
 
-**Example comparison (WETH/USDC):**
-
-- Uniswap V3: 10 tick spacing (0.1%)
-- Slipstream: 100 tick spacing (1%)
-- **Result**: Slipstream achieves better liquidity utilization despite theoretically lower capital efficiency
-
 <Info>
-  Wider tick spacing is practically more efficient for LPs. While narrow ticks offer theoretical capital efficiency, they require constant management. Wider spacing balances efficiency with usability.
+  Wider tick spacing is practically more efficient for LPs. While narrow ticks offer theoretical
+  capital efficiency, they require constant management. Wider spacing balances efficiency with
+  usability.
 </Info>
 
 ### Tick spacing by pool type
 
 Available tick spacings optimized for different asset correlations:
 
-| Tick Spacing | Price Range | Best For                                               |
-| ------------ | ----------- | ------------------------------------------------------ |
-| 1            | 0.01%       | Highly correlated (stablecoins, LSTs like wstETH/WETH) |
-| 10           | 0.05%       | Stable/pegged assets (USDC/USDT)                       |
-| 50           | 0.5%        | Correlated stable tokens                               |
-| 100          | 0.5%        | Correlated volatiles                                   |
-| 200          | 2%          | Standard volatile pairs (AERO/WETH, USDC/WETH)         |
-| 2000         | 20%         | Emerging tokens (new launches, high volatility)        |
+| Tick Spacing | Fee   | Best For                                        |
+| ------------ | ----- | ----------------------------------------------- |
+| 1            | 0.01% | Highly correlated (LSTs like wstETH/WETH)       |
+| 10           | 0.05% | Stable pairs (USDC/USDT)                        |
+| 50           | 0.05% | Stable pairs                                    |
+| 100          | 0.05% | Correlated volatile pairs                       |
+| 200          | 0.30% | Standard volatile pairs (AERO/WETH, USDC/WETH)  |
+| 2000         | 1.00% | Emerging tokens (new launches, high volatility) |
 
 The tick spacing is displayed in pool names (e.g., "CL1-wstETH/WETH" = tick spacing 1).
 
@@ -151,7 +143,8 @@ Slipstream offers LPs the choice between two earning strategies:
 - Best during high-volatility periods when fees surge above emissions
 
 <Warning>
-  The 10% unstaked fee rake ensures veAERO voters still benefit from your liquidity even when you're unstaked. This alignment incentivizes voters to vote for your pool.
+  The 10% unstaked fee rake ensures veAERO voters still benefit from your liquidity even when you're
+  unstaked. This alignment incentivizes voters to vote for your pool.
 </Warning>
 
 ### When to unstake for fee capture
@@ -172,30 +165,6 @@ Slipstream offers LPs the choice between two earning strategies:
 The modular MetaDEX architecture allows the unstaked fee rake to be adjusted dynamically to optimize competitiveness while maintaining strong veAERO rewards.
 
 ---
-
-## The Slipstream Advantage
-
-Slipstream outcompetes competitive concentrated liquidity solutions with these integrated features:
-
-### 1. Wider tick spacing
-
-Increased tick spacing means LPs stay in the active tick for longer, significantly increasing rewards over time while reducing management burden.
-
-### 2. Active tick emissions
-
-`AERO` emissions are only streamed to the active tick, rewarding LPs in that range with higher incentives compared to out-of-range positions.
-
-### 3. Dynamic fee optimization
-
-Real-time fee adjustments maximize LP earnings during volatility while maintaining competitive pricing during stable periods.
-
-### 4. Dual earning options
-
-LPs can choose between emissions (staked) or fees (unstaked), optimizing strategy based on current market conditions.
-
-### 5. Modular architecture
-
-Seamless upgrades without disrupting operations—improvements like dynamic fees deployed without requiring liquidity migration.
 
 ## Managing CL Positions
 
@@ -219,9 +188,7 @@ Seamless upgrades without disrupting operations—improvements like dynamic fees
 - Your time commitment for rebalancing
 - Fee tier of the pool (higher fees = wider ranges acceptable)
 
-<Tip>
-  Check the pool's 7-day price range on the Aerodrome app to inform your range selection.
-</Tip>
+<Tip>Check the pool's 7-day price range on the Aerodrome app to inform your range selection.</Tip>
 
 ### What happens when price moves out of range
 
@@ -241,7 +208,7 @@ When the active price exits your selected range:
 **Alternatives:**
 
 - Use multiple positions with laddered ranges
-- Use [Autopilot](/overview/core-features/lock/autopilot) for automated rebalancing
+- Use [Autopilot](/overview/core-features/liquidity-pools/autopilot) for automated rebalancing
 
 ### Adding or removing liquidity
 
@@ -263,7 +230,8 @@ When the active price exits your selected range:
 **Partial removal**: You can remove a percentage of your position while keeping the rest active.
 
 <Info>
-  Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that cannot be merged.
+  Unlike V2 pools where you can add to existing positions, CL positions are individual NFTs that
+  cannot be merged.
 </Info>
 
 ### When to stake your CL position
@@ -282,9 +250,7 @@ When the active price exits your selected range:
 - You prefer stable fee income over AERO
 - Your position is out of range (staking would earn nothing)
 
-<Tip>
-  Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.
-</Tip>
+<Tip>Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.</Tip>
 
 ---
 
@@ -310,7 +276,8 @@ When the active price exits your selected range:
     </Steps>
     **Gas costs**: Each rebalance requires multiple transactions (remove, approve, add, stake).
 
-    **Autopilot alternative**: [Autopilot](/overview/core-features/lock/autopilot) handles rebalancing automatically for a 10% fee on earnings.
+    **Autopilot alternative**: [Autopilot](/overview/core-features/liquidity-pools/autopilot) handles rebalancing automatically with no management fees.
+
   </Accordion>
   <Accordion title="How do I claim CL fees?" icon="coins">
     CL position fees accumulate automatically. To claim:
@@ -319,6 +286,7 @@ When the active price exits your selected range:
     2. Find your CL position
     3. Click "Claim Fees"
     4. Receive fees in both pool tokens
+
   </Accordion>
   <Accordion title="Why are my CL fees lower than expected?" icon="chart-line-down">
     Several factors affect CL fee earnings:
@@ -342,6 +310,7 @@ When the active price exits your selected range:
 
     - If staked, you forfeit fees for AERO emissions
     - Check if "Staked" indicator is active on your position
+
   </Accordion>
   <Accordion title="What happens to my tokens when out of range?" icon="circle-exclamation">
     When price exits your range, your position gradually converts to 100% of one token:
@@ -357,6 +326,7 @@ When the active price exits your selected range:
     - Example: USDC/WETH pool, price falls → you hold 100% WETH
 
     **This is automatic and irreversible while out of range.** Your position acts like a limit order until price returns or you rebalance.
+
   </Accordion>
   <Accordion title="Should I use narrow or wide ranges?" icon="arrows-left-right">
     The right range depends on your goals and commitment level:
@@ -380,6 +350,7 @@ When the active price exits your selected range:
     - Create multiple positions with different ranges
     - Narrow range for higher fees when in range
     - Wide range as backstop for volatility
+
   </Accordion>
   <Accordion title="Why can't I stake my CL position?" icon="ban">
     Common reasons:
@@ -399,6 +370,7 @@ When the active price exits your selected range:
 
     - Ensure you're connected with the wallet that holds the NFT
     - CL positions are NFTs - verify you own the token ID
+
   </Accordion>
 </AccordionGroup>
 
@@ -407,16 +379,21 @@ When the active price exits your selected range:
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools/providing-liquidity">
+  <Card
+    title="Provide Liquidity"
+    icon="droplet"
+    href="/overview/core-features/liquidity-pools/providing-liquidity"
+  >
     Deposit into CL pools
   </Card>
-  <Card title="Autopilot" icon="robot" href="/overview/core-features/lock/autopilot">
+  <Card title="Autopilot" icon="robot" href="/overview/core-features/liquidity-pools/autopilot">
     Automate CL position management
   </Card>
-  <Card title="Basic Pools" icon="layer-group" href="/overview/core-features/liquidity-pools/basic-pools">
+  <Card
+    title="Basic Pools"
+    icon="layer-group"
+    href="/overview/core-features/liquidity-pools/basic-pools"
+  >
     Compare with full-range pools
-  </Card>
-  <Card title="Technical Details" icon="flask" href="/overview/core-features/liquidity-pools/technical-details">
-    Deep dive into CL mechanics
   </Card>
 </CardGroup>
