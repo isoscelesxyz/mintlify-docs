@@ -133,26 +133,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "Contributing",
-        "groups": [
-          {
-            "group": "Documentation",
-            "icon": "book",
-            "pages": ["contributing/overview", "contributing/roadmap", "contributing/style-guide"]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "groups": [
-          {
-            "group": "Updates",
-            "icon": "clock",
-            "pages": ["changelog/index"]
-          }
-        ]
       }
     ],
     "global": {
