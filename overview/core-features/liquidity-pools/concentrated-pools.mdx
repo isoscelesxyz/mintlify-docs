@@ -63,11 +63,6 @@ The dynamic fee system operates entirely onchain without external oracles or CEX
 - **Fee cap**: Maximum fee during high volatility
 - Parameters tuned for competitiveness against fixed-fee AMMs
 
-<Tip>
-  Dynamic fees enable Slipstream to compete effectively across market conditions—lowering fees to
-  capture volume in stable markets, raising fees to maximize LP earnings during volatility.
-</Tip>
-
 ### Benefits for different LP types
 
 **For staked LPs (earning emissions):**
@@ -121,7 +116,7 @@ Available tick spacings optimized for different asset correlations:
 | 200          | 0.30% | Standard volatile pairs (AERO/WETH, USDC/WETH)  |
 | 2000         | 1.00% | Emerging tokens (new launches, high volatility) |
 
-The tick spacing is displayed in pool names (e.g., "CL1-wstETH/WETH" = tick spacing 1).
+The tick spacing is displayed just below the pool name. (e.g., "Concentrated Volatile 100" = tick spacing 100, or "Concentrated Stable 1" = tick spacing 1).
 
 ---
 
@@ -146,23 +141,6 @@ Slipstream offers LPs the choice between two earning strategies:
   The 10% unstaked fee rake ensures veAERO voters still benefit from your liquidity even when you're
   unstaked. This alignment incentivizes voters to vote for your pool.
 </Warning>
-
-### When to unstake for fee capture
-
-**Unstake during:**
-
-- High volatility periods when dynamic fees surge
-- Temporary market dislocations where fees \> emissions
-- Short-term liquidity provision (no long-term AERO exposure desired)
-
-**Stake for:**
-
-- Long-term LP positions
-- Pools with high veAERO vote allocation
-- Consistent emissions \> trading fees
-- AERO token exposure
-
-The modular MetaDEX architecture allows the unstaked fee rake to be adjusted dynamically to optimize competitiveness while maintaining strong veAERO rewards.
 
 ---
 
@@ -221,11 +199,13 @@ When the active price exits your selected range:
 
 **Removing liquidity:**
 
-1. Navigate to your position in the Aerodrome app
-2. Click "Remove Liquidity"
-3. Choose amount to remove (partial or full)
-4. Confirm transaction
-5. Receive both tokens based on current price and your range
+<Steps>
+  <Step>Navigate to your position in the Aerodrome app</Step>
+  <Step>Click "Remove Liquidity"</Step>
+  <Step>Choose amount to remove (partial or full)</Step>
+  <Step>Confirm transaction</Step>
+  <Step>Receive both tokens based on current price and your range</Step>
+</Steps>
 
 **Partial removal**: You can remove a percentage of your position while keeping the rest active.
 
@@ -234,30 +214,12 @@ When the active price exits your selected range:
   cannot be merged.
 </Info>
 
-### When to stake your CL position
-
-**Stake when:**
-
-- Pool receives significant veAERO votes (check gauge voting)
-- AERO emissions APR \> swap fee APR
-- You want exposure to AERO token
-- Your position is in range
-
-**Don't stake when:**
-
-- Pool has low or zero votes
-- Swap fees \> potential emissions
-- You prefer stable fee income over AERO
-- Your position is out of range (staking would earn nothing)
-
-<Tip>Compare "Unstaked APR" vs "Staked APR" on the pool page before deciding whether to stake.</Tip>
-
 ---
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="How do I rebalance a CL position?" icon="arrows-rotate">
+  <Accordion title="How do I rebalance a CL position?">
     Manual rebalancing requires removing and re-adding liquidity:
 
     <Steps>
@@ -279,7 +241,7 @@ When the active price exits your selected range:
     **Autopilot alternative**: [Autopilot](/overview/core-features/liquidity-pools/autopilot) handles rebalancing automatically with no management fees.
 
   </Accordion>
-  <Accordion title="How do I claim CL fees?" icon="coins">
+  <Accordion title="How do I claim CL fees?">
     CL position fees accumulate automatically. To claim:
 
     1. Go to your Dashboard
@@ -288,7 +250,7 @@ When the active price exits your selected range:
     4. Receive fees in both pool tokens
 
   </Accordion>
-  <Accordion title="Why are my CL fees lower than expected?" icon="chart-line-down">
+  <Accordion title="Why are my CL fees lower than expected?">
     Several factors affect CL fee earnings:
 
     **Your position is out of range:**
@@ -312,7 +274,7 @@ When the active price exits your selected range:
     - Check if "Staked" indicator is active on your position
 
   </Accordion>
-  <Accordion title="What happens to my tokens when out of range?" icon="circle-exclamation">
+  <Accordion title="What happens to my tokens when out of range?">
     When price exits your range, your position gradually converts to 100% of one token:
 
     **Price above range:**
@@ -328,7 +290,7 @@ When the active price exits your selected range:
     **This is automatic and irreversible while out of range.** Your position acts like a limit order until price returns or you rebalance.
 
   </Accordion>
-  <Accordion title="Should I use narrow or wide ranges?" icon="arrows-left-right">
+  <Accordion title="Should I use narrow or wide ranges?">
     The right range depends on your goals and commitment level:
 
     **Use narrow ranges (1-5%) if:**
@@ -352,7 +314,7 @@ When the active price exits your selected range:
     - Wide range as backstop for volatility
 
   </Accordion>
-  <Accordion title="Why can't I stake my CL position?" icon="ban">
+  <Accordion title="Why can't I stake my CL position?">
     Common reasons:
 
     **Pool has no gauge:**
@@ -379,21 +341,10 @@ When the active price exits your selected range:
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card
-    title="Provide Liquidity"
-    icon="droplet"
-    href="/overview/core-features/liquidity-pools/providing-liquidity"
-  >
-    Deposit into CL pools
-  </Card>
   <Card title="Autopilot" icon="robot" href="/overview/core-features/liquidity-pools/autopilot">
     Automate CL position management
   </Card>
-  <Card
-    title="Basic Pools"
-    icon="layer-group"
-    href="/overview/core-features/liquidity-pools/basic-pools"
-  >
-    Compare with full-range pools
+  <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
+    Increase your veAERO balance for higher rewards
   </Card>
 </CardGroup>
