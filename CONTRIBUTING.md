@@ -64,7 +64,7 @@ Documentation for Aerodrome Finance is **task-oriented, not marketing**. Every p
 When creating content, identify your primary audience:
 
 1. **End Users (DeFi participants)**
-   - Goal: Swap tokens, provide liquidity, earn rewards, participate in governance
+   - Goal: Swap tokens, provide liquidity, earn rewards, vote on emissions
    - Needs: Step-by-step guides, clear risk warnings, prerequisite checks
    - Examples: "How to provide liquidity", "How to vote with veAERO"
 
@@ -78,8 +78,8 @@ When creating content, identify your primary audience:
    - Needs: API references, contract addresses, technical specifications
    - Examples: "Sugar API reference", "Contract addresses"
 
-4. **Advanced Users (veAERO holders, governance participants)**
-   - Goal: Optimize voting strategy, understand tokenomics, governance decisions
+4. **Advanced Users (veAERO holders, active voters)**
+   - Goal: Optimize voting strategy, understand tokenomics, emissions mechanics
    - Needs: Deep dives on mechanics, emissions schedules, protocol design
    - Examples: "veAERO mechanics", "Emissions and decay"
 
@@ -89,7 +89,7 @@ Documentation should be:
 
 - **Calm and technical**: No hype, no marketing language, no speculation
 - **Direct and precise**: Use second person ("you"), active voice, short sentences
-- **Risk-aware**: Always mention relevant risks (smart contract risk, impermanent loss, governance risk)
+- **Risk-aware**: Always mention relevant risks (smart contract risk, impermanent loss, emissions risk)
 - **Neutral on outcomes**: Never promise yields, returns, or specific results
 
 ### Forbidden Content
@@ -104,10 +104,10 @@ Never include:
 
 ### Risk Posture
 
-When covering liquidity provision, staking, locking, or governance:
+When covering liquidity provision, staking, locking, or voting:
 
 - Always include a clearly marked risk callout using Mintlify's `<Warning>` component
-- Mention smart contract risk, governance risk, and impermanent loss where relevant
+- Mention smart contract risk, emissions risk, and impermanent loss where relevant
 - Encourage readers to verify contract addresses from official sources
 - Never encourage leverage, looping, or high-risk strategies without explicit risk warnings
 
