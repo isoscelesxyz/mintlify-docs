@@ -1,18 +1,17 @@
 ---
 title: "FAQ for Partners"
 description: "Essential information for protocol teams launching tokens and managing liquidity on Aerodrome"
+sidebarTitle: "General FAQs"
 ---
-
-<Info>For end user questions, see [FAQ for Users](/help/faqs/users).</Info>
 
 ## Pool Creation and Management
 
 <AccordionGroup>
-  <Accordion title="How do I create a pool?" icon="plus">
+  <Accordion title="How do I create a pool?">
     Pool creation on Aerodrome is permissionless. Simply go to the [Liquidity page](https://aerodrome.finance/liquidity) and click New Deposit to get started.
   </Accordion>
 
-  <Accordion title="What type of pool should I launch (V2, V3)?" icon="flask">
+  <Accordion title="What type of pool should I launch (V2, V3)?">
     **Basic Volatile Pools (V2-style):**
 
     These pools distribute liquidity evenly across the entire price range from 0 to infinity, similar to traditional AMMs like Uniswap V2. They are simple to manage and can often be treated as "set and forget" for both you and your users. They are particularly well-suited for early price discovery, making them a strong option for new or emerging tokens.
@@ -23,13 +22,13 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-<Accordion title="Which connector token should I choose?" icon="link">
+<Accordion title="Which connector token should I choose?">
   The most common connector tokens are `WETH`, `USDC`, and `cbBTC`. `AERO` can also be used as a
   connector token. As a rule of thumb, token pairs that are more correlated will lead to less
   impermanent loss and thus lead to more TVL growth.
 </Accordion>
 
-  <Accordion title="How much liquidity should my pool have?" icon="droplet">
+  <Accordion title="How much liquidity should my pool have?">
     We recommend depositing liquidity equal to at least 1-2% of your token's <Tooltip tip="Fully Diluted Valuation - total supply multiplied by token price">FDV</Tooltip>.
 
     If your team is experienced with managing concentrated ranges or working with a market maker, a concentrated pool may be more appropriate. In that case, providing a minimum of \$200,000 to \$300,000 in `USDC`, `WETH`, or `cbBTC` liquidity will be generally sufficient to support most swaps — however we still recommend closer to 1-2% of FDV if you intend to support larger swaps.
@@ -40,7 +39,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="Should I split my liquidity across multiple DEXs or concentrate it on Aerodrome?" icon="split">
+  <Accordion title="Should I split my liquidity across multiple DEXs or concentrate it on Aerodrome?">
     We strongly recommend projects concentrate all their liquidity on Aerodrome rather than splitting between multiple DEXs. Fragmenting liquidity across different platforms negatively impacts price execution for traders swapping directly on Aerodrome's frontend, resulting in worse trading experiences.
   </Accordion>
 </AccordionGroup>
@@ -48,11 +47,11 @@ description: "Essential information for protocol teams launching tokens and mana
 ## Listing Process
 
 <AccordionGroup>
-  <Accordion title="What is listing on Aerodrome?" icon="list-check">
+  <Accordion title="What is listing on Aerodrome?">
     Listing is Aerodrome's approval process that allows pools to participate in the protocol's incentive system. Pools that are not listed operate as fee-based pools and do not have access to Aerodrome's rewards mechanism. In essence, listing is the step that elevates a pool from a standard fee-based participant to a fully integrated member of Aerodrome's incentivized ecosystem.
   </Accordion>
 
-  <Accordion title="What are the benefits of listing my pool?" icon="star">
+  <Accordion title="What are the benefits of listing my pool?">
     **Listing enables:**
 
     - **Staking rewards**: LPs can stake positions and earn `AERO` emissions
@@ -66,7 +65,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="What are the requirements for listing?" icon="clipboard-check">
+  <Accordion title="What are the requirements for listing?">
     **Minimum volume threshold:**
 
     - **DEX trading**: \$1 million daily average over 30 days
@@ -78,11 +77,11 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-<Accordion title="How do I start the listing process?" icon="paper-plane">
+<Accordion title="How do I start the listing process?">
   You can begin the listing process by engaging directly with the Aerodrome team.
 </Accordion>
 
-  <Accordion title="What marketing support does Aerodrome provide?" icon="bullhorn">
+  <Accordion title="What marketing support does Aerodrome provide?">
     **Pre-listed tokens:**
 
     - Social engagement through likes and comments
@@ -99,11 +98,11 @@ description: "Essential information for protocol teams launching tokens and mana
 ## Incentives and Rewards
 
 <AccordionGroup>
-  <Accordion title="Can I incentivize liquidity before my pool is listed?" icon="circle-question">
+  <Accordion title="Can I incentivize liquidity before my pool is listed?">
     Projects can use third-party platforms like Merkl or Metrom to incentivize Aerodrome liquidity prior to listing.
   </Accordion>
 
-<Accordion title="If listed, how much should I deposit in incentives?" icon="coins">
+<Accordion title="If listed, how much should I deposit in incentives?">
   Listed projects can deposit incentives up to the lower of 15x the value of fees generated by the
   pool and 5% of the value of Connector Tokens (e.g. `USDC`, `WETH`) in the pool. Newly listed
   tokens are granted a 4-week grace period to establish liquidity before fee-based limits apply.
@@ -111,7 +110,7 @@ description: "Essential information for protocol teams launching tokens and mana
   We would recommend using the full 5% during the grace period.
 </Accordion>
 
-<Accordion title="Why should I stake my LP?" icon="layer-group">
+<Accordion title="Why should I stake my LP?">
   When you stake your liquidity, you choose to earn `AERO` emissions instead of trading fees.
   Unstaked LPs earn 90% of trading fees directly, with 10% going to `veAERO` voters. However, when
   you stake your LP tokens, 100% of the fees generated by your staked liquidity are redistributed as
@@ -121,7 +120,7 @@ description: "Essential information for protocol teams launching tokens and mana
   providers.
 </Accordion>
 
-  <Accordion title="I'm trying to stake but the transaction fails" icon="triangle-exclamation">
+  <Accordion title="I'm trying to stake but the transaction fails">
     This is likely a wallet related issue, we suggest hard refreshing the app and/or using a different RPC.
   </Accordion>
 </AccordionGroup>
@@ -129,11 +128,11 @@ description: "Essential information for protocol teams launching tokens and mana
 ## Integration and Technical
 
 <AccordionGroup>
-  <Accordion title="How can I get my token logo on Aerodrome's UI?" icon="image">
+  <Accordion title="How can I get my token logo on Aerodrome's UI?">
     Aerodrome uses SmolDapp's decentralised hosting for token logos. To have your token logo displayed, submit a PR to the [SmolDapp tokenAssets repository](https://github.com/SmolDapp/tokenAssets) with your token's logo.
   </Accordion>
 
-<Accordion title="How can I migrate my LP from another network?" icon="bridge">
+<Accordion title="How can I migrate my LP from another network?">
   LP tokens cannot be bridged directly. Instead, you will need to bridge your token to Base. To do
   this, you can create a bridged version of your token on Base through any interoperability provider
   such as Hyperlane, Chainlink, LayerZero, or Wormhole. You may also use the Base native bridge,
@@ -142,35 +141,35 @@ description: "Essential information for protocol teams launching tokens and mana
   poor user experience.
 </Accordion>
 
-<Accordion title="How should I migrate my LP from another DEX?" icon="truck">
+<Accordion title="How should I migrate my LP from another DEX?">
   You can migrate your liquidity in a single transaction, or you can spread it out across multiple
   withdrawals.
 </Accordion>
 
-<Accordion title="My token is not being priced on the frontend" icon="dollar-sign">
+<Accordion title="My token is not being priced on the frontend">
   For tokens to be priced on the frontend by default they need to be paired with a connector token
   like `WETH`, `USDC`, `cbBTC` or `AERO`; \$500 liquidity should be enough.
 </Accordion>
 
-<Accordion title="Do you have a method for snapshotting LPs on Aerodrome?" icon="camera">
+<Accordion title="Do you have a method for snapshotting LPs on Aerodrome?">
   You can use this [Dune query](https://dune.com/queries/3407081) to snapshot LPs for a given pool.
   This query allows you to see all liquidity providers and their positions at a specific point in
   time.
 </Accordion>
 
-<Accordion title="What are the default pool fees?" icon="percent">
+<Accordion title="What are the default pool fees?">
   | Pool Type | Fee | |-----------|-----| | Basic Volatile | 0.3% | | Basic Stable | 0.05% | |
   Concentrated Stable 1 | 0.01% | | Concentrated Stable 10 | 0.05% | | Concentrated Stable 50 |
   0.05% | | Concentrated Volatile 100 | 0.05% | | Concentrated Volatile 200 | 0.3% | | Concentrated
   Volatile 2000 | 1% |
 </Accordion>
 
-<Accordion title="How can I update pool fees?" icon="pen-to-square">
+<Accordion title="How can I update pool fees?">
   To update the fees for your pool, you will need to submit a request directly to the Aerodrome
   team, who will process the change.
 </Accordion>
 
-  <Accordion title="What is the APR formula?" icon="calculator">
+  <Accordion title="What is the APR formula?">
     For basic pools (vAMM/sAMM):
 
 <Latex>
@@ -186,7 +185,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="Do you have any integration documentation?" icon="code">
+  <Accordion title="Do you have any integration documentation?">
     **Velodrome Resources:**
     - [Contracts Codebase](https://github.com/velodrome-finance/contracts) - Core V2 contracts
     - [Slipstream (V3) Codebase](https://github.com/velodrome-finance/slipstream) - Concentrated liquidity implementation
@@ -210,7 +209,7 @@ description: "Essential information for protocol teams launching tokens and mana
 </Info>
 
 <AccordionGroup>
-  <Accordion title="What is Launcher and how do I create a pool?" icon="plus">
+  <Accordion title="What is Launcher and how do I create a pool?">
     Launcher is Aerodrome's permissionless pool creation system. Any project can create liquidity pools without approval, choose pool types (V2 or concentrated), and optionally lock liquidity to demonstrate commitment.
 
     **Quick start:**
@@ -224,7 +223,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="What are the benefits of locking liquidity?" icon="lock">
+  <Accordion title="What are the benefits of locking liquidity?">
     Locking LP tokens signals long-term commitment to your project and the ecosystem:
 
     **For your project:**
@@ -246,7 +245,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="Can I automate pool creation and locking?" icon="robot">
+  <Accordion title="Can I automate pool creation and locking?">
     Yes, Launcher supports full programmatic integration. You can create pool, add liquidity, lock liquidity, set beneficiary, and transfer ownership in a single transaction.
 
     **Integration resources:**
@@ -267,7 +266,7 @@ description: "Essential information for protocol teams launching tokens and mana
 </Info>
 
 <AccordionGroup>
-  <Accordion title="What is Aero Ignition?" icon="rocket">
+  <Accordion title="What is Aero Ignition?">
     Aero Ignition is Aerodrome's curated fair-launch framework for community-aligned token launches. Projects deposit unpriced incentives (up to 4% of supply) before trading begins, allowing veAERO voters to price the token through an auction-like mechanism. After 1 week, trading opens with organic liquidity formation and price discovery.
 
     **Key features:**
@@ -281,7 +280,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="Why is the implied FDV so low during Week 1?" icon="chart-line">
+  <Accordion title="Why is the implied FDV so low during Week 1?">
     Implied FDV increases throughout the week as more veAERO voters allocate votes to the pool. Most voting activity happens in the final 24 hours of each epoch as voters wait to see total vote allocation before committing.
 
     **How it works:**
@@ -295,7 +294,7 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 
-  <Accordion title="How do I apply for an Aero Ignition launch?" icon="paper-plane">
+  <Accordion title="How do I apply for an Aero Ignition launch?">
     Aero Ignition launches are highly curated and selective. Only one launch happens at a time to maximize exposure and reduce noise.
 
     **Application process:**
@@ -315,3 +314,14 @@ description: "Essential information for protocol teams launching tokens and mana
 
   </Accordion>
 </AccordionGroup>
+
+## More resources
+
+<CardGroup cols={2}>
+  <Card title="FAQ for Stablecoin Partners" icon="coins" href="/help/faqs/partners/stablecoin-partners">
+    Specialized guidance for stablecoin issuers on liquidity and peg management
+  </Card>
+  <Card title="FAQ for Users" icon="user" href="/help/faqs/users">
+    Common questions about swapping, liquidity, and voting
+  </Card>
+</CardGroup>

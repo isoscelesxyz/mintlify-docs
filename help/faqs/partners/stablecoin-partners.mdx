@@ -1,0 +1,216 @@
+---
+title: "FAQ for Stablecoin Partners"
+description: "Essential information for stablecoin partners managing liquidity on Aerodrome"
+sidebarTitle: "Stablecoin Partners"
+---
+
+## Pool Creation and Configuration
+
+<AccordionGroup>
+  <Accordion title="How do I create a pool?">
+    Pool creation on Aerodrome is permissionless. Simply go to the [Liquidity page](https://aerodrome.finance/liquidity) and click New Deposit to get started.
+  </Accordion>
+
+  <Accordion title="What type of pool should I launch?">
+    #### Basic Volatile Pools (V2-style)
+
+    These pools distribute liquidity evenly across the entire price range from 0 to infinity, similar to traditional AMMs like Uniswap V2. They are simple to manage and can often be treated as "set and forget".
+
+    #### Concentrated pools (V3-style)
+
+    These pools allow liquidity providers to concentrate their capital within specific price ranges rather than across the entire curve, similar to Uniswap V3. They are designed for tokens that have an active market-making operation to keep liquidity within a defined price range. They provide greater capital efficiency but require more active management compared to basic pools. For stablecoins and FX pairs, we strongly recommend launching a Concentrated pool, as they are optimized for lower volatility assets and minimize slippage for cross-currency flows.
+  </Accordion>
+
+  <Accordion title="What are ticks and tick spacing?">
+    Concentrated liquidity pools distribute liquidity through discrete intervals called ticks. Each tick represents a very small price range. A smaller tick spacing (e.g., 1) lets you place liquidity at price intervals within one or a few basis point difference, which means you can set extremely narrow ranges around a peg. A larger tick spacing (e.g., 100 or 200) forces liquidity to distribute across wider ranges, reducing the need for liquidity rebalancing when price moves but offering lower concentration of liquidity. Pool names reflect this: Concentrated Stable 1 (CL1) uses tick spacing of 1 basis point (bps) width; Concentrated Stable 10 (CL10) uses tick spacing of 10 bps.
+
+    This matters for stablecoins and FX assets because your tick spacing determines the tightest range you can physically create. Concentrated Stable 1 (CL1) allows narrow peg bands (e.g., 0.999–1.001), while CL10 or CL50 restrict you to wider bands to accommodate more volatility.
+
+    We recommend:
+
+    - Use CL1 if the asset stays tightly around 1:1 (USD/EUR stables).
+    - Use CL10 or CL50 for EMFX stables to avoid liquidity falling out of range when the underlying currency moves.
+  </Accordion>
+
+  <Accordion title="Which connector token should I choose?">
+    The most common connector tokens are WETH, USDC, and cbBTC. As a rule of thumb, token pairs that are more correlated will lead to less impermanent loss and thus lead to more TVL growth. For FX corridors and stablecoins, USDC is generally the best connector token, as it maximizes discoverability, arbitrage routing, and institutional flow. We also recommend setting up WETH pools as the additional volatility typically attracts more liquidity over time.
+  </Accordion>
+</AccordionGroup>
+
+## Liquidity Management
+
+<AccordionGroup>
+  <Accordion title="How much liquidity should my pool have?">
+    The amount of liquidity you need depends on the swap sizes you want to support and the tick spacing of the pool (CL1, CL10, CL50). Tick spacing determines how tightly liquidity is concentrated into each tick, and swaps consume liquidity one tick at a time. Execution quality therefore depends on how large your typical swap is relative to the liquidity contained in a single tick, not on the total pool TVL.
+
+    CL1 concentrates liquidity into the smallest price increments and can support larger swaps with less TVL, making it suitable for tight-peg stablecoins like USD or EUR. CL10 or CL50 use wider increments, so each tick contains less liquidity and more TVL is required to achieve the same execution quality, which may be more appropriate for EMFX assets that move more.
+
+    As a simple guideline, aim to size liquidity so that your typical swap uses only a small portion of the liquidity in a single tick. If a swap consumes most of a tick's liquidity, you should expect noticeable price movement; if it consumes only a small portion, slippage will remain tight.
+
+    We do not recommend launching FX or stablecoin pools with less than \$50K in total liquidity, as execution may be shallow until depth builds.
+
+    **Illustrative example:**
+
+    ![CL10 pool with $100K of liquidity spread evenly across 10 ticks (about $10K per tick)](/images/content/stable-example.png)
+
+    This example shows a CL10 pool with \$100K of liquidity spread evenly across 10 ticks (about \$10K per tick). A \$10K swap therefore consumes one tick's liquidity and moves the price by roughly one basis point end-to-end, resulting in about 0.5bps of average slippage. This illustrates the core idea that execution quality depends on how large your swap is relative to the liquidity contained in each tick.
+  </Accordion>
+
+  <Accordion title="Should I split my liquidity across multiple DEXs or concentrate it on Aerodrome?">
+    We strongly recommend projects concentrate all their liquidity on Aerodrome rather than splitting between multiple DEXs. Fragmenting liquidity across different platforms negatively impacts price execution for traders swapping directly on Aerodrome's frontend, resulting in worse trading experiences. This is especially important for stablecoins as fragmented liquidity makes the arbitrage loop harder to execute, which can cause your token to drift off-peg even if mint/redeem works correctly.
+  </Accordion>
+
+  <Accordion title="How should I manage my liquidity to keep my stablecoin pool pegged?">
+    Issuers should actively monitor and manage their liquidity to ensure the token trades close to its intended peg. In concentrated liquidity pools, this mainly involves:
+
+    - **Maintaining liquidity at the current price:** Keep liquidity positioned around the active tick so swaps execute against sufficient depth. If the market moves, you may need to reposition liquidity (e.g. moving ranges or rebalancing) to stay centred on the peg.
+    - **Adjusting liquidity size as volume grows:** If swap sizes increase, add more liquidity so that trades consume only a small portion of the liquidity in each tick. Larger swaps relative to liquidity per tick will cause visible slippage.
+    - **Correcting deviations:** If the token trades off-peg, the issuer (or their market maker) should step in, either by trading against the pool, adding liquidity at the correct price, or minting/redeeming to pull the price back to parity. Where an open mint/redeem pathway exists, arbitrage participants will typically help return the price to parity with minimal intervention.
+
+    Issuers expecting regular volume or operating FX assets with more volatile underlying currencies may benefit from engaging a market maker. Aerodrome can advise on optimal tick spacing, liquidity placement, and pool parameters, but day-to-day peg management is handled by the issuer or their designated market maker.
+  </Accordion>
+
+  <Accordion title="Does Aerodrome use oracles to maintain stablecoin pegs?">
+    Aerodrome does not use oracles to set prices or maintain stablecoin pegs. All pricing on Aerodrome is determined entirely by the on-chain liquidity in each pool. When traders swap, the price moves according to the AMM curve and the distribution of liquidity across ticks. Maintaining a stablecoin's peg is handled by the issuer's own mechanisms (e.g., mint/redeem flows, market operations, or market makers), not by Aerodrome or an oracle.
+  </Accordion>
+</AccordionGroup>
+
+## Listing Process
+
+<AccordionGroup>
+  <Accordion title="What is listing on Aerodrome?">
+    Listing is Aerodrome's approval process that allows pools to participate in the protocol's incentive system. Pools that are not listed operate as fee-based pools and do not have access to Aerodrome's rewards mechanism. In essence, listing is the step that elevates a pool from a standard fee-based participant to a fully integrated member of Aerodrome's incentivized ecosystem.
+  </Accordion>
+
+  <Accordion title="What are the benefits of listing my pool?">
+    Listing enables liquidity providers to stake their positions and earn `AERO` rewards, while also allowing project teams to deposit incentives that attract additional liquidity. This unlocks Aerodrome's powerful incentive flywheel, where every \$1 in voter rewards historically translates to \$1.50-\$2.00 in `AERO` rewards for staked liquidity providers, creating a compelling reason for LPs to choose your pool over competitors. Additionally, listed projects receive dedicated marketing support and strategic guidance on optimizing the `AERO` ecosystem.
+  </Accordion>
+
+  <Accordion title="What are the requirements for listing?">
+    To qualify for Listing, Stablecoins should meet a clear standard of transparency, operational safety, and peg reliability. In general, we look for:
+
+    - **Clear peg-maintenance mechanism**, whether through mint/redeem processes, issuer market operations, market makers, or accessible arbitrage pathways.
+    - **Transparent mint/redeem terms** around fees, limits, settlement timelines, and the conditions under which mint/redeem is available.
+    - **Transparent reserves**, including disclosure of reserve composition, reputable custody, and regular independent attestations.
+    - **Appropriate licensing and compliance**, with defined KYC/AML processes where required.
+    - **Connectivity to local payment rails**, where relevant, to support mint/redeem flows or settlement.
+    - **Meaningful user demand** or real-world utility.
+    - **Sound technical deployment**, including verified code, transparent admin permissions, audits, and—if bridged—secure and reputable bridging infrastructure.
+
+    Aerodrome may request additional information depending on the asset's structure or intended use-case.
+  </Accordion>
+
+  <Accordion title="How do I start the listing process?">
+    You can begin the listing process by engaging directly with the Aerodrome team.
+  </Accordion>
+
+  <Accordion title="What marketing support does Aerodrome provide?">
+    For pre-listed tokens, Aerodrome can support by engaging with social posts through likes and comments.
+
+    For listed tokens, support expands to include likes, comments, retweets, and quote tweets where relevant. Depending on availability, team members may also be able to join X Spaces. Additional ad-hoc communication opportunities will be considered on a case-by-case basis.
+  </Accordion>
+</AccordionGroup>
+
+## Incentives and Staking
+
+<AccordionGroup>
+  <Accordion title="Can I incentivize liquidity before my pool is listed?">
+    Projects can use third-party platforms like Merkl or Metrom to incentivize Aerodrome liquidity prior to listing. Incentivizing early is particularly useful for stablecoins as it helps the pool maintain peg and stay within range while arbitrage channels develop.
+  </Accordion>
+
+  <Accordion title="If listed, how much should I deposit in incentives?">
+    Listed projects can deposit incentives up to the lower of 15x the value of fees generated by the pool and 5% of the value of Connector Tokens (e.g. `USDC`) in the pool. Newly listed tokens are granted a 4-week grace period to establish liquidity before fee-based limits apply. During this time projects may use 5% of their TVL in Connector Tokens as the incentive benchmark. We would recommend using the full 5% during the grace period.
+  </Accordion>
+
+  <Accordion title="Why should I stake my LP?">
+    When you stake your liquidity, you choose to earn `AERO` emissions instead of trading fees. Unstaked LPs earn 90% of trading fees directly, with 10% going to veAERO voters. However, when you stake your LP tokens, 100% of the fees generated by your staked liquidity are redistributed as incentives to veAERO voters, which then translates into `AERO` emissions for your staked position. Historically, every dollar of fees generated by staked liquidity, combined with team-deposited incentives, has translated into roughly \$1.50 of `AERO` rewards for liquidity providers, effectively a 1.5x multiplier.
+  </Accordion>
+
+  <Accordion title="I'm trying to stake but the transaction fails">
+    This is likely a wallet related issue, we suggest hard refreshing the app and/or using a different RPC.
+  </Accordion>
+</AccordionGroup>
+
+## Migration and Setup
+
+<AccordionGroup>
+  <Accordion title="How can I migrate my liquidity position from another network?">
+    LP tokens cannot be bridged directly. Instead, you will need to bridge your token to Base. To do this, you can create a bridged version of your token on Base through any interoperability provider such as Hyperlane, Chainlink, LayerZero, or Wormhole. You may also use the Base native bridge, which is the simplest option, but we only recommend it if you intend to migrate all token activity to Base. The reason is that withdrawals back to Mainnet involve a 7-day delay, which can create a poor user experience.
+  </Accordion>
+
+  <Accordion title="How should I migrate my liquidity position from another DEX?">
+    You can migrate your liquidity in a single transaction, or you can spread it out across multiple withdrawals.
+  </Accordion>
+
+  <Accordion title="How can I get my token logo on Aerodrome's UI?">
+    Aerodrome uses SmolDapp's decentralised hosting for token logos. To have your token logo displayed, submit a PR to the [SmolDapp tokenAssets repository](https://github.com/SmolDapp/tokenAssets).
+  </Accordion>
+
+  <Accordion title="Help! My token is not being priced or is priced incorrectly">
+    For tokens to be priced on the frontend by default they need to be paired with a connector token like `USDC`, `WETH`, or `cbBTC`; \$500 liquidity should be enough. For stablecoins, pricing issues often occur when liquidity is outside the active range in concentrated pools. Ensuring your range matches your expected peg resolves this.
+  </Accordion>
+</AccordionGroup>
+
+## Technical Reference
+
+<AccordionGroup>
+  <Accordion title="What are the default pool fees?">
+    | Pool Type | Fee |
+    |-----------|-----|
+    | Basic Volatile | 0.3% |
+    | Basic Stable | 0.05% |
+    | Concentrated Stable 1 | 0.01% |
+    | Concentrated Stable 10 | 0.05% |
+    | Concentrated Stable 50 | 0.05% |
+    | Concentrated Volatile 100 | 0.05% |
+    | Concentrated Volatile 200 | 0.3% |
+    | Concentrated Volatile 2000 | 1% |
+  </Accordion>
+
+  <Accordion title="How can I update pool fees?">
+    To update the fees for your pool, you will need to submit a request directly to the Aerodrome team, who will process the change.
+  </Accordion>
+
+  <Accordion title="What is the APR formula?">
+    For basic pools (vAMM/sAMM):
+
+    ```
+    APR = secondsPerYear * emissions * emissionsTokenPriceUsd / ((staked0 * staked0PriceUsd) + (staked1 * staked1PriceUsd))
+    ```
+
+    For concentrated liquidity (CL) pools:
+
+    ```
+    APR = secondsPerYear * emissions * emissionsTokenPriceUsd / (staked1 * staked1PriceUsd)
+    ```
+  </Accordion>
+
+  <Accordion title="Do you have a method for snapshotting liquidity providers on Aerodrome?">
+    You can use this [Dune query](https://dune.com/queries/3407081) to snapshot LPs for a given pool. This query allows you to see all liquidity providers and their positions at a specific point in time.
+  </Accordion>
+
+  <Accordion title="Do you have any integration documentation?">
+    **Velodrome Resources:**
+    - [Contracts Codebase](https://github.com/velodrome-finance/contracts) - Core V2 contracts
+    - [Slipstream (V3) Codebase](https://github.com/velodrome-finance/slipstream) - Concentrated liquidity implementation
+    - [Releases and Audits](https://velodrome.finance/security#releases) - Contract versions and security audits
+    - [Sugar Onchain API](https://github.com/velodrome-finance/sugar) - Efficient onchain data aggregation
+
+    **Aerodrome Resources:**
+    - [Contracts Codebase](https://github.com/aerodrome-finance/contracts) - Core V2 contracts
+    - [Slipstream (V3) Codebase](https://github.com/aerodrome-finance/slipstream) - Concentrated liquidity implementation
+    - [Deployed Contracts](https://aerodrome.finance/security#contracts) - Production contract addresses
+    - [Sugar Onchain API](https://github.com/velodrome-finance/sugar) - Efficient onchain data aggregation
+  </Accordion>
+</AccordionGroup>
+
+## More resources
+
+<CardGroup cols={2}>
+  <Card title="FAQ for Partners" icon="handshake" href="/help/faqs/partners/partners">
+    General information for protocol teams on listing, incentives, and integration
+  </Card>
+  <Card title="FAQ for Users" icon="user" href="/help/faqs/users">
+    Common questions about swapping, liquidity, and voting
+  </Card>
+</CardGroup>

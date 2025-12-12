@@ -75,7 +75,7 @@
               "overview/partners/index",
               "overview/partners/aero-ignition",
               "overview/partners/launcher",
-              "overview/partners/incentivize"
+              "overview/partners/incentives"
             ]
           },
           {
@@ -124,7 +124,13 @@
           {
             "group": "FAQ",
             "icon": "circle-question",
-            "pages": ["help/faqs/users", "help/faqs/partners"]
+            "pages": [
+              "help/faqs/users",
+              {
+                "group": "For Partners",
+                "pages": ["help/faqs/partners/partners", "help/faqs/partners/stablecoin-partners"]
+              }
+            ]
           }
         ]
       },

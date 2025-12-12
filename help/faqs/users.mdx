@@ -1,9 +1,7 @@
 ---
-title: "FAQ for Users"
+title: "For Users"
 description: "Common questions about using Aerodrome's core features"
 ---
-
-<Info>If you're a protocol team or token issuer, see [FAQ for Partners](/help/faqs/partners).</Info>
 
 ## Feature-Specific Help
 
@@ -13,7 +11,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Getting Started
 
 <AccordionGroup>
-  <Accordion title="How do I connect my wallet and select the correct network?" icon="wallet">
+  <Accordion title="How do I connect my wallet and select the correct network?">
     To use Aerodrome, you need a Web3 wallet configured for Base network:
 
     <Steps>
@@ -53,7 +51,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Where can I get tokens on Base?" icon="coins">
+  <Accordion title="Where can I get tokens on Base?">
     You need tokens on Base network to swap, provide liquidity, or vote on emissions.
 
     **Option 1: Bridge from Ethereum**
@@ -82,7 +80,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="How do approvals work and when are they needed?" icon="check-circle">
+  <Accordion title="How do approvals work and when are they needed?">
     **What are approvals?**
 
     Approvals (also called "token allowances") give smart contracts permission to move your tokens. They're required before you can:
@@ -128,7 +126,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="What are epochs and why do they matter?" icon="calendar-week">
+  <Accordion title="What are epochs and why do they matter?">
     **Epochs** are 7-day periods that run from **Thursday 00:00 UTC** to **Wednesday 23:59 UTC**. All protocol activities align with this weekly schedule.
 
     **What happens each epoch:**
@@ -166,7 +164,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Where do I find official links and contract addresses?" icon="link">
+  <Accordion title="Where do I find official links and contract addresses?">
     **Official websites and apps:**
     - Main app: [aerodrome.finance](https://aerodrome.finance)
     - Blog: [paragraph.com/@dromos](https://paragraph.com/@dromos)
@@ -204,25 +202,25 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Tokens and Voting
 
 <AccordionGroup>
-  <Accordion title="What is AERO and how is it used?" icon="coins">
+  <Accordion title="What is AERO and how is it used?">
     `AERO` is the utility token of Aerodrome. It is distributed each week through a process called "emissions" in which voters direct newly minted tokens to liquidity providers with staked deposits. Learn more about [emissions and tokenomics](/overview/tokenomics/emissions).
   </Accordion>
 
-<Accordion title="What is veAERO, and how do I lock tokens?" icon="lock">
-  `veAERO` is the voting token of Aerodrome. It is created by locking `AERO` for up to four
-  years. Holders of `veAERO` vote each week to distribute `AERO` to LPs. In exchange for this
-  service, voters receive 100% of protocol revenue from the pools they vote for. See
+<Accordion title="What is veAERO, and how do I lock tokens?">
+  `veAERO` is the voting token of Aerodrome. It is created by locking `AERO` for up to four years.
+  Holders of `veAERO` vote each week to distribute `AERO` to LPs. In exchange for this service,
+  voters receive 100% of protocol revenue from the pools they vote for. See
   [Lock](/overview/core-features/lock) documentation for step-by-step instructions.
 </Accordion>
 
-<Accordion title="What is a gauge?" icon="gauge">
+<Accordion title="What is a gauge?">
   A gauge functions like the clearing house for each liquidity pool that is eligible for emissions.
   `veAERO` holders cast votes which go into the gauge, new `AERO` emissions are sent to the gauge
   for distribution, and fees and incentives are also in the gauge before being sent to voters for
   that pool.
 </Accordion>
 
-  <Accordion title="How do incentives work, and why do protocols use them?" icon="gift">
+  <Accordion title="How do incentives work, and why do protocols use them?">
     Incentives are tokens deposited into liquidity pool gauges with the aim of attracting voters to direct emissions to the pool. They are integral to the bootstrapping mechanics of Aerodrome. For example: if a protocol wants liquidity providers to deposit tokens in a new pool before it has any swap fees, they can deposit an incentive. That incentive attracts voters (who claim the incentive if they vote for the pool). The more votes for the pool, the more `AERO` emissions are directed to it. Then liquidity providers deposit and stake liquidity in the pool to earn those emissions.
   </Accordion>
 </AccordionGroup>
@@ -230,7 +228,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Liquidity and Rewards
 
 <AccordionGroup>
-  <Accordion title="How are trading fees distributed between LPs and veNFT holders?" icon="chart-pie">
+  <Accordion title="How are trading fees distributed between LPs and veNFT holders?">
     **Fee distribution summary:**
 
     - **Staked liquidity**: 100% of trading fees sent to voters
@@ -243,7 +241,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="How do I claim my rewards?" icon="hand-holding-dollar">
+  <Accordion title="How do I claim my rewards?">
     ### To claim your rewards
 
 <Steps>
@@ -258,7 +256,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-<Accordion title="What does it mean to 'stake' my LP?" icon="layer-group">
+<Accordion title="What does it mean to 'stake' my LP?">
   Staking your deposit means you will no longer receive swap fees as rewards and instead will
   receive `AERO` emissions. This is beneficial when the `AERO` emissions directed to the pool (based
   on votes) exceed the trading fees you would earn from unstaked liquidity.
@@ -269,11 +267,11 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Pool Types and Trading
 
 <AccordionGroup>
-  <Accordion title="What's the difference between volatile and stable pools?" icon="water">
+  <Accordion title="What's the difference between volatile and stable pools?">
     Volatile pools are optimized for non-correlated assets (e.g. `AERO` and `BTC`). Stable pools are optimized for closely correlated assets (often different versions of the same asset, e.g. `WETH` and `ETH`).
   </Accordion>
 
-  <Accordion title="How does CLAMM work?" icon="chart-line">
+  <Accordion title="How does CLAMM work?">
     Aerodrome's concentrated liquidity solution is called "Slipstream." LPs who deposit into a concentrated pool must select a price range where their liquidity will be active. They will then receive rewards only when the actively traded price is within that range. They can also choose to use "Autopilot," an automated liquidity management tool from Mellow.
 
     <Warning>
@@ -286,7 +284,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Concentrated Liquidity (CL)
 
 <AccordionGroup>
-  <Accordion title="What is concentrated liquidity and how does it work?" icon="chart-line">
+  <Accordion title="What is concentrated liquidity and how does it work?">
     Aerodrome's concentrated liquidity solution is called "Slipstream." LPs deposit liquidity within specific price ranges for higher capital efficiency. You only earn rewards when the active price is within your selected range.
 
     **Key features:**
@@ -303,7 +301,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="How do I manage my CL position?" icon="sliders">
+  <Accordion title="How do I manage my CL position?">
     For detailed guidance on managing concentrated liquidity positions, including:
     - Choosing narrow vs wide ranges
     - What happens when price moves out of range
@@ -318,7 +316,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Should I use Autopilot for my CL position?" icon="robot">
+  <Accordion title="Should I use Autopilot for my CL position?">
     Autopilot is an automated liquidity management tool that handles rebalancing for you. Consider Autopilot if:
     - You don't want to manually rebalance positions
     - You can't actively monitor price movements
@@ -334,7 +332,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Security and Protocol
 
 <AccordionGroup>
-  <Accordion title="Are Aerodrome contracts audited? By whom?" icon="shield-check">
+  <Accordion title="Are Aerodrome contracts audited? By whom?">
     Chain Security is our preferred security partner. We usually involve their team as early as possible in the conversations about architecture security, trust assumptions and more generic security operations.
 
     We've also worked and have a deep appreciation for teams like Spearbit and Sherlock.
@@ -343,7 +341,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="How is team compensation structured?" icon="wallet">
+  <Accordion title="How is team compensation structured?">
     The launch of Aerodrome included the creation of a wallet dedicated to funding ongoing development and operations support. That wallet received 19% of the initial supply of `AERO` (as locked `veAERO`) and also receives 5% of weekly emissions. The wallet uses this voting position each week to earn rewards. Those rewards are then used to compensate the development company. This method of compensation is crucial to maintaining a sustainable system because it aligns the interests of any contributor with the interests of all other stakeholders.
   </Accordion>
 </AccordionGroup>
@@ -351,7 +349,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## veNFT Management
 
 <AccordionGroup>
-  <Accordion title="How do I transfer, sell, or manage my veNFT?" icon="arrow-right-arrow-left">
+  <Accordion title="How do I transfer, sell, or manage my veNFT?">
     veNFTs are transferable like any other NFT and can be traded on third-party platforms.
 
     **Transfer options:**
@@ -360,13 +358,14 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
     - The recipient inherits all voting rights and rewards
 
     For all lock management operations including merging and permanent locks, see the [Lock guide](/overview/core-features/lock#managing-your-lock).
+
   </Accordion>
 </AccordionGroup>
 
 ## Relay (Managed veNFTs)
 
 <AccordionGroup>
-  <Accordion title="What is Relay and how does it work?" icon="robot">
+  <Accordion title="What is Relay and how does it work?">
     Relay is an automated veAERO management system that handles voting, lock extensions, and reward compounding for you.
 
     **Key points:**
@@ -381,7 +380,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Who controls voting when I deposit into Relay?" icon="vote-yea">
+  <Accordion title="Who controls voting when I deposit into Relay?">
     The Relay manager controls your weekly gauge votes while your veAERO is deposited. You retain ownership of your position and can withdraw after the first epoch completes.
 
     **→ [Learn more about Relay](/overview/core-features/lock/relay)**
@@ -392,7 +391,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Voting & Gauges
 
 <AccordionGroup>
-  <Accordion title="How do I split votes across multiple pools?" icon="chart-pie">
+  <Accordion title="How do I split votes across multiple pools?">
     You can distribute your voting power across as many pools as you want:
 
     <Steps>
@@ -428,7 +427,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Can I change my vote mid-epoch?" icon="rotate">
+  <Accordion title="Can I change my vote mid-epoch?">
     Yes, but with important caveats:
 
     **How to change votes:**
@@ -450,7 +449,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Do votes carry over to the next epoch?" icon="calendar-check">
+  <Accordion title="Do votes carry over to the next epoch?">
     **Yes, votes carry over automatically** unless:
     - You manually reset your votes
     - Your veNFT lock expires (voting power becomes zero)
@@ -470,7 +469,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="When is the vote deadline and when do rewards start?" icon="clock">
+  <Accordion title="When is the vote deadline and when do rewards start?">
     **Weekly epoch timeline (all times UTC):**
 
     | Event | Day/Time | Details |
@@ -495,7 +494,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="How do I choose pools to maximize returns?" icon="brain">
+  <Accordion title="How do I choose pools to maximize returns?">
     Choosing pools requires balancing multiple factors. Here are key considerations (not investment advice):
 
     **1. Check incentives and bribes:**
@@ -533,14 +532,25 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 ## Integrations
 
 <AccordionGroup>
-  <Accordion title="How does Coinbase's DEX integration tie into Aerodrome?" icon="building-columns">
+  <Accordion title="How does Coinbase's DEX integration tie into Aerodrome?">
     Coinbase integrated DEX trading in August 2024. This means that Coinbase users can trade for assets on Aerodrome directly from the Coinbase UI. For Coinbase users, this means increased access to onchain assets. For liquidity providers, this means a new volume source. For protocols this means broader access to users. For `veAERO` holders, this means increased fees distributed as voting rewards.
   </Accordion>
 
-  <Accordion title="What is 'the MetaDEX'?" icon="diagram-project">
+  <Accordion title="What is 'the MetaDEX'?">
     MetaDEX is the underlying model of Aerodrome. Think of it as an operating system for DEXs. The current version of the MetaDEX is METADEX02.
 
     Learn more on the [Aerodrome blog](https://paragraph.com/@dromos).
 
   </Accordion>
 </AccordionGroup>
+
+## More resources
+
+<CardGroup cols={2}>
+  <Card title="FAQ for Partners" icon="handshake" href="/help/faqs/partners/partners">
+    Information for protocol teams launching tokens and managing liquidity
+  </Card>
+  <Card title="Discord Support" icon="discord" href="/help/discord">
+    Get help from the Aerodrome community
+  </Card>
+</CardGroup>
