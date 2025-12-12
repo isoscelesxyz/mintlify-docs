@@ -54,16 +54,6 @@ During the first 14 weeks (epochs), emissions increased at 3% per week, allowing
 
 After Epoch 14, emissions decayed at 1% per epoch, ensuring total supply inflation decreased over time as the protocol matured.
 
-### AERO Fed
-
-When emissions programmatically dropped under 9M per epoch, a transition period began which is designed to end in `veAERO` voters taking control of Aerodrome's monetary policy through the AERO Fed system, determining each epoch one of three outcomes:
-
-- **Increase emissions** by 0.01% of total supply (0.52% annualized)
-- **Decrease emissions** by 0.01% of total supply (0.52% annualized)
-- **Maintain emissions** unchanged as a % of total supply
-
-The winning vote will be determined by simple majority. If an Increase or Decrease is selected, the emission rate will change one full epoch after the vote. A max emission rate will be set at 1% of total supply per week (52% annualized) and a minimum rate at 0.01% per week (0.52% annualized).
-
 ### Rebase
 
 veAERO holders receive a rebase proportional to AERO emissions and to the ratio of veAERO to AERO supply, reducing vote power dilution for veAERO.
@@ -78,7 +68,7 @@ This rebase formula will reward `veAERO` holders most when locking rates decreas
 
 <CardGroup cols={3}>
   <Card title="Lock AERO" icon="lock" href="/overview/core-features/lock">
-    Create veAERO to participate in governance and earn protocol revenue
+    Create veAERO to vote on emissions and earn protocol revenue
   </Card>
   <Card title="Vote on Gauges" icon="check-to-slot" href="/overview/core-features/vote">
     Use your veAERO to direct emissions and earn rewards

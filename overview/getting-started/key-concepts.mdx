@@ -68,9 +68,9 @@ This reference defines key terms and concepts for understanding Aerodrome and de
 
 **AERO**: The native protocol token of Aerodrome. Users can lock `AERO` to receive veAERO and participate in voting.
 
-**veAERO** (vote-escrowed `AERO):` Locked `AERO` tokens that grant governance rights and voting power. The longer the lock period (1 week to 4 years), the more voting power granted. veAERO holders vote to direct emissions and earn protocol revenue.
+**veAERO** (vote-escrowed `AERO`): Locked `AERO` tokens that grant voting power. The longer the lock period (1 week to 4 years), the more voting power granted. veAERO holders vote to direct emissions and earn protocol revenue.
 
-**Epochs**: Aerodrome operates on seven-day epochs, starting every Thursday at 00:00 UTC and ending the following Wednesday at 23:59 UTC. Emissions, fee distributions, voting, governance actions, and all other protocol activities align with this weekly schedule.
+**Epochs**: Aerodrome operates on seven-day epochs, starting every Thursday at 00:00 UTC and ending the following Wednesday at 23:59 UTC. Emissions, fee distributions, voting, and all other protocol activities align with this weekly schedule.
 
 **Emissions**: New `AERO` tokens that are automatically minted each week and distributed to liquidity providers based on gauge votes. Emissions follow a decay schedule detailed in [Emissions](/overview/tokenomics/emissions).
 
@@ -82,9 +82,9 @@ This reference defines key terms and concepts for understanding Aerodrome and de
 
 **Rebase**: Each week, veAERO holders receive additional veAERO tokens proportional to their voting power, reducing dilution from new emissions. For example, if you hold 100 veAERO, you might receive 2-3 additional veAERO weekly depending on the rebase rate.
 
-**Locking**: In Aerodrome, "locking" most often refers to the process of converting liquid `AERO` into an NFT that grants its holder governance rights (namely, the ability to vote to direct weekly token emissions). The longer the lock period, the more voting power is granted.
+**Locking**: In Aerodrome, "locking" refers to converting liquid `AERO` into a veNFT that grants voting power to direct weekly token emissions. The longer the lock period, the more voting power is granted.
 
-**Relay**: Aerodrome's automation tool for managing veAERO positions, including voting, reward claims, and position adjustments. Relays simplify governance participation for veAERO holders.
+**Relay**: Aerodrome's automation tool for managing veAERO positions, including voting, reward claims, and position adjustments. Relays simplify voting for veAERO holders.
 
 ## Advanced veNFT Concepts
 
@@ -96,13 +96,7 @@ This reference defines key terms and concepts for understanding Aerodrome and de
 
 **Voting Power**: The weight of your veAERO when voting on weekly gauge emissions. Calculated as locked `AERO` amount multiplied by remaining lock duration. Used to direct `AERO` emissions to liquidity pools.
 
-**Governance Power**: The weight of your veAERO when voting on protocol proposals (via Snapshot or onchain governance). Same numeric value as voting power but used for protocol-level decisions rather than weekly emissions.
-
 **Merge**: Combining multiple veNFTs into a single position. All `AERO` from merged veNFTs consolidates into one NFT with a weighted-average lock duration. This operation is irreversible—merged veNFTs are permanently burned.
-
-**Split**: Dividing one veNFT into multiple smaller positions. All resulting veNFTs inherit the original lock expiry date. Useful for selling portions of a position or diversifying voting strategies.
-
-**Delegation**: Lending your veNFT's voting power to another address while retaining ownership and rebases. The delegatee controls gauge votes but you keep governance power and earn rebases. Delegation can be revoked at any time.
 
 ## Protocol Programs & Tools
 
@@ -113,8 +107,6 @@ This reference defines key terms and concepts for understanding Aerodrome and de
 **Slipstream**: Aerodrome's concentrated liquidity implementation with enhancements over Uniswap V3, including decoupled tick spacing, dynamic fees, and optimized reward streaming. Named to distinguish from basic V2-style pools.
 
 **Sugar**: Aerodrome's onchain API for querying protocol data without external dependencies. Provides read-only access to pool information, positions, rewards, and voting data directly from blockchain state. See [Sugar API](/development/sugar).
-
-**AERO Fed**: Governance system activated when emissions drop below 9M per epoch. Allows veAERO voters to collectively decide each week whether to increase (0.01% of supply), decrease (0.01% of supply), or maintain emission rates. This creates community-controlled monetary policy.
 
 **Aero Launch**: Permissionless pool creation system that allows any project to launch liquidity pools with optional liquidity locking. Projects can create V2 or concentrated pools, set initial pricing, and lock liquidity to signal long-term commitment.
 
