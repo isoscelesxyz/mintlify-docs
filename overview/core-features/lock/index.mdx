@@ -1,10 +1,10 @@
 ---
 title: "Locking AERO"
 description: "Learn how to lock AERO tokens, earn veAERO, and vote on emissions"
-sidebarTitle: "Lock"
+sidebarTitle: "Overview"
 ---
 
-This guide is for `AERO` holders who want to participate in governance and earn protocol revenue. You will learn how to lock `AERO` tokens to create `veAERO`, enabling you to vote on emissions, earn protocol revenue, and participate in Aerodrome governance.
+This guide is for `AERO` holders who want to vote on emissions and earn protocol revenue. You will learn how to lock `AERO` tokens to create veAERO, enabling you to vote on emissions and earn protocol revenue.
 
 <Warning>
   Locked `AERO` cannot be unlocked early. Once you lock your tokens for a duration (minimum 1 week,
@@ -23,7 +23,7 @@ You'll need:
 
 ## How locking works
 
-Each week, Aerodrome distributes 100% of protocol revenue (swap fees + voting incentives) to <Tooltip tip="Vote-escrowed AERO - locked AERO tokens that grant governance rights">veAERO</Tooltip> voters. When you lock `AERO`, you receive a veAERO position that grants voting power. Your voting power increases proportionally with lock duration, reaching maximum power at four years.
+Each week, Aerodrome distributes 100% of protocol revenue (swap fees + voting incentives) to <Tooltip tip="Vote-escrowed AERO - locked AERO tokens that grant voting power">veAERO</Tooltip> voters. When you lock `AERO`, you receive a veAERO position that grants voting power. Your voting power increases proportionally with lock duration, reaching maximum power at four years.
 
 <Tip>
   **Transferable advantage**: Unlike some ve-tokenomics models (e.g., Curve's veCRV), veAERO
@@ -58,8 +58,6 @@ Each week, Aerodrome distributes 100% of protocol revenue (swap fees + voting in
   Choose your lock duration. Locks can be extended but never decreased. Your voting power increases
   proportionally with duration, with maximum voting power achieved at four years.
 
-Your voting power increases proportionally with the duration of your lock, with the maximum voting power achieved at four years.
-
 </Step>
 
 <Step title="Confirm lock creation">
@@ -78,7 +76,7 @@ Your voting power increases proportionally with the duration of your lock, with 
 
 After creating your lock, you can modify it in several ways:
 
-### Add more AERO to your lock
+### Increase lock amount
 
 Increase the amount of `AERO` in an existing lock to boost your voting power immediately without changing your lock duration.
 
@@ -96,7 +94,7 @@ Increase the amount of `AERO` in an existing lock to boost your voting power imm
 </Step>
 </Steps>
 
-### Extend your lock duration
+### Extend duration
 
 Extend your lock expiry date to increase your voting power. You can extend at any time, even before your current lock expires.
 
@@ -115,10 +113,124 @@ Extend your lock expiry date to increase your voting power. You can extend at an
 </Step>
 </Steps>
 
+### Poke
+
+If you've increased your lock amount or extended your duration after voting, use "Poke" to sync your new voting power with your existing votes.
+
+<Steps>
+<Step title="Navigate to your lock">
+  Go to your veAERO position in the Locks dashboard.
+</Step>
+
+<Step title="Click Poke">
+  Click "Poke" to update your voting power across all pools you've voted for this epoch.
+</Step>
+</Steps>
+
 <Info>
-  For advanced veNFT management including merging, splitting, delegation, and permanent locks, see
-  [Advanced veNFT Management](/overview/core-features/lock/advanced).
+  Poke is only needed if you've modified your lock after voting. Your votes carry over each epoch
+  automatically—you only need to vote again if you want to change your allocation.
 </Info>
+
+### Reset
+
+Clear your votes from the previous epoch to reallocate your voting power to different pools.
+
+<Steps>
+<Step title="Navigate to your lock">
+  Go to your veAERO position in the Locks dashboard.
+</Step>
+
+<Step title="Click Reset">
+  Click "Reset" to clear your vote allocation. This is only available if you haven't voted in the
+  current epoch yet.
+</Step>
+
+<Step title="Vote on new pools">
+  After resetting, you can allocate your voting power to different pools.
+</Step>
+</Steps>
+
+<Info>
+  Reset is only available between epochs if you haven't voted yet in the current epoch. If you've
+  already voted this epoch, you cannot reset until the next epoch begins.
+</Info>
+
+### Merge
+
+Combine multiple veNFT positions into a single position to consolidate voting power and simplify management.
+
+<Steps>
+<Step title="Select source positions">
+  Navigate to your Locks dashboard and identify the veNFTs you want to merge. You must own all positions.
+</Step>
+
+<Step title="Initiate merge">
+  Select the veNFT you want to merge into (the "destination") and the veNFT(s) you want to merge
+  from (the "source").
+</Step>
+
+<Step title="Confirm transaction">
+  Review the resulting position details. The lock duration is a **weighted average** based on the amount of `AERO` and remaining lock time in each position. Once confirmed, source veNFTs are permanently burned.
+</Step>
+</Steps>
+
+<Warning>
+  Merging veNFTs is **irreversible**. Source veNFTs are burned permanently and cannot be recovered.
+</Warning>
+
+### Transfer
+
+veAERO positions are ERC-721 NFTs that can be transferred to another wallet or sold on secondary markets.
+
+<Steps>
+<Step title="Select your lock">
+  Navigate to the veNFT you want to transfer in your Locks dashboard.
+</Step>
+
+<Step title="Enter recipient address">
+  Click "Transfer" and enter the wallet address of the recipient.
+</Step>
+
+<Step title="Confirm transaction">
+  The recipient receives full control of the veNFT, including voting rights and future rewards.
+</Step>
+</Steps>
+
+<Info>
+  veNFTs often trade at a discount to underlying `AERO` value on secondary markets. Discount
+  increases as lock expiry approaches.
+</Info>
+
+### Auto max-lock
+
+Enable permanent maximum voting power by locking your `AERO` indefinitely.
+
+A permanent lock:
+
+- Maintains **maximum voting power** (equivalent to a 4-year lock) indefinitely
+- **Never decays** - voting power remains constant
+- **Cannot be unlocked** - the `AERO` is locked forever
+- Can only be exited by selling or transferring the veNFT
+
+<Steps>
+<Step title="Select position">
+  Navigate to the veNFT you want to convert to a permanent lock.
+</Step>
+
+<Step title="Enable permanent lock">
+  Click "Enable Permanent Lock" and carefully review the warning.
+</Step>
+
+<Step title="Confirm transaction">
+  Your veNFT now has permanent maximum voting power and can never be unlocked.
+</Step>
+</Steps>
+
+<Warning>
+  Permanent locks are **completely irreversible**. Your `AERO` will be locked forever. The only way
+  to exit is to sell or transfer the veNFT on secondary markets.
+</Warning>
 
 ## Optimize with Relays
 
@@ -133,18 +245,26 @@ Learn more: [Relay](/overview/core-features/lock/relay)
     No. Locked `AERO` cannot be unlocked before the expiry date. This is a core design feature of the veAERO system. Plan your lock duration carefully based on your liquidity needs.
   </Accordion>
 
-<Accordion title="My lock expired - what happens now?">
-  When your lock expires, your veAERO voting power drops to zero but your `AERO` remains locked. You
-  can either unlock and withdraw your `AERO` or extend your lock to restore voting power.
-</Accordion>
+  <Accordion title="My lock expired - what happens now?">
+    When your lock expires, your veAERO voting power drops to zero but your `AERO` remains locked. You
+    can either unlock and withdraw your `AERO` or extend your lock to restore voting power.
+  </Accordion>
 
-<Accordion title="Can I transfer my veAERO NFT?">
-  Yes. veAERO is implemented as an NFT, so you can transfer it to another wallet or sell it. The new
-  holder will have the voting rights and receive rewards for that position.
-</Accordion>
+  <Accordion title="Can I transfer my veAERO NFT?">
+    Yes. veAERO is implemented as an NFT, so you can transfer it to another wallet or sell it. The new
+    holder will have the voting rights and receive rewards for that position.
+  </Accordion>
 
   <Accordion title="Can I add more AERO to an existing lock?">
     Yes. You can increase the amount of `AERO` in an existing lock at any time. Your voting power increases immediately while your lock expiry date remains unchanged. See [Managing your lock](#managing-your-lock) above for details.
+  </Accordion>
+
+  <Accordion title="Can I merge veNFTs with different lock expiry dates?">
+    Yes. When you merge veNFTs with different expiry dates, the resulting lock duration is calculated as a **weighted average** based on the amount of `AERO` and remaining lock time in each position.
+  </Accordion>
+
+  <Accordion title="Can I reverse a permanent lock?">
+    No. You cannot reverse a permanent lock under any circumstances. This is by design and cannot be changed. The only way to exit is to sell or transfer the veNFT itself. Never enable a permanent lock unless you are certain of your long-term commitment.
   </Accordion>
 </AccordionGroup>
 
@@ -157,11 +277,7 @@ Learn more: [Relay](/overview/core-features/lock/relay)
   <Card title="Understand Relays" icon="tower-broadcast" href="/overview/core-features/lock/relay">
     Automate your voting strategy with Relays
   </Card>
-  <Card
-    title="Advanced veNFT Management"
-    icon="sliders"
-    href="/overview/core-features/lock/advanced"
-  >
-    Learn about merging, splitting, delegation, and permanent locks
+  <Card title="Claim Rewards" icon="gift" href="/overview/core-features/rewards">
+    Learn how to claim fees, bribes, and rebases
   </Card>
 </CardGroup>

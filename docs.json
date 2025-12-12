@@ -17,7 +17,7 @@
     "description": "Official documentation for Aerodrome Finance - the essential trading hub and liquidity marketplace on Base",
     "og:site_name": "Aerodrome Documentation",
     "og:title": "Aerodrome Finance Documentation",
-    "og:description": "Learn how to swap, provide liquidity, lock AERO, and participate in governance on Aerodrome Finance",
+    "og:description": "Learn how to swap, provide liquidity, lock AERO, and vote on emissions on Aerodrome Finance",
     "twitter:site": "@AerodromeFi"
   },
   "search": {
@@ -63,7 +63,6 @@
                 "group": "Lock",
                 "pages": [
                   "overview/core-features/lock/index",
-                  "overview/core-features/lock/advanced",
                   "overview/core-features/lock/relay"
                 ]
               },

@@ -54,7 +54,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
   </Accordion>
 
   <Accordion title="Where can I get tokens on Base?" icon="coins">
-    You need tokens on Base network to swap, provide liquidity, or participate in governance.
+    You need tokens on Base network to swap, provide liquidity, or vote on emissions.
 
     **Option 1: Bridge from Ethereum**
     - Use the official [Base Bridge](https://bridge.base.org) (recommended)
@@ -74,7 +74,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
     **What tokens you'll need:**
     - **ETH**: Required for gas fees (even small amounts work)
     - **USDC/WETH**: Common for swapping and providing liquidity
-    - **AERO**: If you want to participate in governance (can swap for it on Aerodrome)
+    - **AERO**: If you want to vote on emissions and earn protocol revenue (can swap for it on Aerodrome)
 
     <Tip>
     Start with at least $20 worth of ETH for gas fees and some USDC or WETH to experiment with swapping and liquidity provision.
@@ -129,7 +129,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
   </Accordion>
 
   <Accordion title="What are epochs and why do they matter?" icon="calendar-week">
-    **Epochs** are 7-day governance periods that run from **Thursday 00:00 UTC** to **Wednesday 23:59 UTC**. All protocol activities align with this weekly schedule.
+    **Epochs** are 7-day periods that run from **Thursday 00:00 UTC** to **Wednesday 23:59 UTC**. All protocol activities align with this weekly schedule.
 
     **What happens each epoch:**
 
@@ -158,7 +158,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
     - Pool liquidity may shift based on weekly vote changes
 
     **Key insight:**
-    Epochs create a predictable rhythm for governance, emissions, and rewards. Understanding this schedule helps you time votes, claims, and liquidity decisions.
+    Epochs create a predictable rhythm for voting, emissions, and rewards. Understanding this schedule helps you time votes, claims, and liquidity decisions.
 
     <Tip>
     Most active participants vote near the Wednesday deadline after seeing final incentive amounts. This maximizes information before committing votes.
@@ -201,15 +201,15 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
   </Accordion>
 </AccordionGroup>
 
-## Tokens and Governance
+## Tokens and Voting
 
 <AccordionGroup>
-  <Accordion title="What is AERO and what role does it play in governance?" icon="coins">
+  <Accordion title="What is AERO and how is it used?" icon="coins">
     `AERO` is the utility token of Aerodrome. It is distributed each week through a process called "emissions" in which voters direct newly minted tokens to liquidity providers with staked deposits. Learn more about [emissions and tokenomics](/overview/tokenomics/emissions).
   </Accordion>
 
 <Accordion title="What is veAERO, and how do I lock tokens?" icon="lock">
-  `veAERO` is the governance token of Aerodrome. It is created by locking `AERO` for up to four
+  `veAERO` is the voting token of Aerodrome. It is created by locking `AERO` for up to four
   years. Holders of `veAERO` vote each week to distribute `AERO` to LPs. In exchange for this
   service, voters receive 100% of protocol revenue from the pools they vote for. See
   [Lock](/overview/core-features/lock) documentation for step-by-step instructions.
@@ -359,12 +359,7 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
     - Sell on NFT marketplaces (often at a discount)
     - The recipient inherits all voting rights and rewards
 
-    For advanced operations including merging, splitting, delegation, and permanent locks:
-
-    **→ [Advanced veNFT Management Guide](/overview/core-features/lock/advanced)**
-
-    **→ [veNFT Transferability Details](/overview/core-features/lock/advanced#venft-transferability-and-secondary-markets)**
-
+    For all lock management operations including merging and permanent locks, see the [Lock guide](/overview/core-features/lock#managing-your-lock).
   </Accordion>
 </AccordionGroup>
 
@@ -386,10 +381,10 @@ section with step-by-step solutions. View the sidebar navigation for [Overview](
 
   </Accordion>
 
-  <Accordion title="Do I retain governance rights with Relay?" icon="vote-yea">
-    Yes. While the Relay manager controls your weekly gauge votes, you retain governance voting power for protocol proposals.
+  <Accordion title="Who controls voting when I deposit into Relay?" icon="vote-yea">
+    The Relay manager controls your weekly gauge votes while your veAERO is deposited. You retain ownership of your position and can withdraw after the first epoch completes.
 
-    **→ [Learn more about governance rights](/overview/core-features/lock/relay#governance-rights)**
+    **→ [Learn more about Relay](/overview/core-features/lock/relay)**
 
   </Accordion>
 </AccordionGroup>
