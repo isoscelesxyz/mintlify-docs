@@ -61,10 +61,7 @@
               },
               {
                 "group": "Lock",
-                "pages": [
-                  "overview/core-features/lock/index",
-                  "overview/core-features/lock/relay"
-                ]
+                "pages": ["overview/core-features/lock/index", "overview/core-features/lock/relay"]
               },
               "overview/core-features/vote",
               "overview/core-features/rewards",
