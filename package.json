@@ -9,7 +9,8 @@
     "format": "prettier --write \"**/*.{mdx,md,json,jsonc}\"",
     "lint": "eslint . && markdownlint-cli2",
     "lint:fix": "markdownlint-cli2 --fix",
-    "validate": "prettier --check \"**/*.{mdx,md,json,jsonc}\" && pnpm lint"
+    "validate": "prettier --check \"**/*.{mdx,md,json,jsonc}\" && pnpm lint",
+    "broken-links": "mint broken-links"
   },
   "engines": {
     "node": ">=19.0.0"
