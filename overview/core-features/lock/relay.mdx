@@ -10,7 +10,7 @@ When you deposit your veAERO into a Relay, the system automates several key func
 - **Auto max-lock**: Your veAERO lock duration automatically extends to the maximum (4 years) and maintains that duration
 - **Automatic voting**: The Relay strategy votes on your behalf each <Tooltip tip="7-day period from Thursday 00:00 UTC to Wednesday 23:59 UTC">epoch</Tooltip> according to its programmed logic
 - **Rebase auto-compounding**: Weekly <Tooltip tip="Emissions distributed to veAERO holders based on their voting power">rebases</Tooltip> are automatically claimed and added to your locked position
-- **Reward handling**: Trading fees and bribes are processed according to your chosen strategy type (see below)
+- **Reward handling**: Trading fees and incentives are processed according to your chosen strategy type (see below)
 
 <Warning>
   Depositing into a Relay automatically sets your veAERO to max-lock (4 years). You cannot unlock
@@ -25,12 +25,12 @@ Relay offers two strategy types that handle rewards differently.
 
 **Goal**: Maximize veAERO voting power over time
 
-All rewards (rebases, trading fees, and <Tooltip tip="Incentives deposited by protocols to attract votes to their gauges">bribes</Tooltip>) are automatically converted to `AERO` and locked to increase your veAERO position. You receive accumulated rewards when you withdraw from the Relay.
+All rewards (rebases, trading fees, and incentives) are automatically converted to `AERO` and locked to increase your veAERO position. You receive accumulated rewards when you withdraw from the Relay.
 
 **Reward flow**:
 
 1. Relay votes for high-reward pools each <Tooltip tip="7-day period from Thursday 00:00 UTC to Wednesday 23:59 UTC">epoch</Tooltip>
-2. Trading fees and bribes accrue to the managed veNFT
+2. Trading fees and incentives accrue to the managed veNFT
 3. All rewards are converted to `AERO`
 4. `AERO` is locked, increasing your voting power
 5. Accumulated rewards are distributed proportionally when you withdraw
@@ -48,7 +48,7 @@ All rewards (rebases, trading fees, and <Tooltip tip="Incentives deposited by pr
 **Goal**: Generate liquid yield while maintaining veAERO exposure
 
 <Tooltip tip="Emissions distributed to veAERO holders based on their voting power">Rebases</Tooltip>
-compound into your veAERO position, but trading fees and bribes are converted to a target asset
+compound into your veAERO position, but trading fees and incentives are converted to a target asset
 (such as USDC, ETH, or OP) that you can claim weekly. The voting strategy may prioritize pools
 containing the target asset.
 
@@ -56,7 +56,7 @@ containing the target asset.
 
 1. Relay votes for pools (often containing the target asset)
 2. Weekly rebases are auto-compounded into your veAERO
-3. Trading fees and bribes are converted to the target asset
+3. Trading fees and incentives are converted to the target asset
 4. Converted rewards become claimable immediately
 5. You can claim rewards anytime without withdrawing
 
@@ -144,7 +144,7 @@ The **veAERO MAXI Relay** uses a compounder strategy with these functions:
 
 - **Voting**: Votes for pools that historically generate high reward value
 - **Rebasing**: Claims the weekly rebase and locks it into deposited veNFTs
-- **Rewards conversion**: Claims trading fees and bribes, converts them to `AERO`
+- **Rewards conversion**: Claims trading fees and incentives, converts them to `AERO`
 - **Locking**: Locks all converted `AERO`, proportionally increasing voting power for all depositors
 
 **Strategy type**: Compounder (locked rewards)
@@ -158,7 +158,7 @@ These strategies typically vote to support their own liquidity pools. Partner pr
 **Common partner strategies**:
 
 - **Compounders**: Lock all rewards to grow depositor voting power while voting for partner pools
-- **Convertors**: Compound rebases but convert fees/bribes to target asset (often partner protocol token or stablecoin)
+- **Convertors**: Compound rebases but convert fees/incentives to target asset (often partner protocol token or stablecoin)
 
 Partner protocols can request a Relay strategy.
 
