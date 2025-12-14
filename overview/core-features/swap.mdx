@@ -108,6 +108,8 @@ Your total cost includes:
 2. **Price impact** - Depends on trade size vs liquidity
 3. **Gas fees** - ~$0.05-0.30 on Base
 
+**Multi-hop fee accumulation**: For routes with multiple hops, fees compound at each step. A 2-hop route through pools with 0.3% and 0.05% fees costs `1 - (0.997 × 0.9995) ≈ 0.35%`—slightly less than simple addition due to compounding. The router factors this into route selection.
+
 ---
 
 ## Slippage and price impact
