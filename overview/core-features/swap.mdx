@@ -16,6 +16,7 @@ As the essential trading hub of Base, Aerodrome is the exchange of choice for us
     In the **Sell** field, select the token you want to swap from.
 
     In the **Buy** field, select the token you want to receive.
+
   </Step>
   <Step title="Enter amount">
     Input the amount you'd like to trade in either the Sell or Buy field. The other field will automatically calculate based on the current exchange rate.
@@ -27,6 +28,7 @@ As the essential trading hub of Base, Aerodrome is the exchange of choice for us
     If this is your first time swapping this token, you'll need to approve the contract to spend your tokens. Click **Approve** and confirm the transaction in your wallet.
 
     _This is giving permission to the contract to spend your tokens on your behalf for the amount you've chosen in order to make the swap._
+
   </Step>
   <Step title="View confirmation">
     After the transaction completes, you can view the receipt by clicking **View confirmation**.
@@ -51,16 +53,19 @@ The interface selects the path with the **best net output** and submits it to th
 ### Route examples
 
 **Single-hop (direct)**:
+
 ```
 USDC → [USDC/WETH pool] → WETH
 ```
 
 **Multi-hop (indirect)**:
+
 ```
 RARE_TOKEN → [RARE_TOKEN/WETH pool] → WETH → [WETH/USDC pool] → USDC
 ```
 
 **Mixed pool types**:
+
 ```
 TOKEN_A → [Basic pool] → WETH → [CL pool] → USDC
 ```
@@ -89,14 +94,14 @@ The protocol can set custom fees (0-3%) for specific pools.
 
 Slipstream concentrated liquidity pools have fees based on tick spacing:
 
-| Tick Spacing | Fee    | Typical Use Case                    |
-| ------------ | ------ | ----------------------------------- |
-| 1            | 0.01%  | Highly correlated (LSTs, wrappers)  |
-| 10           | 0.05%  | Stable pairs                        |
-| 50           | 0.05%  | Stable pairs                        |
-| 100          | 0.05%  | Correlated volatile pairs           |
-| 200          | 0.30%  | Standard volatile pairs             |
-| 2000         | 1.00%  | Exotic/low-liquidity pairs          |
+| Tick Spacing | Fee   | Typical Use Case                   |
+| ------------ | ----- | ---------------------------------- |
+| 1            | 0.01% | Highly correlated (LSTs, wrappers) |
+| 10           | 0.05% | Stable pairs                       |
+| 50           | 0.05% | Stable pairs                       |
+| 100          | 0.05% | Correlated volatile pairs          |
+| 200          | 0.30% | Standard volatile pairs            |
+| 2000         | 1.00% | Exotic/low-liquidity pairs         |
 
 The protocol can set custom fees (up to 3%) for specific pools.
 
@@ -121,7 +126,11 @@ Your total cost includes:
 
 ### Slippage tolerance
 
-<Tooltip tip="The difference between the quoted price and the actual executed price">Slippage</Tooltip> occurs when the price changes between when you submit a transaction and when it's executed onchain. **Slippage tolerance** is the maximum price movement you'll accept:
+<Tooltip tip="The difference between the quoted price and the actual executed price">
+  Slippage
+</Tooltip>
+occurs when the price changes between when you submit a transaction and when it's executed onchain.
+**Slippage tolerance** is the maximum price movement you'll accept:
 
 - **Default**: 0.5% (suitable for most swaps)
 - **Stable pairs**: Can use 0.1-0.3%
@@ -129,7 +138,11 @@ Your total cost includes:
 - **Volatile tokens**: May need 3-5%
 
 <Warning>
-  Setting slippage too high (>5%) exposes you to <Tooltip tip="Maximal Extractable Value - bots that extract value by front-running your transaction">MEV</Tooltip> attacks and poor execution. Only increase when necessary.
+  Setting slippage too high (>5%) exposes you to{" "}
+  <Tooltip tip="Maximal Extractable Value - bots that extract value by front-running your transaction">
+    MEV
+  </Tooltip>{" "}
+  attacks and poor execution. Only increase when necessary.
 </Warning>
 
 ### Price impact
@@ -145,10 +158,11 @@ Price impact shows how much your trade will move the market price:
 
 For trades >$10,000, consider splitting across time to reduce price impact and MEV exposure. Execute 25% of the trade, wait 5-10 minutes, then repeat.
 
-For very large trades (>$100k), consider OTC negotiation with LPs or protocols. Contact via [Discord](https://discord.gg/aerodrome) for coordination.
+For very large trades (>$100k), consider OTC negotiation with LPs or protocols. Contact via [Discord](/help/discord) for coordination.
 
 <Tip>
-  For swaps >1% of pool TVL, expect noticeable price impact. Check the pool's TVL on the Pools page before large swaps.
+  For swaps >1% of pool TVL, expect noticeable price impact. Check the pool's TVL on the Pools page
+  before large swaps.
 </Tip>
 
 ---
@@ -169,6 +183,7 @@ For very large trades (>$100k), consider OTC negotiation with LPs or protocols. 
     <Info>
       Approvals are one-time per token. After approving once, you won't need to approve again for that token.
     </Info>
+
   </Accordion>
   <Accordion title="Transaction failed: 'Transaction deadline exceeded'">
     **Cause**: Transaction took too long to process (default 30-minute deadline).
@@ -178,6 +193,7 @@ For very large trades (>$100k), consider OTC negotiation with LPs or protocols. 
     - Retry the swap with current prices
     - Increase deadline in swap settings if network is congested
     - Check Base network status for issues
+
   </Accordion>
   <Accordion title="High slippage warning">
     **Cause**: Low pool liquidity or large trade size relative to available liquidity.
@@ -187,6 +203,7 @@ For very large trades (>$100k), consider OTC negotiation with LPs or protocols. 
     - **Reduce trade amount** to lower price impact
     - **Increase slippage tolerance** carefully (be aware of MEV risks)
     - **Split into multiple trades** over time
+
   </Accordion>
   <Accordion title="Can't find a token">
     **Cause**: Token not in default list or misspelled ticker.
@@ -201,6 +218,7 @@ For very large trades (>$100k), consider OTC negotiation with LPs or protocols. 
     <Warning>
       Always verify contract addresses from official project sources. Scam tokens with similar names exist.
     </Warning>
+
   </Accordion>
   <Accordion title="Swap quote seems wrong or outdated">
     **Cause**: Prices moved since quote was generated, or pool liquidity changed.
@@ -211,6 +229,7 @@ For very large trades (>$100k), consider OTC negotiation with LPs or protocols. 
     - Re-enter amounts to get fresh quote
     - Check if you're comparing against different pools/CEXs (prices vary)
     - Verify you're looking at the correct token (many have similar names)
+
   </Accordion>
 </AccordionGroup>
 
