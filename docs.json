@@ -105,7 +105,6 @@
             "group": "Developer Resources",
             "icon": "code",
             "pages": [
-              "development/sdk",
               "development/sugar",
               "development/data-analytics",
               "development/third-party-integrations"

@@ -1,12 +1,60 @@
 ---
-title: "Sugar Contracts"
+title: "Sugar Contracts & SDKs"
 description: "Decentralized onchain API for Aerodrome protocol data"
+og:image: "/images/content/development/sugar-contracts.jpg"
 ---
 
-Sugar is Aerodrome's onchain API contract that enables fully decentralized data access without relying on centralized indexers, databases, or backend infrastructure.
+<img
+  src="/images/content/development/sugar-contracts.jpg"
+  alt="Sugar Contracts"
+  className="rounded-lg"
+  noZoom
+/>
 
-By aggregating protocol data directly onchain, Sugar allows frontends and applications to remain entirely in web3—avoiding the common pitfall of decentralized protocols depending on centralized data infrastructure. All protocol data is queryable through a single contract call, eliminating the need for traditional backend services.
+### Sugar Smart Contracts
 
-<Card title="Sugar on GitHub" icon="github" href="https://github.com/velodrome-finance/sugar">
+Sugar is Aerodrome and Velodrome's onchain API contract that enables fully decentralized data access without relying on centralized indexers, databases, or backend infrastructure.
+
+By aggregating protocol data directly onchain, Sugar allows frontends and applications to remain entirely in web3—avoiding the common pitfall of decentralized protocols depending on centralized data infrastructure. All protocol data is queryable through a smart contract calls, eliminating the need for traditional backend services.
+
+<Card title="Sugar Contracts" icon="github" href="https://github.com/velodrome-finance/sugar">
   Contract source code, ABI definitions, and integration examples
+</Card>
+
+## SDKs
+
+<img
+  src="/images/content/development/sugar-sdkjs.png"
+  alt="Sugar TypeScript SDK"
+  className="rounded-lg"
+  noZoom
+/>
+
+### Sugar TypeScript SDK
+
+[`@dromos-labs/sdk.js`](https://velodrome-finance.github.io/sdk.js/) is a library that simplifies integration with Aerodrome and Velodrome protocol contracts.
+
+The SDK provides typed interfaces and helper functions for common operations like swaps, liquidity provision, staking, and data queries—making it easier to build applications on top of Aerodrome and Velodrome without dealing with raw contract interactions.
+
+<Card title="Sugar TypeScript SDK" icon="github" href="https://github.com/velodrome-finance/sdk.js">
+  Contract source code, ABI definitions, and integration examples
+</Card>
+
+---
+
+<img
+  src="/images/content/development/sugar-sdk.png"
+  alt="Sugar Python SDK"
+  className="rounded-lg"
+  noZoom
+/>
+
+### Sugar Python SDK
+
+[`velodrome-finance/sugar-sdk`](https://github.com/velodrome-finance/sugar-sdk) is a Python client for interacting with Sugar contracts.
+
+It wraps Sugar on-chain queries and operations in Pythonic interfaces. It supports sync and async workflows, chain configuration, and helpers for swaps, cross-chain quotes, and structured protocol data access. Example use cases include fetching pool lists, price quotes, and executing swaps programmatically from Python.
+
+<Card title="Sugar Python SDK" icon="github" href="https://github.com/velodrome-finance/sugar-sdk">
+  Python SDK for interacting with Sugar contracts
 </Card>
