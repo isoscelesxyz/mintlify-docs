@@ -1,0 +1,319 @@
+---
+title: "Draft: Transactions Without the Frontend"
+description: "How to interact directly with Aerodrome contracts on Basescan"
+sidebarTitle: "Transactions Without the Frontend"
+---
+
+<Warning>This page is a draft. The information here may be inaccurate or incomplete.</Warning>
+
+You can interact with Aerodrome contracts directly through Basescan when the frontend is unavailable or you prefer direct contract interaction.
+
+## Before you begin
+
+- Web3 wallet connected to Base network
+- ETH for gas fees
+- Familiarity with [token approvals](/help/faqs/users#how-do-approvals-work-and-when-are-they-needed)
+
+### Key contract addresses
+
+| Contract     | Address                                                                                                                 | Use for          |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Router       | [`0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43`](https://basescan.org/address/0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43) | Swaps, liquidity |
+| VotingEscrow | [`0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4`](https://basescan.org/address/0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4) | Locking AERO     |
+| Voter        | [`0x16613524e02ad97eDfeF371bC883F2F5d6C480A5`](https://basescan.org/address/0x16613524e02ad97eDfeF371bC883F2F5d6C480A5) | Voting           |
+| AERO         | [`0x940181a94A35A4569E4529A3CDfB74e38FD98631`](https://basescan.org/address/0x940181a94A35A4569E4529A3CDfB74e38FD98631) | Token approvals  |
+
+<Info>
+  For the complete list of verified contract addresses, see [Security
+  Overview](/overview/security/overview#contract-addresses).
+</Info>
+
+## Approve tokens
+
+Before swapping, depositing liquidity, or locking AERO, you must approve the relevant contract to spend your tokens.
+
+<Steps>
+  <Step title="Go to the token contract on Basescan">
+    Navigate to the token you want to approve (e.g., [AERO](https://basescan.org/address/0x940181a94A35A4569E4529A3CDfB74e38FD98631#writeContract)).
+  </Step>
+
+<Step title="Connect your wallet">
+  Click **Write Contract** → **Connect to Web3** and connect your wallet.
+</Step>
+
+<Step title="Call the approve function">
+  Find the `approve` function and enter: - **spender**: The contract address you're approving
+  (Router, VotingEscrow, etc.) - **amount**: The amount in wei, or use
+  `115792089237316195423570985008687907853269984665640564039457584007913129639935` for unlimited
+  approval
+</Step>
+
+  <Step title="Confirm the transaction">
+    Click **Write** and confirm in your wallet.
+  </Step>
+</Steps>
+
+---
+
+## Swap tokens
+
+Swap tokens using the Router contract.
+
+<Steps>
+  <Step title="Approve the Router">
+    Approve the Router (`0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43`) to spend your input token.
+  </Step>
+
+<Step title="Navigate to the Router contract">
+  Go to [Router on
+  Basescan](https://basescan.org/address/0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43#writeContract) →
+  **Write Contract** → **Connect to Web3**.
+</Step>
+
+  <Step title="Call swapExactTokensForTokens">
+    Find `swapExactTokensForTokens` and enter:
+
+    | Parameter | Description | Example |
+    |-----------|-------------|---------|
+    | `amountIn` | Amount to swap (in wei) | `1000000000000000000` (1 token with 18 decimals) |
+    | `amountOutMin` | Minimum output (slippage protection) | Set to ~98% of expected output |
+    | `routes` | Swap path as tuple array | See below |
+    | `to` | Your wallet address | `0xYourAddress` |
+    | `deadline` | Unix timestamp | Current time + 1200 (20 minutes) |
+
+  </Step>
+
+  <Step title="Confirm the transaction">
+    Click **Write** and confirm in your wallet.
+  </Step>
+</Steps>
+
+### Routes parameter format
+
+The `routes` parameter is an array of tuples. For a direct swap:
+
+```
+[["0xInputToken", "0xOutputToken", false, "0x0000000000000000000000000000000000000000"]]
+```
+
+| Field     | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| `from`    | Input token address                                               |
+| `to`      | Output token address                                              |
+| `stable`  | `true` for stable pools (correlated assets), `false` for volatile |
+| `factory` | Use zero address (`0x0000...`) for default                        |
+
+<Tip>
+  Use `stable: true` for correlated pairs like USDC/USDT. Use `stable: false` for uncorrelated pairs
+  like WETH/AERO.
+</Tip>
+
+---
+
+## Lock AERO for veAERO
+
+Create a veAERO lock using the VotingEscrow contract.
+
+<Steps>
+  <Step title="Approve VotingEscrow">
+    Approve VotingEscrow (`0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4`) to spend your AERO.
+  </Step>
+
+<Step title="Navigate to VotingEscrow">
+  Go to [VotingEscrow on
+  Basescan](https://basescan.org/address/0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4#writeContract) →
+  **Write Contract** → **Connect to Web3**.
+</Step>
+
+  <Step title="Call createLock">
+    Find `createLock` and enter:
+
+    | Parameter | Description | Example |
+    |-----------|-------------|---------|
+    | `_value` | AERO amount in wei (18 decimals) | `1000000000000000000000` (1000 AERO) |
+    | `_lockDuration` | Lock duration in seconds | `126144000` (4 years max) |
+
+    Common lock durations:
+    - 1 year: `31536000`
+    - 2 years: `63072000`
+    - 4 years: `126144000`
+
+  </Step>
+
+  <Step title="Confirm the transaction">
+    Click **Write** and confirm in your wallet. You'll receive a veNFT representing your lock.
+  </Step>
+</Steps>
+
+<Warning>
+  You cannot withdraw AERO before your lock expires. Voting power decays linearly over time—longer
+  locks provide more voting power.
+</Warning>
+
+### Managing existing locks
+
+| Function             | Purpose                     | Parameters                  |
+| -------------------- | --------------------------- | --------------------------- |
+| `increaseAmount`     | Add more AERO to a lock     | `_tokenId`, `_value`        |
+| `increaseUnlockTime` | Extend lock duration        | `_tokenId`, `_lockDuration` |
+| `withdraw`           | Withdraw after lock expires | `_tokenId`                  |
+
+---
+
+## Deposit liquidity
+
+Add liquidity to a pool using the Router contract.
+
+<Steps>
+  <Step title="Approve both tokens">
+    Approve the Router (`0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43`) to spend both tokens you're depositing.
+  </Step>
+
+<Step title="Navigate to the Router">
+  Go to [Router on
+  Basescan](https://basescan.org/address/0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43#writeContract) →
+  **Write Contract** → **Connect to Web3**.
+</Step>
+
+  <Step title="Call addLiquidity">
+    Find `addLiquidity` and enter:
+
+    | Parameter | Description |
+    |-----------|-------------|
+    | `tokenA` | First token address |
+    | `tokenB` | Second token address |
+    | `stable` | `true` for stable pool, `false` for volatile |
+    | `amountADesired` | Amount of tokenA (in wei) |
+    | `amountBDesired` | Amount of tokenB (in wei) |
+    | `amountAMin` | Minimum tokenA (~98% of desired) |
+    | `amountBMin` | Minimum tokenB (~98% of desired) |
+    | `to` | Your wallet address |
+    | `deadline` | Unix timestamp (current + 1200) |
+
+  </Step>
+
+  <Step title="Confirm the transaction">
+    Click **Write** and confirm in your wallet. You'll receive LP tokens representing your pool share.
+  </Step>
+</Steps>
+
+<Tip>For ETH pairs, use `addLiquidityETH` instead and send ETH as the transaction value.</Tip>
+
+---
+
+## Vote on gauges
+
+Vote with your veAERO to direct emissions to pools.
+
+<Steps>
+  <Step title="Find your veNFT token ID">
+    Your token ID was assigned when you created your lock. Find it in your wallet's NFT section or on [Basescan](https://basescan.org) by checking your transaction history.
+  </Step>
+
+<Step title="Get pool addresses">
+  Find the pool addresses you want to vote for. You can find these on the [Aerodrome
+  app](https://aerodrome.finance/vote) or by querying the PoolFactory contract.
+</Step>
+
+<Step title="Navigate to Voter">
+  Go to [Voter on
+  Basescan](https://basescan.org/address/0x16613524e02ad97eDfeF371bC883F2F5d6C480A5#writeContract) →
+  **Write Contract** → **Connect to Web3**.
+</Step>
+
+  <Step title="Call vote">
+    Find `vote` and enter:
+
+    | Parameter | Description | Example |
+    |-----------|-------------|---------|
+    | `_tokenId` | Your veNFT token ID | `12345` |
+    | `_poolVote` | Array of pool addresses | `["0xPool1", "0xPool2"]` |
+    | `_weights` | Array of weights (sum = 10000) | `[6000, 4000]` (60%, 40%) |
+
+  </Step>
+
+  <Step title="Confirm the transaction">
+    Click **Write** and confirm in your wallet.
+  </Step>
+</Steps>
+
+<Warning>
+  Votes lock for the entire epoch (Thursday 00:00 UTC to Wednesday 23:59 UTC). To change your votes,
+  you must first call `reset(_tokenId)` to clear existing votes.
+</Warning>
+
+### Voting functions
+
+| Function | Purpose              | Parameters                              |
+| -------- | -------------------- | --------------------------------------- |
+| `vote`   | Cast votes           | `_tokenId`, `_poolVote[]`, `_weights[]` |
+| `reset`  | Clear all votes      | `_tokenId`                              |
+| `poke`   | Refresh voting power | `_tokenId`                              |
+
+---
+
+## Finding pool addresses
+
+To vote or add liquidity, you need pool addresses. Here's how to find them:
+
+**Option 1: Use the Aerodrome frontend**
+
+Browse pools at [aerodrome.finance/pools](https://aerodrome.finance/pools) and copy the pool address.
+
+**Option 2: Query PoolFactory on Basescan**
+
+1. Go to [PoolFactory](https://basescan.org/address/0x420DD381b31aEf6683db6B902084cB0FFECe40Da#readContract)
+2. Use `getPool(tokenA, tokenB, stable)` to find a pool address
+3. Enter both token addresses and `true`/`false` for stable/volatile
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Transaction reverted">
+    Common causes:
+    - Token not approved for the contract
+    - Incorrect parameter format (especially for arrays)
+    - Deadline timestamp is in the past
+    - Insufficient balance or gas
+  </Accordion>
+
+<Accordion title="Insufficient allowance error">
+  You need to approve the contract to spend your tokens. See [Approve tokens](#approve-tokens)
+  above.
+</Accordion>
+
+<Accordion title="EXPIRED error on swap">
+  Your deadline timestamp has passed. Use a timestamp in the future (current Unix time + 1200
+  seconds).
+</Accordion>
+
+<Accordion title="Array length mismatch on vote">
+  The `_poolVote` and `_weights` arrays must have the same number of elements, and weights must sum
+  to exactly 10000.
+</Accordion>
+
+  <Accordion title="Can't find my veNFT token ID">
+    Check your wallet's NFT section, or search your address on Basescan and look for the `createLock` transaction. The token ID is in the transaction logs.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Swap Guide" icon="arrow-right-arrow-left" href="/overview/core-features/swap">
+    Learn more about swapping on Aerodrome
+  </Card>
+  <Card title="Lock Guide" icon="lock" href="/overview/core-features/lock">
+    Detailed guide to locking and veAERO
+  </Card>
+  <Card title="Voting Guide" icon="check-to-slot" href="/overview/core-features/vote">
+    How voting and emissions work
+  </Card>
+  <Card title="Security Overview" icon="shield" href="/overview/security/overview">
+    All verified contract addresses
+  </Card>
+</CardGroup>
