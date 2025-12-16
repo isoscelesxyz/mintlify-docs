@@ -1,0 +1,548 @@
+---
+title: "Velodrome Documentation Gap Analysis"
+description: "Comprehensive analysis of documentation gaps between Aerodrome and Velodrome, identifying content that would need to be added or modified for Velodrome docs"
+sidebarTitle: "Velodrome Gap Analysis"
+---
+
+# Velodrome Documentation Gap Analysis
+
+This document identifies substantive gaps between the current Aerodrome documentation and what would be needed for a Velodrome documentation site. It excludes trivial changes like token names (AERO→VELO), chain names (Base→Optimism), and branding.
+
+## Executive Summary
+
+| Category | Percentage |
+| --- | --- |
+| Shared content (copy with terminology changes) | ~70% |
+| Velodrome-only content (integrate into existing pages) | ~15% |
+| Aerodrome-only content (remove or replace) | ~15% |
+
+### Integration Philosophy
+
+Rather than creating a separate "Superchain" section (which would silo content and feel disconnected), multi-chain features should be **integrated into existing pages** at the point where users need them. This maintains the task-oriented structure and keeps documentation at a consistent level of depth.
+
+**Approach:**
+- Add sections to existing pages (vote.mdx, rewards.mdx, incentives.mdx)
+- One new page for genuinely new features (Superswaps)
+- FAQ entries for edge cases and common questions
+- Minimal new navigation—users discover multi-chain naturally
+
+---
+
+## User Documentation: Integration Approach
+
+### vote.mdx — Add Multi-Chain Voting Section
+
+The existing vote page covers single-chain voting. For Velodrome, add a section after the basic voting steps.
+
+**New section: "Voting for pools on other chains"**
+
+```mdx
+## Voting for pools on other chains
+
+Your veVELO on Optimism can direct emissions to pools on any Superchain network—Mode, Lisk, Fraxtal, and more.
+
+<Steps>
+  <Step title="Select a chain">
+    Use the chain filter on the Vote page to view pools on other networks.
+  </Step>
+  <Step title="Approve WETH for cross-chain gas">
+    The first time you vote cross-chain, approve WETH to cover messaging costs
+    (typically 0.001-0.01 WETH per vote).
+  </Step>
+  <Step title="Vote as normal">
+    Select pools and allocate your voting power. Votes propagate to other
+    chains within ~5-10 minutes.
+  </Step>
+</Steps>
+
+<Info>
+  You can vote for pools on multiple chains in the same epoch. Your total
+  voting power is shared across all chains.
+</Info>
+```
+
+**New troubleshooting accordions to add:**
+
+```mdx
+<Accordion title="Why do I need to approve WETH?">
+  Cross-chain votes use Hyperlane messaging to reach other networks.
+  WETH covers the gas costs for delivering your vote. This is a one-time
+  approval—subsequent votes use the existing allowance.
+</Accordion>
+
+<Accordion title="My vote isn't showing on the other chain">
+  Cross-chain vote propagation takes 5-10 minutes. If your vote doesn't
+  appear after 15 minutes, check that your transaction succeeded on Optimism.
+</Accordion>
+```
+
+---
+
+### rewards.mdx — Add Multi-Chain Claiming Section
+
+The existing rewards page covers claiming on a single chain. For Velodrome, add after the basic claiming steps.
+
+**New section: "Claiming rewards across chains"**
+
+```mdx
+## Claiming rewards across chains
+
+When you vote for pools on multiple chains, rewards accrue on each chain
+where trading occurs. You claim rewards on each chain separately.
+
+<Steps>
+  <Step title="Check your Dashboard">
+    Rewards are grouped by chain. Note which chains have claimable amounts.
+  </Step>
+  <Step title="Switch to the target chain">
+    In your wallet, switch to the network where you have rewards.
+  </Step>
+  <Step title="Claim rewards">
+    Use "Claim All" to collect all rewards on that chain in one transaction.
+  </Step>
+  <Step title="Repeat for other chains">
+    Switch networks and claim on each chain where you have rewards.
+  </Step>
+</Steps>
+
+<Warning>
+  Consider gas costs before claiming. Small reward amounts on high-gas chains
+  may not be worth claiming immediately—let them accumulate.
+</Warning>
+```
+
+**New troubleshooting accordions to add:**
+
+```mdx
+<Accordion title="Where do my rewards accrue?">
+  Trading fees accrue on the chain where trading happens. If you voted for
+  a pool on Mode, fees from that pool are claimable on Mode. Incentives
+  deposited by protocols are also distributed on the chain of the pool.
+</Accordion>
+
+<Accordion title="Can I claim all rewards from Optimism?">
+  No. Rewards must be claimed on each chain individually. There is no
+  aggregated claiming across chains.
+</Accordion>
+```
+
+---
+
+### liquidity-pools/providing-liquidity.mdx — Add Chain Context
+
+Add a brief info block early in the page:
+
+```mdx
+<Info>
+  Velodrome pools exist on multiple Superchain networks. Use the chain
+  selector to choose where to provide liquidity. Consider trading volume,
+  existing liquidity depth, and gas costs when selecting a chain.
+</Info>
+```
+
+No other structural changes needed—the liquidity provision process is identical per-chain.
+
+---
+
+### New Page: superswaps.mdx
+
+This is a genuinely new feature requiring its own page. Place at `/overview/core-features/superswaps.mdx`.
+
+**Full page structure:**
+
+```mdx
+---
+title: "Superswaps"
+description: "How to swap tokens across Superchain networks with MEV protection"
+---
+
+## How Superswaps work
+
+Superswaps let you swap tokens across different Superchain networks in a
+single transaction. The swap routes through the best liquidity across all
+chains, with built-in MEV protection.
+
+**Key features:**
+- Access liquidity across 10+ chains
+- MEV protection via Submarine Sends
+- Single transaction from your perspective
+
+## Before you begin
+
+- Wallet connected to any supported Superchain network
+- Tokens to swap on your source chain
+- Small amount of ETH for gas on the source chain
+
+## How to Superswap
+
+<Steps>
+  <Step title="Navigate to Superswaps">
+    Go to the Superswaps page on Velodrome.
+  </Step>
+  <Step title="Select tokens">
+    Choose your input token and the output token you want. Tokens can be
+    on different chains.
+  </Step>
+  <Step title="Review the route">
+    The UI shows which chains your swap routes through and the expected
+    output amount.
+  </Step>
+  <Step title="Confirm and swap">
+    Approve the transaction. The swap executes across chains automatically.
+  </Step>
+</Steps>
+
+<Info>
+  Cross-chain swaps take longer than single-chain swaps. Allow 5-15 minutes
+  for completion depending on network conditions.
+</Info>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Swap taking longer than expected">
+    Cross-chain swaps require message passing between networks.
+    Allow 5-15 minutes for completion. Check your transaction on the
+    source chain's block explorer.
+  </Accordion>
+  <Accordion title="Received less than quoted">
+    Price may have moved during cross-chain execution. For volatile pairs,
+    consider adjusting slippage tolerance.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Provide Liquidity" icon="droplet" href="/overview/core-features/liquidity-pools">
+    Add liquidity to pools across the Superchain
+  </Card>
+  <Card title="Vote" icon="check-to-slot" href="/overview/core-features/vote">
+    Vote for pools and earn rewards
+  </Card>
+</CardGroup>
+```
+
+---
+
+## Partner Documentation: Integration Approach
+
+### partners/index.mdx — Update Value Proposition
+
+**Current (Aerodrome):**
+> "Launch tokens, bootstrap liquidity, and grow your protocol on Base"
+
+**Velodrome version:**
+> "Launch tokens, bootstrap liquidity, and grow your protocol across the Superchain"
+
+**Add to "Key advantages":**
+
+```mdx
+- **Multi-chain reach**: Launch on one chain, attract liquidity across 10+
+  Superchain networks from a single veVELO voter base
+- **Unified incentives**: Single incentive deposit on Optimism reaches voters
+  who direct emissions to pools on any chain
+```
+
+---
+
+### partners/incentives.mdx — Add Multi-Chain Strategy Section
+
+Add after "Incentive strategy considerations":
+
+**New section: "Multi-chain incentive strategies"**
+
+```mdx
+## Multi-chain incentive strategies
+
+Incentives deposited on Optimism attract votes from veVELO holders who can
+direct emissions to pools on any Superchain network.
+
+### Where to focus incentives
+
+Consider where your protocol needs liquidity most:
+
+- **Single-chain focus**: Concentrate incentives on one pool to maximize
+  depth on your primary chain
+- **Multi-chain presence**: Split incentives across pools on different
+  chains to establish presence everywhere
+- **Follow volume**: Incentivize pools on chains where your token already
+  has trading activity
+
+<Tip>
+  Monitor vote distribution across chains. If a competing pool on another
+  chain is attracting votes away from yours, consider matching incentives there.
+</Tip>
+
+### Timing considerations
+
+Voters allocate voting power across all chains in a single epoch.
+Coordinate your incentive deposits to compete effectively:
+
+- Deposit incentives early in the epoch for visibility
+- Announce multi-epoch commitments to attract long-term voters
+- Track which chains your competitors are incentivizing
+```
+
+---
+
+### partners/launcher.mdx — Add Chain Selection Guidance
+
+Add an info block:
+
+```mdx
+<Info>
+  Pools can be created on any Superchain network. Consider your target
+  user base, existing ecosystem presence, and gas costs when choosing
+  where to launch. You can create pools for the same token pair on
+  multiple chains.
+</Info>
+```
+
+---
+
+## FAQ Additions
+
+### faqs/users.mdx — Add Superchain Section
+
+Add a new accordion group:
+
+```mdx
+## Multi-chain (Superchain)
+
+<AccordionGroup>
+  <Accordion title="Do I need veVELO on every chain?">
+    No. veVELO only exists on Optimism, but it controls voting for pools
+    across all Superchain networks.
+  </Accordion>
+
+  <Accordion title="Where do I claim my rewards?">
+    Rewards accrue on the chain where trading occurs. If you voted for
+    a pool on Mode, claim those rewards on Mode by switching networks.
+  </Accordion>
+
+  <Accordion title="What is WETH used for when voting?">
+    Cross-chain votes require message passing via Hyperlane. WETH covers
+    the gas costs for delivering your vote to other chains. This is
+    typically 0.001-0.01 WETH per cross-chain vote.
+  </Accordion>
+
+  <Accordion title="Can I bridge VELO to other chains?">
+    Yes. VELO can be bridged as xVELO to any Superchain network. xVELO
+    can be redeemed 1:1 for VELO on Optimism via the Lockbox contract.
+  </Accordion>
+
+  <Accordion title="What chains does Velodrome support?">
+    Velodrome operates on Optimism (root chain for voting) plus 10 leaf
+    chains: Mode, Lisk, Fraxtal, Metal, Soneium, Unichain, Celo, Ink,
+    Superseed, and Swell.
+  </Accordion>
+</AccordionGroup>
+```
+
+### faqs/partners.mdx — Add Multi-Chain Section
+
+```mdx
+## Multi-chain launches
+
+<AccordionGroup>
+  <Accordion title="Which chain should I launch on?">
+    Consider your target users, existing ecosystem presence, and gas costs.
+    You can create pools on multiple chains for the same token pair.
+  </Accordion>
+
+  <Accordion title="Do I need to deposit incentives on each chain?">
+    No. Incentives are deposited on Optimism and attract votes from veVELO
+    holders who can direct emissions to pools on any chain.
+  </Accordion>
+
+  <Accordion title="How do emissions work across chains?">
+    veVELO holders vote on Optimism. Votes are forwarded to each chain's
+    gauges via cross-chain messaging. Emissions are distributed on each
+    chain as xVELO.
+  </Accordion>
+</AccordionGroup>
+```
+
+---
+
+## Velodrome-Only Features Summary
+
+| Feature | Documentation Approach |
+| --- | --- |
+| **Cross-chain voting** | Add section to vote.mdx |
+| **Multi-chain rewards** | Add section to rewards.mdx |
+| **Superswaps** | New page at core-features/superswaps.mdx |
+| **xVELO bridging** | FAQ entry + brief mention in relevant pages |
+| **VELO V1→V2 migration** | FAQ entry or brief help article |
+| **Decay emissions** | Replace tokenomics content (not additive) |
+
+---
+
+## Features to Remove or Replace
+
+| Aerodrome Feature | Action | Notes |
+| --- | --- | --- |
+| Flight School | Remove | No Velodrome equivalent |
+| veAPR explainer | Remove | Feature flag `vapr` not in Velodrome |
+| Aero Fed | Replace | Use decay emissions model in tokenomics |
+| Aero Ignition | Replace | Use generic launcher content |
+| Aerodrome Foundation | Replace | Velodrome governance equivalent |
+| basescan-transactions.mdx | Replace | Multi-chain explorer guidance |
+
+---
+
+## Reference Data: Supported Chains
+
+| Chain | Chain ID | Role |
+| --- | --- | --- |
+| Optimism | 10 | Root (voting, veVELO locks) |
+| Mode | 34443 | Leaf |
+| Lisk | 1135 | Leaf |
+| Fraxtal | 252 | Leaf |
+| Metal L2 | 1750 | Leaf |
+| Soneium | 1868 | Leaf |
+| Unichain | 130 | Leaf |
+| Celo | 42220 | Leaf |
+| Ink | 57073 | Leaf |
+| Superseed | 5330 | Leaf |
+| Swell | 1923 | Leaf |
+
+---
+
+## Developer Documentation: Structure Changes
+
+Developer docs require more structural changes due to per-chain deployments.
+
+### development/index.mdx — Add Chain Context
+
+Add a chain selector pattern or note that contracts are deployed per-chain:
+
+```mdx
+<Info>
+  Velodrome contracts are deployed on each Superchain network. Use the
+  chain-specific addresses below, or see the full deployment reference
+  for all chains.
+</Info>
+```
+
+### Per-Chain Deployment Reference
+
+Options:
+1. **Single page with tabs** — Use `<Tabs>` component to switch between chains
+2. **Accordion per chain** — Collapsible sections for each chain's addresses
+3. **Separate pages** — One page per chain (more SEO-friendly but more maintenance)
+
+**Recommended: Tabs approach** (keeps it scannable):
+
+```mdx
+## Contract Addresses
+
+<Tabs>
+  <Tab title="Optimism">
+    | Contract | Address |
+    | --- | --- |
+    | Router | `0x...` |
+    | Factory | `0x...` |
+    | Voter | `0x...` |
+  </Tab>
+  <Tab title="Mode">
+    | Contract | Address |
+    | --- | --- |
+    | Router | `0x...` |
+    | Factory | `0x...` |
+    | LeafVoter | `0x...` |
+  </Tab>
+  <!-- Additional chains -->
+</Tabs>
+```
+
+---
+
+## Contract Architecture (Developer Reference)
+
+These contracts are unique to Velodrome's Superchain deployment. Document in the Development section for integrators.
+
+### Root Chain Contracts (Optimism Only)
+
+```
+Root Gauges:
+├── RootGauge.sol
+└── RootGaugeFactory.sol
+
+Root Rewards:
+├── RootFeesVotingReward.sol
+├── RootIncentiveVotingReward.sol
+└── RootVotingRewardsFactory.sol
+
+Root Bridge:
+├── RootTokenBridge.sol
+├── RootMessageBridge.sol
+└── RootEscrowTokenBridge.sol
+```
+
+### Leaf Chain Contracts (Per Chain)
+
+```
+├── LeafVoter.sol
+├── LeafGauge.sol
+├── LeafTokenBridge.sol
+└── LeafMessageBridge.sol
+```
+
+### xERC20 Token Layer
+
+```
+├── XERC20.sol (xVELO)
+├── XERC20Lockbox.sol (1:1 redemption on Optimism)
+└── MintLimits.sol (rate limiting)
+```
+
+---
+
+## Shared Content (Direct Transfer)
+
+These pages can be copied with only terminology changes:
+
+- Pool mechanics (basic-pools.mdx, concentrated-pools.mdx)
+- veNFT locking (lock/index.mdx)
+- Staking workflows (staking.mdx)
+- Relay/ALM concepts (relay.mdx, autopilot.mdx)
+- Security practices (security/overview.mdx, audits.mdx)
+- Core voting mechanics (vote.mdx base content)
+- Reward types (rewards.mdx base content)
+- FAQ structure (users.mdx, partners.mdx base content)
+
+---
+
+## Implementation Checklist
+
+### Phase 1: Core User Docs
+- [ ] Copy all shared pages with terminology updates
+- [ ] Add multi-chain voting section to vote.mdx
+- [ ] Add multi-chain claiming section to rewards.mdx
+- [ ] Add chain context to providing-liquidity.mdx
+- [ ] Create superswaps.mdx
+
+### Phase 2: Partner Docs
+- [ ] Update partners/index.mdx value proposition
+- [ ] Add multi-chain strategy to incentives.mdx
+- [ ] Add chain selection to launcher.mdx
+- [ ] Replace aero-ignition.mdx with generic launcher
+
+### Phase 3: FAQs & Help
+- [ ] Add Superchain FAQ section to users.mdx
+- [ ] Add multi-chain FAQ section to partners.mdx
+- [ ] Add xVELO bridging FAQ entries
+- [ ] Replace basescan-transactions.mdx with multi-chain version
+
+### Phase 4: Developer Docs
+- [ ] Add per-chain deployment addresses (tabs or separate pages)
+- [ ] Document Root/Leaf contract architecture
+- [ ] Update SDK references for cross-chain methods
+
+### Phase 5: Cleanup
+- [ ] Remove Flight School references
+- [ ] Remove veAPR references
+- [ ] Replace Aero Fed with decay model in tokenomics
+- [ ] Update all Aerodrome branding to Velodrome
