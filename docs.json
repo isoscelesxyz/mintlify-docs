@@ -74,7 +74,7 @@
             "pages": [
               "overview/partners/index",
               "overview/partners/aero-ignition",
-              "overview/partners/launcher",
+              "overview/partners/aero-launch",
               "overview/partners/incentives"
             ]
           },
@@ -105,7 +105,7 @@
             "group": "Developer Resources",
             "icon": "code",
             "pages": [
-              "development/index",
+              "development/sugar-sdk",
               "development/data-analytics",
               "development/third-party-integrations"
             ]
@@ -127,7 +127,7 @@
               "help/faqs/users",
               {
                 "group": "For Partners",
-                "pages": ["help/faqs/partners/partners", "help/faqs/partners/stablecoin-partners"]
+                "pages": ["help/faqs/partners/general", "help/faqs/partners/stablecoin-partners"]
               }
             ]
           }
