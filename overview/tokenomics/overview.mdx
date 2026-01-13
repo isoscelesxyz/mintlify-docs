@@ -1,30 +1,39 @@
 ---
 title: "Tokenomics Overview"
-description: "Aligned tokenomics for swappers, liquidity providers, and tokenholders"
+description: "Aligned tokenomics for token holders, liquidity providers, and traders"
 sidebarTitle: "Overview"
 ---
 
-To ensure maximal stakeholder alignment, Aerodrome puts its native token at the center of protocol mechanics, distributing 100% of revenue to users who lock it for voting power. Because of this, the token represents not just superficial governance rights, but a functional claim on the future productive capacity of the protocol.
+Aerodrome's AERO token is engineered to align economic incentives across all stakeholders—traders, liquidity providers (LPs), and tokenholders—by embedding the native token at the core of protocol value capture:
+
+- **Tokenholders**<br />
+  Aerodrome captures and directs 100% of protocol revenue to veAERO holders in the form of voting rewards, giving lockers a direct economic claim on value creation and long-term growth.
+- **Liquidity Providers**<br />
+  LPs receive AERO emissions that are allocated by veAERO voters to pools where liquidity is most productive, sustaining depth while allowing incentives to adjust as markets mature.
+- **Traders**<br />
+  Deep, consistently incentivized liquidity enables tighter spreads, lower slippage that results in better execution for traders, which generate fee revenue for veAERO voters by routing through Aerodrome pools.
+
+AERO represents a functional claim on protocol revenue and productive capacity, incentivizing long-term participation and reinforcing sustainable liquidity depth.
+
+## Core Mechanics: Tokens, Locks, and Weekly Emissions
+
+Aerodrome&rsquo;s system is designed around two token types and a weekly emission cycle.
 
 ## Token Structure
 
 Aerodrome uses two tokens, one fungible and the other non-fungible:
 
-- `AERO` — [ERC-20](https://ethereum.org/developers/docs/standards/tokens/erc-20/) utility token
-- `veAERO` — [ERC-721](https://ethereum.org/developers/docs/standards/tokens/erc-721/) governance token in the form of an NFT (the locked form of `AERO`)
+- `AERO` [ERC-20](https://ethereum.org/developers/docs/standards/tokens/erc-20/) — The liquid utility token of the protocol.
+- `veAERO` [ERC-721](https://ethereum.org/developers/docs/standards/tokens/erc-721/) — The governance token, represented as an NFT.
 
-## Locking, Voting, and Emissions
+`veAERO` is created by vote-escrowing (locking) AERO. AERO tokens can be added to a `veAERO` NFT at any time.
 
-Each week, new `AERO` is automatically minted and distributed to liquidity providers (a process called “emissions”).
-
-`veAERO` is created by vote-escrowing (locking) `AERO`. It is sometimes referred to as a “Lock” or veNFT. Additional tokens can be added to a `veAERO` NFT at any time.
-
-The lock period (also known as vote-escrowed period, hence the “ve” prefix) can be up to four years. The longer the vesting time, the higher the voting power (voting weight) of the underlying locked balance, following the linear relationship shown below:
+The lock period (also known as vote-escrowed period) can be up to four years. The longer the vesting time, the higher the voting power (voting weight) of the underlying locked balance, following a linear relationship, for example:
 
 - 100 `AERO` locked for 4 years will become 100 `veAERO`
 - 100 `AERO` locked for 1 year will become 25 `veAERO`
 
-Additionally, Aerodrome Locks (veNFTs) can be set into Auto-Max Lock, which are treated by the protocol as being perpetually locked for the maximum duration of four years, and their voting power does not decay. The Auto-Max Lock feature can be turned on and off for each Lock (veNFT).
+`veAERO` locks can be set into Auto-Max Lock, which are treated by the protocol as being perpetually locked for the maximum duration of four years, and their voting power does not decay. The Auto-Max Lock feature can be turned on and off for each Lock (`veNFT`).
 
 ## Initial Distribution
 
@@ -40,21 +49,32 @@ Additionally, Aerodrome Locks (veNFTs) can be set into Auto-Max Lock, which are 
 | Development Team Funding (Auto Max-Locked) |    95M |        19% |
 | Flight School (Auto Max-Locked)            |    50M |        10% |
 
-## Emissions
+## Weekly Emission Cycle
 
-The initial supply of `AERO` was 500M, with 450M distributed as vote-locked (`veAERO`) tokens.
+Each epoch (week), Aerodrome runs a repeatable incentive loop that ties emissions, liquidity, trading fees, and governance:
 
-Weekly emissions began at 10M `AERO` (2% of the initial supply). The emission schedule was broken into three phases:
+1. **Emissions**<br />
+   At the start of each epoch, a predetermined amount of AERO is minted as that epoch&rsquo;s emissions.
+2. **Vote**<br />
+   veAERO holders vote on which pools should receive emissions. In return, voters receive 100% of the economic value captured by the pools they vote for in the epoch. Emissions are allocated across pools proportionally to the votes they receive.
+3. **LPs Compete for Emissions**<br />
+   LPs can provide liquidity to the voted pools and stake their positions to earn AERO. Emissions are earned pro rata, meaning rewards scale with the amount of eligible liquidity provided (subject to each pool&rsquo;s mechanics).
+4. **Trading Fees**<br />
+   As swaps occur, trading fees accrue to each pool during the week. At the end of the epoch, accrued fees are deposited into the pool&rsquo;s gauge as voting rewards.
+5. **Protocol Incentives**<br />
+   Protocols can supplement trading fees with external incentives (for example, their native tokens). These incentives increase the total rewards available to veAERO voters, helping attract votes and bootstrap liquidity during growth phases.
 
-### Take-off
+This process creates a Reinforcement Loop (Flywheel): pools that generate higher rewards attract more votes the following week. More votes drive more emissions, which attract more liquidity, improve execution, and can increase volume and fees.
 
-During the first 14 weeks (epochs), emissions increased at 3% per week, allowing for rapid growth in protocol activity and partner onboarding.
+## Emissions Schedule
 
-### Cruise
+Weekly AERO emissions are currently set at approximately 11% annualized inflation, as determined by [the Aero Fed](https://x.com/AerodromeFi/status/1983957942929125679). This level is intended to balance competitive liquidity incentives with long-term sustainability.
 
-After Epoch 14, emissions decayed at 1% per epoch, ensuring total supply inflation decreased over time as the protocol matured.
+Emissions followed an initial schedule that ramped up during an early growth phase, followed by a gradual decay as the protocol matured and organic trading activity increased. This transition reflects Aerodrome&rsquo;s shift from liquidity bootstrapping toward maintaining deep, efficient markets with lower marginal inflation.
 
-### Rebase
+Today, emissions function as a calibrated coordination tool, sufficient to sustain liquidity and reinforce productive markets, while avoiding the excessive dilution.
+
+## Rebase
 
 veAERO holders receive a rebase proportional to AERO emissions and to the ratio of veAERO to AERO supply, reducing vote power dilution for veAERO.
 
