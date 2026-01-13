@@ -1,16 +1,8 @@
 ---
 title: "Data & Analytics"
 description: "External data sources and analytics platforms for tracking Aerodrome metrics and performance"
-sidebarTitle: "❓ Data & Analytics"
+sidebarTitle: "Data & Analytics"
 ---
-
-<Danger>
-  TODO
-
-Needs detailed review. This is basically some FPO content that should either be updated or
-removed.
-
-</Danger>
 
 This reference page is for **developers, data analysts, and protocol teams who need programmatic or visual access to Aerodrome metrics** for analysis, dashboards, or integration purposes. You'll find verified data sources for TVL, volume, pool performance, and voting data.
 
@@ -31,6 +23,19 @@ The [Aerodrome application](https://aerodrome.finance) provides real-time data f
 For programmatic access to protocol data, use the [Sugar API](/development), Aerodrome's on-chain contract for efficient batch queries of pools, liquidity, and rewards.
 
 ## Third-party analytics platforms
+
+### Dune Analytics
+
+Community-maintained Dune queries and API endpoints for programmatic access to Aerodrome data.
+
+| Metric               | Query                                             | Endpoint                                           |
+| -------------------- | ------------------------------------------------- | -------------------------------------------------- |
+| **Volume**           | [Query](https://dune.com/queries/4200508/7070156) | `dune.x_drome_analytics.result_aero_vol_daily`     |
+| **Fees**             | [Query](https://dune.com/queries/4598494/7664499) | `dune.x_drome_analytics.result_aero_fee_daily`     |
+| **TVL**              | [Query](https://dune.com/queries/4174769/7027270) | `dune.x_drome_analytics.result_aero_daily_tvl`     |
+| **Voting Rewards**   | [Query](https://dune.com/queries/5792194/9389242) | `dune.x_drome_analytics.result_aero_epoch_stats`   |
+| **Emissions**        | [Query](https://dune.com/queries/5183422/8532877) | `dune.x_drome_analytics.result_aero_fed_weekly`    |
+| **Pool Performance** | [Query](https://dune.com/queries/3002298)         | `dune.x_drome_analytics.result_aero_unified_query` |
 
 ### DefiLlama
 
